@@ -1,0 +1,20 @@
+{
+    "name": "string",
+    "description": "string",
+        "quantities": [
+            {
+                "name": "string",
+                "quantity": "number",
+                "unit": "number",
+                "calories": "number",
+               "calories_unit":"string"
+            }
+           
+        ],
+        "image": {
+            "source": "string",
+               "alt":"string"
+        },
+        "price": "number",
+        "currency": "string"
+}

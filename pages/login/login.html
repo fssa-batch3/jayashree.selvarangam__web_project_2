@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>coffee shop </title>
+
+   
+
+   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="../../assets/css/login.css">
+    <link rel="stylesheet" href="../../assets/css/header.css">
+    <link rel="stylesheet" href="../../assets/css/footer.css ">
+
+</head>
+<body>
+<!-- header section starts  -->
+<header class="header">
+    <input type="checkbox" name="" id="toggler">
+    <label for="toggler" class="fas fa-bars"></label>
+    <a href="../../index.html" class="logo"> Coffee <i class="fas fa-mug-hot"></i> </a>
+
+    <nav class="navbar">
+        <a href="../../index.html">Home</a>
+        <a href="../../pages/order/order-bestseller.html">Order</a>
+        <a href="../../pages/payment/payment.html">Pay</a>
+        <a href="../../pages/My orders/myorders.html">My orders</a>
+         <!--<a href="../../pages/blogs/blog.html">Blogs</a>--> 
+    </nav>
+     <div class="icons">
+     <a href="../../pages/add to cart/addtocart.html" class="fas fa-shopping-cart"></a>
+     <a href="../../pages/profile/profile.html" class="fas fa-user"></a>
+</div>
+    <a href="../../pages/login/login.html" class="btn">Login</a>
+
+</header>
+
+        <section class="profile" id="profile">
+
+            <h1 class="heading">Login</h1>
+         
+            <form action="" role="form" onsubmit="signIn(event)">
+                <label>Email-id:</label>
+                <input type="email"  id="user_email" placeholder="" class="box" required="true">
+                <label>Password:</label>
+                <input type="password"  id="user_password" placeholder="" class="box" required="true">
+                
+        
+               
+                <button class="btn" type="submit"> Login</button>
+               
+                <div>
+                <p class="sign">If your are new customer <a href="../../pages/signup/signup.html">sign up</a></p>
+            </div>
+            </form>
+           
+        </section>
+
+        </body>
+        <script>
+
+
+
+
+        //     function submit(){
+        //    const username= document.getElementById("username").value;
+        //    const password= document.getElementById("password").value;
+
+        //    console.log(username)
+        //    console.log(password)
+
+        //    window.location.href="../../index.html";
+        //     }
+
+
+//         let logIn=document.getElementById("form");
+
+//         logIn.addEventListener("submit", function (event){
+  
+//   let log=[];
+
+//   let User_data=JSON.parse(window.localStorage.getItem("user"));
+//   let user_email = document.getElementById('user_email').value;
+//   let user_password = document.getElementById('user_password').value;
+//   let verify=false;
+
+//   for(i=0;i<User_data.length;i++){
+//     if((user_email==User_data[i].user_email)&&(user_password==User_data[i].user_password)){
+//       verify=true;
+//       log.push(User_data[i]);
+//       console.log(log);
+//     window.localStorage.setItem("user_info",JSON.stringify(log));
+//       break;
+     
+        
+//   }else{
+//     verify=false
+//   }
+
+//   }
+//   if (verify === true) {
+//     alert("you are logged in");
+// } else {
+//     alert("login failed");
+   
+//   }
+// });
+
+       
+const signIn = e =>{
+    let user_email = document.getElementById('user_email').value,
+        user_password = document.getElementById('user_password').value;
+    let a = JSON.parse(localStorage.getItem('user_list')) || [];
+    let exist = a.length &&
+    JSON.parse(localStorage.getItem('user_list')).some(data => 
+    data.user_email.toLowerCase() == user_email && 
+    data.user_password.toLowerCase() == user_password);
+    if(!exist){
+        alert("Incorrect login credentials");
+    }
+    else{
+        user_detail = {user_email }
+        localStorage.setItem('user_data', JSON.stringify(user_detail))
+        alert("Your login in successful");
+        location.href = "/index.html";
+    }
+    e.preventDefault();
+}
+
+// function signIn(e){
+//     let phonenumber = document.getElementById('phonenumber').value,
+//         password = document.getElementById('password').value;
+//     let user_detail = JSON.parse(localStorage.getItem('user_detail')) || [];
+//     let exist = user_detail.some(data =>
+//         data.phoneNumber == phonenumber
+//      && data.password == password);
+//     if(!exist){
+//         alert("Incorrect login credentials");
+//     }
+//     else{
+//         user_detail_single = { "phoneNumber": phonenumber}
+//         localStorage.setItem('user_data', JSON.stringify(user_detail))
+//         alert("Your login in successful");
+//         window.location.href = "./pages/homepage/hpexist.html";
+//     }
+//     e.preventDefault();
+// }
+
+        </script>
+        </html>

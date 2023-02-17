@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>coffee shop </title>
+
+   
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="../../assets/css/profile.css">
+    <link rel="stylesheet" href="../../assets/css/header.css">
+    <link rel="stylesheet" href="../../assets/css/footer.css ">
+
+</head>
+<body>
+<!-- header section starts  -->
+        <header class="header">
+            <input type="checkbox" name="" id="toggler">
+            <label for="toggler" class="fas fa-bars"></label>
+            <a href="../../index.html" class="logo"> Coffee<i class="fas fa-mug-hot"></i> </a>
+        
+            <nav class="navbar">
+                <a href="../../index.html">Home</a>
+                <a href="../../pages/order/order-bestseller.html">Order</a>
+                <a href="../../pages/payment/payment.html">Pay</a>
+                <a href="../../pages/My orders/myorders.html">My orders</a>
+             <!--<a href="../../pages/blogs/blog.html">Blogs</a>--> 
+            </nav>
+             <div class="icons">
+             <a href="../../pages/add to cart/addtocart.html" class="fas fa-shopping-cart"></a>
+             <a href="../../pages/profile/profile.html" class="fas fa-user"></a>
+    </div>
+            <a href="../../pages/login/login.html" class="btn">Login</a>
+        
+        </header>
+        <section class="profile" id="profile">
+
+            <h1 class="heading"><i class="fa-solid fa-circle-user"></i> Profile </h1>
+         
+            <form action="">
+                <label>Name:</label>
+                <input type="text" id="user_name" class="box" disabled/>
+                <label>Email_id:</label>
+                <input type="email"  id="user_email" class="box" disabled/>
+                <label>Password:</label>
+                <input type="password"  id="user_password"class="box" disabled/>
+                <label>Mobile number:</label>
+                <input type="text"  id="user_mobilenumber" class="box" disabled/>
+        
+               
+                
+                <a href="../../pages/profile/profile_edit.html"><input type="submit" value="Edit" class="btn"></a>
+                <span class="save">
+                    <button  class="btn"><a href="../../index.html">Save</a>
+                        </button></span>
+                        <span class="save">
+                            <button  class="btn"  onclick="del(event)">delete
+                                </button></span>
+
+                                <span class="save">
+                                    <button  class="btn" onclick="logOut(event)">logout
+                                        </button></span>
+        
+            </form>
+        
+        </section>
+
+        </body>
+
+        <script>
+//   const name= localStorage.getItem("name");
+//   const email= localStorage.getItem("email");
+//   const password= localStorage.getItem("password");
+//   const number= localStorage.getItem("mobile_Number");
+//   console.log(name);
+//   console.log(email);
+//   console.log(password);
+//   console.log(number);
+
+
+//   document.getElementById("name").value= name
+//   document.getElementById("email").value= email
+//   document.getElementById("password").value= password
+//   document.getElementById("mobilenumber").value= number -->
+
+// 
+
+// let user_details = JSON.parse(window.localStorage.getItem("user_details"));
+     
+//       document.getElementById("user_name").value = user_details[0]["user_name"];
+//       document.getElementById("user_email").value = user_details[0]["user_email"];
+//       document.getElementById("user_password").value = user_details[0]["user_password"];
+//       document.getElementById("user_mobilenumber").value = user_details[0]["user_mobile"];
+let user_data = JSON.parse(localStorage.getItem('user_data'));
+let unique = user_data["user_email"];
+let user_list = JSON.parse(localStorage.getItem('user_list'))
+function findPlayer(e) {
+  return e.user_email == unique ;
+}
+person_data = user_list.find(findPlayer);
+
+document.getElementById("user_name").value = person_data["user_name"];
+document.getElementById("user_email").value = person_data["user_email"] ;
+document.getElementById("user_password").value = person_data["user_password"] ;
+document.getElementById("user_mobilenumber").value= person_data["user_mobile"] ;
+//////////////////////////////////////////////////////
+function del(e){
+    
+let user_data = JSON.parse(localStorage.getItem('user_data'));
+let unique = user_data["user_email"];
+let user_list = JSON.parse(localStorage.getItem('user_list'))
+function findPlayer(e) {
+  return e.user_email == unique ;
+}
+person_data = user_list.find(findPlayer);
+
+const indexOfUser = user_list.indexOf(person_data);
+user_list.splice(indexOfUser,1);
+
+console.log(indexOfUser);
+localStorage.setItem("user_list",JSON.stringify(user_list));
+// localStorage.
+
+
+
+
+}
+
+function logOut(e){
+    localStorage.setItem('user_data'," ");
+    window.location.href="../../index.html";
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //   let user_info = JSON.parse(window.localStorage.getItem("user_info"));
+    //   console.log(user_info);
+    //   document.getElementById("user_name").value = user_info[0]["user_name"];
+    //   document.getElementById("user_email").value = user_info[0]["user_email"];
+    //   document.getElementById("user_password").value = user_info[0]["user_password"];
+    //   document.getElementById("user_mobilenumber").value = user_info[0]["user_mobile"];
+
+
+      
+</script>
+        
+        </html>

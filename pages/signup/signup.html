@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>coffee shop </title>
+
+   
+
+   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+   
+    <link rel="stylesheet" href="../../assets/css/signup.css">
+    <link rel="stylesheet" href="../../assets/css/header.css">
+    <link rel="stylesheet" href="../../assets/css/footer.css ">
+
+</head>
+<body>
+<!-- header section starts  -->
+<header class="header">
+    <input type="checkbox" name="" id="toggler">
+    <label for="toggler" class="fas fa-bars"></label>
+    <a href="../../index.html" class="logo"> Coffee <i class="fas fa-mug-hot"></i> </a>
+
+    <nav class="navbar">
+        <a href="../../index.html">Home</a>
+        <a href="../../pages/order/order-bestseller.html">Order</a>
+        <a href="../../pages/payment/payment.html">Pay</a>
+        <a href="../../pages/My orders/myorders.html">My orders</a>
+         <!--<a href="../../pages/blogs/blog.html">Blogs</a>--> 
+    </nav>
+     <div class="icons">
+     <a href="../../pages/add to cart/addtocart.html" class="fas fa-shopping-cart"></a>
+     <a href="../../pages/profile/profile.html" class="fas fa-user"></a>
+</div>
+    <a href="../../pages/login/login.html" class="btn">Login</a>
+
+</header>
+
+        <section class="profile" id="profile" >
+
+            <h1 class="heading"><i class="fa-solid fa-circle-user"></i> Signup </h1>
+         
+            <form role="form" onsubmit="signUP(event)">
+               
+               
+                <input type="text"  id="name"pattern="[A-Za-z]+"  placeholder="Name" class="box" required="true">
+           
+           
+            
+                <input type="email"   pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"  id="email" placeholder="Email-Id"  class="box" required="true">
+               
+    
+                <input type="password"  id="password"   placeholder="Password" class="box" required="true">
+    
+                <input type="password" id="confirm_password" placeholder="Confirm-password" class="box" required="true">
+                
+                <input type="tel"  id="mobilenumber"   pattern="[0-9].{9}" title="Enter 10 number only" placeholder="Mobile number" class="box" required="true">
+             
+                <button  type="submit" class="btn"> Signup </button>
+                <div>
+                    <p class="sign">If your are already a customer <a href="../../pages/login/login.html">Login</a></p>
+                    </div>
+
+
+                
+        
+            </form>
+          
+ 
+        </section>
+        <!-- pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" -->
+         </body>
+        <script  >
+
+            // 
+            // let users=[];
+            // function submit(){
+            //     const  userName = document.getElementById("name").value;
+            //     const  email = document.getElementById("email").value;
+            //     const  password = document.getElementById("password").value;
+            //     const  confirmPassword = document.getElementById("confirm_password").value;
+            //     const  mobileNumber = document.getElementById("mobilenumber").value;
+
+            //     // console.log(userName);
+            //     // console.log(email);
+            //     // console.log(password);
+            //     // console.log( confirmPassword);
+            //     // console.log(mobileNumber);
+
+
+            // //    window.location.href="../../index.html";
+
+            //     // localStorage.setItem("name",userName);
+            //     // localStorage.setItem("email",email);
+            //     // localStorage.setItem("password",password);
+            //     // localStorage.setItem("confirm_Password",confirmPassword);
+            //     // localStorage.setItem("mobile_Number",mobileNumber);
+            // users.push({userName ,email ,password,confirmPassword,mobileNumber});
+            // const userData=JSON.stringfy(users);
+
+            // localStorage.setItem("users",userData);
+            // }
+        // code for storing data in the local storage
+    const signUP = e =>{
+
+        e.preventDefault()
+    let 
+        user_name = document.getElementById("name").value;
+       let user_email = document.getElementById("email").value;
+       let user_password = document.getElementById("password").value;
+       let user_confirm_password=document.getElementById("confirm_password").value;
+       let user_mobile = document.getElementById("mobilenumber").value;
+       
+       
+    let a = JSON.parse(localStorage.getItem('user_list'))||[];
+    let exist = a.length &&
+            JSON.parse(localStorage.getItem('user_list')).some(data =>
+            data.user_mobile.toLowerCase() == user_mobile.toLowerCase() ||
+            data.user_email.toLowerCase() == user_email.toLowerCase()
+        );
+    if(!exist){
+        if(user_password==user_confirm_password){
+        a.push({ user_name,  user_email,
+                        user_password, user_confirm_password, user_mobile });
+        localStorage.setItem('user_list', JSON.stringify(a));
+        // console.log(localStorage.getItem('user_list'));
+        document.querySelector('form').reset();
+        document.getElementById('user_mobile').focus();
+        document.getElementById('user_email').focus();
+        alert('Account created Successfully');
+        location.href = "../../index.html";
+        }
+        else{
+            alert("invalid password");
+        }
+    }
+    else{
+        alert('Sorry the User already Exist!! \n Try with different Phone number or email');
+        document.querySelector('form').reset();
+    }
+    
+
+}
+
+//password verification 
+// function verifyPassword() {  
+//   var pw = document.getElementById("pswd").value;  
+//   //check empty password field  
+//   if(pw == "") {  
+//      document.getElementById("message").innerHTML = "**Fill the password please!";  
+//      return false;  
+//   }  
+   
+//  //minimum password length validation  
+//   if(pw.length < 8) {  
+//      document.getElementById("message").innerHTML = "**Password length must be atleast 8 characters";  
+//      return false;  
+//   }  
+  
+// //maximum length of password validation  
+//   if(pw.length > 15) {  
+//      document.getElementById("message").innerHTML = "**Password length must not exceed 15 characters";  
+//      return false;  
+//   } else {  
+//      alert("Password is correct");  
+//   }  
+// }  
+     ////////////////////////////
+//      function signUp_1(e) {
+//     // hear i collect value from signUp form
+//     let phonenumber = document.getElementById("phonenumber").value,
+//     fullname = document.getElementById("fullname").value,
+//      username = document.getElementById("username").value,
+//      password = document.getElementById("password").value;
+//      // hear i give var name for local storage data (initially there is no data so we mentioned or (||) symbol to get empty array)
+//     let user_detail = JSON.parse(localStorage.getItem('user_detail'))||[] ;
+//     // hear we give some condition for signup to restict same unique id
+//     let exist = user_detail.some(data =>
+//             data.userName == username ||
+//             data.phoneNumber == phonenumber
+//     );
+//     // if condition fail
+//     if(!exist){
+//         user_detail_single = { "phoneNumber": phonenumber, "fullName" :fullname, "userName" :username, "password" : password}
+//         localStorage.setItem('user_data', JSON.stringify(user_detail_single))
+//         document.querySelector('form').reset();
+//         alert('Account created Successfully');
+//         location.href = "./signup2.html";
+//     }
+//     // if condition pass
+//     else {
+//         alert('Sorry the User already Exist!! \n Try with different Username or phonenumber');
+//     }
+//     e.preventDefault();
+// }
+// function signUp_2(e) {
+//     // hear i collect value from signUp form
+//     let date_of_birth = document.getElementById("date_of_birth").value,
+//      gender = document.getElementById("gender").value,
+//      game = document.getElementById("game").value,
+//      area = document.getElementById("area").value;
+//     let user_data = JSON.parse(localStorage.getItem("user_data"));
+//     user_data["dateOFBirth"] = date_of_birth;
+//     user_data["gender"] = gender;
+//     user_data["game"] = game;
+//     user_data["area"] = area;
+//     // hear i give var name for local storage data (initially there is no data so we mentioned or (||) symbol to get empty array)
+//     let user_detail = JSON.parse(localStorage.getItem('user_detail')) || [];
+//         user_detail.push(user_data);
+//         localStorage.setItem('user_detail', JSON.stringify(user_detail));
+//         document.querySelector('form').reset();
+//         alert('Account created Successfully');
+//         window.location.href = "../homepage/hpnew.html"
+//         e.preventDefault();
+// }
+
+
+            </script>
+        </html>

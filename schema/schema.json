@@ -1,0 +1,40 @@
+ {
+
+        "name": "string",
+        "category": "string",
+        "category_description":"string",
+        "description": "string",
+        "quantities": [
+            {
+                "name": "string",
+                "quantity": "number",
+                "unit": "number",
+                "calories": "number",
+               "calories_unit":"string"
+            },
+            {
+                "name": "string",
+                "quantity": "number",
+                "unit": "number",
+                "calories": "number",
+               "calories_unit":"string"
+            }, 
+            {
+                "name": "string",
+                "quantity": "number",
+                "unit": "number",
+                "calories": "number",
+               "calories_unit":"string"
+            }
+           
+        ],
+        "image": {
+            "source": "string",
+            "text":"string"
+
+        },
+        "price": "number",
+        "currency": "string"
+
+
+}
