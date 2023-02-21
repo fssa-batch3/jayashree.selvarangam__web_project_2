@@ -74,6 +74,10 @@
         </section>
         <!-- pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" -->
          </body>
+
+        
+         <script src="https://cdn.jsdelivr.net/npm/uuid@8.3.2/dist/umd/uuidv4.min.js"></script>
+         <script src="https://cdn.jsdelivr.net/npm/uuid@8.3.2/dist/umd/uuidv4.min.js"></script>
         <script  >
 
             // 
@@ -124,8 +128,9 @@
         );
     if(!exist){
         if(user_password==user_confirm_password){
+            let unique_id = uuidv4();
         a.push({ user_name,  user_email,
-                        user_password, user_confirm_password, user_mobile });
+                        user_password, user_confirm_password, user_mobile,unique_id });
         localStorage.setItem('user_list', JSON.stringify(a));
         // console.log(localStorage.getItem('user_list'));
         document.querySelector('form').reset();
@@ -181,7 +186,7 @@
 //     // hear we give some condition for signup to restict same unique id
 //     let exist = user_detail.some(data =>
 //             data.userName == username ||
-//             data.phoneNumber == phonenumber
+//             data.phoneNumber == phonenumber;
 //     );
 //     // if condition fail
 //     if(!exist){

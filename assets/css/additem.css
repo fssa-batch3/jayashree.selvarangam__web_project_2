@@ -21,7 +21,7 @@
 }
 body{
     background:hsl(0, 0%, 100%) ;
-    background: url('../../assets/image/bgcoffee.jpg') repeat;
+    /* background: url('../../assets/image/bgcoffee.jpg') repeat; */
     background-position: center;
     background-size: cover;
     object-fit: cover;
@@ -55,7 +55,7 @@ body{
 
 .home-site form{
     width:100vh;
-    height:1000px;
+    height:1300px;
     margin:4rem auto 4rem auto;
     padding:3rem;
     background:var(--bs-gray-400);

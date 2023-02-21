@@ -125,6 +125,8 @@ const signIn = e =>{
     }
     else{
         user_detail = {user_email }
+        unique_id = user_email ;
+        localStorage.setItem("unique_id",   JSON.stringify(unique_id));
         localStorage.setItem('user_data', JSON.stringify(user_detail))
         alert("Your login in successful");
         location.href = "/index.html";

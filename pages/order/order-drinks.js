@@ -1647,6 +1647,11 @@ for (i = 0; i < 6; i++) {
 
     document.querySelector(".beverages").append(container_card);
 
+    // const category_description =
+    
+    // const category_description = document.getElementById('expressoa-p');
+    // category_description.innerText= list2_names[i]["category_description"]
+
 }
 
 for (i = 0; i < 6; i++) {
@@ -1655,6 +1660,8 @@ for (i = 0; i < 6; i++) {
 
     document.querySelector(".beverages1").append(container_card);
 
+    const category_description = document.getElementById('expressoa-p');
+    category_description.innerText= list3_names[i]["category_description"]
 }
 
 for (i = 0; i < 6; i++) {
@@ -1662,6 +1669,10 @@ for (i = 0; i < 6; i++) {
 
     document.querySelector(".beverages2").append(container_card);
 
+    // const category_description = 
+    
+    const category_description = document.getElementById('expressoa-p');
+    category_description.innerText= list4_names[i] ["category_description"]
 }
 
 for (i = 0; i < 6; i++) {
@@ -1671,6 +1682,10 @@ for (i = 0; i < 6; i++) {
 
     document.querySelector(".beverages3").append(container_card);
 
+    // const category_description =
+
+    const category_description = document.getElementById('expressoa-p');
+    category_description.innerText= list5_names[i] ["category_description"]
 }
 
 for (i = 0; i < 6; i++) {
@@ -1679,6 +1694,11 @@ for (i = 0; i < 6; i++) {
 
     document.querySelector(".beverages4").append(container_card);
 
+    // const category_description =
+   
+    const category_description = document.getElementById('expressoa-p');
+    category_description.innerText= list6_names[i]["category_description"]
+   
 }
 
 

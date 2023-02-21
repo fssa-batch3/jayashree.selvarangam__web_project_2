@@ -48,31 +48,31 @@
     </header>
     <section class="home">
         <div class="home-site" id="home-site">
-            <form class="addmenu">
+            <form class="addmenu" onsubmit="submit_1(event)">
                <h1 class="heading">ADD ITEMS <span class="edit"><button class="edit-btn"><a href="../../pages/editmenu/edit-item.html">EDIT TYPE</a>
                 </button></span> </h1>
                <div class="form">
-   
-                   <div class="name">
+<!--    
+                    <div class="name">
                        <div class="label-name">
                            <label>SELECT MENU</label>
                        </div>
                        <div class="input">
-                           <select class="box" >
+                           <select id="menu" class="box" >
                                <option>CHOOSE MENU</option>
                                  <option>BESTSELLERS</option>
                                  <option>DRINKS</option>
                                </select>
                        </div>
                  
-                   </div>
+                   </div>  -->
                    <div class="name">
                     <div class="label-name">
                         <label>SELECT TYPE</label>
                     </div>
                     <div class="input">
-                        <select class="box" >
-                            <option>CHOOSE TYPE</option>
+                        <select id="category" class="box" >
+                            <option selected>CHOOSE TYPE</option>
                               <option>EXPRESSO</option>
                               <option>FRAPPUCINO</option>
                               <option >COLD BREW</option>
@@ -81,39 +81,108 @@
                             </select>
                     </div>
               
-                </div>
+                </div> 
+                 <div class="image">
+                    <div class="label-name">
+                        <label > CATEGORY_DESCRIPTION</label>
+                    </div>
+                    <div class="input">
+                        <textarea id="category_description"placeholder="add your description here" ></textarea>
+                    </div>
+              
+                </div> -->
                 <div class="image">
                     <div class="label-name">
                         <label>ITEM NAME</label>
                     </div>
                     <div class="input">
-                        <input type="text" class="box">
+                        <input id="item_name" type="text" class="box">
                     </div>
               
                 </div>
                 <div class="image">
                     <div class="label-name">
-                        <label>ADD  IMAGE</label>
+                        <label>SIZE</label>
                     </div>
                     <div class="input">
-                        <input type="file" class="box-2">
+                        <input id="size_name" type="text" class="box">
+                    </div>
+              
+                </div>
+
+                <div class="image">
+                    <div class="label-name">
+                        <label>quantity_value</label>
+                    </div>
+                    <div class="input">
+                        <input id="quantity_value" type="text" class="box">
+                    </div>
+              
+                </div>
+
+                <div class="image">
+                    <div class="label-name">
+                        <label>QUANTITY UNIT</label>
+                    </div>
+                    <div class="input">
+                        <input id="quantity_unit" type="text" class="box">
+                    </div>
+              
+                </div>
+
+                <div class="image">
+                    <div class="label-name">
+                        <label>CALORIES VALUE</label>
+                    </div>
+                    <div class="input">
+                        <input id="calories_value" type="text" class="box">
+                    </div>
+              
+                </div>
+
+                <div class="image">
+                    <div class="label-name">
+                        <label>CALORIES UNIT</label>
+                    </div>
+                    <div class="input">
+                        <input id="calories_unit" type="text" class="box">
+                    </div>
+              
+                </div>
+
+                <div class="image">
+                    <div class="label-name">
+                        <label>ADD IMAGE</label>
+                    </div>
+                    <div class="input">
+                        <input  id="image_url"type="text" class="box-2">
                     </div>
                     </div>
-                    <div class="image">
+                     <div class="image">
                         <div class="label-name">
-                            <label> DESCRIPTION</label>
+                            <label > DESCRIPTION</label>
                         </div>
                         <div class="input">
-                            <textarea placeholder="add your description here" ></textarea>
+                            <textarea id="description"placeholder="add your description here" ></textarea>
                         </div>
                   
                     </div>
+                   
                     <div class="image">
                         <div class="label-name">
                             <label>COST</label>
                         </div>
                         <div class="input">
-                            <input type="number" class="box">
+                            <input id="cost"type="number" class="box">
+                        </div>
+                        </div>
+                    </div>
+                    <div class="image">
+                        <div class="label-name">
+                            <label>CURRENCY</label>
+                        </div>
+                        <div class="input">
+                            <input id="currency" type="text" class="box">
                         </div>
                         </div>
                         <div class="image">
@@ -121,20 +190,83 @@
                                 <label>OFFERS</label>
                             </div>
                             <div class="input">
-                                <input type="number" class="box">
+                                <input id="offers"type="number" class="box">
                             </div>
                   
-                    </div>
-                    <div class="image">
-                        <div class="label-name">
-                            <label>REDUCED COST</label>
-                        </div>
-                        <div class="input">
-                            <input type="number" class="box">
-                        </div>
-                        </div>
+             
                         <div>
-                            <button class="submit"> <a href="../../pages/admin-addmenu/additem.html">SUBMIT</a>
+                            <button id="submit_button"  class="submit" type="submit">SUBMIT
                                 </button>
                          </div>
                     </div>
+                    </form>
+                </body>
+            <script>
+
+// let user_data = JSON.parse(localStorage.getItem('user_data'));
+// let unique = user_data["user_email"];
+// let user_list = JSON.parse(localStorage.getItem('user_list'));
+// function findPlayer(e) {
+//   return e.user_email == unique ;
+// }
+// person_data = user_list.find(findPlayer);
+function submit_1(e){
+    e.preventDefault;
+    let category = document.getElementById("category").value;
+    let category_description = document.getElementById("category_description").value;
+    let item_name = document.getElementById("item_name").value;
+    let  size_name = document.getElementById("size_name").value;
+    let quantity_value = document.getElementById("quantity_value").value;
+    let quantity_unit = document.getElementById("quantity_unit").value;
+    let calories_value = document.getElementById("calories_value").value;
+    let calories_unit = document.getElementById("calories_unit").value;
+    let  image_url= document.getElementById("image_url").value;
+    // let description = document.getElementById("description").value;
+    let  cost= document.getElementById("cost").value;
+    let currency = document.getElementById("currency").value;
+    let offers = document.getElementById("offers").value;
+
+
+
+    let product_detail_list= JSON.parse(localStorage.getItem('product_detail_list'))||[];
+
+    let product_name = product_detail_list.some( data => data.item_name == item_name);
+    console.log(product_name)
+    if(!product_name){
+         let product_detail = {
+            "category":category,
+            "category_description":category_description,
+            // "description":description,
+            "item_name":item_name,
+            "quantities":{
+                "name":size_name,
+            "quantity":quantity_value,
+            "unit":quantity_unit,
+            "calories":calories_value,
+            "calories_unit":calories_unit,
+            },
+            "image":{
+   
+                "source":image_url,
+                "alt":""
+            },
+           
+            // "description":description,
+           
+            "price":cost,
+            "currency":currency
+         }
+          product_detail_list.push(product_detail);
+          localStorage.setItem("product_detail_list",JSON.stringify(product_detail_list));
+       
+
+    }else{
+           alert("product already exists"); 
+        }
+}
+
+
+
+
+                </script>
+                </html>

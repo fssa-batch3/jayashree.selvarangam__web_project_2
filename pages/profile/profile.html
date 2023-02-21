@@ -56,6 +56,9 @@
                 
                 <a href="../../pages/profile/profile_edit.html"><input type="submit" value="Edit" class="btn"></a>
                 <span class="save">
+                    <button  class="btn"  onclick="edit(event)">edit
+                        </button></span>
+              <span class="save">
                     <button  class="btn"><a href="../../index.html">Save</a>
                         </button></span>
                         <span class="save">
@@ -98,7 +101,7 @@
 //       document.getElementById("user_mobilenumber").value = user_details[0]["user_mobile"];
 let user_data = JSON.parse(localStorage.getItem('user_data'));
 let unique = user_data["user_email"];
-let user_list = JSON.parse(localStorage.getItem('user_list'))
+let user_list = JSON.parse(localStorage.getItem('user_list'));
 function findPlayer(e) {
   return e.user_email == unique ;
 }
@@ -108,33 +111,43 @@ document.getElementById("user_name").value = person_data["user_name"];
 document.getElementById("user_email").value = person_data["user_email"] ;
 document.getElementById("user_password").value = person_data["user_password"] ;
 document.getElementById("user_mobilenumber").value= person_data["user_mobile"] ;
+
+function edit(e){
+      window.location.href="../../pages/profile/profile_edit.html";
+
+}
+
+
+
+
+
 //////////////////////////////////////////////////////
-function del(e){
+// function del(e){
     
-let user_data = JSON.parse(localStorage.getItem('user_data'));
-let unique = user_data["user_email"];
-let user_list = JSON.parse(localStorage.getItem('user_list'))
-function findPlayer(e) {
-  return e.user_email == unique ;
-}
-person_data = user_list.find(findPlayer);
+// let user_data = JSON.parse(localStorage.getItem('user_data'));
+// let unique = user_data["user_email"];
+// let user_list = JSON.parse(localStorage.getItem('user_list'))
+// function findPlayer(e) {
+//   return e.user_email == unique ;
+// }
+// person_data = user_list.find(findPlayer);
 
-const indexOfUser = user_list.indexOf(person_data);
-user_list.splice(indexOfUser,1);
+// const indexOfUser = user_list.indexOf(person_data);
+// user_list.splice(indexOfUser,1);
 
-console.log(indexOfUser);
-localStorage.setItem("user_list",JSON.stringify(user_list));
-// localStorage.
-
-
+// console.log(indexOfUser);
+// localStorage.setItem("user_list",JSON.stringify(user_list));
+// // localStorage.
 
 
-}
 
-function logOut(e){
-    localStorage.setItem('user_data'," ");
-    window.location.href="../../index.html";
-}
+
+// }
+
+// function logOut(e){
+//     localStorage.setItem('user_data'," ");
+//     window.location.href="../../index.html";
+// }
 
 
 

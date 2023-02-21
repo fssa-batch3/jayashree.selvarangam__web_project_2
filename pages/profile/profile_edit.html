@@ -65,39 +65,39 @@
 
         </body>
         <script>
-      let user_info = JSON.parse(window.localStorage.getItem("user_info"));
-      console.log(user_info);
-      document.getElementById("user_name1").value = user_info[0]["user_name"];
-      document.getElementById("user_email1").value = user_info[0]["user_email"];
-      document.getElementById("user_password1").value = user_info[0]["user_password"];
-      document.getElementById("user_mobilenumber1").value = user_info[0]["user_mobile"];
-      const save = document.getElementById("save")
-      save.addEventListener("submit",(event)=>{
-                e.preventDefault();
+    //   let user_info = JSON.parse(window.localStorage.getItem("user_info"));
+    //   console.log(user_info);
+    //   document.getElementById("user_name1").value = user_info[0]["user_name"];
+    //   document.getElementById("user_email1").value = user_info[0]["user_email"];
+    //   document.getElementById("user_password1").value = user_info[0]["user_password"];
+    //   document.getElementById("user_mobilenumber1").value = user_info[0]["user_mobile"];
+    //   const save = document.getElementById("save")
+    //   save.addEventListener("submit",(event)=>{
+    //             e.preventDefault();
 
-    let name=  document.getElementById("user_name1").value;
-     let email= document.getElementById("user_email1").value;
-     let password = document.getElementById("user_password1").value;
-    let mobile=  document.getElementById("user_mobilenumber1").value;
+    // let name=  document.getElementById("user_name1").value;
+    //  let email= document.getElementById("user_email1").value;
+    //  let password = document.getElementById("user_password1").value;
+    // let mobile=  document.getElementById("user_mobilenumber1").value;
 
-    let object ={};
-    object  ["user_name"]=name ;
-    object ["user_email"]=email ;
-    object ["user_password"]=password;
-    object ["user_mobile"]=mobile;
-    console.log(object);
+    // let object ={};
+    // object  ["user_name"]=name ;
+    // object ["user_email"]=email ;
+    // object ["user_password"]=password;
+    // object ["user_mobile"]=mobile;
+    // console.log(object);
    
-    const updated = object.assign(user_info,object);
-      let user_detail = JSON.parse(window.localStorage.getItem("user"));
+    // const updated = object.assign(user_info,object);
+    //   let user_detail = JSON.parse(window.localStorage.getItem("user"));
  
-      for(i=0;i<user_detail.length;i++){
-         if(email==user_detail[i].user_email){
-            user_detail[i]=updated;
-            break;
-           localStorage.setItem("user_detail",JSON.stringify(user_detail)) ;
-         }
-      }
-    });
+    //   for(i=0;i<user_detail.length;i++){
+    //      if(email==user_detail[i].user_email){
+    //         user_detail[i]=updated;
+    //         break;
+    //        localStorage.setItem("user_detail",JSON.stringify(user_detail)) ;
+    //      }
+    //   }
+    // });
       
 
 
