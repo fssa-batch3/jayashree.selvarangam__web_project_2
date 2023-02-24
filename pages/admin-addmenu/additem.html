@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>coffee shop </title>
+    <title> coffee shop </title>
 
    
 
@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
 
-    <link rel="stylesheet" href="../../assets/css/additem.css ">
+    <link rel="stylesheet" href="../../assets/css/additem.css">
     <link rel="stylesheet" href="../../assets/css/header.css">
     <link rel="stylesheet" href="../../assets/css/footer.css ">
 </head>
@@ -66,6 +66,7 @@
                        </div>
                  
                    </div>  -->
+                
                    <div class="name">
                     <div class="label-name">
                         <label>SELECT TYPE</label>
@@ -90,13 +91,14 @@
                         <textarea id="category_description"placeholder="add your description here" ></textarea>
                     </div>
               
-                </div> -->
+                </div> 
+              
                 <div class="image">
                     <div class="label-name">
                         <label>ITEM NAME</label>
                     </div>
                     <div class="input">
-                        <input id="item_name" type="text" class="box">
+                        <input id="name" type="text" class="box">
                     </div>
               
                 </div>
@@ -155,7 +157,7 @@
                         <label>ADD IMAGE</label>
                     </div>
                     <div class="input">
-                        <input  id="image_url"type="text" class="box-2">
+                        <input  id="image_url" type="url" class="box-2">
                     </div>
                     </div>
                      <div class="image">
@@ -187,7 +189,7 @@
                         </div>
                         <div class="image">
                             <div class="label-name">
-                                <label>OFFERS</label>
+                                <label>offers</label>
                             </div>
                             <div class="input">
                                 <input id="offers"type="number" class="box">
@@ -214,14 +216,14 @@ function submit_1(e){
     e.preventDefault;
     let category = document.getElementById("category").value;
     let category_description = document.getElementById("category_description").value;
-    let item_name = document.getElementById("item_name").value;
+    let name = document.getElementById("name").value;
     let  size_name = document.getElementById("size_name").value;
     let quantity_value = document.getElementById("quantity_value").value;
     let quantity_unit = document.getElementById("quantity_unit").value;
     let calories_value = document.getElementById("calories_value").value;
     let calories_unit = document.getElementById("calories_unit").value;
     let  image_url= document.getElementById("image_url").value;
-    // let description = document.getElementById("description").value;
+    let description = document.getElementById("description").value;
     let  cost= document.getElementById("cost").value;
     let currency = document.getElementById("currency").value;
     let offers = document.getElementById("offers").value;
@@ -230,14 +232,14 @@ function submit_1(e){
 
     let product_detail_list= JSON.parse(localStorage.getItem('product_detail_list'))||[];
 
-    let product_name = product_detail_list.some( data => data.item_name == item_name);
+    let product_name = product_detail_list.some( data => data.name == name);
     console.log(product_name)
     if(!product_name){
          let product_detail = {
             "category":category,
             "category_description":category_description,
             // "description":description,
-            "item_name":item_name,
+            "name":name,
             "quantities":{
                 "name":size_name,
             "quantity":quantity_value,
@@ -251,7 +253,7 @@ function submit_1(e){
                 "alt":""
             },
            
-            // "description":description,
+            "description":description,
            
             "price":cost,
             "currency":currency
