@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -13,11 +13,11 @@
     <link rel="stylesheet" href="../../assets/css/bootstrap.css">
 <!-- 
     <link rel="stylesheet" href="../../assets/css/additem.css"> -->
-    <link rel="stylesheet" href="../../assets/css/header.css">
+    <!-- <link rel="stylesheet" href="../../assets/css/header.css">
     <link rel="stylesheet" href="../../assets/css/footer.css ">
 </head>
 <body>
-<!-- 
+
     <header class="header">
 
         <a href="../../pages/admin/registeradmin.html" class="logo"> The Caffine factory <i class="fas fa-mug-hot"></i> </a>
@@ -37,22 +37,22 @@
             </div>
         </div>
             <a href="../../pages/admin-removemenu/removemenu.html">Remove products </a>
-           <!--<a href="">Personal details</a>-->
+           <a href="">Personal details</a>-->
             <!-- <a href="../admin-removemenu/removetype.html">Payment</a>
         </nav>
         <div class="icons">
             <a href="../../pages/admin/admin-profile.html" class="fas fa-user"></a>
         </div>
-        <a href="../../pages/admin/adminlogin.html" class="btn">Login</a> -->
+        <a href="../../pages/admin/adminlogin.html" class="btn">Login</a>
     
-<!-- </header> --> -->
-    <!-- <section class="home">
+</header>
+    <section class="home">
         <div class="home-site" id="home-site">
             <form class="addmenu" onsubmit="submit_1(event)">
                <h1 class="heading">ADD ITEMS <span class="edit"><button class="edit-btn"><a href="../../pages/editmenu/edit-item.html">EDIT TYPE</a>
                 </button></span> </h1>
                <div class="form">
-<!--    
+  
                     <div class="name">
                        <div class="label-name">
                            <label>SELECT MENU</label>
@@ -65,9 +65,9 @@
                                </select>
                        </div>
                  
-                   </div>  -->
+                   </div>  
                 
-                   <!-- <div class="name">
+                   <div class="name">
                     <div class="label-name">
                         <label>SELECT TYPE</label>
                     </div>
@@ -201,8 +201,8 @@
                                 </button>
                          </div>
                     </div>
-                    </form> -->
-                    <div class="d-flex justify-content-center">
+                    </form> --> -->
+                    <!-- <div class="d-flex justify-content-center">
                     <form> 
                         <div class="mb-3">
                           <label for="exampleInputEmail1" class="form-label">Email address</label>
@@ -228,7 +228,7 @@
                           </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
                       </form>
-</div>
+</div> -->
                  
 
 
@@ -243,63 +243,63 @@
 //   return e.user_email == unique ;
 // }
 // person_data = user_list.find(findPlayer);
-function submit_1(e){
-    e.preventDefault;
-    let category = document.getElementById("category").value;
-    let category_description = document.getElementById("category_description").value;
-    let name = document.getElementById("name").value;
-    let  size_name = document.getElementById("size_name").value;
-    let quantity_value = document.getElementById("quantity_value").value;
-    let quantity_unit = document.getElementById("quantity_unit").value;
-    let calories_value = document.getElementById("calories_value").value;
-    let calories_unit = document.getElementById("calories_unit").value;
-    let  image_url= document.getElementById("image_url").value;
-    let description = document.getElementById("description").value;
-    let  cost= document.getElementById("cost").value;
-    let currency = document.getElementById("currency").value;
-    let offers = document.getElementById("offers").value;
+// function submit_1(e){
+//     e.preventDefault;
+//     let category = document.getElementById("category").value;
+//     let category_description = document.getElementById("category_description").value;
+//     let name = document.getElementById("name").value;
+//     let  size_name = document.getElementById("size_name").value;
+//     let quantity_value = document.getElementById("quantity_value").value;
+//     let quantity_unit = document.getElementById("quantity_unit").value;
+//     let calories_value = document.getElementById("calories_value").value;
+//     let calories_unit = document.getElementById("calories_unit").value;
+//     let  image_url= document.getElementById("image_url").value;
+//     let description = document.getElementById("description").value;
+//     let  cost= document.getElementById("cost").value;
+//     let currency = document.getElementById("currency").value;
+//     let offers = document.getElementById("offers").value;
 
 
 
-    let product_detail_list= JSON.parse(localStorage.getItem('product_detail_list'))||[];
+//     let product_detail_list= JSON.parse(localStorage.getItem('product_detail_list'))||[];
 
-    let product_name = product_detail_list.some( data => data.name == name);
-    console.log(product_name)
-    if(!product_name){
-         let product_detail = {
-            "category":category,
-            "category_description":category_description,
-            // "description":description,
-            "name":name,
-            "quantities":{
-                "name":size_name,
-            "quantity":quantity_value,
-            "unit":quantity_unit,
-            "calories":calories_value,
-            "calories_unit":calories_unit,
-            },
-            "image":{
+//     let product_name = product_detail_list.some( data => data.name == name);
+//     console.log(product_name)
+//     if(!product_name){
+//          let product_detail = {
+//             "category":category,
+//             "category_description":category_description,
+//             // "description":description,
+//             "name":name,
+//             "quantities":{
+//                 "name":size_name,
+//             "quantity":quantity_value,
+//             "unit":quantity_unit,
+//             "calories":calories_value,
+//             "calories_unit":calories_unit,
+//             },
+//             "image":{
    
-                "source":image_url,
-                "alt":""
-            },
+//                 "source":image_url,
+//                 "alt":""
+//             },
            
-            "description":description,
+//             "description":description,
            
-            "price":cost,
-            "currency":currency
-         }
-          product_detail_list.push(product_detail);
-          localStorage.setItem("product_detail_list",JSON.stringify(product_detail_list));
+//             "price":cost,
+//             "currency":currency
+//          }
+//           product_detail_list.push(product_detail);
+//           localStorage.setItem("product_detail_list",JSON.stringify(product_detail_list));
        
 
-    }else{
-           alert("product already exists"); 
-        }
-}
+//     }else{
+//            alert("product already exists"); 
+//         }
+// }
 
 
 
 
-                </script>
-                </html>
+//                 </script>
+//                 </html> -->
