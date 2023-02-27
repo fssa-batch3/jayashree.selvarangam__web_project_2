@@ -8,21 +8,17 @@
    
     
     
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-
-    <link rel="stylesheet" href="../crud/style.css">
-</head>
-<body>
-    <div class="container">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+ <link rel="stylesheet" href="../crud/style.css">
+ </head>
+ <body>
+   <div class="container">
    <h2 class="mt-5 mb-5">Coffeeshop</h2>
-   <!-- <form onsubmit="submit_1(event)"> -->
-      <form class="form gap-0 row-gap-6 flex-column align-content-center justify-content-center flex-wrap" id="form">
-
- 
+   <form>
+  
    <div class="mb-5">
     <div class="row">
-
-      <div class="form-group col-md-6 md-3">
+       <div class="form-group col-md-6 md-3">
          <select  name="category" id="category" class="form-control" >
              <option selected>CHOOSE TYPE</option>
                <option>EXPRESSO</option>
@@ -39,7 +35,6 @@
            <label for="name">Product_name</label>
            <input type="text" 
            name="name" 
-        
            id="name"
            class="form-control">
 
@@ -57,7 +52,6 @@
             <label for="address">image_url</label>
             <input type="url" 
             name="image_url" 
-            
             id="image_url"
             class="form-control">
  
@@ -72,10 +66,9 @@
  
          </div>
          <div class="form-group col-md-6 md-3">
-            <label for="address">calories_value in kcal</label>
+            <label for="quantity_value">calories_value in kcal</label>
             <input type="number" 
             name="quantity_value" 
-            
             id="calories_value"
             class="form-control">
  
@@ -93,52 +86,83 @@
             <label for="cost">Cost</label>
             <input type="number" 
             name="cost" 
-
             id="cost"
             class="form-control">
- 
-         </div>
+</div>
 
          <div class="col-lg-12 mt-5">
-            <button class="btn btn-success" id="Submit"  >Add Data</button>
-            <button class="btn btn-primary" id="Update" >Update</button>
+            <button class="btn btn-success" value="submit" onclick="manageData()" >Add Data</button>
+           
          </div>
     </div>
    </div>
+   <div id="msg"></div>
    <hr>
      <div class="row mt-5">
         <div class="col-12">
-            <table class="table table-bordered" id="crudTable">
+            <table class="table table-bordered">
                 <thead>            
-                     <tr>
-                    <th>Product_name</th>
-                    <th>category</th>
-                   
-                    <th>Size</th>
-                    <th>quantity_value </th>
-                    <th>calories_value </th>
-                    <th> description</th>
-                    <th> cost</th>
-                    <th>Events</th>
-                 </tr>  
+                  <td>#id</td>
+                  <td>Product_name</td>
+                  <td>category</td>
+                  <td>size_name</td>
+                  <td>quantity_value</td>
+                  <td>calories_value</td>
+                  <td>description</td>
+                  <td>cost</td>
+                  <td>delete</td>
+                  <td>edit</td>
                 </thead>
-                <tbody  >
-
-                </tbody>
-
-              
-
- 
-
+                <tbody id="root"></tbody>
             </table>
-        </div>
      </div>
-   </div>
+     </div>
+     </div>
 </form>
 
 </body>
-<script src="../crud/index.js">
+<script src="../crud/index.js"></script>
+</html> 
 
-
-</script>
-</html>
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+<body>
+   <h2>FORM</h2>
+   <form>
+      <input type="text"placeholder="name" id="name">
+      <input type="text"placeholder="category" id="category">
+      <input type="text"placeholder="size_name" id="size_name">
+      <input type="text"placeholder="image_url" id="image_url">
+      <input type="text"placeholder="quantity_value" id="quantity_value">
+      <input type="text"placeholder="calories_value" id="calories_value">
+      <input type="text"placeholder="description" id="description">
+      <input type="text"placeholder="cost" id="cost">
+      
+      <input type="button" value="submit" onclick="manageData()">
+   </form>
+   <div id="msg"></div>
+   <table border="1">
+      <thead>
+         <tr>
+            <td>#id</td>
+            <td>name</td>
+            <td>size_name</td>
+            <td>quantity_value</td>
+            <td>calories_value</td>
+            <td>description</td>
+            <td>cost</td>
+            <td>actions</td>
+         </tr>
+      </thead>
+      <tbody id="root">
+   </tbody>
+   </table>
+</body>
+<script src="../../crud/practise crud/script.js"></script>
+</html> -->

@@ -1599,7 +1599,7 @@ const veg_img = ["../../assets/image/veg.svg"]
 // ]
 
 // array.filter()
-const master_list = JSON.parse(localStorage.getItem("product_detail_list"));
+const master_list = JSON.parse(localStorage.getItem("crud"));
 console.log(master_list )
 const list2_names = master_list.filter(function category(type) {
     return type.category === "EXPRESSO";
@@ -1798,7 +1798,7 @@ function render(object) {  // const object = list6_names[i]
 
     p_1 = document.createElement("p");
     p_1.setAttribute("class", "p-1");
-    p_1.innerText = object["quantities"]["name"] +
+    p_1.innerText = object["quantities"]["size_name"] +
         object["quantities"]["quantity"] +
         object["quantities"]["unit"] +
         object["quantities"]["calories"] +
