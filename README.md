@@ -10,5 +10,5 @@
 1.create product
 2.create product
 3.update product
-4.delete product
+
 
