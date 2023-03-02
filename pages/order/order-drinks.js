@@ -1599,7 +1599,7 @@ const veg_img = ["../../assets/image/veg.svg"]
 // ]
 
 // array.filter()
-const master_list = JSON.parse(localStorage.getItem("crud"));
+const master_list = JSON.parse(localStorage.getItem("product_detail_list"));
 console.log(master_list )
 const list2_names = master_list.filter(function category(type) {
     return type.category === "EXPRESSO";
@@ -1689,7 +1689,7 @@ for (let i = 0; i < list5_names.length; i++) {
 
 for (let i = 0; i < list6_names.length; i++) {
 
-    const container_card = render(list6_names[i])
+    const container_card = render(list6_names[i]);
 
     document.querySelector(".beverages4").append(container_card);
 
@@ -1798,7 +1798,7 @@ function render(object) {  // const object = list6_names[i]
 
     p_1 = document.createElement("p");
     p_1.setAttribute("class", "p-1");
-    p_1.innerText = object["quantities"]["size_name"] +
+    p_1.innerText = object["quantities"]["name"] +
         object["quantities"]["quantity"] +
         object["quantities"]["unit"] +
         object["quantities"]["calories"] +
@@ -1832,8 +1832,8 @@ function render(object) {  // const object = list6_names[i]
     costdetail_card.append(add_item_card);
 
     a_card = document.createElement("a");
-    a_card.setAttribute("href", object["link_pages"] + "?name=" + object["name"]);
-    add_item_card.append(a_card)
+    a_card.setAttribute("href", "../../pages/productdetail/product-cappu.html" + "?name=" + object["name"] +"&product_id=" + object["product_id"]);
+    add_item_card.append(a_card);
 
     button_card = document.createElement("button");
     button_card.innerText = "add item";
@@ -1845,3 +1845,4 @@ function render(object) {  // const object = list6_names[i]
 
 
 }
+

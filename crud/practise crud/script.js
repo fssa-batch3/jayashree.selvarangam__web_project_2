@@ -94,81 +94,81 @@
 //     document.getElementById("email").value="";
 // }
 //    }
+/// using index//
+// let id="";
 
-let id="";
-
-selectData();
-function manageData(){
+// selectData();
+// function manageData(){
     
-    document.getElementById('msg').innerHTML= "";
-   let first_name = document.getElementById('first_name').value;
-   if( first_name == ""){
-    document.getElementById('msg').innerHTML = 'plese enter your name';
-   }else{
-    console.log(id);
-    if(id==''){
-        let arr=  getCrudData();
-       if(arr==null){
-        let data=[first_name];
-         localStorage.setItem('crud',JSON.stringify(data));
+//     document.getElementById('msg').innerHTML= "";
+//    let first_name = document.getElementById('first_name').value;
+//    if( first_name == ""){
+//     document.getElementById('msg').innerHTML = 'plese enter your name';
+//    }else{
+//     console.log(id);
+//     if(id==''){
+//         let arr=  getCrudData();
+//        if(arr==null){
+//         let data=[first_name];
+//          localStorage.setItem('crud',JSON.stringify(data));
          
-       }else{
-        arr.push(first_name);
-        localStorage.setItem('crud',JSON.stringify(arr));
-       }
+//        }else{
+//         arr.push(first_name);
+//         localStorage.setItem('crud',JSON.stringify(arr));
+//        }
 
-       document.getElementById('msg').innerHTML = 'data added';
-    }else{
-       let arr=getCrudData();
-       arr[id]=first_name;
-       setCrudData(arr);
-       document.getElementById('msg').innerHTML = 'data updated';
+//        document.getElementById('msg').innerHTML = 'data added';
+//     }else{
+//        let arr=getCrudData();
+//        arr[id]=first_name;
+//        setCrudData(arr);
+//        document.getElementById('msg').innerHTML = 'data updated';
 
-    }
-    document.getElementById('first_name').value="";
-    selectData();
-   }
+//     }
+//     document.getElementById('first_name').value="";
+//     selectData();
+//    }
    
   
-}
+// }
 
 
 
 
-function selectData(){
-    let arr=  getCrudData();
-    if(arr!=null){
-        let html="";
-        let sno=1;
-        for(let k in arr){
-            html =html+`<tr><td>${k}</td><td>${arr[k]}</td><td><a href="javascript:void(0)" onclick="deleteData(${k})">delete</a></td><td><a href="javascript:void(0)" onclick="editData(${k})">edit</a></td></tr>`;
-            // sno++;
-        }
-        document.getElementById('root').innerHTML = html;
-        console.log(html);
+// function selectData(){
+//     let arr=  getCrudData();
+//     if(arr!=null){
+//         let html="";
+//         let sno=1;
+//         for(let k in arr){
+//             html =html+`<tr><td>${k}</td><td>${arr[k]}</td><td><a href="javascript:void(0)" onclick="deleteData(${k})">delete</a></td><td><a href="javascript:void(0)" onclick="editData(${k})">edit</a></td></tr>`;
+//             // sno++;
+//         }
+//         document.getElementById('root').innerHTML = html;
+//         console.log(html);
 
 
-    }
+//     }
 
 
-}
-function editData(rid){
-    id=rid;
-    let arr=getCrudData();
-    document.getElementById('first_name').value=arr[rid];
-}
+// }
+// function editData(rid){
+//     id=rid;
+//     let arr=getCrudData();
+//     document.getElementById('first_name').value=arr[rid];
+// }
 
-function deleteData(rid){
-    let arr=  getCrudData();
-    arr.splice(rid,1);
-    setCrudData(arr);
-    selectData();
-}
-function getCrudData(){
-    let arr=  JSON.parse(localStorage.getItem('crud'));
-    return arr;
-}
-function setCrudData(arr){
-    localStorage.setItem('crud',JSON.stringify(arr));
-    return arr;
-}
+// function deleteData(rid){
+//     let arr=  getCrudData();
+//     arr.splice(rid,1);
+//     setCrudData(arr);
+//     selectData();
+// }
+// function getCrudData(){
+//     let arr=  JSON.parse(localStorage.getItem('crud'));
+//     return arr;
+// }
+// function setCrudData(arr){
+//     localStorage.setItem('crud',JSON.stringify(arr));
+//     return arr;
+// }

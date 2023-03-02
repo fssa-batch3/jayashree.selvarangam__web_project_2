@@ -1,107 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DOCUMENT</title>
-   
-    
-    
-   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
- <link rel="stylesheet" href="../crud/style.css">
- </head>
- <body>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>DOCUMENT</title>
+
+
+
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+   <link rel="stylesheet" href="../crud/style.css">
+</head>
+
+<body>
    <div class="container">
-   <h2 class="mt-5 mb-5">Coffeeshop</h2>
-   <form>
-  
-   <div class="mb-5">
-    <div class="row">
-       <div class="form-group col-md-6 md-3">
-         <select  name="category" id="category" class="form-control" >
-             <option selected>CHOOSE TYPE</option>
-               <option>EXPRESSO</option>
-               <option>FRAPPUCINO</option>
-               <option >COLD BREW</option>
-               <option >TEA</option>
-               <option >BREWED COFFEE</option>
-             </select>
-     </div>
+      <h2 class="mt-5 mb-5">Coffeeshop</h2>
+      <form>
+
+         <div class="mb-5">
+            <div class="row">
+               <div class="form-group col-md-6 md-3">
+                  <select name="category" id="category" class="form-control">
+                     <option selected>CHOOSE TYPE</option>
+                     <option>EXPRESSO</option>
+                     <option>FRAPPUCINO</option>
+                     <option>COLD BREW</option>
+                     <option>TEA</option>
+                     <option>BREWED COFFEE</option>
+                  </select>
+               </div>
 
 
 
-        <div class="form-group col-md-6 md-3">
-           <label for="name">Product_name</label>
-           <input type="text" 
-           name="name" 
-           id="name"
-           class="form-control">
+               <div class="form-group col-md-6 md-3">
+                  <label for="name">Product_name</label>
+                  <input type="text" name="name" id="name" class="form-control">
 
-        </div>
-        <div class="form-group col-md-6 md-3">
-            <label for="age">Size</label>
-            <input type="text" 
-            name="age" 
-            
-            id="size_name"
-            class="form-control">
- 
-         </div>
-         <div class="form-group col-md-6 md-3">
-            <label for="address">image_url</label>
-            <input type="url" 
-            name="image_url" 
-            id="image_url"
-            class="form-control">
- 
-         </div>
-         <div class="form-group col-md-6 md-3">
-            <label for="address">quantity_value in ml</label>
-            <input type="number" 
-            name="quantity_value" 
-            
-            id="quantity_value"
-            class="form-control">
- 
-         </div>
-         <div class="form-group col-md-6 md-3">
-            <label for="quantity_value">calories_value in kcal</label>
-            <input type="number" 
-            name="quantity_value" 
-            id="calories_value"
-            class="form-control">
- 
-         </div>
-         <div class="form-group col-md-6 md-3">
-            <label for="description">Description</label>
-            <input type="text" 
-            name="description" 
-         
-            id="description"
-            class="form-control">
- 
-         </div>
-         <div class="form-group col-md-6 md-3">
-            <label for="cost">Cost</label>
-            <input type="number" 
-            name="cost" 
-            id="cost"
-            class="form-control">
-</div>
+               </div>
+               <div class="form-group col-md-6 md-3">
+                  <label for="age">Size</label>
+                  <input type="text" name="age" id="size_name" class="form-control">
 
-         <div class="col-lg-12 mt-5">
-            <button class="btn btn-success" value="submit" onclick="manageData()" >Add Data</button>
-           
+               </div>
+               <div class="form-group col-md-6 md-3">
+                  <label for="address">image_url</label>
+                  <input type="url" name="image_url" id="image_url" class="form-control">
+
+               </div>
+               <div class="form-group col-md-6 md-3">
+                  <label for="address">quantity_value in ml</label>
+                  <input type="number" name="quantity_value" id="quantity_value" class="form-control">
+
+               </div>
+               <div class="form-group col-md-6 md-3">
+                  <label for="quantity_value">calories_value in kcal</label>
+                  <input type="number" name="quantity_value" id="calories_value" class="form-control">
+
+               </div>
+               <div class="form-group col-md-6 md-3">
+                  <label for="description">Description</label>
+                  <input type="text" name="description" id="description" class="form-control">
+
+               </div>
+               <div class="form-group col-md-6 md-3">
+                  <label for="cost">Cost</label>
+                  <input type="number" name="cost" id="cost" class="form-control">
+               </div>
+
+               <div class="col-lg-12 mt-5">
+                  <!-- my method <button class="btn btn-success" value="submit" onclick="manageData()" >Add Data</button> -->
+                  <button class="btn btn-success" id="create">Add Data</button>
+
+               </div>
+            </div>
          </div>
-    </div>
-   </div>
-   <div id="msg"></div>
-   <hr>
-     <div class="row mt-5">
-        <div class="col-12">
+      </form>
+      <button class="btn btn-warning" id="update" style="display:none">update</button>
+      <div id="msg"></div>
+      <hr>
+      <div class="row mt-5">
+         <div class="col-12">
             <table class="table table-bordered">
-                <thead>            
+               <thead>
                   <td>#id</td>
                   <td>Product_name</td>
                   <td>category</td>
@@ -109,20 +91,303 @@
                   <td>quantity_value</td>
                   <td>calories_value</td>
                   <td>description</td>
+                  <td>image_url</td>
                   <td>cost</td>
                   <td>delete</td>
                   <td>edit</td>
-                </thead>
-                <tbody id="root"></tbody>
+               </thead>
+               <tbody class="table_body"></tbody>
+               <!-- my method     <tbody id="root"></tbody> -->
             </table>
-     </div>
-     </div>
-     </div>
-</form>
+         </div>
+      </div>
+   </div>
+
 
 </body>
-<script src="../crud/index.js"></script>
-</html> 
+
+<script>
+   let addData= document.querySelector("#create");
+   addData.addEventListener('click',submit1);
+
+   function submit1(e) {
+
+      let category = document.getElementById("category").value;
+      // let category_description = document.getElementById("category_description").value;
+      let name = document.getElementById("name").value;
+      let size_name = document.getElementById("size_name").value;
+      let quantity_value = document.getElementById("quantity_value").value;
+      // let quantity_unit = document.getElementById("quantity_unit").value;
+      let calories_value = document.getElementById("calories_value").value;
+      // let calories_unit = document.getElementById("calories_unit").value;
+      let image_url = document.getElementById("image_url").value;
+      let description = document.getElementById("description").value;
+      let cost = document.getElementById("cost").value;
+      let product_id = uuidv4();
+      // let currency = document.getElementById("currency").value;
+      // let offers = document.getElementById("offers").value;
+
+
+
+      // addData(category,name,size_name,quantity_value,calories_value,description, cost);
+
+
+
+
+
+
+
+      let product_detail_list = JSON.parse(localStorage.getItem('product_detail_list')) || [];
+
+
+      let exist = product_detail_list.length &&
+         JSON.parse(localStorage.getItem('product_detail_list')).some(data =>
+            data.name.toLowerCase() == name.toLowerCase()
+
+         );
+      if (!exist) {
+         let product_detail = {
+            "category": category,
+            // "category_description":category_description,
+            // "description":description,
+            "name": name,
+            "quantities": {
+               "name": size_name,
+               "quantity": quantity_value,
+               "unit": "ml",
+               "calories": calories_value,
+               "calories_unit": "kcal",
+            },
+            "image": {
+
+               "source": image_url,
+               "alt": ""
+            },
+
+            "description": description,
+
+            "price": cost,
+            "currency": "Rs.",
+            "product_id": product_id
+         }
+
+         product_detail_list.push(product_detail);
+
+         localStorage.setItem("product_detail_list", JSON.stringify(product_detail_list));
+         location.reload();
+      }else{
+         alert("product already exists");
+      }
+
+   }
+
+   let product_detail_list = JSON.parse(localStorage.getItem('product_detail_list'))
+
+
+   for (let i = 0; i < product_detail_list.length; i++) {
+      const table_data = create(product_detail_list[i]);
+      document.querySelector("tbody.table_body").append(tr);
+   }
+   function create(prod) {
+      // tr
+      tr = document.createElement("tr");
+      console.log(tr);
+      // td 1
+      // td1 = document.createElement("td");
+      // td1.innerText = ;
+      // tr.append(td1);
+      // td 2
+      td2 = document.createElement("td");
+      td2.innerText = prod["name"];
+      tr.append(td2);
+      // td 3
+      td3 = document.createElement("td");
+      td3.innerText = prod["description"];
+      tr.append(td3);
+
+      // td 4
+      td4 = document.createElement("td");
+      td4.innerText = prod["price"];
+      tr.append(td4);
+      // td 5
+      td5 = document.createElement("td");
+      td5.innerText = prod["category"];
+      tr.append(td5);
+      // a update
+      td11 = document.createElement("td");
+      td11.innerText = prod["quantities"]["name"];
+      tr.append(td11);
+
+      td12 = document.createElement("td");
+      td12.innerText = prod["quantities"]["quantity"];
+      tr.append(td12);
+
+      td13 = document.createElement("td");
+      td13.innerText = prod["quantities"]["calories"];
+      tr.append(td13);
+
+      td14 = document.createElement("td");
+      td14.innerText = prod["image"]["source"];
+      tr.append(td14);
+
+      td6 = document.createElement("td");
+      tr.append(td6);
+      // a update
+      butup = document.createElement("button");
+      butup.setAttribute("data-id", prod["product_id"]);
+      butup.setAttribute("class", "edit");
+      butup.innerText = "EDIT";
+      td6.append(butup);
+      // a delete
+      td7 = document.createElement("td");
+      tr.append(td7);
+      // a delete
+      butdel = document.createElement("button");
+      butdel.setAttribute("class", "delete");
+      butdel.setAttribute("data-uid", prod["product_id"]);
+      butdel.innerText = "DELETE";
+      td7.append(butdel);
+   }
+
+
+
+   // let unique_id=JSON.parse(localStorage.getItem())
+
+
+
+
+
+
+   let edit = document.querySelectorAll(".edit");
+   edit.forEach(function (findId) {
+      findId.addEventListener('click', function () {
+         let uniqueId = this.dataset.id;
+         localStorage.setItem("product_id", JSON.stringify(uniqueId));
+         let unique_id = JSON.parse(localStorage.getItem("product_id"));
+         let product_detail_list = JSON.parse(localStorage.getItem('product_detail_list'));
+
+         function findProduct(e) {
+            return e.product_id == unique_id;
+         }
+
+         productData = product_detail_list.find(findProduct);
+
+         document.getElementById("name").value = productData["name"];
+         document.getElementById("category").value = productData["category"];
+         document.getElementById("description").value = productData["description"];
+         document.getElementById("cost").value = productData["price"];
+         document.getElementById("size_name").value = productData["quantities"]["name"];
+         document.getElementById("quantity_value").value = productData["quantities"]["quantity"];
+         document.getElementById("calories_value").value = productData["quantities"]["calories"];
+         document.getElementById("image_url").value = productData["image"]["source"];
+
+         document.querySelector('#update').setAttribute("style", "display:inline");
+         document.querySelector('#create').setAttribute("style", "display:none");
+
+      });
+   });
+
+   let update = document.querySelector("#update");
+
+   update.addEventListener("click", update_product);
+
+   function update_product() {
+      let unique_id = JSON.parse(localStorage.getItem("product_id"));
+      let product_detail_list = JSON.parse(localStorage.getItem('product_detail_list'));
+      function findProduct(e) {
+         return e.product_id == unique_id;
+      };
+
+      productData = product_detail_list.find(findProduct);
+      // console.log(productData)
+
+
+      let category = document.getElementById("category").value;
+      // let category_description = document.getElementById("category_description").value;
+      let name = document.getElementById("name").value;
+      let size_name = document.getElementById("size_name").value;
+      let quantity_value = document.getElementById("quantity_value").value;
+      // let quantity_unit = document.getElementById("quantity_unit").value;
+      let calories_value = document.getElementById("calories_value").value;
+      // let calories_unit = document.getElementById("calories_unit").value;
+      let image_url = document.getElementById("image_url").value;
+      let description = document.getElementById("description").value;
+      let cost = document.getElementById("cost").value;
+
+
+
+      productData["name"] = name;
+      productData["category"] = category;
+      productData["description"] = description;
+      productData["price"] = cost;
+      productData["quantities"]["name"] = size_name;
+      productData["quantities"]["quantity"] = quantity_value;
+      productData["quantities"]["calories"] = calories_value;
+      productData["image"]["source"] = image_url;
+
+      localStorage.setItem('product_detail_list', JSON.stringify(product_detail_list));
+      location.reload();
+   };
+
+
+
+   let delete_product = document.querySelectorAll("button.delete");
+   delete_product.forEach(function (findUid) {
+   findUid.addEventListener('click', function () {
+   let uniqueId = this.dataset.uid;
+   localStorage.setItem("product_id", JSON.stringify(uniqueId));
+   let unique_id = JSON.parse(localStorage.getItem("product_id"));
+   let product_detail_list = JSON.parse(localStorage.getItem('product_detail_list'));
+
+         function findProduct(e) {
+            return e.product_id == unique_id;
+         }
+         productData = product_detail_list.find(findProduct);
+
+         const indexOfUser = product_detail_list.indexOf(productData);
+         product_detail_list.splice(indexOfUser, 1);
+
+         console.log(indexOfUser);
+         localStorage.setItem("product_detail_list", JSON.stringify(product_detail_list));
+         location.reload();
+       
+      });
+   });
+   //   delete_product.addEventListener("click", deleteData());
+
+
+   // function deleteData() {
+
+   //    let unique_id = JSON.parse(localStorage.getItem("product_id"));
+   //    let product_detail_list = JSON.parse(localStorage.getItem('product_detail_list'));
+
+   //    function findProduct(e) {
+   //       return e.product_id == unique_id;
+   //    }
+   //    productData = product_detail_list.find(findProduct);
+
+   //    const indexOfUser = product_detail_list.indexOf(productData);
+   //    product_detail_list.splice(indexOfUser, 1);
+
+   //    console.log(indexOfUser);
+   //    localStorage.setItem("product_detail_list", JSON.stringify(product_detail_list));
+   //    location.reload();
+   // };
+
+
+
+
+
+
+
+
+
+
+</script>
+<script src="https://cdn.jsdelivr.net/npm/uuid@8.3.2/dist/umd/uuidv4.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/uuid@8.3.2/dist/umd/uuidv4.min.js"></script>
+
+</html>
 
 <!-- <!DOCTYPE html>
 <html lang="en">

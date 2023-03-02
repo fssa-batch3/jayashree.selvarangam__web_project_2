@@ -122,32 +122,32 @@ function edit(e){
 
 
 //////////////////////////////////////////////////////
-// function del(e){
+function del(e){
     
-// let user_data = JSON.parse(localStorage.getItem('user_data'));
-// let unique = user_data["user_email"];
-// let user_list = JSON.parse(localStorage.getItem('user_list'))
-// function findPlayer(e) {
-//   return e.user_email == unique ;
-// }
-// person_data = user_list.find(findPlayer);
+let user_data = JSON.parse(localStorage.getItem('user_data'));
+let unique = user_data["user_email"];
+let user_list = JSON.parse(localStorage.getItem('user_list'))
+function findPlayer(e) {
+  return e.user_email == unique ;
+}
+person_data = user_list.find(findPlayer);
 
-// const indexOfUser = user_list.indexOf(person_data);
-// user_list.splice(indexOfUser,1);
+const indexOfUser = user_list.indexOf(person_data);
+user_list.splice(indexOfUser,1);
 
-// console.log(indexOfUser);
-// localStorage.setItem("user_list",JSON.stringify(user_list));
-// // localStorage.
-
-
+console.log(indexOfUser);
+localStorage.setItem("user_list",JSON.stringify(user_list));
+// localStorage.
 
 
-// }
 
-// function logOut(e){
-//     localStorage.setItem('user_data'," ");
-//     window.location.href="../../index.html";
-// }
+
+}
+
+function logOut(e){
+    localStorage.setItem('user_data'," ");
+    window.location.href="../../index.html";
+}
 
 
 
