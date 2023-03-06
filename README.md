@@ -15,5 +15,11 @@ wireflow:https://drive.google.com/drive/u/0/folders/1UwplcfCo8O_kTFxPw1FnvmAbrHb
  1.create product  
  2.read product  
  3.update product  
+ 4.product detail
+ # cart
+ 1.Add products to the cart
+ 2.Read product cart
+ 3.Remove product from cart
+ 4.Update from cart 
 
 
