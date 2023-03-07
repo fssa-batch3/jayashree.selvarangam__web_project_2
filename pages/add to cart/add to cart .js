@@ -437,6 +437,16 @@ let go_back;
 let a1_card;
 
 
+let cart_items = JSON.parse(localStorage.getItem('crud'));
+console.log(cart_items);
+let product_detail_list = JSON.parse(localStorage.getItem('product_detail_list'));
+console.log(product_detail_list);
+let productData = product_detail_list.filter( product=>
+    cart_items.some(cart_items=>cart_items.unique==product.product_id)
+    );
+
+    // console.log(cart_product_items);
+
 for(i=0;i<=2;i++){
 
 your_cart_card=document.createElement("section");
@@ -456,7 +466,7 @@ beverage_image_card.setAttribute("class","beverage-image");
 beverage_container_card.append(beverage_image_card);
 
 image_1=document.createElement("img");
-image_1.setAttribute("src","../../assets/image/icedgreen.jpg");
+image_1.setAttribute("src",productData[i]['image']['source']);
 beverage_image_card.append(image_1);
 
 
@@ -472,13 +482,17 @@ beverage_content_card.append(image_2);
 
 beverage_title_card=document.createElement("div");
 beverage_title_card.setAttribute("class","beverage-title");
-beverage_title_card.innerText="Iced Green Tea Latte";
+beverage_title_card.innerText=productData[i]['name'];
 beverage_content_card.append(beverage_title_card);
 
 
 beverage_message_card=document.createElement("div");
 beverage_message_card.setAttribute("class","beverage-message");
-beverage_message_card.innerText="SHORT(237 ML) .412 Kcal";
+beverage_message_card.innerText=productData[i]["quantities"]["name"] +
+productData[i]["quantities"]["quantity"] +
+productData[i]["quantities"]["unit"] +
+productData[i]["quantities"]["calories"] +
+productData[i]["quantities"]["calories_unit"];
 beverage_content_card.append(beverage_message_card);
 
 inc_dec_button=document.createElement("div");
@@ -516,7 +530,7 @@ beverage_container_card.append(beverage_costdetail_card);
 
 cost=document.createElement("div");
 cost.setAttribute("class","cost");
-cost.innerText="Rs.309";
+cost.innerText=productData[i]["currency"] + productData[i]["price"];
 beverage_costdetail_card.append(cost);
 
 go_back=document.createElement("div");
@@ -525,7 +539,7 @@ beverage_costdetail_card.append(go_back);
 
 a1_card=document.createElement("a");
 a1_card.setAttribute("href","../../pages/fill forms/review.html");  //object[i]["link_pages"]
-a1_card.innerText="Go back"
+a1_card.innerText="Go back";
 go_back.append(a1_card);
 
 document.querySelector(".whole").prepend(your_cart_card);

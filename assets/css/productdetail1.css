@@ -64,9 +64,8 @@ body{
     object-fit: cover;
     animation:aboutImage 4s linear infinite;
 }
-
- @keyframes aboutImage {
-    0%, 100%{
+@keyframes aboutImage {
+    0% , 100%{
         transform: scale(.9);
         border-radius: var(--border-radius-hover);
     }

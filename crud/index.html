@@ -130,21 +130,11 @@
 
 
       // addData(category,name,size_name,quantity_value,calories_value,description, cost);
-
-
-
-
-
-
-
       let product_detail_list = JSON.parse(localStorage.getItem('product_detail_list')) || [];
-
-
       let exist = product_detail_list.length &&
          JSON.parse(localStorage.getItem('product_detail_list')).some(data =>
             data.name.toLowerCase() == name.toLowerCase()
-
-         );
+            );
       if (!exist) {
          let product_detail = {
             "category": category,
@@ -170,18 +160,14 @@
             "currency": "Rs.",
             "product_id": product_id
          }
-
          product_detail_list.push(product_detail);
-
          localStorage.setItem("product_detail_list", JSON.stringify(product_detail_list));
          location.reload();
       }else{
          alert("product already exists");
       }
-
-   }
-
-   let product_detail_list = JSON.parse(localStorage.getItem('product_detail_list'))
+}
+let product_detail_list = JSON.parse(localStorage.getItem('product_detail_list'))
 
 
    for (let i = 0; i < product_detail_list.length; i++) {

@@ -1114,7 +1114,7 @@ function findProduct(e){
  return  e.product_id === product;
 }
  
-let productData = master_list.find(findProduct);
+let  productData = master_list.find(findProduct);
 console.log(productData);
 
 
@@ -1246,19 +1246,193 @@ plus_card.append(i2_card);
 
 
 add_item_card = document.createElement("div");
+add_item_card.setAttribute('data-id',productData["product_id"]);
 add_item_card.setAttribute("class", "add-item-cart");
 button_card.append(add_item_card);
 
-a_card = document.createElement("a");
-a_card.setAttribute("href", "../../pages/add to cart/addtocart.html");
-add_item_card.append(a_card);
+// a_card = document.createElement("a");
+// a_card.setAttribute("href", "../../pages/add to cart/addtocart.html");
+// add_item_card.append(a_card);
 
 btn4_card = document.createElement("button");
 btn4_card.setAttribute("class", "btn-button");
 btn4_card.setAttribute("id", "btn-4");
 btn4_card.innerText = "Add to the cart"
-a_card.append(btn4_card);
+add_item_card.append(btn4_card);
 
 document.querySelector(".about-product").append(row_card);
 
 
+let add_item =document.querySelector(".add-item-cart")
+
+
+
+// add_item.addEventListener('click',function(e){
+   
+//     let items=[]
+//     let unique_id = this.dataset.id;
+//     console.log(unique_id);
+
+//     if((JSON.parse(localStorage.getItem('items'))==null)){
+       
+        
+
+//         items.push({unique_id});
+//         localStorage.setItem('items',JSON.stringify(items));
+//         window.location.reload();
+//     }else{
+//         let localItems = JSON.parse(localStorage.getItem('items'));
+//        if(unique_id==localItems["unique_id"]){
+//         // console.log(unique_id);
+//         localItems.push({unique_id});
+//         localStorage.setItem('items',JSON.stringify(items));
+//        }else{
+//         alert('product already exists')
+//        }}
+//     });
+         
+add_item.addEventListener('click',function(e){
+    
+    let unique_id = this.dataset.id;
+    localStorage.setItem("unique_id", JSON.stringify(unique_id));
+    let unique= JSON.parse(localStorage.getItem("unique_id"));
+        console.log(unique);
+    let id = '';
+
+    console.log(id);
+
+    if(id==''){
+        let arr=  JSON.parse(localStorage.getItem('crud'));
+    if(arr==null){
+
+        let data=[{unique:unique}];
+        localStorage.setItem('crud',JSON.stringify(data));
+    }
+    else{
+        let arr = JSON.parse(localStorage.getItem('crud'));
+        let found= false;
+
+        for(let i=0;i<arr.length;i++){
+            
+
+            if(  unique ===  arr[i]['unique']){
+                console.log('rajini');
+              
+            found = true;
+           
+            }
+        }
+        console.log(found);
+        if(found){
+            alert('product is already added to the cart');
+        }
+        else{
+            
+            arr.push({unique:unique});
+            localStorage.setItem('crud',JSON.stringify(arr));
+        }
+    }
+    }
+});
+
+
+// add_item.addEventListener('click',function(e) {
+//     let unique_id = this.dataset.id;
+//     console.log(unique_id);
+//    let crud = JSON.parse(localStorage.getItem('crud')) || [];
+//    let exist = crud.length &&
+//       JSON.parse(localStorage.getItem('crud')).some(data =>
+//          data.unique_id.toLowerCase() == unique_id.toLowerCase()
+//          );
+//    if (!exist) {
+//       let unique = {
+//          "unique_id":unique_id,
+         
+//       }
+//       crud.push(unique);
+//       localStorage.setItem("crud", JSON.stringify(crud));
+//       location.reload();
+//    }else{
+//       alert("product already exists");
+//    }
+// })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // localitems.map(data=>{
+        //     if( items.id == data.id){
+        //         alert('product is already added');
+        //     }
+        //     else{
+        //         items.push(data);
+        //         localStorage.setItem('items',JSON.stringify(items));
+        //     }});
+           
+           
+        //  }
+           
+        // items.push({unique_id});
+       
+    
+        // function manageData(){
+    
+        //         document.getElementById('msg').innerHTML= "";
+        //         let first_name = document.getElementById('first_name').value;
+        //         if( first_name == ""){
+        //         document.getElementById('msg').innerHTML = 'plese enter your name';
+        //         }else{
+        //         console.log(id);
+        //         if(id==''){
+        //         let arr=  getCrudData();
+        //        if(arr==null){
+        //         let data=[first_name];
+        //          localStorage.setItem('crud',JSON.stringify(data));
+                 
+        //        }else{
+        //         arr.push(first_name);
+        //         localStorage.setItem('crud',JSON.stringify(arr));
+        //        }
+        
+        //        document.getElementById('msg').innerHTML = 'data added';
+        //         }else{
+        //        let arr=getCrudData();
+        //        arr[id]=first_name;
+        //        setCrudData(arr);
+        //        document.getElementById('msg').innerHTML = 'data updated';
+        
+        //         }
+        //         document.getElementById('first_name').value="";
+        //         selectData();
+        //         }
+           
+          
+        // }

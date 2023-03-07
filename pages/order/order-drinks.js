@@ -1600,12 +1600,12 @@ const veg_img = ["../../assets/image/veg.svg"]
 
 // array.filter()
 const master_list = JSON.parse(localStorage.getItem("product_detail_list"));
-console.log(master_list )
+
 const list2_names = master_list.filter(function category(type) {
     return type.category === "EXPRESSO";
 }
 )
-console.log(list2_names);
+
 
 
 
@@ -1613,7 +1613,7 @@ const list3_names = master_list.filter(function category(type) {
     return type.category === "FRAPPUCINO";
 }
 )
-console.log(list3_names);
+
 
 
 
@@ -1621,7 +1621,6 @@ const list4_names = master_list.filter(function category(type) {
     return type.category === "BREWED COFFEE";
 }
 )
-console.log(list4_names);
 
 
 
@@ -1631,7 +1630,7 @@ const list5_names = master_list.filter(function category(type) {
     return type.category === "TEA";
 }
 )
-console.log(list5_names);
+
 
 
 
@@ -1640,7 +1639,7 @@ const list6_names = master_list.filter(function category(type) {
     return type.category === "COLD BREW";
 }
 )
-console.log(list6_names);
+
 
 
 for (let i = 0; i < list2_names.length; i++) {
@@ -1670,7 +1669,7 @@ for (let i = 0; i < list4_names.length; i++) {
     const container_card = render(list4_names[i]);
 
     document.querySelector(".beverages2").append(container_card);
-console.log(container_card)
+
     // const category_description = 
     
     
@@ -1749,7 +1748,7 @@ function render(object) {  // const object = list6_names[i]
     container_card = document.createElement("div");
     container_card.setAttribute("class", "beverage-container");
     // container_card.append(beverages)
-    console.log(container_card);
+  
 
     img_content_cost_card = document.createElement("div");
     img_content_cost_card.setAttribute("class", "beverage-img-content-cost");
@@ -1831,13 +1830,16 @@ function render(object) {  // const object = list6_names[i]
 
     costdetail_card.append(add_item_card);
 
-    a_card = document.createElement("a");
-    a_card.setAttribute("href", "../../pages/productdetail/product-cappu.html" + "?name=" + object["name"] +"&product_id=" + object["product_id"]);
-    add_item_card.append(a_card);
+    // a_card = document.createElement("a");
+    // a_card.setAttribute('href',"");
+    // // a_card.setAttribute("href", `../../pages/productdetail/product-cappu.html` + "?name=" + object["name"] +"&product_id=" + object["product_id"]);
+    // add_item_card.append(a_card);
 
     button_card = document.createElement("button");
+    button_card.setAttribute("data-id",object["product_id"])
     button_card.innerText = "add item";
-    a_card.append(button_card);
+    button_card.setAttribute("class","btn-add-item")
+    add_item_card.append(button_card);
 
     // document.querySelector(".beverages4").append(container_card);
 
@@ -1845,4 +1847,16 @@ function render(object) {  // const object = list6_names[i]
 
 
 }
+
+
+let btn_add_item = document.querySelectorAll(".btn-add-item");
+
+btn_add_item.forEach(findId =>{
+    findId.addEventListener('click',function(e){
+        let unique_id = findId.dataset.id;
+        // console.log(unique_id)
+        location.href=`../../pages/productdetail/product-cappu.html?product_id=${unique_id}`
+        console.log("1")
+    })
+})
 
