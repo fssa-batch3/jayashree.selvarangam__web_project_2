@@ -22,10 +22,10 @@ wireflow:https://drive.google.com/drive/u/0/folders/1UwplcfCo8O_kTFxPw1FnvmAbrHb
  3.Remove product from cart  
  4.Update from cart   
 # my order 
-1.create order
-2.read order
-3.delete order
+1.create order  
+2.read order  
+3.delete order  
 # review
-1.create reviews
-2.read reviews
-3.update reviews 
+1.create reviews  
+2.read reviews  
+3.update reviews   
