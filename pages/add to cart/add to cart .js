@@ -1,4 +1,3 @@
-
 //       const user_name= localStorage.getItem("name");
 //       const address= localStorage.getItem("address");
  
@@ -445,9 +444,14 @@ let productData = product_detail_list.filter( product=>
     cart_items.some(cart_items=>cart_items.unique==product.product_id)
     );
 
-    // console.log(cart_product_items);
+   
+  
 
-for(i=0;i<=2;i++){
+for(i=0;i< productData.length;i++){
+
+
+
+    let find = cart_items.find(e => e.unique == productData[i]["product_id"]);
 
 your_cart_card=document.createElement("section");
 your_cart_card.setAttribute("class","Yourcart");
@@ -495,70 +499,236 @@ productData[i]["quantities"]["calories"] +
 productData[i]["quantities"]["calories_unit"];
 beverage_content_card.append(beverage_message_card);
 
+near_to_remove = document.createElement("div");
+near_to_remove.setAttribute('class','near_to_remove');
+beverage_container_card.append(near_to_remove);
+
 inc_dec_button=document.createElement("div");
 inc_dec_button.setAttribute("class","inc-dec-button");
-beverage_container_card.append(inc_dec_button);
+near_to_remove.append(inc_dec_button);
 
 button=document.createElement("button");
+button.setAttribute('class',"button");
 inc_dec_button.append(button);
 
-minus=document.createElement("span");
-minus.setAttribute("class","minus");
-button.append(minus);
+// minus=document.createElement("span");
+// minus.setAttribute("class","minus");
+// button.append(minus);
 
-i_minus=document.createElement("i");
-i_minus.setAttribute("class","fa-solid fa-minus");
-minus.append(i_minus);
+i_minus=document.createElement("img");
+i_minus.setAttribute("class","minus_1");
+i_minus.setAttribute('src','../../assets/image/download_minus.png')
+button.append(i_minus);
 
 num=document.createElement("span");
 num.setAttribute("class","num");
-num.innerText="1";
+num.textContent=find['quantity_ordered'];
 button.append(num);
 
-plus=document.createElement("span");
-plus.setAttribute("class","plus");
-button.append(plus);
+// plus=document.createElement("span");
+// plus.setAttribute("class","plus");
+// button.append(plus);
 
-i_plus=document.createElement("i");
-i_plus.setAttribute("class","fa-solid fa-plus");
-plus.append(i_plus);
+i_plus=document.createElement("img");
+i_plus.setAttribute("class","plus_1");
+i_plus.setAttribute("src","../../assets/image/download.png");
+button.append(i_plus);
 
 beverage_costdetail_card=document.createElement("div");
 beverage_costdetail_card.setAttribute("class","beverage-costdetail");
-beverage_container_card.append(beverage_costdetail_card);
+near_to_remove.append(beverage_costdetail_card);
 
 
 cost=document.createElement("div");
 cost.setAttribute("class","cost");
-cost.innerText=productData[i]["currency"] + productData[i]["price"];
+cost.innerText=productData[i]["currency"] + productData[i]['price'] * find["quantity_ordered"];
 beverage_costdetail_card.append(cost);
 
 go_back=document.createElement("div");
 go_back.setAttribute("class","Goback");
 beverage_costdetail_card.append(go_back);
 
-a1_card=document.createElement("a");
-a1_card.setAttribute("href","../../pages/fill forms/review.html");  //object[i]["link_pages"]
-a1_card.innerText="Go back";
+a1_card=document.createElement("button");
+a1_card.setAttribute("class","Go_back");
+a1_card.setAttribute("data-cart_id", productData[i]["product_id"]);
+
+// a1_card.setAttribute("href","../../pages/fill forms/review.html");  //object[i]["link_pages"]
+a1_card.innerText="remove";
 go_back.append(a1_card);
 
-document.querySelector(".whole").prepend(your_cart_card);
+document.querySelector(".whole").append(your_cart_card);
 }
 
 
-let a=1;
-i_plus.addEventListener("click",()=>{
-    a++;
-    console.log("a");
-    num.innerText=a;
+
+
+// const cartId = this.dataset.cart_id;
+
+// console.log(cartId);
+
+let removeFood = document.querySelectorAll('button.Go_back');
+removeFood.forEach(function (remove_id) {
+    remove_id.addEventListener("click", function () {
+      
+        const cartId = this.dataset.cart_id;
+        console.log('cartId');
+        let cart_ids = JSON.parse(localStorage.getItem("crud"));
+
+        function find_id(e) {
+            return e.unique === cartId;
+        }
+
+        let remove_food = cart_ids.find(find_id);
+        let indexOfItem = cart_ids.indexOf(remove_food);
+        cart_ids.splice(indexOfItem, 1);
+        let count = JSON.parse(localStorage.getItem("food_count"));
+        localStorage.setItem("food_count", count-1)
+        localStorage.setItem("crud", JSON.stringify(cart_ids));
+        location.reload()
+    })
+})
+
+//plus quantity function//
+
+let plus_1 = document.querySelectorAll(".plus_1");
+    plus_1.forEach(function(find_quantity) {
+        find_quantity.addEventListener("click", function() {
+        let parent = this.parentNode;
+        // console.log(parent);
+        let num =  parent.querySelector(".num");
+        console.log(num)
+        let n = parseInt(num.textContent)
+        if (n < 30) {
+        n += 1;
+        }
+        num.textContent = n;
+        // // getting the ID
+        let parentBox = this.closest(".near_to_remove");
+        console.log(parentBox);
+        let idButton = parentBox.querySelector(".beverage-costdetail").querySelector(".Goback").querySelector(".Go_back").getAttribute("data-cart_id");
+        console.log(idButton)
+        let cart_product = JSON.parse(localStorage.getItem("crud"));
+        function find_cart(e){
+        return e.unique == idButton;
+        }
+
+        let cart_quantity = cart_product.find(find_cart);
+       
+        if (cart_quantity) {
+        cart_quantity.quantity_ordered = n.toString();
+        localStorage.setItem("crud", JSON.stringify(cart_product));
+        location.reload();
+        }
+    });
+});
+
+let minus_1 = document.querySelectorAll(".minus_1");
+    minus_1.forEach(function(find_quantity) {
+    find_quantity.addEventListener("click", function() {
+        let parent = this.parentNode;
+        let num = parent.querySelector(".num");
+        let n = parseInt(num.textContent);
+        if (n > 1) {
+        n -= 1;
+        }
+        num.textContent = n;
+
+//         // getting the ID
+        let parentBox = this.closest(".near_to_remove")
+        let idButton = parentBox.querySelector(".beverage-costdetail").querySelector(".Goback").querySelector(".Go_back").getAttribute("data-cart_id");
+
+        let cart_product = JSON.parse(localStorage.getItem("crud"));
+        function find_cart(e){
+        return e.unique == idButton;
+        }
+
+        let cart_quantity = cart_product.find(find_cart);
+
+        if (cart_quantity) {
+        cart_quantity.quantity_ordered = n.toString();
+        localStorage.setItem("crud", JSON.stringify(cart_product));
+        location.reload();
+        }
+    });
+});
+let total_price = productData;
+let price_1 = 0;
+for (let i = 0; i < total_price.length; i++) {
+    price_1 += parseInt(total_price[i]["price"]*cart_items[i]["quantity_ordered"]);
 }
-)
-i_minus.addEventListener("click",()=>{
-    a--;
-    if (a<0){
-        a=0
-    }
-    console.log("a")
-    num.innerText=a;
-}
-)
+//     location.reload();
+// }
+ console.log(price_1);
+
+let item_total = document.getElementById('amount');
+item_total.innerText='Rs.' + price_1;
+let total_items=document.getElementById('total_items');
+total_items.innerText='Rs.' + price_1;
+
+// Function to reload only one div
+
+// function to update cart total//
+// function updateTotal() {
+   
+//     let foodItems = document.getElementsByClassName('sumlist')[0]
+//     let cartItems = foodItems.getElementsByClassName('food_items')
+//     let total =0;
+//     for (let i = 0; i < cartItems.length; i++) {
+//         let cart = cartItems[i]
+//         let rate = cart.getElementsByClassName('rate')[0];
+//         let n = parseInt(num[i].innerText);
+//         let quantity = n;
+
+//         let price = parseInt(rate.innerText.replace("Rs.", ""));
+//         total+= (price*quantity)
+//         console.log(total)
+//     }
+// }
+// updateTotal()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// i_plus.addEventListener("click",()=>{
+//     a++;
+//     console.log("a");
+//     num.innerText=a;
+// }
+// )
+// i_minus.addEventListener("click",()=>{
+//     a--;
+//     if (a<0){
+//         a=0
+//     }
+//     console.log("a")
+//     num.innerText=a;
+// }
+// )
+

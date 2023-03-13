@@ -1305,7 +1305,7 @@ add_item.addEventListener('click',function(e){
         let arr=  JSON.parse(localStorage.getItem('crud'));
     if(arr==null){
 
-        let data=[{unique:unique}];
+        let data=[{unique:unique,quantity_ordered:1}];
         localStorage.setItem('crud',JSON.stringify(data));
     }
     else{
@@ -1328,7 +1328,7 @@ add_item.addEventListener('click',function(e){
         }
         else{
             
-            arr.push({unique:unique});
+            arr.push({unique:unique,quantity_ordered:1});
             localStorage.setItem('crud',JSON.stringify(arr));
         }
     }
