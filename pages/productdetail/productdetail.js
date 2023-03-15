@@ -1038,7 +1038,6 @@ let minus_card;
 //                 "calories_unit": " Kcal "
 //             },
 //             "sizes": [
-
 //                 {
 //                     name: "tall",
 //                     quantity: 50
@@ -1099,23 +1098,23 @@ let minus_card;
 // console.log(product);
 
 const queryString = window.location.search;
-console.log(queryString);
+// console.log(queryString);
 
 const urlParams = new URLSearchParams(queryString);
 
 const product = urlParams.get('product_id');
-console.log(product);
+// console.log(product);
 
 
 const master_list = JSON.parse(localStorage.getItem("product_detail_list"));
-console.log(master_list)
+// console.log(master_list)
 
 function findProduct(e){
  return  e.product_id === product;
 }
  
 let  productData = master_list.find(findProduct);
-console.log(productData);
+// console.log(productData);
 
 
 
@@ -1128,27 +1127,28 @@ console.log(productData);
 
 
 // const newUser = urlParams.get('newuser')
-// console.log(newUser);
+// // console.log(newUser);
 // // product
 // const color = urlParams.get('color')
-// console.log(color);
+// // console.log(color);
 // // black
 // const newUser = urlParams.get('newuser')
-// console.log(newUser);
+// // console.log(newUser);
 // // empty string
 // const size = urlParams.get('size');
-// console.log(size);
+// // console.log(size);
 // s
 
-// console.log(url_1);
+// // console.log(url_1);
 
 
 
-
+let add_to_cart = JSON.parse(localStorage.getItem('add_products_cart'));
+ console.log(add_to_cart);
 
 row_card = document.createElement("div");
 row_card.setAttribute("class", "row");
-console.log(row_card);
+// console.log(row_card);
 
 image_card = document.createElement("div");
 image_card.setAttribute("class", "image");
@@ -1185,7 +1185,7 @@ content_card.append(p1_card);
 
 p2_card = document.createElement("p");
 p2_card.setAttribute("class", "cost");
-p2_card.innerText = productData["currency"] + productData["price"];
+p2_card.innerText = productData["price_1"]['medium'];
 content_card.append(p2_card);
 
 button_card = document.createElement("div");
@@ -1201,6 +1201,7 @@ btn1_card.setAttribute("class", "btn-button");
 btn1_card.setAttribute("id", "btn-1");
 btn1_card.innerText ="tall";
 size_card.append(btn1_card);
+
 
 
 btn2_card = document.createElement("button");
@@ -1247,6 +1248,7 @@ plus_card.append(i2_card);
 
 add_item_card = document.createElement("div");
 add_item_card.setAttribute('data-id',productData["product_id"]);
+
 add_item_card.setAttribute("class", "add-item-cart");
 button_card.append(add_item_card);
 
@@ -1262,16 +1264,38 @@ add_item_card.append(btn4_card);
 
 document.querySelector(".about-product").append(row_card);
 
+let tall = document.getElementById('btn-1');
+tall.addEventListener('click',function(){
+ 
+    p2_card.innerText =  productData["price_1"]['tall'];
 
-let add_item =document.querySelector(".add-item-cart")
+    
+});
+
+let short = document.getElementById('btn-3');
+short.addEventListener('click',function(){
+ 
+    p2_card.innerText = productData["price_1"]['short'];
+
+    
+});
 
 
+
+let medium = document.getElementById('btn-2');
+medium.addEventListener('click',function(){
+ 
+    p2_card.innerText =  productData["price_1"]['medium'];
+
+    
+});
+let add_item =document.querySelector(".add-item-cart");
 
 // add_item.addEventListener('click',function(e){
    
 //     let items=[]
 //     let unique_id = this.dataset.id;
-//     console.log(unique_id);
+//     // console.log(unique_id);
 
 //     if((JSON.parse(localStorage.getItem('items'))==null)){
        
@@ -1283,62 +1307,139 @@ let add_item =document.querySelector(".add-item-cart")
 //     }else{
 //         let localItems = JSON.parse(localStorage.getItem('items'));
 //        if(unique_id==localItems["unique_id"]){
-//         // console.log(unique_id);
+//         // // console.log(unique_id);
 //         localItems.push({unique_id});
 //         localStorage.setItem('items',JSON.stringify(items));
 //        }else{
 //         alert('product already exists')
 //        }}
 //     });
+
+
+////////////////////////////////////////////////////////////////////
          
 add_item.addEventListener('click',function(e){
     
     let unique_id = this.dataset.id;
     localStorage.setItem("unique_id", JSON.stringify(unique_id));
+
+    // let cart_id = this.dataset.cart_id;
+    // localStorage.setItem("cart_id",JSON.stringify(cart_id));
+    
+    // finding the product json
+    let product_detail_list = JSON.parse(localStorage.getItem('product_detail_list'));
+    function findProduct(e) {
+        return e.product_id == unique_id;
+     }
+
+     productData = product_detail_list.find(findProduct);
+     // console.log(productData);
+    // getting unique id
     let unique= JSON.parse(localStorage.getItem("unique_id"));
-        console.log(unique);
+    // getting price
+    let price= p2_card.innerText;
+    //declaring empty string to perform the add to the cart 
     let id = '';
 
-    console.log(id);
+    // console.log(id);
 
     if(id==''){
+        // introducing an array of objects to get  value , whether the array is already declared or not
         let arr=  JSON.parse(localStorage.getItem('crud'));
+        let add_to_cart = JSON.parse(localStorage.getItem('add_products_cart'));
+        // checking the  array if is null push newly or push it as a new one or push it into already existed array 
     if(arr==null){
 
-        let data=[{unique:unique,quantity_ordered:1}];
+        let data=[{unique:unique,quantity_ordered:1,price:p2_card.innerText}];
+        let add_to_cart =[ {
+            "category": productData['category'],
+            // "category_description":category_description,
+            // "description":description,
+            "name": productData["name"],
+            "quantities": {
+               "name": productData["quantities"]["name"],
+               "quantity": productData["quantities"]["quantity"],
+               "unit": "ml",
+               "calories": productData["quantities"]["calories"],
+               "calories_unit": "kcal",
+            },
+            "image": {
+
+               "source": productData["image"]["source"],
+               "alt": ""
+            },
+
+            "description": productData["description"],
+             "price":price,
+            "currency": "Rs.",
+            'add_to_cart_id':  uuidv4(),
+            "product_id": unique,
+            'quantity_ordered':1
+        }];
         localStorage.setItem('crud',JSON.stringify(data));
+        localStorage.setItem('add_products_cart',JSON.stringify(add_to_cart));
+        
     }
     else{
         let arr = JSON.parse(localStorage.getItem('crud'));
         let found= false;
-
+        let add_to_cart = JSON.parse(localStorage.getItem('add_products_cart'));
+        let logic = false;
+        // for loop for checking whether the product already exists or not 
         for(let i=0;i<arr.length;i++){
-            
-
-            if(  unique ===  arr[i]['unique']){
-                console.log('rajini');
-              
+            if(  unique ===  arr[i]['unique'] &&  price === arr[i]['price']){
             found = true;
-           
-            }
-        }
-        console.log(found);
-        if(found){
-            alert('product is already added to the cart');
-        }
-        else{
-            
-            arr.push({unique:unique,quantity_ordered:1});
+           };
+        };
+      
+        for(let i=0;i<add_to_cart.length;i++){
+            if(  unique ===  add_to_cart[i]['product_id'] &&  price === add_to_cart[i]['price']){
+            logic = true;
+            };
+        };
+        
+        if(!found){
+            arr.push({unique:unique,quantity_ordered:1,price:p2_card.innerText} );
             localStorage.setItem('crud',JSON.stringify(arr));
         }
-    }
-    }
+        if(!logic){
+            add_to_cart.push({
+                "category": productData['category'],
+                // "category_description":category_description,
+                // "description":description,
+                "name": productData["name"],
+                "quantities": {
+                   "name": productData["quantities"]["name"],
+                   "quantity": productData["quantities"]["quantity"],
+                   "unit": "ml",
+                   "calories": productData["quantities"]["calories"],
+
+                   "calories_unit": "kcal",
+                },
+                 
+                "image": {
+    
+                   "source": productData["image"]["source"],
+                   "alt": ""
+                },
+               
+                "description": productData["description"],
+                 "price":price,
+                "currency": "Rs.",
+                "product_id": unique,
+                'add_to_cart_id':  uuidv4(),
+                'quantity_ordered':1
+            });
+            localStorage.setItem('add_products_cart',JSON.stringify(add_to_cart));
+        }
+}
+};
 });
 
 
 // add_item.addEventListener('click',function(e) {
 //     let unique_id = this.dataset.id;
-//     console.log(unique_id);
+//     // console.log(unique_id);
 //    let crud = JSON.parse(localStorage.getItem('crud')) || [];
 //    let exist = crud.length &&
 //       JSON.parse(localStorage.getItem('crud')).some(data =>
@@ -1347,6 +1448,7 @@ add_item.addEventListener('click',function(e){
 //    if (!exist) {
 //       let unique = {
 //          "unique_id":unique_id,
+         
          
 //       }
 //       crud.push(unique);

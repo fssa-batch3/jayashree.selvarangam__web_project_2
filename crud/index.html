@@ -65,6 +65,22 @@
 
                </div>
                <div class="form-group col-md-6 md-3">
+                  <label for="tall">tall</label>
+                  <input type="number" name="tall" id="tall" class="form-control">
+
+               </div>
+
+               <div class="form-group col-md-6 md-3">
+                  <label for="short">medium</label>
+                  <input type="number" name="short" id="short" class="form-control">
+
+               </div>
+               <div class="form-group col-md-6 md-3">
+                  <label for="medium">short</label>
+                  <input type="number" name="medium" id="medium" class="form-control">
+
+               </div>
+               <div class="form-group col-md-6 md-3">
                   <label for="cost">Cost</label>
                   <input type="number" name="cost" id="cost" class="form-control">
                </div>
@@ -93,6 +109,9 @@
                   <td>description</td>
                   <td>image_url</td>
                   <td>cost</td>
+                  <td>tall</td>
+                  <td>short</td>
+                  <td>medium</td>
                   <td>delete</td>
                   <td>edit</td>
                </thead>
@@ -123,6 +142,10 @@
       let image_url = document.getElementById("image_url").value;
       let description = document.getElementById("description").value;
       let cost = document.getElementById("cost").value;
+      let tall = document.getElementById("tall").value;
+      let short = document.getElementById("short").value;
+      let medium = document.getElementById("medium").value;
+      // // // // console.log(tall);
       let product_id = uuidv4();
       // let currency = document.getElementById("currency").value;
       // let offers = document.getElementById("offers").value;
@@ -155,8 +178,12 @@
             },
 
             "description": description,
-
-            "price": cost,
+            'price':cost,
+            "price_1":{
+               'tall':tall,
+               'medium':medium,
+               'short':short
+            },
             "currency": "Rs.",
             "product_id": product_id
          }
@@ -177,7 +204,7 @@ let product_detail_list = JSON.parse(localStorage.getItem('product_detail_list')
    function create(prod) {
       // tr
       tr = document.createElement("tr");
-      console.log(tr);
+      // // // // console.log(tr);
       // td 1
       // td1 = document.createElement("td");
       // td1.innerText = ;
@@ -211,6 +238,19 @@ let product_detail_list = JSON.parse(localStorage.getItem('product_detail_list')
       td13 = document.createElement("td");
       td13.innerText = prod["quantities"]["calories"];
       tr.append(td13);
+
+       // a update
+       td17 = document.createElement("td");
+      td17.innerText = prod["price_1"]["tall"];
+      tr.append(td17);
+
+      td15 = document.createElement("td");
+      td15.innerText = prod["price_1"]["medium"];
+      tr.append(td15);
+
+      td16 = document.createElement("td");
+      td16.innerText = prod["price_1"]["short"];
+      tr.append(td16);
 
       td14 = document.createElement("td");
       td14.innerText = prod["image"]["source"];
@@ -262,9 +302,13 @@ let product_detail_list = JSON.parse(localStorage.getItem('product_detail_list')
          document.getElementById("category").value = productData["category"];
          document.getElementById("description").value = productData["description"];
          document.getElementById("cost").value = productData["price"];
+
          document.getElementById("size_name").value = productData["quantities"]["name"];
          document.getElementById("quantity_value").value = productData["quantities"]["quantity"];
          document.getElementById("calories_value").value = productData["quantities"]["calories"];
+         document.getElementById("tall").value = productData["price_1"]["tall"];
+         document.getElementById("medium").value = productData["price_1"]["medium"];
+         document.getElementById("short").value = productData["price_1"]["short"];
          document.getElementById("image_url").value = productData["image"]["source"];
 
          document.querySelector('#update').setAttribute("style", "display:inline");
@@ -285,7 +329,7 @@ let product_detail_list = JSON.parse(localStorage.getItem('product_detail_list')
       };
 
       productData = product_detail_list.find(findProduct);
-      // console.log(productData)
+      // // // // // console.log(productData)
 
 
       let category = document.getElementById("category").value;
@@ -299,6 +343,9 @@ let product_detail_list = JSON.parse(localStorage.getItem('product_detail_list')
       let image_url = document.getElementById("image_url").value;
       let description = document.getElementById("description").value;
       let cost = document.getElementById("cost").value;
+      let tall = document.getElementById("short").value;
+      let short = document.getElementById("short").value;
+      let medium = document.getElementById("medium").value;
 
 
 
@@ -309,6 +356,9 @@ let product_detail_list = JSON.parse(localStorage.getItem('product_detail_list')
       productData["quantities"]["name"] = size_name;
       productData["quantities"]["quantity"] = quantity_value;
       productData["quantities"]["calories"] = calories_value;
+      productData["price_1"]["tall"] = tall;
+      productData["price_1"]["medium"] = short;
+      productData["price_1"]["short"] = medium;
       productData["image"]["source"] = image_url;
 
       localStorage.setItem('product_detail_list', JSON.stringify(product_detail_list));
@@ -333,7 +383,7 @@ let product_detail_list = JSON.parse(localStorage.getItem('product_detail_list')
          const indexOfUser = product_detail_list.indexOf(productData);
          product_detail_list.splice(indexOfUser, 1);
 
-         console.log(indexOfUser);
+         // // // // console.log(indexOfUser);
          localStorage.setItem("product_detail_list", JSON.stringify(product_detail_list));
          location.reload();
        
@@ -355,7 +405,7 @@ let product_detail_list = JSON.parse(localStorage.getItem('product_detail_list')
    //    const indexOfUser = product_detail_list.indexOf(productData);
    //    product_detail_list.splice(indexOfUser, 1);
 
-   //    console.log(indexOfUser);
+   //    // // // // // console.log(indexOfUser);
    //    localStorage.setItem("product_detail_list", JSON.stringify(product_detail_list));
    //    location.reload();
    // };

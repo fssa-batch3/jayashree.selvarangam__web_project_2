@@ -1,8 +1,8 @@
 //       const user_name= localStorage.getItem("name");
 //       const address= localStorage.getItem("address");
  
-//    console.log(user_name);
-//    console.log(address);
+//    // console.log(user_name);
+//    // console.log(address);
  
    
 //    document.querySelector(".delivery-name").innerHTML= user_name
@@ -89,6 +89,7 @@ const object = [
         "calories": .63,
         "calories_unit": "kcal",
     },
+
     // {
     //     "name": "",
     //     "unit": "",
@@ -330,7 +331,7 @@ for(i=0;i<=5;i++){
 
     coffee_items_card = document.createElement("div");
     coffee_items_card.setAttribute("class","coffee-items");
-    console.log(coffee_items_card);
+    // console.log(coffee_items_card);
     
     coffee_description_card= document.createElement("div");
     coffee_description_card.setAttribute("class","coffee-description");
@@ -437,25 +438,27 @@ let a1_card;
 
 
 let cart_items = JSON.parse(localStorage.getItem('crud'));
-console.log(cart_items);
-let product_detail_list = JSON.parse(localStorage.getItem('product_detail_list'));
-console.log(product_detail_list);
-let productData = product_detail_list.filter( product=>
-    cart_items.some(cart_items=>cart_items.unique==product.product_id)
-    );
-
+// console.log(cart_items);
+let  productData= JSON.parse(localStorage.getItem('add_products_cart'));
+// // console.log(product_carts);
+// let productData = product_carts.filter( product=>
+//     cart_items.some(cart_items=>cart_items.unique === product.product_id && cart_items.price === product.price)
+//     );
+// // console.log(productData);
    
+
   
 
 for(i=0;i< productData.length;i++){
 
 
-
-    let find = cart_items.find(e => e.unique == productData[i]["product_id"]);
+   // let cart_items = JSON.parse(localStorage.getItem('crud'));
+    let find = cart_items.find(e => e.unique == productData[i]["product_id"] && e.price === productData[i]["price"] );
+    // console.log(find);
 
 your_cart_card=document.createElement("section");
 your_cart_card.setAttribute("class","Yourcart");
-console.log(your_cart_card);
+// console.log(your_cart_card);
 
 beverage_card=document.createElement("div");
 beverage_card.setAttribute("class","beverage");
@@ -522,7 +525,7 @@ button.append(i_minus);
 
 num=document.createElement("span");
 num.setAttribute("class","num");
-num.textContent=find['quantity_ordered'];
+num.textContent=productData[i]['quantity_ordered'];
 button.append(num);
 
 // plus=document.createElement("span");
@@ -541,7 +544,7 @@ near_to_remove.append(beverage_costdetail_card);
 
 cost=document.createElement("div");
 cost.setAttribute("class","cost");
-cost.innerText=productData[i]["currency"] + productData[i]['price'] * find["quantity_ordered"];
+cost.innerText=+ productData[i]["price"]*productData[i]['quantity_ordered'];
 beverage_costdetail_card.append(cost);
 
 go_back=document.createElement("div");
@@ -550,6 +553,7 @@ beverage_costdetail_card.append(go_back);
 
 a1_card=document.createElement("button");
 a1_card.setAttribute("class","Go_back");
+a1_card.setAttribute("data-product_cart_id", productData[i]["add_to_cart_id"]);
 a1_card.setAttribute("data-cart_id", productData[i]["product_id"]);
 
 // a1_card.setAttribute("href","../../pages/fill forms/review.html");  //object[i]["link_pages"]
@@ -564,26 +568,28 @@ document.querySelector(".whole").append(your_cart_card);
 
 // const cartId = this.dataset.cart_id;
 
-// console.log(cartId);
+// // console.log(cartId);
 
 let removeFood = document.querySelectorAll('button.Go_back');
 removeFood.forEach(function (remove_id) {
     remove_id.addEventListener("click", function () {
       
         const cartId = this.dataset.cart_id;
-        console.log('cartId');
-        let cart_ids = JSON.parse(localStorage.getItem("crud"));
+        const product_cart_id = this.dataset.product_cart_id;
+        // console.log('cartId');
+        // let cart_ids = JSON.parse(localStorage.getItem("crud"));
+        let  product_cart__id= JSON.parse(localStorage.getItem('add_products_cart'));
 
         function find_id(e) {
-            return e.unique === cartId;
-        }
+            return e.add_to_cart_id === product_cart_id ;
+        };
 
-        let remove_food = cart_ids.find(find_id);
-        let indexOfItem = cart_ids.indexOf(remove_food);
-        cart_ids.splice(indexOfItem, 1);
-        let count = JSON.parse(localStorage.getItem("food_count"));
-        localStorage.setItem("food_count", count-1)
-        localStorage.setItem("crud", JSON.stringify(cart_ids));
+        let remove_food = product_cart__id.find(find_id);
+        let indexOfItem = product_cart__id.indexOf(remove_food);
+        product_cart__id.splice(indexOfItem, 1);
+      
+ 
+        localStorage.setItem("add_products_cart", JSON.stringify(product_cart__id));
         location.reload()
     })
 })
@@ -594,31 +600,32 @@ let plus_1 = document.querySelectorAll(".plus_1");
     plus_1.forEach(function(find_quantity) {
         find_quantity.addEventListener("click", function() {
         let parent = this.parentNode;
-        // console.log(parent);
+        // // console.log(parent);
         let num =  parent.querySelector(".num");
-        console.log(num)
-        let n = parseInt(num.textContent)
+        // console.log(num);
+        let n = parseInt(num.textContent);
         if (n < 30) {
         n += 1;
-        }
+        };
         num.textContent = n;
         // // getting the ID
         let parentBox = this.closest(".near_to_remove");
-        console.log(parentBox);
-        let idButton = parentBox.querySelector(".beverage-costdetail").querySelector(".Goback").querySelector(".Go_back").getAttribute("data-cart_id");
-        console.log(idButton)
-        let cart_product = JSON.parse(localStorage.getItem("crud"));
+        // console.log(parentBox);
+        let idButton = parentBox.querySelector(".beverage-costdetail").querySelector(".Goback").querySelector(".Go_back").getAttribute("data-product_cart_id");
+        // console.log(idButton);
+        let cart_product = JSON.parse(localStorage.getItem('add_products_cart'));
+        console.log(cart_product);
         function find_cart(e){
-        return e.unique == idButton;
-        }
-
-        let cart_quantity = cart_product.find(find_cart);
+        return e.add_to_cart_id == idButton;
+        };
        
-        if (cart_quantity) {
+        let cart_quantity = cart_product.find(find_cart);
+        console.log(cart_quantity);
+        if (cart_quantity){
         cart_quantity.quantity_ordered = n.toString();
-        localStorage.setItem("crud", JSON.stringify(cart_product));
+        localStorage.setItem("add_products_cart", JSON.stringify(cart_product));
         location.reload();
-        }
+        };
     });
 });
 
@@ -634,31 +641,31 @@ let minus_1 = document.querySelectorAll(".minus_1");
         num.textContent = n;
 
 //         // getting the ID
-        let parentBox = this.closest(".near_to_remove")
-        let idButton = parentBox.querySelector(".beverage-costdetail").querySelector(".Goback").querySelector(".Go_back").getAttribute("data-cart_id");
-
-        let cart_product = JSON.parse(localStorage.getItem("crud"));
+        let parentBox = this.closest(".near_to_remove");
+        let idButton = parentBox.querySelector(".beverage-costdetail").querySelector(".Goback").querySelector(".Go_back").getAttribute("data-product_cart_id");
+        // let  productData= JSON.parse(localStorage.getItem('add_products_cart'));
+        let cart_product = JSON.parse(localStorage.getItem("add_products_cart"));
         function find_cart(e){
-        return e.unique == idButton;
+        return e.add_to_cart_id == idButton;
         }
 
         let cart_quantity = cart_product.find(find_cart);
-
+        console.log(cart_quantity)
         if (cart_quantity) {
         cart_quantity.quantity_ordered = n.toString();
-        localStorage.setItem("crud", JSON.stringify(cart_product));
+        localStorage.setItem("add_products_cart", JSON.stringify(cart_product));
         location.reload();
-        }
+        };
     });
 });
 let total_price = productData;
 let price_1 = 0;
 for (let i = 0; i < total_price.length; i++) {
-    price_1 += parseInt(total_price[i]["price"]*cart_items[i]["quantity_ordered"]);
+    price_1 += parseInt(total_price[i]["price"]*total_price[i]["quantity_ordered"]);
 }
 //     location.reload();
 // }
- console.log(price_1);
+ // console.log(price_1);
 
 let item_total = document.getElementById('amount');
 item_total.innerText='Rs.' + price_1;
@@ -681,7 +688,7 @@ total_items.innerText='Rs.' + price_1;
 
 //         let price = parseInt(rate.innerText.replace("Rs.", ""));
 //         total+= (price*quantity)
-//         console.log(total)
+//         // console.log(total)
 //     }
 // }
 // updateTotal()
@@ -718,7 +725,7 @@ total_items.innerText='Rs.' + price_1;
 
 // i_plus.addEventListener("click",()=>{
 //     a++;
-//     console.log("a");
+//     // console.log("a");
 //     num.innerText=a;
 // }
 // )
@@ -727,7 +734,7 @@ total_items.innerText='Rs.' + price_1;
 //     if (a<0){
 //         a=0
 //     }
-//     console.log("a")
+//     // console.log("a")
 //     num.innerText=a;
 // }
 // )
