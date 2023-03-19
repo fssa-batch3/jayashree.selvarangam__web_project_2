@@ -437,8 +437,8 @@ let go_back;
 let a1_card;
 
 
-let cart_items = JSON.parse(localStorage.getItem('crud'));
-// console.log(cart_items);
+// let cart_items = JSON.parse(localStorage.getItem('crud'));
+// // console.log(cart_items);
 let  productData= JSON.parse(localStorage.getItem('add_products_cart'));
 // // console.log(product_carts);
 // let productData = product_carts.filter( product=>
@@ -453,7 +453,7 @@ for(i=0;i< productData.length;i++){
 
 
    // let cart_items = JSON.parse(localStorage.getItem('crud'));
-    let find = cart_items.find(e => e.unique == productData[i]["product_id"] && e.price === productData[i]["price"] );
+    // let find = cart_items.find(e => e.unique == productData[i]["product_id"] && e.price === productData[i]["price"] );
     // console.log(find);
 
 your_cart_card=document.createElement("section");

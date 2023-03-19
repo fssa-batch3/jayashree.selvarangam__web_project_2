@@ -1345,12 +1345,12 @@ add_item.addEventListener('click',function(e){
 
     if(id==''){
         // introducing an array of objects to get  value , whether the array is already declared or not
-        let arr=  JSON.parse(localStorage.getItem('crud'));
+        // let arr=  JSON.parse(localStorage.getItem('crud'));
         let add_to_cart = JSON.parse(localStorage.getItem('add_products_cart'));
         // checking the  array if is null push newly or push it as a new one or push it into already existed array 
     if(add_to_cart==null){
 
-        let data=[{unique:unique,quantity_ordered:1,price:p2_card.innerText}];
+        // let data=[{unique:unique,quantity_ordered:1,price:p2_card.innerText}];
         let add_to_cart =[ {
             "category": productData['category'],
             // "category_description":category_description,
@@ -1376,21 +1376,21 @@ add_item.addEventListener('click',function(e){
             "product_id": unique,
             'quantity_ordered':1
         }];
-        localStorage.setItem('crud',JSON.stringify(data));
+        // localStorage.setItem('crud',JSON.stringify(data));
         localStorage.setItem('add_products_cart',JSON.stringify(add_to_cart));
         
     }
     else{
-        let arr = JSON.parse(localStorage.getItem('crud'));
-        let found= false;
+        // let arr = JSON.parse(localStorage.getItem('crud'));
+        // let found= false;
         let add_to_cart = JSON.parse(localStorage.getItem('add_products_cart'));
         let logic = false;
         // for loop for checking whether the product already exists or not 
-        for(let i=0;i<arr.length;i++){
-            if(  unique ===  arr[i]['unique'] &&  price === arr[i]['price']){
-            found = true;
-           };
-        };
+        // for(let i=0;i<arr.length;i++){
+        //     if(  unique ===  arr[i]['unique'] &&  price === arr[i]['price']){
+        //     found = true;
+        //    };
+        // };
       
         for(let i=0;i<add_to_cart.length;i++){
             if(  unique ===  add_to_cart[i]['product_id'] &&  price === add_to_cart[i]['price']){
@@ -1398,10 +1398,10 @@ add_item.addEventListener('click',function(e){
             };
         };
         
-        if(!found){
-            arr.push({unique:unique,quantity_ordered:1,price:p2_card.innerText} );
-            localStorage.setItem('crud',JSON.stringify(arr));
-        }
+        // if(!found){
+        //     arr.push({unique:unique,quantity_ordered:1,price:p2_card.innerText} );
+        //     localStorage.setItem('crud',JSON.stringify(arr));
+        // }
         if(!logic){
             add_to_cart.push({
                 "category": productData['category'],
