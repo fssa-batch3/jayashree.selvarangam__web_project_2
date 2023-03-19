@@ -1290,7 +1290,7 @@ medium.addEventListener('click',function(){
     
 });
 let add_item =document.querySelector(".add-item-cart");
-
+//////////////////////////////////////////////////////////
 // add_item.addEventListener('click',function(e){
    
 //     let items=[]
@@ -1316,7 +1316,7 @@ let add_item =document.querySelector(".add-item-cart");
 //     });
 
 
-////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////
          
 add_item.addEventListener('click',function(e){
     
@@ -1348,7 +1348,7 @@ add_item.addEventListener('click',function(e){
         let arr=  JSON.parse(localStorage.getItem('crud'));
         let add_to_cart = JSON.parse(localStorage.getItem('add_products_cart'));
         // checking the  array if is null push newly or push it as a new one or push it into already existed array 
-    if(arr==null){
+    if(add_to_cart==null){
 
         let data=[{unique:unique,quantity_ordered:1,price:p2_card.innerText}];
         let add_to_cart =[ {

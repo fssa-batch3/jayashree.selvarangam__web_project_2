@@ -1856,7 +1856,7 @@ btn_add_item.forEach(findId =>{
         let unique_id = findId.dataset.id;
         // console.log(unique_id)
         location.href=`../../pages/productdetail/product-cappu.html?product_id=${unique_id}`
-        console.log("1")
-    })
-})
+        console.log("1");
+    });
+});
 

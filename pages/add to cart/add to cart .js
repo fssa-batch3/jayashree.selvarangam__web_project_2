@@ -326,7 +326,7 @@ const object = [
     ////////////////////////////////////////////
 }
 
-]
+];
 for(i=0;i<=5;i++){
 
     coffee_items_card = document.createElement("div");
@@ -387,7 +387,7 @@ for(i=0;i<=5;i++){
     a_card.append(button_card);
     
     document.querySelector(".coffee-products").append(coffee_items_card);
-    }
+    };
 
    
 //     <!-- <div class="beverage">
@@ -564,7 +564,9 @@ document.querySelector(".whole").append(your_cart_card);
 }
 
 
+// Let [month, date, year] = new Date().
 
+// toLocaleDateString("en-IN").split("/");
 
 // const cartId = this.dataset.cart_id;
 
@@ -658,6 +660,17 @@ let minus_1 = document.querySelectorAll(".minus_1");
         };
     });
 });
+// let permittedValues =[];
+// permittedValues =  productData.map(function(value) {
+//     return value.add_to_cart_id;
+//   });
+ let add_cart_id_values = [];
+  for (i = 0; i < productData.length; i++){
+    add_cart_id_values[i] = productData[i]["add_to_cart_id"];
+    //  permittedValues.push(permittedValues[i] );
+  }
+  console.log(add_cart_id_values);
+  localStorage.setItem('add_cart_id_values',JSON.stringify(add_cart_id_values));
 let total_price = productData;
 let price_1 = 0;
 for (let i = 0; i < total_price.length; i++) {
@@ -693,7 +706,82 @@ total_items.innerText='Rs.' + price_1;
 // }
 // updateTotal()
 
+let order =  document.getElementById('btn_order');
 
+order.addEventListener('click',function(){
+//   let order = JSON.parse(localStorage.getItem('orders'))||[];
+//   let exist= order.length && JSON.parse(localStorage.getItem('orders')).some()
+alert('are you sure you want to place the order');
+let check ='';
+if(check == ''){
+         let order = JSON.parse(localStorage.getItem('orders'));
+    
+        if(order == null ){
+       
+        let order = [];
+        let  add_products_cart = JSON.parse(localStorage.getItem('add_products_cart'));
+        
+        function pushArray(array, array2) {
+            array.push.apply(array, array2);
+            console.log(array);
+        };
+          pushArray(order, add_products_cart);
+     
+         add_products_cart.splice(0, add_products_cart.length);
+        //   order.forEach(object => {
+        //   object.date = new Date() ,
+        //   object.dat = 'Res';
+          
+        //     });
+        const array = order.map(object => {
+            return Object.assign(object, {date :  new Date().toLocaleDateString(), delivery:{del_status:'not delivered',del_status1:'delivered'}});
+        });
+        localStorage.setItem('orders',JSON.stringify(order));
+        localStorage.setItem('add_products_cart',JSON.stringify(add_products_cart));
+        location.reload();
+        
+        //   arr.splice(0, arr.length)
+    }else{
+        let  order = JSON.parse(localStorage.getItem('orders'));
+        let  add_products_cart = JSON.parse(localStorage.getItem('add_products_cart'));
+      
+        function pushArray(array, array2) {
+            array.push.apply(array, array2);
+            console.log(array);
+          };
+        pushArray(order, add_products_cart);
+          
+          
+        add_products_cart.splice(0, add_products_cart.length);
+          // for each method for adding date
+        //   order.forEach(object => {
+        //     object.date =  new Date(),
+        //     object['dat']['delivery'] = 'Res',
+        //     object['dat']['deliver'] = 'ser';
+        //     });
+
+              
+        const array = order.map(object => {
+            return Object.assign(object, {date :  new Date().toLocaleDateString(), delivery:{del_status:'not delivered',del_status1:'delivered'}});
+        });
+        localStorage.setItem('orders',JSON.stringify(order));
+        localStorage.setItem('add_products_cart',JSON.stringify(add_products_cart));
+        location.reload();
+
+    }
+        //  let  add_products_cart = JSON.parse(localStorage.getItem('add_products_cart'));
+        //  add_products_cart.splice(0, add_products_cart.length)
+
+
+
+
+
+}
+
+
+window.location.href="../../pages/My orders/myorders.html";
+
+});
 
 
 
