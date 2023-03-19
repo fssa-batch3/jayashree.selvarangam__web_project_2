@@ -660,10 +660,7 @@ let minus_1 = document.querySelectorAll(".minus_1");
         };
     });
 });
-// let permittedValues =[];
-// permittedValues =  productData.map(function(value) {
-//     return value.add_to_cart_id;
-//   });
+
  let add_cart_id_values = [];
   for (i = 0; i < productData.length; i++){
     add_cart_id_values[i] = productData[i]["add_to_cart_id"];
@@ -708,12 +705,12 @@ total_items.innerText='Rs.' + price_1;
 
 let order =  document.getElementById('btn_order');
 
-order.addEventListener('click',function(){
+       order.addEventListener('click',function(){
 //   let order = JSON.parse(localStorage.getItem('orders'))||[];
 //   let exist= order.length && JSON.parse(localStorage.getItem('orders')).some()
-alert('are you sure you want to place the order');
-let check ='';
-if(check == ''){
+        alert('are you sure you want to place the order');
+        let check ='';
+        if(check == ''){
          let order = JSON.parse(localStorage.getItem('orders'));
     
         if(order == null ){
@@ -741,7 +738,7 @@ if(check == ''){
         location.reload();
         
         //   arr.splice(0, arr.length)
-    }else{
+        }else{
         let  order = JSON.parse(localStorage.getItem('orders'));
         let  add_products_cart = JSON.parse(localStorage.getItem('add_products_cart'));
       
@@ -771,15 +768,8 @@ if(check == ''){
     }
         //  let  add_products_cart = JSON.parse(localStorage.getItem('add_products_cart'));
         //  add_products_cart.splice(0, add_products_cart.length)
-
-
-
-
-
-}
-
-
-window.location.href="../../pages/My orders/myorders.html";
+    }
+    window.location.href="../../pages/My orders/myorders.html";
 
 });
 
