@@ -495,11 +495,7 @@ beverage_content_card.append(beverage_title_card);
 
 beverage_message_card=document.createElement("div");
 beverage_message_card.setAttribute("class","beverage-message");
-beverage_message_card.innerText=productData[i]["quantities"]["name"] +
-productData[i]["quantities"]["quantity"] +
-productData[i]["quantities"]["unit"] +
-productData[i]["quantities"]["calories"] +
-productData[i]["quantities"]["calories_unit"];
+beverage_message_card.innerText=productData[i]['quantities'];
 beverage_content_card.append(beverage_message_card);
 
 near_to_remove = document.createElement("div");
@@ -544,7 +540,16 @@ near_to_remove.append(beverage_costdetail_card);
 
 cost=document.createElement("div");
 cost.setAttribute("class","cost");
-cost.innerText=+ productData[i]["price"]*productData[i]['quantity_ordered'];
+cost.innerText= productData[i]["price"];
+
+let sum = cost.innerText.replace("Rs.", "") * productData[i]['quantity_ordered']
+console.log(sum);
+cost.innerText = 'Rs.'+sum;
+
+
+// .replace('Rs','');
+
+
 beverage_costdetail_card.append(cost);
 
 go_back=document.createElement("div");
@@ -572,8 +577,8 @@ document.querySelector(".whole").append(your_cart_card);
 
 // // console.log(cartId);
 
-let removeFood = document.querySelectorAll('button.Go_back');
-removeFood.forEach(function (remove_id) {
+    let removeFood = document.querySelectorAll('button.Go_back');
+    removeFood.forEach(function (remove_id) {
     remove_id.addEventListener("click", function () {
       
         const cartId = this.dataset.cart_id;
@@ -592,7 +597,7 @@ removeFood.forEach(function (remove_id) {
       
  
         localStorage.setItem("add_products_cart", JSON.stringify(product_cart__id));
-        location.reload()
+        location.reload();
     })
 })
 
@@ -671,15 +676,15 @@ let minus_1 = document.querySelectorAll(".minus_1");
 let total_price = productData;
 let price_1 = 0;
 for (let i = 0; i < total_price.length; i++) {
-    price_1 += parseInt(total_price[i]["price"]*total_price[i]["quantity_ordered"]);
+    price_1 += parseInt(total_price[i]["price"].replace("Rs.", "")*total_price[i]["quantity_ordered"]);
 }
-//     location.reload();
+// location.reload();
 // }
- // console.log(price_1);
+// console.log(price_1);
 
-let item_total = document.getElementById('amount');
+let item_total  = document.getElementById('amount');
 item_total.innerText='Rs.' + price_1;
-let total_items=document.getElementById('total_items');
+let total_items =  document.getElementById('total_items');
 total_items.innerText='Rs.' + price_1;
 
 // Function to reload only one div
@@ -703,9 +708,9 @@ total_items.innerText='Rs.' + price_1;
 // }
 // updateTotal()
 
-let order =  document.getElementById('btn_order');
+        let order =  document.getElementById('btn_order');
 
-       order.addEventListener('click',function(){
+        order.addEventListener('click',function(){
 //   let order = JSON.parse(localStorage.getItem('orders'))||[];
 //   let exist= order.length && JSON.parse(localStorage.getItem('orders')).some()
         alert('are you sure you want to place the order');
@@ -718,6 +723,14 @@ let order =  document.getElementById('btn_order');
         let order = [];
         let  add_products_cart = JSON.parse(localStorage.getItem('add_products_cart'));
         
+        const array = add_products_cart.map(object => {
+            return Object.assign(object, {
+                date:moment().format('YYYY-MM-DD'),
+                order_id: uuidv4(),
+                // time_check :moment().format('YYYY-MM-DD  hh:mm:ssA').toString(),
+                // before_30_minutes : moment().add({minutes:2}).format('YYYY-MM-DD hh:mm:ssA'),
+                delivery:{del_status:'not delivered',del_status1:'delivered'}});
+        });
         function pushArray(array, array2) {
             array.push.apply(array, array2);
             console.log(array);
@@ -730,18 +743,18 @@ let order =  document.getElementById('btn_order');
         //   object.dat = 'Res';
           
         //     });
-        const array = order.map(object => {
-            return Object.assign(object, {date :  new Date().toLocaleDateString(), delivery:{del_status:'not delivered',del_status1:'delivered'}});
-        });
+  
         localStorage.setItem('orders',JSON.stringify(order));
         localStorage.setItem('add_products_cart',JSON.stringify(add_products_cart));
         location.reload();
-        
+    
         //   arr.splice(0, arr.length)
         }else{
         let  order = JSON.parse(localStorage.getItem('orders'));
         let  add_products_cart = JSON.parse(localStorage.getItem('add_products_cart'));
-      
+        const array = add_products_cart.map(object => {
+            return Object.assign(object, { date:moment().format('YYYY-MM-DD'), order_id: uuidv4(),time_check :moment().format('YYYY-MM-DD  hh:mm:ssA').toString(),before_30_minutes : moment().add({minutes:2}).format('YYYY-MM-DD hh:mm:ssA'),delivery:{del_status:'not delivered',del_status1:'delivered'}});
+        });
         function pushArray(array, array2) {
             array.push.apply(array, array2);
             console.log(array);
@@ -758,9 +771,7 @@ let order =  document.getElementById('btn_order');
         //     });
 
               
-        const array = order.map(object => {
-            return Object.assign(object, {date :  new Date().toLocaleDateString(), delivery:{del_status:'not delivered',del_status1:'delivered'}});
-        });
+      
         localStorage.setItem('orders',JSON.stringify(order));
         localStorage.setItem('add_products_cart',JSON.stringify(add_products_cart));
         location.reload();
@@ -776,7 +787,7 @@ let order =  document.getElementById('btn_order');
 
 
 
-
+// document.get
 
 
 
@@ -810,9 +821,9 @@ let order =  document.getElementById('btn_order');
 // i_minus.addEventListener("click",()=>{
 //     a--;
 //     if (a<0){
-//         a=0
+//         a=0;
 //     }
-//     // console.log("a")
+//     // console.log("a");
 //     num.innerText=a;
 // }
 // )

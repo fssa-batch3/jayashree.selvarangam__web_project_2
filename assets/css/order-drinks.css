@@ -101,14 +101,14 @@
 .Expressoa{
     margin-bottom:3rem;
 }
-.expressoa-title{
+.expressoa-title,.expressoa-title1,.expressoa-title2,.expressoa-title3,.expressoa-title4{
     padding-left:50px;
     padding-right: 50px;
     font-size:1.45rem;
     color:var(--bs-orange);
     margin-bottom:1rem;
 }
-.expressoa-p{
+.expressoa-p,.expressoa-p1,.expressoa-p2,.expressoa-p3,.expressoa-p4{
     padding-left:50px;
     padding-right: 50px;
     font-size:1.05rem;

@@ -19,7 +19,7 @@
 </head>
 <body>
 <!-- header section starts  -->
-        <header class="header">
+        <!-- <header class="header">
             <input type="checkbox" name="" id="toggler">
             <label for="toggler" class="fas fa-bars"></label>
             <a href="../../index.html" class="logo"> Coffee<i class="fas fa-mug-hot"></i> </a>
@@ -29,52 +29,53 @@
                 <a href="../../pages/order/order-bestseller.html">Order</a>
                 <a href="../../pages/payment/payment.html">Pay</a>
                 <a href="../../pages/My orders/myorders.html">My orders</a>
-             <!--<a href="../../pages/blogs/blog.html">Blogs</a>--> 
-            </nav>
+             <a href="../../pages/blogs/blog.html">Blogs</a>--> 
+            <!-- </nav>
              <div class="icons">
              <a href="../../pages/add to cart/addtocart.html" class="fas fa-shopping-cart"></a>
              <a href="../../pages/profile/profile.html" class="fas fa-user"></a>
     </div>
             <a href="../../pages/login/login.html" class="btn">Login</a>
         
-        </header>
+        </header> --> 
         <section class="profile" id="profile">
 
             <h1 class="heading"><i class="fa-solid fa-circle-user"></i> Profile </h1>
          
             <form action="">
                 <label>Name:</label>
-                <input type="text" id="user_name" class="box" disabled/>
+                <input type="text" id="user_name" class="box" readonly/>
                 <label>Email_id:</label>
-                <input type="email"  id="user_email" class="box" disabled/>
+                <input type="email"  id="user_email" class="box" readonly/>
                 <label>Password:</label>
-                <input type="password"  id="user_password"class="box" disabled/>
+                <input type="password"  id="user_password"class="box" readonly/>
                 <label>Mobile number:</label>
-                <input type="text"  id="user_mobilenumber" class="box" disabled/>
+                <input type="text"  id="user_mobilenumber" class="box" readonly/>
         
                
                 
-                <a href="../../pages/profile/profile_edit.html"><input type="submit" value="Edit" class="btn"></a>
-                <span class="save">
-                    <button  class="btn"  onclick="edit(event)">edit
-                        </button></span>
-              <span class="save">
-                    <button  class="btn"><a href="../../index.html">Save</a>
-                        </button></span>
-                        <span class="save">
+                <!-- <a href="../../pages/profile/profile_edit.html"><input type="submit" value="Edit" class="btn"></a>
+                <span class="save"> -->
+                    <button  type="button"class="btn" id="edit1">edit
+                    </button>
+          
+                <button  type="button" class="btn" id="save" style="display: none">Save
+                    </button>
+                         <!-- <span class="save"> 
                             <button  class="btn"  onclick="del(event)">delete
-                                </button></span>
+                                </button></span> -->
 
-                                <span class="save">
-                                    <button  class="btn" onclick="logOut(event)">logout
-                                        </button></span>
+                                <span class="save"> 
+                                <a href="../../index.html"><button  class="btn" type="button" id="logout">logout
+                                </button></a> </span> 
         
             </form>
+         
         
         </section>
 
         </body>
-
+        <script src="./pages/order/header.js"></script>
         <script>
 //   const name= localStorage.getItem("name");
 //   const email= localStorage.getItem("email");
@@ -86,12 +87,12 @@
 //   console.log(number);
 
 
-//   document.getElementById("name").value= name
-//   document.getElementById("email").value= email
-//   document.getElementById("password").value= password
-//   document.getElementById("mobilenumber").value= number -->
+//   // document.getElementById("name").value= name
+//   // document.getElementById("email").value= email
+//   // document.getElementById("password").value= password
+//   // document.getElementById("mobilenumber").value= number -->
 
-// 
+
 
 // let user_details = JSON.parse(window.localStorage.getItem("user_details"));
      
@@ -100,8 +101,10 @@
 //       document.getElementById("user_password").value = user_details[0]["user_password"];
 //       document.getElementById("user_mobilenumber").value = user_details[0]["user_mobile"];
 let user_data = JSON.parse(localStorage.getItem('user_data'));
-let unique = user_data["user_email"];
+let unique1 = user_data["user_email"];
+localStorage.setItem('unique',JSON.stringify(unique1))
 let user_list = JSON.parse(localStorage.getItem('user_list'));
+let unique=JSON.parse(localStorage.getItem('unique'))
 function findPlayer(e) {
   return e.user_email == unique ;
 }
@@ -111,6 +114,33 @@ document.getElementById("user_name").value = person_data["user_name"];
 document.getElementById("user_email").value = person_data["user_email"] ;
 document.getElementById("user_password").value = person_data["user_password"] ;
 document.getElementById("user_mobilenumber").value= person_data["user_mobile"] ;
+
+
+
+function update(e){
+                let user_data = JSON.parse(localStorage.getItem('user_data'));
+                let unique1 = user_data["user_email"];
+                localStorage.setItem('unique',JSON.stringify(unique1))
+                let unique=JSON.parse(localStorage.getItem('unique'))
+                let user_list = JSON.parse(localStorage.getItem('user_list'));
+                function findPlayer(e) {
+                return e.user_email == unique ;
+                }
+                person_data = user_list.find(findPlayer);
+
+                 // getting the updated data from the input field
+                let up_name = document.getElementById("user_name").value;
+                let up_mobile = document.getElementById("user_mobilenumber").value;
+                let up_email=document.getElementById("user_email").value 
+                let up_password=document.getElementById("user_password").value
+                // paste the updated data to the correct object
+                person_data["user_name"] = up_name;
+                person_data["user_mobilenumber"] = up_mobile;
+                // again paste it to the
+                localStorage.setItem("user_list", JSON.stringify(user_list));
+                console.log(userData);
+              }
+
 
 function edit(e){
       window.location.href="../../pages/profile/profile_edit.html";
@@ -123,13 +153,15 @@ function edit(e){
 
 //////////////////////////////////////////////////////
 function del(e){
-    
-let user_data = JSON.parse(localStorage.getItem('user_data'));
-let unique = user_data["user_email"];
-let user_list = JSON.parse(localStorage.getItem('user_list'))
-function findPlayer(e) {
-  return e.user_email == unique ;
-}
+                let unique1 = user_data["user_email"];
+                localStorage.setItem('unique',JSON.stringify(unique1))
+                let unique=JSON.parse(localStorage.getItem('unique'))
+                let user_data = JSON.parse(localStorage.getItem('user_data'));
+                
+                let user_list = JSON.parse(localStorage.getItem('user_list'))
+                function findPlayer(e) {
+                    return e.user_email == unique ;
+                }
 person_data = user_list.find(findPlayer);
 
 const indexOfUser = user_list.indexOf(person_data);
@@ -144,15 +176,46 @@ localStorage.setItem("user_list",JSON.stringify(user_list));
 
 }
 
-function logOut(e){
-    localStorage.setItem('user_data'," ");
-    window.location.href="../../index.html";
-}
+// function logOut(e){
+//     localStorage.setItem('user_data'," ");
+//     window.location.href="../../index.html";
+// }
 
 
 
 
+const edit1 = document.querySelector("#edit1");
+        edit1.addEventListener("click", findReadonly);
 
+        // save button
+        const save = document.querySelector("#save");
+        save.addEventListener("click", update)
+        save.addEventListener("click", findReadonly1)
+
+
+
+
+        function findReadonly(e) {
+            document.getElementById("user_name").removeAttribute("readonly") ;
+            document.getElementById("user_email").removeAttribute("readonly") ;
+            document.getElementById("user_password").removeAttribute("readonly");
+            document.getElementById("user_mobilenumber").removeAttribute("readonly") ;
+            document.querySelector("#save").removeAttribute("style","display:flex");
+            document.querySelector("#edit1").setAttribute("style", "display:none");
+            let head = document.querySelector(".heading");
+            head.innerHTML = "My Profile-Edit"
+
+
+        };
+
+        function findReadonly1(e) {
+            document.getElementById("user_name").setAttribute("readonly", "true");
+            document.getElementById("user_email").setAttribute("readonly", "true")
+            document.getElementById("user_password").setAttribute("readonly", "true");
+            document.getElementById("user_mobilenumber").setAttribute("readonly", "true")
+            document.querySelector("#save").setAttribute("style", "display:none")
+            document.querySelector("#edit1").setAttribute("style","display:flex" );
+        }
 
 
 
@@ -175,5 +238,6 @@ function logOut(e){
 
       
 </script>
+<script src="../../pages/order/header.js"></script>
         
         </html>

@@ -1,0 +1,24 @@
+{
+  "name": "coffeeshop",
+  "version": "1.0.0",
+  "description": "problem statement:https://drive.google.com/drive/u/0/folders/1UwplcfCo8O_kTFxPw1FnvmAbrHbSA3a6  \r User Flow : https://drive.google.com/drive/u/0/folders/1UwplcfCo8O_kTFxPw1FnvmAbrHbSA3a6  \r wireflow:https://drive.google.com/drive/u/0/folders/1UwplcfCo8O_kTFxPw1FnvmAbrHbSA3a6",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JayashreeSelvarangam/coffeeshop.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JayashreeSelvarangam/coffeeshop/issues"
+  },
+  "homepage": "https://github.com/JayashreeSelvarangam/coffeeshop#readme",
+  "devDependencies": {
+    "@commitlint/cli": "^17.4.4",
+    "@commitlint/config-conventional": "^17.4.4",
+    "husky": "^8.0.3"
+  }
+}

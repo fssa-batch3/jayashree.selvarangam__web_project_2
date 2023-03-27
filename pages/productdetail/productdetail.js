@@ -905,7 +905,7 @@ let minus_card;
 //                     quantity: 50
 //                 },
 //                 {
-//                     name: "medium",
+//                     name: "medium,
 //                     quantity: 30
 //                 },
 //                 {
@@ -1126,7 +1126,7 @@ let  productData = master_list.find(findProduct);
 
 
 
-// const newUser = urlParams.get('newuser')
+// const newUser = urlParams.get('newuser');
 // // console.log(newUser);
 // // product
 // const color = urlParams.get('color')
@@ -1169,11 +1169,11 @@ content_card.append(h3_card);
 
 p_card = document.createElement("p");
 p_card.setAttribute("class", "calorie");
-p_card.innerText = productData["quantities"]["name"] +
-productData["quantities"]["quantity"] +
-productData["quantities"]["unit"] +
-productData["quantities"]["calories"] +
-productData["quantities"]["calories_unit"];
+p_card.innerText =  productData["quantities"]["medium"]["name"] +
+productData["quantities"]["medium"]["quantity"] +
+productData["quantities"]["medium"]["unit"] +
+productData["quantities"]["medium"]["calories"] +
+productData["quantities"]["medium"]["calories_unit"];
 ;
 content_card.append(p_card);
 
@@ -1185,7 +1185,7 @@ content_card.append(p1_card);
 
 p2_card = document.createElement("p");
 p2_card.setAttribute("class", "cost");
-p2_card.innerText = productData["price_1"]['medium'];
+p2_card.innerText = "Rs." + productData["price_1"]['medium'].replace("Rs.","");
 content_card.append(p2_card);
 
 button_card = document.createElement("div");
@@ -1267,17 +1267,31 @@ document.querySelector(".about-product").append(row_card);
 let tall = document.getElementById('btn-1');
 tall.addEventListener('click',function(){
  
-    p2_card.innerText =  productData["price_1"]['tall'];
-
-    
+    p2_card.innerText = 'Rs.' + productData["price_1"]['tall'];
+    let sum = p2_card.innerText.replace("Rs.", "") ;
+    p_card.innerText = productData["quantities"]["tall"]["name"] +
+    productData["quantities"]["tall"]["quantity"] +
+    productData["quantities"]["tall"]["unit"] +
+    productData["quantities"]["tall"]["calories"] +
+    productData["quantities"]["tall"]["calories_unit"];
+;
 });
 
 let short = document.getElementById('btn-3');
 short.addEventListener('click',function(){
  
-    p2_card.innerText = productData["price_1"]['short'];
+    p2_card.innerText ='Rs.' + productData["price_1"]['short'];
+    console.log(p2_card);
 
-    
+    let sum = p2_card.innerText.replace("Rs.", "") 
+    console.log(sum);
+
+
+    p_card.innerText = productData["quantities"]["medium"]["name"] +
+    productData["quantities"]["short"]["quantity"] +
+    productData["quantities"]["short"]["unit"] +
+    productData["quantities"]["short"]["calories"] +
+    productData["quantities"]["short"]["calories_unit"];
 });
 
 
@@ -1285,8 +1299,14 @@ short.addEventListener('click',function(){
 let medium = document.getElementById('btn-2');
 medium.addEventListener('click',function(){
  
-    p2_card.innerText =  productData["price_1"]['medium'];
+    p2_card.innerText = 'Rs.' + productData["price_1"]['medium'];
+    let sum = p2_card.innerText.replace("Rs.", "");
 
+    p_card.innerText = productData["quantities"]["medium"]["name"] +
+    productData["quantities"]["medium"]["quantity"] +
+    productData["quantities"]["medium"]["unit"] +
+    productData["quantities"]["medium"]["calories"] +
+    productData["quantities"]["medium"]["calories_unit"];
     
 });
 let add_item =document.querySelector(".add-item-cart");
@@ -1316,8 +1336,8 @@ let add_item =document.querySelector(".add-item-cart");
 //     });
 
 
-////////////////////////////////////////////////////////////////////////
-         
+////////////////////////////////////////////////////////////////////////|
+
 add_item.addEventListener('click',function(e){
     
     let unique_id = this.dataset.id;
@@ -1338,6 +1358,8 @@ add_item.addEventListener('click',function(e){
     let unique= JSON.parse(localStorage.getItem("unique_id"));
     // getting price
     let price= p2_card.innerText;
+
+    let quantity_calories = p_card.innerText;
     //declaring empty string to perform the add to the cart 
     let id = '';
 
@@ -1356,21 +1378,15 @@ add_item.addEventListener('click',function(e){
             // "category_description":category_description,
             // "description":description,
             "name": productData["name"],
-            "quantities": {
-               "name": productData["quantities"]["name"],
-               "quantity": productData["quantities"]["quantity"],
-               "unit": "ml",
-               "calories": productData["quantities"]["calories"],
-               "calories_unit": "kcal",
-            },
-            "image": {
+            "quantities":quantity_calories,
 
+            "image": {
                "source": productData["image"]["source"],
                "alt": ""
             },
 
             "description": productData["description"],
-             "price":price,
+             "price":sum,
             "currency": "Rs.",
             'add_to_cart_id':  uuidv4(),
             "product_id": unique,
@@ -1408,15 +1424,7 @@ add_item.addEventListener('click',function(e){
                 // "category_description":category_description,
                 // "description":description,
                 "name": productData["name"],
-                "quantities": {
-                   "name": productData["quantities"]["name"],
-                   "quantity": productData["quantities"]["quantity"],
-                   "unit": "ml",
-                   "calories": productData["quantities"]["calories"],
-
-                   "calories_unit": "kcal",
-                },
-                 
+                "quantities":quantity_calories,
                 "image": {
     
                    "source": productData["image"]["source"],

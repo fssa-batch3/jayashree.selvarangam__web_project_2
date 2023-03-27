@@ -1602,47 +1602,65 @@ const veg_img = ["../../assets/image/veg.svg"]
 const master_list = JSON.parse(localStorage.getItem("product_detail_list"));
 
 const list2_names = master_list.filter(function category(type) {
+
+
     return type.category === "EXPRESSO";
 }
-)
+);
 
-
+console.log(list2_names);
 
 
 const list3_names = master_list.filter(function category(type) {
+
+
     return type.category === "FRAPPUCINO";
 }
-)
+);
 
 
 
 
 const list4_names = master_list.filter(function category(type) {
-    return type.category === "BREWED COFFEE";
+return type.category === "BREWED COFFEE";
 }
-)
+);
 
 
 
 
 
 const list5_names = master_list.filter(function category(type) {
-    return type.category === "TEA";
+return type.category === "TEA";
 }
-)
+);
 
 
 
 
 
 const list6_names = master_list.filter(function category(type) {
+
+
     return type.category === "COLD BREW";
 }
-)
+);
+
+
 
 
 
 for (let i = 0; i < list2_names.length; i++) {
+    // <h3 class="expressoa-title">Espresso</h3>
+    // <p class="expressoa-p">Our smooth signature Espresso Roast with rich flavor and caramelly sweetness is at the very heart of everything we do</p>
+    if(list2_names !== null  && i=== 0 ){
+        let coffee_title = document.querySelector('.expressoa-title');
+        coffee_title.innerText= list2_names[i]['category'];
+        let coffee_description = document.querySelector('.expressoa-p');
+        coffee_description.innerText = list2_names[i]["description"];
+    };
+    
+
 
     const container_card = render(list2_names[i]);
 
@@ -1655,7 +1673,17 @@ for (let i = 0; i < list2_names.length; i++) {
 
 }
 
+
 for (let i = 0; i < list3_names.length; i++) {
+
+    if(list3_names !== null  && i=== 0 ){
+        let coffee_title = document.querySelector('.expressoa-title1');
+        coffee_title.innerText= list3_names[i]['category'];
+        let coffee_description = document.querySelector('.expressoa-p1');
+        coffee_description.innerText = list3_names[i]["description"];
+       
+    
+        }
 
     const container_card = render(list3_names[i])
 
@@ -1665,6 +1693,14 @@ for (let i = 0; i < list3_names.length; i++) {
 }
 
 for (let i = 0; i < list4_names.length; i++) {
+
+
+    if(list4_names !== null  && i=== 0 ){
+        let coffee_title = document.querySelector('.expressoa-title2');
+        coffee_title.innerText= list4_names[i]['category'];
+        let coffee_description = document.querySelector('.expressoa-p2');
+        coffee_description.innerText = list4_names[i]["description"];
+     };
 
     const container_card = render(list4_names[i]);
 
@@ -1676,7 +1712,13 @@ for (let i = 0; i < list4_names.length; i++) {
 }
 
 for (let i = 0; i < list5_names.length; i++) {
-
+    
+    if(list5_names !== null && i==0){
+        let coffee_title = document.querySelector('.expressoa-title3');
+        coffee_title.innerText= list5_names[i]['category'];
+        let coffee_description = document.querySelector('.expressoa-p3');
+        coffee_description.innerText = list5_names[i]["description"];
+   };
 
     const container_card = render(list5_names[i])
 
@@ -1688,6 +1730,13 @@ for (let i = 0; i < list5_names.length; i++) {
 
 for (let i = 0; i < list6_names.length; i++) {
 
+    if(list6_names !== null && i==0){
+        let coffee_title = document.querySelector('.expressoa-title4');
+        coffee_title.innerText= list6_names[i]['category'];
+        let coffee_description = document.querySelector('.expressoa-p4');
+        coffee_description.innerText = list6_names[i]["description"];
+   };
+
     const container_card = render(list6_names[i]);
 
     document.querySelector(".beverages4").append(container_card);
@@ -1695,7 +1744,7 @@ for (let i = 0; i < list6_names.length; i++) {
     // const category_description =
    
    
-}
+};
 
 
 
@@ -1752,7 +1801,7 @@ function render(object) {  // const object = list6_names[i]
 
     img_content_cost_card = document.createElement("div");
     img_content_cost_card.setAttribute("class", "beverage-img-content-cost");
-    container_card.append(img_content_cost_card)
+    container_card.append(img_content_cost_card);
 
     image_card = document.createElement("div");
     image_card.setAttribute("class", "beverage-image");
@@ -1797,11 +1846,11 @@ function render(object) {  // const object = list6_names[i]
 
     p_1 = document.createElement("p");
     p_1.setAttribute("class", "p-1");
-    p_1.innerText = object["quantities"]["name"] +
-        object["quantities"]["quantity"] +
-        object["quantities"]["unit"] +
-        object["quantities"]["calories"] +
-        object["quantities"]["calories_unit"];
+    p_1.innerText = object["quantities"]["medium"]["name"] +
+        object["quantities"]["medium"]["quantity"] +
+        object["quantities"]["medium"]["unit"] +
+        object["quantities"]["medium"]["calories"] +
+        object["quantities"]["medium"]["calories_unit"];
     message_1_card.append(p_1);
 
 
@@ -1822,7 +1871,7 @@ function render(object) {  // const object = list6_names[i]
 
     cost_card = document.createElement("div");
     cost_card.setAttribute("class", "cost");
-    cost_card.innerText = object["currency"] + object["price"];
+    cost_card.innerText = object["currency"] + object["price_1"]["medium"];
     costdetail_card.append(cost_card);
 
     add_item_card = document.createElement("div");
@@ -1835,9 +1884,11 @@ function render(object) {  // const object = list6_names[i]
     // // a_card.setAttribute("href", `../../pages/productdetail/product-cappu.html` + "?name=" + object["name"] +"&product_id=" + object["product_id"]);
     // add_item_card.append(a_card);
 
+
     button_card = document.createElement("button");
-    button_card.setAttribute("data-id",object["product_id"])
+    button_card.setAttribute("data-id",object["product_id"]);
     button_card.innerText = "add item";
+    
     button_card.setAttribute("class","btn-add-item")
     add_item_card.append(button_card);
 
@@ -1850,13 +1901,17 @@ function render(object) {  // const object = list6_names[i]
 
 
 let btn_add_item = document.querySelectorAll(".btn-add-item");
+let user_login_id1 = JSON.parse(localStorage.getItem('unique'));
 
 btn_add_item.forEach(findId =>{
     findId.addEventListener('click',function(e){
+        if(user_login_id1 === null){
+            alert('login to buy your coffee');
+        }else{
         let unique_id = findId.dataset.id;
         // console.log(unique_id)
         location.href=`../../pages/productdetail/product-cappu.html?product_id=${unique_id}`
-        console.log("1");
+        };
     });
 });
 

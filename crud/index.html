@@ -14,7 +14,9 @@
    <link rel="stylesheet" href="../crud/style.css">
 </head>
 
-<body>
+<body class="bg-dark">
+
+
    <div class="container">
       <h2 class="mt-5 mb-5">Coffeeshop</h2>
       <form>
@@ -50,36 +52,68 @@
 
                </div>
                <div class="form-group col-md-6 md-3">
-                  <label for="address">quantity_value in ml</label>
-                  <input type="number" name="quantity_value" id="quantity_value" class="form-control">
-
-               </div>
-               <div class="form-group col-md-6 md-3">
-                  <label for="quantity_value">calories_value in kcal</label>
-                  <input type="number" name="quantity_value" id="calories_value" class="form-control">
-
-               </div>
-               <div class="form-group col-md-6 md-3">
-                  <label for="description">Description</label>
-                  <input type="text" name="description" id="description" class="form-control">
-
-               </div>
-               <div class="form-group col-md-6 md-3">
-                  <label for="tall">tall</label>
+                  <label for="tall">tall price</label>
                   <input type="number" name="tall" id="tall" class="form-control">
 
                </div>
 
                <div class="form-group col-md-6 md-3">
-                  <label for="short">medium</label>
+                  <label for="short">short price</label>
                   <input type="number" name="short" id="short" class="form-control">
 
                </div>
                <div class="form-group col-md-6 md-3">
-                  <label for="medium">short</label>
+                  <label for="medium">medium price</label>
                   <input type="number" name="medium" id="medium" class="form-control">
 
                </div>
+             
+               <div class="form-group col-md-6 md-3">
+                  <label for="description">Description</label>
+                  <input type="text" name="description" id="description" class="form-control">
+                  
+               </div>
+               <div>
+                  <p>medium</p>
+                  <div class="form-group col-md-6 md-3">
+                     <label for="address">quantity_value in ml</label>
+                     <input type="number" name="quantity_value" id="quantity_value_1" class="form-control">
+   
+                  </div>
+                  <div class="form-group col-md-6 md-3">
+                     <label for="quantity_value">calories_value in kcal</label>
+                     <input type="number" name="quantity_value" id="calories_value_1" class="form-control">
+   
+                  </div>
+              
+               </div>
+               <div>
+                  <p>medium</p>
+                  <div class="form-group col-md-6 md-3">
+                     <label for="address">quantity_value in ml</label>
+                     <input type="number" name="quantity_value" id="quantity_value_2" class="form-control">
+   
+                  </div>
+                  <div class="form-group col-md-6 md-3">
+                     <label for="quantity_value">calories_value in kcal</label>
+                     <input type="number" name="quantity_value" id="calories_value_2" class="form-control">
+   
+                  </div>
+               </div>
+               <div>
+                  <p>short</p>
+             
+                  <div class="form-group col-md-6 md-3">
+                     <label for="address">quantity_value in ml</label>
+                     <input type="number" name="quantity_value" id="quantity_value_3" class="form-control">
+   
+                  </div>
+                  <div class="form-group col-md-6 md-3">
+                     <label for="quantity_value">calories_value in kcal</label>
+                     <input type="number" name="quantity_value" id="calories_value_3" class="form-control">
+   
+                  </div>
+            </div>
                <div class="form-group col-md-6 md-3">
                   <label for="cost">Cost</label>
                   <input type="number" name="cost" id="cost" class="form-control">
@@ -135,9 +169,15 @@
       // let category_description = document.getElementById("category_description").value;
       let name = document.getElementById("name").value;
       let size_name = document.getElementById("size_name").value;
-      let quantity_value = document.getElementById("quantity_value").value;
+      let quantity_value1 = document.getElementById("quantity_value_1").value;
       // let quantity_unit = document.getElementById("quantity_unit").value;
-      let calories_value = document.getElementById("calories_value").value;
+      let calories_value1 = document.getElementById("calories_value_1").value;
+      let quantity_value2 = document.getElementById("quantity_value_2").value;
+      // let quantity_unit = document.getElementById("quantity_unit").value;
+      let calories_value2 = document.getElementById("calories_value_2").value;
+      let quantity_value3 = document.getElementById("quantity_value_3").value;
+      // let quantity_unit = document.getElementById("quantity_unit").value;
+      let calories_value3 = document.getElementById("calories_value_3").value;
       // let calories_unit = document.getElementById("calories_unit").value;
       let image_url = document.getElementById("image_url").value;
       let description = document.getElementById("description").value;
@@ -165,14 +205,28 @@
             // "description":description,
             "name": name,
             "quantities": {
-               "name": size_name,
-               "quantity": quantity_value,
+               'tall':{
+               "name": 'tall',
+               "quantity": quantity_value1,
                "unit": "ml",
-               "calories": calories_value,
-               "calories_unit": "kcal",
+               "calories": calories_value1,
+               "calories_unit": "kcal"},
+               'medium':{
+               "name": 'medium',
+               "quantity": quantity_value2,
+               "unit": "ml",
+               "calories": calories_value2,
+               "calories_unit": "kcal"
+               },
+               'short':{
+               "name": 'short',
+               "quantity": quantity_value3,
+               "unit": "ml",
+               "calories": calories_value3,
+               "calories_unit": "kcal"
+               }
             },
             "image": {
-
                "source": image_url,
                "alt": ""
             },
@@ -422,7 +476,7 @@ let product_detail_list = JSON.parse(localStorage.getItem('product_detail_list')
 </script>
 <script src="https://cdn.jsdelivr.net/npm/uuid@8.3.2/dist/umd/uuidv4.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/uuid@8.3.2/dist/umd/uuidv4.min.js"></script>
-
+<script src="./pages/order/header.js"></script>
 </html>
 
 <!-- <!DOCTYPE html>

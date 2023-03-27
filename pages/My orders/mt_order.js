@@ -1,4 +1,7 @@
 // // <section class="Yourcart">
+
+// const moment = require("../../Library/moment");
+
             
             
 //    /// <div class="beverage">
@@ -122,16 +125,12 @@ beverage_content_card.append(beverage_title_card);
 
 beverage_message_card=document.createElement("div");
 beverage_message_card.setAttribute("class","beverage-message");
-beverage_message_card.innerText=  order[i]["quantities"]["name"] +
-order[i]["quantities"]["quantity"] +
-order[i]["quantities"]["unit"] +
-order[i]["quantities"]["calories"] +
-order[i]["quantities"]["calories_unit"];        
+beverage_message_card.innerText=  order[i]["quantities"];        
 beverage_content_card.append(beverage_message_card);
 
 cost=document.createElement("div");
 cost.setAttribute("class","cost");
-cost.innerText=order[i]['currency']+order[i]['price'];
+cost.innerText=order[i]['price'];
 beverage_content_card.append(cost);
 
 quantity_card=document.createElement("div");
@@ -162,8 +161,28 @@ delivery_card.setAttribute("class","delivery-status");
 beverage_costdetail_card.append(delivery_card);
 
 p_1=document.createElement("p");
-p_1.innerText="Delivered";
+
+p_1.innerText=order[i]['delivery']['del_status'];
 delivery_card.append(p_1);
+// // delivery status pending
+// // console.log(order[i]['time_check']);
+// let before_30_minutes = moment().add({minutes:2}).format('YYYY-MM-DD hh:mm:ssA');
+// // console.log(before_30_minutes);
+// console.log(order[i]["before_30_minutes"] );
+// // let m = moment().toString();
+// let m = moment().format("YYYY-MM-DD hh:mm:ssA").toString();
+// console.log(m)
+// if(m >= order[i]["before_30_minutes"]){
+//     // p_1.innerText=order[i]['delivery']['del_status1'];
+//     p_1.innerText = order[i]['delivery']['del_status1'] ;
+//     order[i]['delivery']['del_status'] = 'delivered'
+    
+//     // console.log(order[i]['time_check']);
+    
+// }else{
+//     p_1.innerText=order[i]['delivery']['del_status']
+//     console.log("rajini");
+// };
 
 go_back=document.createElement("div");
 go_back.setAttribute("class","Goback");
@@ -180,7 +199,7 @@ remove.setAttribute("class","remove_1");
 beverage_costdetail_card.append(remove);
 
 a1_card=document.createElement("a");
- a1_card.setAttribute("data-id",order[i]['add_to_cart_id']);
+ a1_card.setAttribute("data-id",order[i]['order_id']);
  a1_card.setAttribute("class","remove");
  a1_card.setAttribute("href","");
 a1_card.innerText=" remove";
@@ -199,31 +218,35 @@ a2_card=document.createElement("a");
 a2_card.innerText=" reorder";
 
 re_order.append(a2_card);
-
 document.querySelector(".whole").append(your_cart_card);
+
 }
 
 let removeOrder = document.querySelectorAll('.remove');
 removeOrder.forEach(function (remove_id) {
     remove_id.addEventListener("click", function () {
-      
+        
         const cartId = this.dataset.id;
-
+    
         // console.log('cartId');
         // let cart_ids = JSON.parse(localStorage.getItem("crud"));
-        let  product_order= JSON.parse(localStorage.getItem('orders'));
-
-        function find_id(e) {
-            return e.add_to_cart_id === cartId ;
+        let  product_order = JSON.parse(localStorage.getItem('orders'));
+        function find_id(e){
+            return e.order_id === cartId;
         };
-
         let remove_food = product_order.find(find_id);
-        let indexOfItem = product_order.indexOf(remove_food);
-        product_order.splice(indexOfItem, 1);
-      
- 
+        console.log(remove_food)
+         remove_food['delivery']['del_status']='cancelled';
+
+         remove_food['delivery']['del_status1']='cancelled';
+         // product_order.push(remove_food);
+        // let indexOfItem = product_order.indexOf(remove_food);
+        // product_order.splice(indexOfItem, 1);
         localStorage.setItem("orders", JSON.stringify(product_order));
-        location.reload();
+        // location.reload();
+        
+       
+       
     });
 });
 
@@ -240,18 +263,16 @@ re_order1.forEach(function (add_products) {
         localStorage.setItem("cart_id", JSON.stringify(cartId));
         console.log(cartId);
         let  product_order= JSON.parse(localStorage.getItem('orders'));
-  
-  
-       const newArr = product_order.map(({date,delivery, ...rest}) => {
-       return rest;
-       });
+        const newArr = product_order.map(({date,delivery, ...rest}) => {
+        return rest;
+        });
         console.log(newArr);
         let  new_array_prod = localStorage.setItem('newArr',JSON.stringify(newArr));
         console.log(product_order);
         let get_array_prod = JSON.parse(localStorage.getItem('newArr'));
         
         function find_id(e) {
-            return e.add_to_cart_id === cartId ;
+            return e.add_to_cart_id === cartId;
         };
 
         let add_food = get_array_prod.find(find_id);
@@ -260,10 +281,9 @@ re_order1.forEach(function (add_products) {
         let check = '';
         if(check==''){
             let cart_products = JSON.parse(localStorage.getItem('add_products_cart'));
-
             if(cart_products == null){
-                cart_products.push(add_food);
-                localStorage.setItem('add_products_cart',JSON.stringify(cart_products));
+                 cart_products.push(add_food);
+                 localStorage.setItem('add_products_cart',JSON.stringify(cart_products));
             }else{
                 let add_to_cart = JSON.parse(localStorage.getItem('add_products_cart'));
                 let logic = false;
@@ -277,19 +297,21 @@ re_order1.forEach(function (add_products) {
                 if(!logic){
                     add_to_cart.push(add_food);
                     localStorage.setItem('add_products_cart',JSON.stringify(add_to_cart));
-                }
+                };
                 
-            }
-        }
-
-        
-
-
-        
-        
-      
-        
-        
-})
+            };
+        };
 });
+});
+// let animals = {
+//     'Cow': 'Moo',
+//     'Cat': 'Meow',
+//     'Dog': 'Bark'
+//   };
+  
+//   delete animals.Cow;
+//   delete animals['Dog'];
+  
+//   console.log(animals);
+
 
