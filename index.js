@@ -328,7 +328,7 @@ const object = [
 
 }
 
-]
+];
 
 let object1 = JSON.parse(localStorage.getItem('product_detail_list'));
 for(i=0;i<object1.length;i++){
@@ -380,37 +380,38 @@ for(i=0;i<object1.length;i++){
     
     add_items= document.createElement("div");
     add_items.setAttribute("class","add-item");
-    add_items.setAttribute('data-id',object1[i]["product_id"])
-    console.log(object1[i]["product_id"])
+    add_items.setAttribute('data-id',object1[i]["product_id"]);
+    console.log(object1[i]["product_id"]);
 
     coffee_cost_details_card.append(add_items);
     
     a_card= document.createElement("a");
-    a_card.setAttribute("href",object1[i]["link_pages"]);
+    // a_card.setAttribute("href","../../pages/productdetail/product-cappu.html?product_id="+object1[i]["product_id"]);
     add_items.append(a_card);
     
     button_card= document.createElement("button");
-   
     button_card.innerText="add item";
     a_card.append(button_card);
     
     document.querySelector(".coffee-products").append(coffee_items_card);
-    }
+    };
 // let root = window.location.origin
 let btn_add_item = document.querySelectorAll(".add-item");
 let user_login_id1 = JSON.parse(localStorage.getItem('unique'));
-
+       
         btn_add_item.forEach(findId =>{
         findId.addEventListener('click',function(e){
-        if(user_login_id1 === null){
-            alert('login to buy your coffee');
-        }else{
+            if(user_login_id1==null){
+                alert('login')
+            }else{
         let unique_id = findId.dataset.id;
 
         console.log(unique_id);
 
-        window.location.href=`${root}/pages/productdetail/product-cappu.html?product_id=${unique_id}`
+        window.location.href=`../../pages/productdetail/product-cappu.html?product_id=${unique_id}`
         
-    };
+            }
     });
+
 });
+        

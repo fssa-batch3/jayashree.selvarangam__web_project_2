@@ -25,11 +25,9 @@ let button_card;
 
 
 const object = [
-    
 {
-
-    "name": "Pumpkin Spice Cream Cold Brew ",
-    "description": "Our Cold Brew sweetened with vanilla syrup, topped with a pu... ",
+    "name":"Pumpkin Spice Cream Cold Brew ",
+    "description":"Our Cold Brew sweetened with vanilla syrup, topped with a pu... ",
     "quantities":
     {
         "name": "TALL",
@@ -59,10 +57,7 @@ const object = [
    
     "category": "Cold Brew",
     "category_description": "Slow-steeped, complex, and full-bodied, the Cold Brew is an experience.",
-
-
-
-    "image": {
+    "image":{
         "source": " ../../assets/image/pumpkincold.jpg",
         "alt": ""
     },
@@ -447,6 +442,7 @@ let  productData= JSON.parse(localStorage.getItem('add_products_cart'));
 // // console.log(productData);
    
 
+
   
 
 for(i=0;i< productData.length;i++){
@@ -666,6 +662,25 @@ let minus_1 = document.querySelectorAll(".minus_1");
     });
 });
 
+// let type_of_delivery = document.querySelector('input [name = hello ]:checked').value
+// console.log(type_of_delivery);
+function myfunction(){
+let txt = '';
+let hello =document.forms[0]
+for(let i=0;i<hello.length;i++){
+    if(hello[i].checked){
+        txt += txt+gender[i].value+''
+    }
+}
+console.log(txt)
+}
+
+// ProductData.forEach(object => {
+//     object.type_of_delivery = document.querySelector('input [name = yes_no” ]:checked').value
+        
+// });
+
+
  let add_cart_id_values = [];
   for (i = 0; i < productData.length; i++){
     add_cart_id_values[i] = productData[i]["add_to_cart_id"];
@@ -677,42 +692,22 @@ let total_price = productData;
 let price_1 = 0;
 for (let i = 0; i < total_price.length; i++) {
     price_1 += parseInt(total_price[i]["price"].replace("Rs.", "")*total_price[i]["quantity_ordered"]);
-}
-// location.reload();
-// }
-// console.log(price_1);
+};
 
-let item_total  = document.getElementById('amount');
-item_total.innerText='Rs.' + price_1;
-let total_items =  document.getElementById('total_items');
-total_items.innerText='Rs.' + price_1;
 
-// Function to reload only one div
+        let item_total  = document.getElementById('amount');
+        item_total.innerText='Rs.' + price_1;
+        let total_items =  document.getElementById('total_items');
+        total_items.innerText='Rs.' + price_1;
 
-// function to update cart total//
-// function updateTotal() {
-   
-//     let foodItems = document.getElementsByClassName('sumlist')[0]
-//     let cartItems = foodItems.getElementsByClassName('food_items')
-//     let total =0;
-//     for (let i = 0; i < cartItems.length; i++) {
-//         let cart = cartItems[i]
-//         let rate = cart.getElementsByClassName('rate')[0];
-//         let n = parseInt(num[i].innerText);
-//         let quantity = n;
 
-//         let price = parseInt(rate.innerText.replace("Rs.", ""));
-//         total+= (price*quantity)
-//         // console.log(total)
-//     }
-// }
-// updateTotal()
+
 
         let order =  document.getElementById('btn_order');
-
         order.addEventListener('click',function(){
+        myfunction();
 //   let order = JSON.parse(localStorage.getItem('orders'))||[];
-//   let exist= order.length && JSON.parse(localStorage.getItem('orders')).some()
+//   let exist=order.length && JSON.parse(localStorage.getItem('orders')).some()
         alert('are you sure you want to place the order');
         let check ='';
         if(check == ''){
