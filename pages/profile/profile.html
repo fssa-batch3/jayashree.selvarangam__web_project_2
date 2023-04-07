@@ -102,11 +102,11 @@
 //       document.getElementById("user_mobilenumber").value = user_details[0]["user_mobile"];
 let user_data = JSON.parse(localStorage.getItem('user_data'));
 let unique1 = user_data["user_email"];
-localStorage.setItem('unique',JSON.stringify(unique1))
+localStorage.setItem('unique_id',JSON.stringify(unique1))
 let user_list = JSON.parse(localStorage.getItem('user_list'));
-let unique=JSON.parse(localStorage.getItem('unique'))
-function findPlayer(e) {
-  return e.user_email == unique ;
+let unique=JSON.parse(localStorage.getItem('unique_id'))
+function findPlayer(e){
+  return e.user_email == unique;
 }
 person_data = user_list.find(findPlayer);
 
@@ -189,7 +189,7 @@ const edit1 = document.querySelector("#edit1");
 
         // save button
         const save = document.querySelector("#save");
-        save.addEventListener("click", update)
+        save.addEventListener("click", update);
         save.addEventListener("click", findReadonly1)
 
 

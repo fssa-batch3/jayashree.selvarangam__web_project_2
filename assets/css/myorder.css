@@ -22,7 +22,7 @@
 
 .orders-header{
     display:grid;
-    grid-template-columns:130px 3fr 100px 250px 200px;
+    grid-template-columns:130px 3fr 150px 150px 250px 200px 50px;
     padding: 1rem 8%;
     margin-bottom: 2rem;
     border-bottom: 1px solid var(--bs-gray-700);
@@ -45,7 +45,7 @@
 }
 .beverage-container{
     display:grid;
-    grid-template-columns:130px 3fr 100px 250px 200px;
+    grid-template-columns:130px 3fr 150px 150px 250px 200px 50px;
     padding-bottom:30px;
     padding-left: 50px;
     padding-right: 50px;
@@ -78,10 +78,10 @@
     margin-top:0;
     margin-bottom:4px;
 }
-.beverage-costdetail{
+.beverage-costdetail,.beverage-costdetail1{
     margin-top:5px;
 }
-.delivery-status{
+.delivery-status,.delivery-status1{
     color:var(--bs-gray-800);
     font-size:1.1rem;
 }
@@ -91,16 +91,28 @@
    position: relative;
    top:19px;
 }
-.ordered-date{
+.ordered-date,.mode_of_delivery{
     color:var(--bs-gray-600);
     font-size:1rem;
    position: relative;
    top:20px;
 }
+.cancel,.reorder{
+    padding-top: 7px;
+    
+}
+#cancel_1,#reorder_1{
+    padding:10px 8px 10px 8px;
+    font-size: 15px;
+    color:teal;
+    border:1px solid var(--bs-orange)
+}
+
 .quantity{
     position: relative;
     top:20px;
 }
+
 header #toggler{
     display: none;
  }

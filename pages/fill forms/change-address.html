@@ -45,14 +45,14 @@
          
             <form action="">
                
-                <input type="text" placeholder="Name" id="name"class="box">
+                <!-- <input type="text" placeholder="Name" id="name"class="box"> -->
                
                
 <!--                 
                 <input type="text" placeholder="Mobile number" class="box">
                 -->
-
-                <input type="password" placeholder="Password" id="password" class="box">
+<!-- 
+                <input type="password" placeholder="Password" id="password" class="box"> -->
 
                 <!-- <input type="text" placeholder="District" class="box">
                 
@@ -62,7 +62,7 @@
                 
                 <textarea name="" placeholder="Add your address" class="box" id="address" cols="30" rows="10"></textarea>
                
-                <button class="btn" onclick="submit()"><a href="../../pages/add to cart/addtocart.html">Submit</a> </button>  
+                <button class="btn" id="sub">Submit</button>  
         
             </form>
            
@@ -71,18 +71,22 @@
         </body>
         <script src="../../pages/order/header.js"></script>
         <script>
-             function submit(){
-                const  userName = document.getElementById("name").value;
-                const  password = document.getElementById("password").value;
-                const  changeAddress = document.getElementById("address").value;
-                
-                console.log(userName);
-               console.log(password);
-                console.log( changeAddress);
+    let sub = document.getElementById('sub');
+    sub.addEventListener('click',function(){
+        let user_listq = JSON.parse(localStorage.getItem('user_list'));
+        
+        let user_data = JSON.parse(localStorage.getItem('unique_id'));
+        function findPlayer(e){
+        return e.user_email == user_data;
+        }
+       
+        person_data = user_listq.find(findPlayer);
+        console.log(person_data)
+        let new_address = document.getElementById('address').value;
+        person_data['user_address'] = new_address;
+        let user_list = localStorage.setItem('user_list',JSON.stringify(user_listq));
+        window.location.href="../../pages/add to cart/addtocart.html";
+    });
 
-                localStorage.setItem("name",userName)
-                localStorage.setItem("password",password)
-                localStorage.setItem("address",changeAddress)
-             }
         </script>
         </html>

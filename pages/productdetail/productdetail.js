@@ -1101,7 +1101,7 @@ const queryString = window.location.search;
 // console.log(queryString);
 
 const urlParams = new URLSearchParams(queryString);
-
+console.log(urlParams);
 const product = urlParams.get('product_id');
 // console.log(product);
 
@@ -1340,8 +1340,8 @@ let add_item =document.querySelector(".add-item-cart");
 
 add_item.addEventListener('click',function(e){
     
-    let unique_id = this.dataset.id;
-    localStorage.setItem("unique_id", JSON.stringify(unique_id));
+    let unique_id111 = this.dataset.id;
+    localStorage.setItem("unique_id111", JSON.stringify(unique_id111));
 
     // let cart_id = this.dataset.cart_id;
     // localStorage.setItem("cart_id",JSON.stringify(cart_id));
@@ -1349,13 +1349,13 @@ add_item.addEventListener('click',function(e){
     // finding the product json
     let product_detail_list = JSON.parse(localStorage.getItem('product_detail_list'));
     function findProduct(e) {
-        return e.product_id == unique_id;
+        return e.product_id == unique_id111;
      }
 
      productData = product_detail_list.find(findProduct);
      // console.log(productData);
     // getting unique id
-    let unique= JSON.parse(localStorage.getItem("unique_id"));
+    let unique= JSON.parse(localStorage.getItem("unique_id111"));
     // getting price
     let price= p2_card.innerText;
 
@@ -1369,6 +1369,7 @@ add_item.addEventListener('click',function(e){
         // introducing an array of objects to get  value , whether the array is already declared or not
         // let arr=  JSON.parse(localStorage.getItem('crud'));
         let add_to_cart = JSON.parse(localStorage.getItem('add_products_cart'));
+        let user_id = JSON.parse(localStorage.getItem('unique_id'));
         // checking the  array if is null push newly or push it as a new one or push it into already existed array 
     if(add_to_cart==null){
 
@@ -1379,14 +1380,14 @@ add_item.addEventListener('click',function(e){
             // "description":description,
             "name": productData["name"],
             "quantities":quantity_calories,
-
+            "user_id":user_id,
             "image": {
                "source": productData["image"]["source"],
                "alt": ""
             },
 
             "description": productData["description"],
-             "price":sum,
+             "price":price,
             "currency": "Rs.",
             'add_to_cart_id':  uuidv4(),
             "product_id": unique,
@@ -1425,6 +1426,7 @@ add_item.addEventListener('click',function(e){
                 // "description":description,
                 "name": productData["name"],
                 "quantities":quantity_calories,
+                "user_id":user_id,
                 "image": {
     
                    "source": productData["image"]["source"],
@@ -1442,6 +1444,7 @@ add_item.addEventListener('click',function(e){
         }
 }
 };
+window.location.href="../../pages/add to cart/addtocart.html";
 });
 
 
@@ -1518,7 +1521,7 @@ for(i=0;i<object1.length;i++){
     };
 // let root = window.location.origin
 let btn_add_item = document.querySelectorAll(".add-item");
-let user_login_id1 = JSON.parse(localStorage.getItem('unique'));
+let user_login_id1 = JSON.parse(localStorage.getItem('user_data'));
        
         btn_add_item.forEach(findId =>{
         findId.addEventListener('click',function(e){
@@ -1559,83 +1562,3 @@ let user_login_id1 = JSON.parse(localStorage.getItem('unique'));
 //       alert("product already exists");
 //    }
 // })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        // localitems.map(data=>{
-        //     if( items.id == data.id){
-        //         alert('product is already added');
-        //     }
-        //     else{
-        //         items.push(data);
-        //         localStorage.setItem('items',JSON.stringify(items));
-        //     }});
-           
-           
-        //  }
-           
-        // items.push({unique_id});
-       
-    
-        // function manageData(){
-    
-        //         document.getElementById('msg').innerHTML= "";
-        //         let first_name = document.getElementById('first_name').value;
-        //         if( first_name == ""){
-        //         document.getElementById('msg').innerHTML = 'plese enter your name';
-        //         }else{
-        //         console.log(id);
-        //         if(id==''){
-        //         let arr=  getCrudData();
-        //        if(arr==null){
-        //         let data=[first_name];
-        //          localStorage.setItem('crud',JSON.stringify(data));
-                 
-        //        }else{
-        //         arr.push(first_name);
-        //         localStorage.setItem('crud',JSON.stringify(arr));
-        //        }
-        
-        //        document.getElementById('msg').innerHTML = 'data added';
-        //         }else{
-        //        let arr=getCrudData();
-        //        arr[id]=first_name;
-        //        setCrudData(arr);
-        //        document.getElementById('msg').innerHTML = 'data updated';
-        
-        //         }
-        //         document.getElementById('first_name').value="";
-        //         selectData();
-        //         }
-           
-          
-        // }

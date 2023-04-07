@@ -55,9 +55,9 @@
                
     
                 <input type="password"  id="password"   placeholder="Password" class="box" required="true">
-    
+            
                 <input type="password" id="confirm_password" placeholder="Confirm-password" class="box" required="true">
-                
+                <textarea type="text" id="address" class="box" required="true"></textarea>
                 <input type="tel"  id="mobilenumber"   pattern="[0-9].{9}" title="Enter 10 number only" placeholder="Mobile number" class="box" required="true">
              
                 <button  type="submit" class="btn"> Signup </button>
@@ -111,14 +111,14 @@
         // code for storing data in the local storage
     const signUP = e =>{
 
-        e.preventDefault()
-    let 
-        user_name = document.getElementById("name").value;
+       e.preventDefault();
+       let user_name = document.getElementById("name").value;
        let user_email = document.getElementById("email").value;
        let user_password = document.getElementById("password").value;
        let user_confirm_password=document.getElementById("confirm_password").value;
        let user_mobile = document.getElementById("mobilenumber").value;
-       
+       let user_address = document.getElementById("address").value;
+
        
     let a = JSON.parse(localStorage.getItem('user_list'))||[];
     let exist = a.length &&
@@ -129,8 +129,7 @@
     if(!exist){
         if(user_password==user_confirm_password){
             let unique_id = uuidv4();
-        a.push({ user_name,  user_email,
-                        user_password, user_confirm_password, user_mobile,unique_id });
+        a.push({ user_name,  user_email,user_password, user_confirm_password, user_mobile,unique_id,user_address});
         localStorage.setItem('user_list', JSON.stringify(a));
         // console.log(localStorage.getItem('user_list'));
         document.querySelector('form').reset();

@@ -15,11 +15,9 @@ form.addEventListener("submit", function (event) {
   userInfo ["user_password"]=user_password;
   userInfo ["user_confirm_password"]=user_confirm_password;
   userInfo ["user_mobile"]=user_mobile;
- 
- 
  array.push(userInfo);
 
-  if ( user_password!= user_confirm_password) {
+  if ( user_password!= user_confirm_password){
     alert("Password Doesn't Match");
   }
 

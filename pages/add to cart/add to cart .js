@@ -24,7 +24,7 @@ let button_card;
 
 
 
-const object = [
+const object1 = [
 {
     "name":"Pumpkin Spice Cream Cold Brew ",
     "description":"Our Cold Brew sweetened with vanilla syrup, topped with a pu... ",
@@ -322,7 +322,8 @@ const object = [
 }
 
 ];
-for(i=0;i<=5;i++){
+let object = JSON.parse(localStorage.getItem('product_detail_list'));
+for(let i=0;i< object.length;i++){
 
     coffee_items_card = document.createElement("div");
     coffee_items_card.setAttribute("class","coffee-items");
@@ -353,11 +354,11 @@ for(i=0;i<=5;i++){
     
     coffee_message_card = document.createElement("div");
     coffee_message_card.setAttribute("class","coffee-message");
-    coffee_message_card.innerText= object[i]["quantities"]["name"] +
-    object[i]["quantities"]["quantity"] +
-    object[i]["quantities"]["unit"] +
-    object[i]["quantities"]["calories"] +
-    object[i]["quantities"]["calories_unit"];
+    coffee_message_card.innerText= object[i]["quantities"]["medium"]["name"] +
+    object[i]["quantities"]["medium"]["quantity"] +
+    object[i]["quantities"]["medium"]["unit"] +
+    object[i]["quantities"]["medium"]["calories"] +
+    object[i]["quantities"]["medium"]["calories_unit"];
     coffee_content_card.append(coffee_message_card);
     
     coffee_cost_details_card= document.createElement("div");
@@ -371,10 +372,11 @@ for(i=0;i<=5;i++){
     
     add_items= document.createElement("div");
     add_items.setAttribute("class","add-item");
+    add_items.setAttribute('data-id',object[i]["product_id"]);
     coffee_cost_details_card.append(add_items);
     
     a_card= document.createElement("a");
-    a_card.setAttribute("href",object[i]["link_pages"]);
+    // a_card.setAttribute("href",);
     add_items.append(a_card);
     
     button_card= document.createElement("button");
@@ -383,6 +385,24 @@ for(i=0;i<=5;i++){
     
     document.querySelector(".coffee-products").append(coffee_items_card);
     };
+    let btn_add_item = document.querySelectorAll(".add-item");
+let user_login_id1 = JSON.parse(localStorage.getItem('unique_id'));
+       
+        btn_add_item.forEach(findId =>{
+        findId.addEventListener('click',function(e){
+            if(user_login_id1==null){
+                alert('login')
+            }else{
+        let unique_id = findId.dataset.id;
+
+        console.log(unique_id);
+
+        window.location.href=`../../pages/productdetail/product-cappu.html?product_id=${unique_id}`
+        
+            }
+    });
+
+});
 
    
 //     <!-- <div class="beverage">
@@ -432,25 +452,45 @@ let go_back;
 let a1_card;
 
 
-// let cart_items = JSON.parse(localStorage.getItem('crud'));
-// // console.log(cart_items);
-let  productData= JSON.parse(localStorage.getItem('add_products_cart'));
+let cart_items = JSON.parse(localStorage.getItem('crud'));
+// console.log(cart_items);
+
+
+
+
+
+
 // // console.log(product_carts);
 // let productData = product_carts.filter( product=>
 //     cart_items.some(cart_items=>cart_items.unique === product.product_id && cart_items.price === product.price)
 //     );
 // // console.log(productData);
-   
 
 
-  
+let  unique_id = JSON.parse(localStorage.getItem('unique_id'));
+console.log(unique_id)
+let  productData1= JSON.parse(localStorage.getItem('add_products_cart'));
+// function find_user_products(e){
+//     e.user_id == unique_id
+// };
+console.log(productData1)
+let productData = productData1.filter(function separate(type) {
+
+
+    return type.user_id ===unique_id ;
+});
+
+console.log(productData);
+
+
+
 
 for(i=0;i< productData.length;i++){
 
 
-   // let cart_items = JSON.parse(localStorage.getItem('crud'));
-    // let find = cart_items.find(e => e.unique == productData[i]["product_id"] && e.price === productData[i]["price"] );
-    // console.log(find);
+//    let cart_items = JSON.parse(localStorage.getItem('crud'));
+//    let find = cart_items.find(e => e.unique == productData[i]["product_id"] && e.price === productData[i]["price"] );
+//     console.log(find);
 
 your_cart_card=document.createElement("section");
 your_cart_card.setAttribute("class","Yourcart");
@@ -541,11 +581,7 @@ cost.innerText= productData[i]["price"];
 let sum = cost.innerText.replace("Rs.", "") * productData[i]['quantity_ordered']
 console.log(sum);
 cost.innerText = 'Rs.'+sum;
-
-
 // .replace('Rs','');
-
-
 beverage_costdetail_card.append(cost);
 
 go_back=document.createElement("div");
@@ -565,6 +601,11 @@ document.querySelector(".whole").append(your_cart_card);
 }
 
 
+
+
+
+
+
 // Let [month, date, year] = new Date().
 
 // toLocaleDateString("en-IN").split("/");
@@ -572,6 +613,8 @@ document.querySelector(".whole").append(your_cart_card);
 // const cartId = this.dataset.cart_id;
 
 // // console.log(cartId);
+
+
 
     let removeFood = document.querySelectorAll('button.Go_back');
     removeFood.forEach(function (remove_id) {
@@ -586,7 +629,6 @@ document.querySelector(".whole").append(your_cart_card);
         function find_id(e) {
             return e.add_to_cart_id === product_cart_id ;
         };
-
         let remove_food = product_cart__id.find(find_id);
         let indexOfItem = product_cart__id.indexOf(remove_food);
         product_cart__id.splice(indexOfItem, 1);
@@ -621,7 +663,6 @@ let plus_1 = document.querySelectorAll(".plus_1");
         function find_cart(e){
         return e.add_to_cart_id == idButton;
         };
-       
         let cart_quantity = cart_product.find(find_cart);
         console.log(cart_quantity);
         if (cart_quantity){
@@ -664,16 +705,16 @@ let minus_1 = document.querySelectorAll(".minus_1");
 
 // let type_of_delivery = document.querySelector('input [name = hello ]:checked').value
 // console.log(type_of_delivery);
-function myfunction(){
-let txt = '';
-let hello =document.forms[0]
-for(let i=0;i<hello.length;i++){
-    if(hello[i].checked){
-        txt += txt+gender[i].value+''
-    }
-}
-console.log(txt)
-}
+// function myfunction(){
+// let txt = '';
+// let hello =document.forms[0]
+// for(let i=0;i<hello.length;i++){
+//     if(hello[i].checked){
+//         txt += txt+gender[i].value+''
+//     }
+// }
+// console.log(txt)
+// }
 
 // ProductData.forEach(object => {
 //     object.type_of_delivery = document.querySelector('input [name = yes_no” ]:checked').value
@@ -681,13 +722,52 @@ console.log(txt)
 // });
 
 
- let add_cart_id_values = [];
-  for (i = 0; i < productData.length; i++){
+
+function radio(){
+    // let  productData= JSON.parse(localStorage.getItem('add_products_cart'));
+    let  delivery = document.querySelectorAll('input[name="delivery_type"]');
+    
+    let selectedValue;
+                for (let i = 0; i < delivery.length; i++) {
+                    const element = delivery[i];
+                    if (element.checked === true) {
+                        selectedValue = element.value;
+                        break;
+                    };
+                };
+                return selectedValue;
+                location.reload;
+         };
+    // adding the address in the cart page
+
+
+    let user_data = JSON.parse(localStorage.getItem('unique_id'));
+    // let unique1 = user_data["user_email"];
+    // localStorage.setItem('unique',JSON.stringify(unique1))
+    let user_list = JSON.parse(localStorage.getItem('user_list'));
+    // let unique=JSON.parse(localStorage.getItem('unique'))
+    function findPlayer(e){
+    return e.user_email == user_data;
+    }
+    person_data = user_list.find(findPlayer);
+   
+    let delivery_name = document.getElementById('del-name');
+    let delivery_address = document.getElementById('del-address');
+    delivery_name.innerText = person_data['user_name'] ;
+    delivery_address.innerText = person_data['user_address'];
+    
+    let change_address = document.querySelector('.change-address');
+    change_address.addEventListener('click',function(){
+      window.location.href='../../pages/fill forms/change-address.html'
+    });
+
+    let add_cart_id_values = [];
+    for (i = 0; i < productData.length; i++){
     add_cart_id_values[i] = productData[i]["add_to_cart_id"];
     //  permittedValues.push(permittedValues[i] );
-  }
-  console.log(add_cart_id_values);
-  localStorage.setItem('add_cart_id_values',JSON.stringify(add_cart_id_values));
+    };
+console.log(add_cart_id_values);
+localStorage.setItem('add_cart_id_values',JSON.stringify(add_cart_id_values));
 let total_price = productData;
 let price_1 = 0;
 for (let i = 0; i < total_price.length; i++) {
@@ -702,81 +782,110 @@ for (let i = 0; i < total_price.length; i++) {
 
 
 
-
+        
         let order =  document.getElementById('btn_order');
         order.addEventListener('click',function(){
-        myfunction();
-//   let order = JSON.parse(localStorage.getItem('orders'))||[];
-//   let exist=order.length && JSON.parse(localStorage.getItem('orders')).some()
-        alert('are you sure you want to place the order');
-        let check ='';
-        if(check == ''){
-         let order = JSON.parse(localStorage.getItem('orders'));
-    
-        if(order == null ){
-       
-        let order = [];
-        let  add_products_cart = JSON.parse(localStorage.getItem('add_products_cart'));
-        
-        const array = add_products_cart.map(object => {
-            return Object.assign(object, {
-                date:moment().format('YYYY-MM-DD'),
-                order_id: uuidv4(),
-                // time_check :moment().format('YYYY-MM-DD  hh:mm:ssA').toString(),
-                // before_30_minutes : moment().add({minutes:2}).format('YYYY-MM-DD hh:mm:ssA'),
-                delivery:{del_status:'not delivered',del_status1:'delivered'}});
-        });
-        function pushArray(array, array2) {
-            array.push.apply(array, array2);
-            console.log(array);
-        };
-          pushArray(order, add_products_cart);
-     
-         add_products_cart.splice(0, add_products_cart.length);
-        //   order.forEach(object => {
-        //   object.date = new Date() ,
-        //   object.dat = 'Res';
-          
-        //     });
-  
-        localStorage.setItem('orders',JSON.stringify(order));
-        localStorage.setItem('add_products_cart',JSON.stringify(add_products_cart));
-        location.reload();
-    
-        //   arr.splice(0, arr.length)
-        }else{
-        let  order = JSON.parse(localStorage.getItem('orders'));
-        let  add_products_cart = JSON.parse(localStorage.getItem('add_products_cart'));
-        const array = add_products_cart.map(object => {
-            return Object.assign(object, { date:moment().format('YYYY-MM-DD'), order_id: uuidv4(),time_check :moment().format('YYYY-MM-DD  hh:mm:ssA').toString(),before_30_minutes : moment().add({minutes:2}).format('YYYY-MM-DD hh:mm:ssA'),delivery:{del_status:'not delivered',del_status1:'delivered'}});
-        });
-        function pushArray(array, array2) {
-            array.push.apply(array, array2);
-            console.log(array);
-          };
-        pushArray(order, add_products_cart);
-          
-          
-        add_products_cart.splice(0, add_products_cart.length);
-          // for each method for adding date
-        //   order.forEach(object => {
-        //     object.date =  new Date(),
-        //     object['dat']['delivery'] = 'Res',
-        //     object['dat']['deliver'] = 'ser';
-        //     });
-
-              
+        // myfunction();
+        //   let order = JSON.parse(localStorage.getItem('orders'))||[];
+        //   let exist=order.length && JSON.parse(localStorage.getItem('orders')).some()
       
-        localStorage.setItem('orders',JSON.stringify(order));
-        localStorage.setItem('add_products_cart',JSON.stringify(add_products_cart));
-        location.reload();
+        let allow = ' ';
+        if(allow = ' '){
+            let  add_products_cart1 = JSON.parse(localStorage.getItem('add_products_cart'));
+            if(add_products_cart1==''||JSON.parse(localStorage.getItem('add_products_cart')) === null){
+                alert('no products')
+                console.log(2);
+            }
+           if(radio()==null){
+            alert('enter the mode of delivery');
+           }
+            else{
+                // alert('are you sure you want to place the order');
+                let check ='';
+                if(check == ''){
+                let order = JSON.parse(localStorage.getItem('orders'));
+            
+                if(order == null ){
+                let order = [];
+                let  add_products_cart = JSON.parse(localStorage.getItem('add_products_cart'));
+                let mode_of_delivery = radio();
+                console.log(mode_of_delivery);
+                const array = add_products_cart.map(object => {
+                    return Object.assign(object, {
+                        date:moment().format('YYYY-MM-DD'),
+                        order_id: uuidv4(),
+                        mode_of_delivery : radio(),
+                        delivery_address:delivery_address.innerText,
+                        date:moment().format('YYYY-MM-DD'),
+                        time_check :moment().format('YYYY-MM-DD  hh:mm:ssA').toString(),
+                        before_30_minutes : moment().add({minutes:2}).format('YYYY-MM-DD hh:mm:ssA'),
+                        // time_check :moment().format('YYYY-MM-DD  hh:mm:ssA').toString(),
+                        // before_30_minutes : moment().add({minutes:2}).format('YYYY-MM-DD hh:mm:ssA'),
+                        delivery:'not delivered'
+                    });
+                });
+                function pushArray(array, array2) {
+                    array.push.apply(array, array2);
+                    console.log(array);
+                };
+                pushArray(order, add_products_cart);
+                add_products_cart.splice(0, add_products_cart.length);
+                //   order.forEach(object => {
+                //   object.date = new Date() ,
+                //   object.dat = 'Res';
+                //   });
+                localStorage.setItem('orders',JSON.stringify(order));
+                localStorage.setItem('add_products_cart',JSON.stringify(add_products_cart));
+                location.reload();
+                //   arr.splice(0, arr.length)
+                }else{
+                // console.log(mode_of_delivery);
+                let  order = JSON.parse(localStorage.getItem('orders'));
+                let  add_products_cart = JSON.parse(localStorage.getItem('add_products_cart'));
+                const array = add_products_cart.map(object => {
+                    return Object.assign(object, { 
+                    date:moment().format('YYYY-MM-DD'),
+                    order_id: uuidv4(),
+                    mode_of_delivery : radio(),
+                    delivery_address:delivery_address.innerText,
+                    time_check :moment().format('YYYY-MM-DD  hh:mm:ssA').toString(),
+                    before_30_minutes : moment().add({minutes:2}).format('YYYY-MM-DD hh:mm:ssA'),
+                    delivery:'not delivered'});
+                });
+                function pushArray(array, array2) {
+                    array.push.apply(array, array2);
+                    console.log(array);
+                };
+                pushArray(order, add_products_cart);
+                
+                
+                add_products_cart.splice(0, add_products_cart.length);
+                // for each method for adding date
+                //   order.forEach(object => {
+                //     object.date =  new Date(),
+                //     object['dat']['delivery'] = 'Res',
+                //     object['dat']['deliver'] = 'ser';
+                //     });
+                localStorage.setItem('orders',JSON.stringify(order));
+                localStorage.setItem('add_products_cart',JSON.stringify(add_products_cart));
+                location.reload();
 
-    }
-        //  let  add_products_cart = JSON.parse(localStorage.getItem('add_products_cart'));
-        //  add_products_cart.splice(0, add_products_cart.length)
-    }
-    window.location.href="../../pages/My orders/myorders.html";
+            }
+                //  let  add_products_cart = JSON.parse(localStorage.getItem('add_products_cart'));
+                //  add_products_cart.splice(0, add_products_cart.length)
+            }
+            window.location.href="../../pages/My orders/myorders.html";
 
+                    }
+                    
+                }
+
+
+       
+       
+        
+
+            
 });
 
 

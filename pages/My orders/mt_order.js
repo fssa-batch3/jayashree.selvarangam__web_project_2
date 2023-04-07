@@ -53,45 +53,15 @@ let p_1;
 let go_back;
 let a_card;
 
-let order = JSON.parse(localStorage.getItem('orders'));
 
-// add_to_cart_id
-// : 
-// "fa9f46f0-b3c3-4e1e-8031-2ad73d119711"
-// category
-// : 
-// "COLD BREW"
-// currency
-// : 
-// "Rs."
-// date
-// : 
-// "2023-03-19T05:32:28.872Z"
-// delivery
-// : 
-// {del_status: "not delivered", del_status1: "delivered"}
-// description
-// : 
-// "fresh coffee "
-// image
-// : 
-// {source: "http://127.0.0.1:5500/assets/image/redhatmocha.jpg", alt: ""}
-// name
-// : 
-// "js"
-// price
-// : 
-// "897"
-// product_id
-// : 
-// "960297a1-0b18-4e66-97ec-0093f2cbbdfa"
-// quantities
-// : 
-// {name: "short", quantity: "123", unit: "ml", calories: "123", calories_unit: "kcal"}
-// quantity_ordered
-// : 
-// 1
 
+
+let order1 = JSON.parse(localStorage.getItem('orders'));
+let user_id = JSON.parse(localStorage.getItem('unique_id'));
+let order = order1.filter(function separate(type) {
+return type.user_id ===user_id ;
+});
+console.log(order);
 for(i=0;i<order.length;i++){
 your_cart_card=document.createElement("section");
 your_cart_card.setAttribute("class","Yourcart");
@@ -138,6 +108,11 @@ quantity_card.setAttribute("class","quantity");
 quantity_card.innerText=order[i]["quantity_ordered"];
 beverage_container_card.append(quantity_card);
 
+let mode_of_delivery_card=document.createElement("div");
+mode_of_delivery_card.setAttribute("class","mode_of_delivery");
+mode_of_delivery_card.innerText=order[i]["mode_of_delivery"];
+beverage_container_card.append(mode_of_delivery_card);
+
 inc_dec_button=document.createElement("div");
 inc_dec_button.setAttribute("class","inc-dec-button");
 beverage_container_card.append(inc_dec_button);
@@ -146,14 +121,20 @@ order_card=document.createElement("div");
 order_card.setAttribute("class"," ordered-date");
 inc_dec_button.append(order_card);
 
+p_card=document.createElement("p");
+p_card.innerText=order[i]['date']; 
+order_card.append(p_card);
+// {/* <div class="beverage-costdetail1">
+// <div class="delivery-status1">
+// <div class ="cancel" ><button id="cancel_1">cancel</button></div>
+// <div class ="reorder" ><button id="reorder_1" >reorder</button></div>
+// </div>
+// </div> */}
 
 
- p_card=document.createElement("p");
- p_card.innerText=order[i]['date']; 
- order_card.append(p_card);
 
- beverage_costdetail_card=document.createElement("div");
- beverage_costdetail_card.setAttribute("class","beverage-costdetail");
+beverage_costdetail_card=document.createElement("div");
+beverage_costdetail_card.setAttribute("class","beverage-costdetail");
 beverage_container_card.append(beverage_costdetail_card);
 
 delivery_card=document.createElement("div");
@@ -162,28 +143,23 @@ beverage_costdetail_card.append(delivery_card);
 
 p_1=document.createElement("p");
 
-p_1.innerText=order[i]['delivery']['del_status'];
-delivery_card.append(p_1);
-// // delivery status pending
-// // console.log(order[i]['time_check']);
-// let before_30_minutes = moment().add({minutes:2}).format('YYYY-MM-DD hh:mm:ssA');
-// // console.log(before_30_minutes);
-// console.log(order[i]["before_30_minutes"] );
-// // let m = moment().toString();
-// let m = moment().format("YYYY-MM-DD hh:mm:ssA").toString();
-// console.log(m)
-// if(m >= order[i]["before_30_minutes"]){
-//     // p_1.innerText=order[i]['delivery']['del_status1'];
-//     p_1.innerText = order[i]['delivery']['del_status1'] ;
-//     order[i]['delivery']['del_status'] = 'delivered'
-    
-//     // console.log(order[i]['time_check']);
-    
-// }else{
-//     p_1.innerText=order[i]['delivery']['del_status']
-//     console.log("rajini");
-// };
+// p_1.innerText=order[i]['delivery'];
 
+// delivery status pending
+// console.log(order[i]['time_check']);
+if (order[i]["delivery"] == "delivered"){
+    p_1.innerText = order[i]["delivery"];
+    // p_1.setAttribute("style", "color:red");
+}
+else if(order[i]["delivery"]== "cancelled"){
+    p_1.innerText = order[i]["delivery"];
+    // p_1.setAttribute("style", "color:grey");
+}
+if(order[i]["delivery"] == "not delivered"){
+    p_1.innerText = order[i]["delivery"];
+    // p_1.setAttribute("style", "color:green");
+}
+delivery_card.append(p_1);
 go_back=document.createElement("div");
 go_back.setAttribute("class","Goback");
 beverage_costdetail_card.append(go_back);
@@ -194,35 +170,95 @@ a_card.innerText="Write your review";
 
 go_back.append(a_card);
 
-remove=document.createElement("div");
-remove.setAttribute("class","remove_1");
-beverage_costdetail_card.append(remove);
-
-a1_card=document.createElement("a");
- a1_card.setAttribute("data-id",order[i]['order_id']);
- a1_card.setAttribute("class","remove");
- a1_card.setAttribute("href","");
-a1_card.innerText=" remove";
-
-remove.append(a1_card);
 
 
-re_order=document.createElement("div");
-re_order.setAttribute("class","reorder");
-beverage_costdetail_card.append(re_order);
+let beverage_costdetail_card1=document.createElement("div");
+beverage_costdetail_card1.setAttribute("class","beverage-costdetail1");
+beverage_container_card.append(beverage_costdetail_card1);
 
-a2_card=document.createElement("a");
- a2_card.setAttribute("data-cart_id",order[i]['add_to_cart_id']);
- a2_card.setAttribute("class","re_order");
- a2_card.setAttribute("href","");
-a2_card.innerText=" reorder";
+let delivery_card1=document.createElement("div");
+delivery_card1.setAttribute("class","delivery-status1");
+beverage_costdetail_card1.append(delivery_card1);
+if(order[i]["delivery"] == "cancelled" || order[i]["delivery"] == "delivered") {
+let cancel = document.createElement("div");
+cancel.setAttribute("class","cancel");
+delivery_card1.append(cancel);
 
-re_order.append(a2_card);
+let cancel_1 = document.createElement("button");
+cancel_1.setAttribute("id","cancel_1");
+cancel_1.setAttribute("data-id",order[i]['order_id']);
+cancel_1.setAttribute("style", "display:none")
+cancel_1.innerText='cancel'
+cancel.append(cancel_1);}
+else{
+    let cancel = document.createElement("div");
+    cancel.setAttribute("class","cancel");
+    delivery_card1.append(cancel);
+    
+    let cancel_1 = document.createElement("button");
+    cancel_1.setAttribute("id","cancel_1");
+    cancel_1.setAttribute("data-id",order[i]['order_id']);
+ 
+    cancel_1.innerText='cancel'
+    cancel.append(cancel_1);   
+}
+
+
+
+let reorder = document.createElement("div");
+reorder.setAttribute("class","reorder");
+delivery_card1.append(reorder);
+
+let reorder_1 = document.createElement("button");
+reorder_1.setAttribute("id","reorder_1");
+reorder_1.setAttribute("data-cart_id",order[i]['add_to_cart_id']);
+reorder_1.innerText='reorder'
+reorder.append(reorder_1);
+
+// if(order[i]["delivery"] == "cancelled" || order[i]["delivery"] == "delivered") {
+// remove=document.createElement("div");
+// remove.setAttribute("class","remove_1");
+// beverage_costdetail_card.append(remove);
+
+// a1_card=document.createElement("a");
+// a1_card.setAttribute("data-id",order[i]['order_id']);
+// a1_card.setAttribute("class","remove");
+// a1_card.setAttribute("style", "display:none")
+// a1_card.setAttribute("href","");
+// a1_card.innerText=" remove";
+
+// remove.append(a1_card);
+// }
+// else{
+// remove=document.createElement("div");
+// remove.setAttribute("class","remove_1");
+// beverage_costdetail_card.append(remove);
+// a1_card=document.createElement("a");
+// a1_card.setAttribute("data-id",order[i]['order_id']);
+// a1_card.setAttribute("class","remove");
+// a1_card.setAttribute("href","");
+// a1_card.innerText=" remove";
+// remove.append(a1_card);
+// }
+
+
+
+// re_order=document.createElement("div");
+// re_order.setAttribute("class","reorder");
+// beverage_costdetail_card.append(re_order);
+
+// a2_card=document.createElement("a");
+// a2_card.setAttribute("data-cart_id",order[i]['add_to_cart_id']);
+// a2_card.setAttribute("class","re_order");
+// a2_card.setAttribute("href","");
+// a2_card.innerText=" reorder";
+
+// re_order.append(a2_card);
 document.querySelector(".whole").append(your_cart_card);
 
 }
 
-let removeOrder = document.querySelectorAll('.remove');
+let removeOrder = document.querySelectorAll('#cancel_1');
 removeOrder.forEach(function (remove_id) {
     remove_id.addEventListener("click", function () {
         
@@ -236,17 +272,14 @@ removeOrder.forEach(function (remove_id) {
         };
         let remove_food = product_order.find(find_id);
         console.log(remove_food)
-         remove_food['delivery']['del_status']='cancelled';
+         remove_food['delivery']='cancelled';
 
-         remove_food['delivery']['del_status1']='cancelled';
-         // product_order.push(remove_food);
+         
+        // product_order.push(remove_food);
         // let indexOfItem = product_order.indexOf(remove_food);
         // product_order.splice(indexOfItem, 1);
         localStorage.setItem("orders", JSON.stringify(product_order));
-        // location.reload();
-        
-       
-       
+        location.reload();
     });
 });
 
@@ -255,15 +288,15 @@ removeOrder.forEach(function (remove_id) {
 //    p_alert.innerText = 'no products in my orders';
 // }
 
-let re_order1 = document.querySelectorAll('.re_order');
+let re_order1 = document.querySelectorAll('#reorder_1');
 re_order1.forEach(function (add_products) {
-    add_products.addEventListener("click", function () {
+add_products.addEventListener("click", function () {
         
         let cartId = this.dataset.cart_id;
         localStorage.setItem("cart_id", JSON.stringify(cartId));
         console.log(cartId);
         let  product_order= JSON.parse(localStorage.getItem('orders'));
-        const newArr = product_order.map(({date,delivery, ...rest}) => {
+        const newArr = product_order.map(({date,delivery, order_id,mode_of_delivery,delivery_address,time_check,before_30_minutes, ...rest}) => {
         return rest;
         });
         console.log(newArr);
@@ -301,17 +334,40 @@ re_order1.forEach(function (add_products) {
                 
             };
         };
+         window.location.href="../../pages/add to cart/addtocart.html";
 });
+
 });
-// let animals = {
-//     'Cow': 'Moo',
-//     'Cat': 'Meow',
-//     'Dog': 'Bark'
-//   };
-  
-//   delete animals.Cow;
-//   delete animals['Dog'];
-  
-//   console.log(animals);
 
+// let before_30_minutes = moment().add({minutes:2}).format('YYYY-MM-DD hh:mm:ssA');
+// // console.log(before_30_minutes);
+// console.log(order[i]["before_30_minutes"] );
+// // let m = moment().toString();
+// let m = moment().format("YYYY-MM-DD hh:mm:ssA").toString();
+// console.log(m)
+// if(m >= order[i]["before_30_minutes"]){
+//     // p_1.innerText=order[i]['delivery']['del_status1'];
+//     p_1.innerText = order[i]['delivery']['del_status1'] ;
+//     order[i]['delivery']['del_status'] = 'delivered'
+    
+//     // console.log(order[i]['time_check']);
+    
+// }else{
+//     p_1.innerText=order[i]['delivery']['del_status']
+//     console.log("rajini");
+// };
 
+// let  order1 = JSON.parse(localStorage.getItem('orders'));
+
+let m = moment().format("YYYY-MM-DD hh:mm:ssA").toString();
+console.log(m);
+let find_notDelivered_data = order.filter(data=>
+    data.delivery == "not delivered");
+    console.log(find_notDelivered_data);
+
+    for(i=0; i<find_notDelivered_data.length; i++){
+    if(find_notDelivered_data[i]["before_30_minutes"] <= m){
+        find_notDelivered_data[i]["delivery"] = "delivered" 
+        localStorage.setItem("orders", JSON.stringify(order));
+    };
+    };

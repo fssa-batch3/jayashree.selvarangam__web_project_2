@@ -1901,7 +1901,7 @@ function render(object) {  // const object = list6_names[i]
 
 
 let btn_add_item = document.querySelectorAll(".btn-add-item");
-let user_login_id1 = JSON.parse(localStorage.getItem('unique'));
+let user_login_id1 = JSON.parse(localStorage.getItem('unique_id'));
 
 btn_add_item.forEach(findId =>{
     findId.addEventListener('click',function(e){
