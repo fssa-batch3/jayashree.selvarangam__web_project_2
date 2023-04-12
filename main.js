@@ -1,4 +1,4 @@
-<script src="https://cdn.jsdelivr.net/npm/uuid@8.3.2/dist/umd/uuidv4.min.js"></script>
+
 
 
 let product_detail_list = JSON.parse(localStorage.getItem("product_detail_list"));

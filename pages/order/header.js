@@ -9,6 +9,7 @@ const  header_before_login =`<header class="header">
 <nav class="navbar">
     <a href="${root}/index.html">Home</a>
     <a href="${root}/pages/order/order-bestseller.html">Order</a>
+    <a href="${root}/pages/order/order-bestseller.html">Admin</a>
     <!--<a href="${root}/pages/blogs/blog.html">Blogs</a>--> 
 </nav>
 
@@ -24,6 +25,7 @@ const header_after_login = `
 <nav class="navbar">
     <a href="${root}/index.html">Home</a>
     <a href="${root}/pages/order/order-bestseller.html">Order</a>
+    <a href="${root}">Admin</a>
     <!--<a href="${root}/pages/payment/payment.html">Pay</a>-->
     <a href="${root}/pages/My orders/myorders.html">My orders</a>
     <!--<a href="${root}/pages/blogs/blog.html">Blogs</a>--> 
