@@ -1498,7 +1498,7 @@ for(i=0;i<object1.length;i++){
     
     cost= document.createElement("div");
     cost.setAttribute("class","cost");
-    cost.innerText="Rs."+ object1[i]["price"];
+    cost.innerText="Rs."+ object1[i]["price_1"]["medium"];
     coffee_cost_details_card.append(cost);
     
     add_items= document.createElement("div");
