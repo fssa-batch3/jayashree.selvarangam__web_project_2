@@ -121,7 +121,7 @@ if(!product_detail_list){
            "alt": ""
         },
 
-        "description": 'fresh ',
+        "description": 'fresh coffee',
        
         "price_1":{
            'tall':200,
