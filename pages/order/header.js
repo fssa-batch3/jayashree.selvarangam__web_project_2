@@ -11,7 +11,7 @@ const  header_before_login =`<header class="header">
     <a href="${root}/pages/order/order-bestseller.html">Order</a>
     \
     <!--<a href="${root}/pages/blogs/blog.html">Blogs</a>--> 
-    <a href="${root}/crud/index.html">Admin</a>
+    
 </nav>
 
 <button class="btn"><a href="${root}/pages/login/login.html">Login</a></button>
