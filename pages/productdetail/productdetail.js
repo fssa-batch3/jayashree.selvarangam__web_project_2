@@ -1185,7 +1185,8 @@ content_card.append(p1_card);
 
 p2_card = document.createElement("p");
 p2_card.setAttribute("class", "cost");
-p2_card.innerText = "Rs." + productData["price_1"]['medium'].replace("Rs.","");
+p2_card.innerText = "Rs." + productData["price_1"]['medium'];
+// .replace("Rs.","");
 content_card.append(p2_card);
 
 button_card = document.createElement("div");
@@ -1287,7 +1288,7 @@ short.addEventListener('click',function(){
     console.log(sum);
 
 
-    p_card.innerText = productData["quantities"]["medium"]["name"] +
+    p_card.innerText = productData["quantities"]["short"]["name"] +
     productData["quantities"]["short"]["quantity"] +
     productData["quantities"]["short"]["unit"] +
     productData["quantities"]["short"]["calories"] +
@@ -1413,8 +1414,7 @@ add_item.addEventListener('click',function(e){
             if(  unique ===  add_to_cart[i]['product_id'] &&  price === add_to_cart[i]['price']){
             logic = true;
             };
-        };
-        
+        };      
         // if(!found){
         //     arr.push({unique:unique,quantity_ordered:1,price:p2_card.innerText} );
         //     localStorage.setItem('crud',JSON.stringify(arr));

@@ -43,11 +43,11 @@
                   <input type="text" name="name" id="name" class="form-control">
 
                </div>
-               <div class="form-group col-md-6 md-3">
+               <!-- <div class="form-group col-md-6 md-3">
                   <label for="age">Size</label>
                   <input type="text" name="age" id="size_name" class="form-control">
 
-               </div>
+               </div> -->
                <div class="form-group col-md-6 md-3">
                   <label for="address">image_url</label>
                   <input type="url" name="image_url" id="image_url" class="form-control">
@@ -76,7 +76,7 @@
                   
                </div>
                <div>
-                  <p>medium</p>
+                  <p>tall</p>
                   <div class="form-group col-md-6 md-3">
                      <label for="address">quantity_value in ml</label>
                      <input type="number" name="quantity_value" id="quantity_value_1" class="form-control">
@@ -116,10 +116,10 @@
    
                   </div>
             </div>
-               <div class="form-group col-md-6 md-3">
+               <!-- <div class="form-group col-md-6 md-3">
                   <label for="cost">Cost</label>
                   <input type="number" name="cost" id="cost" class="form-control">
-               </div>
+               </div> -->
 
                <div class="col-lg-12 mt-5">
                   <!-- my method <button class="btn btn-success" value="submit" onclick="manageData()" >Add Data</button> -->
@@ -136,20 +136,22 @@
          <div class="col-12">
             <table class="table table-bordered">
                <thead>
-                  <td>#id</td>
+                  <!-- <td>#id</td> -->
                   <td>Product_name</td>
-                  <td>category</td>
-                  <td>size_name</td>
-                  <td>quantity_value</td>
-                  <td>calories_value</td>
                   <td>description</td>
-                  <td>image_url</td>
-                  <td>cost</td>
+                  <td>category</td>
+                  <!-- <td>quantity_value</td>
+                  <td>calories_value</td>
+                  <td>description</td> -->
+                  
+                  <!-- <td>cost</td> -->
                   <td>tall</td>
                   <td>short</td>
                   <td>medium</td>
-                  <td>delete</td>
+                  <td>image_url</td>
+                  
                   <td>edit</td>
+                  <td>delete</td>
                </thead>
                <tbody class="table_body"></tbody>
                <!-- my method     <tbody id="root"></tbody> -->
@@ -170,7 +172,7 @@
       let category = document.getElementById("category").value;
       // let category_description = document.getElementById("category_description").value;
       let name = document.getElementById("name").value;
-      let size_name = document.getElementById("size_name").value;
+      // let size_name = document.getElementById("size_name").value;
       let quantity_value1 = document.getElementById("quantity_value_1").value;
       // let quantity_unit = document.getElementById("quantity_unit").value;
       let calories_value1 = document.getElementById("calories_value_1").value;
@@ -183,7 +185,7 @@
       // let calories_unit = document.getElementById("calories_unit").value;
       let image_url = document.getElementById("image_url").value;
       let description = document.getElementById("description").value;
-      let cost = document.getElementById("cost").value;
+      // let cost = document.getElementById("cost").value;
       let tall = document.getElementById("tall").value;
       let short = document.getElementById("short").value;
       let medium = document.getElementById("medium").value;
@@ -234,7 +236,7 @@
             },
 
             "description": description,
-            'price':cost,
+           
             "price_1":{
                'tall':tall,
                'medium':medium,
@@ -253,7 +255,7 @@
 let product_detail_list = JSON.parse(localStorage.getItem('product_detail_list'))
 
 
-   for (let i = 0; i < product_detail_list.length; i++) {
+   for (let i = 0; i < product_detail_list.length;i++) {
       const table_data = create(product_detail_list[i]);
       document.querySelector("tbody.table_body").append(tr);
    }
@@ -275,25 +277,25 @@ let product_detail_list = JSON.parse(localStorage.getItem('product_detail_list')
       tr.append(td3);
 
       // td 4
-      td4 = document.createElement("td");
-      td4.innerText = prod["price"];
-      tr.append(td4);
+      // td4 = document.createElement("td");
+      // td4.innerText = prod["price"];
+      // tr.append(td4);
       // td 5
       td5 = document.createElement("td");
       td5.innerText = prod["category"];
       tr.append(td5);
       // a update
-      td11 = document.createElement("td");
-      td11.innerText = prod["quantities"]["name"];
-      tr.append(td11);
+      // td11 = document.createElement("td");
+      // td11.innerText = prod["quantities"]["name"];
+      // tr.append(td11);
 
-      td12 = document.createElement("td");
-      td12.innerText = prod["quantities"]["quantity"];
-      tr.append(td12);
+      // td12 = document.createElement("td");
+      // td12.innerText = prod["quantities"]["quantity"];
+      // tr.append(td12);
 
-      td13 = document.createElement("td");
-      td13.innerText = prod["quantities"]["calories"];
-      tr.append(td13);
+      // td13 = document.createElement("td");
+      // td13.innerText = prod["quantities"]["calories"];
+      // tr.append(td13);
 
        // a update
        td17 = document.createElement("td");
@@ -351,15 +353,24 @@ let product_detail_list = JSON.parse(localStorage.getItem('product_detail_list')
             return e.product_id == unique_id;
          }
          productData = product_detail_list.find(findProduct);
+         console.log(productData);
 
          document.getElementById("name").value = productData["name"];
          document.getElementById("category").value = productData["category"];
          document.getElementById("description").value = productData["description"];
-         document.getElementById("cost").value = productData["price"];
+         // document.getElementById("cost").value = productData["price"];
 
-         document.getElementById("size_name").value = productData["quantities"]["name"];
-         document.getElementById("quantity_value").value = productData["quantities"]["quantity"];
-         document.getElementById("calories_value").value = productData["quantities"]["calories"];
+         // document.getElementById("size_name").value = productData["quantities"]["name"];
+         document.getElementById("quantity_value_1").value = productData["quantities"]["tall"]["quantity"];
+         document.getElementById("calories_value_1").value = productData["quantities"]["tall"]["calories"];
+
+         document.getElementById("quantity_value_2").value = productData["quantities"]["medium"]["quantity"];
+         document.getElementById("calories_value_2").value = productData["quantities"]["medium"]["calories"];
+
+
+         document.getElementById("quantity_value_3").value = productData["quantities"]["short"]["quantity"];
+         document.getElementById("calories_value_3").value = productData["quantities"]["short"]["calories"];
+
          document.getElementById("tall").value = productData["price_1"]["tall"];
          document.getElementById("medium").value = productData["price_1"]["medium"];
          document.getElementById("short").value = productData["price_1"]["short"];
@@ -386,15 +397,21 @@ let product_detail_list = JSON.parse(localStorage.getItem('product_detail_list')
       let category = document.getElementById("category").value;
       // let category_description = document.getElementById("category_description").value;
       let name = document.getElementById("name").value;
-      let size_name = document.getElementById("size_name").value;
-      let quantity_value = document.getElementById("quantity_value").value;
+      // let size_name = document.getElementById("size_name").value;
+      let quantity_value1 = document.getElementById("quantity_value_1").value;
       // let quantity_unit = document.getElementById("quantity_unit").value;
-      let calories_value = document.getElementById("calories_value").value;
+      let calories_value1 = document.getElementById("calories_value_1").value;
+      let quantity_value2 = document.getElementById("quantity_value_2").value;
+      // let quantity_unit = document.getElementById("quantity_unit").value;
+      let calories_value2 = document.getElementById("calories_value_2").value;
+      let quantity_value3 = document.getElementById("quantity_value_3").value;
+      // let quantity_unit = document.getElementById("quantity_unit").value;
+      let calories_value3 = document.getElementById("calories_value_3").value;
       // let calories_unit = document.getElementById("calories_unit").value;
       let image_url = document.getElementById("image_url").value;
       let description = document.getElementById("description").value;
-      let cost = document.getElementById("cost").value;
-      let tall = document.getElementById("short").value;
+      // let cost = document.getElementById("cost").value;
+      let tall = document.getElementById("tall").value;
       let short = document.getElementById("short").value;
       let medium = document.getElementById("medium").value;
 
@@ -403,10 +420,14 @@ let product_detail_list = JSON.parse(localStorage.getItem('product_detail_list')
       productData["name"] = name;
       productData["category"] = category;
       productData["description"] = description;
-      productData["price"] = cost;
-      productData["quantities"]["name"] = size_name;
-      productData["quantities"]["quantity"] = quantity_value;
-      productData["quantities"]["calories"] = calories_value;
+      // productData["price"] = cost;
+      // productData["quantities"]["name"] = size_name;
+      productData["quantities"]["tall"]["quantity"] = quantity_value1;
+      productData["quantities"]["tall"]["calories"] = calories_value1;
+      productData["quantities"]["medium"]["quantity"] = quantity_value2;
+      productData["quantities"]["medium"]["calories"] = calories_value2;
+      productData["quantities"]["short"]["quantity"] = quantity_value3;
+      productData["quantities"]["short"]["calories"] = calories_value3;
       productData["price_1"]["tall"] = tall;
       productData["price_1"]["medium"] = short;
       productData["price_1"]["short"] = medium;

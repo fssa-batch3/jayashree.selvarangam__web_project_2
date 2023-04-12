@@ -47,30 +47,30 @@
             <form role="form" onsubmit="signUP(event)">
                
                
-                <input type="text"  id="name"pattern="[A-Za-z]+"  placeholder="Name" class="box" required="true">
-           
+                <input type="text"  id="name" title="Use firstletter between (A-Z) and min 15 character" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,15}$" placeholder="Name" class="box" >
+                <p class="wrong_password1"></p>
            
             
-                <input type="email"   pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"  id="email" placeholder="Email-Id"  class="box" required="true">
-               
-    
-                <input type="password"  id="password"   placeholder="Password" class="box" required="true">
-            
-                <input type="password" id="confirm_password" placeholder="Confirm-password" class="box" required="true">
-                <textarea type="text" id="address" class="box" required="true"></textarea>
-                <input type="tel"  id="mobilenumber"   pattern="[0-9].{9}" title="Enter 10 number only" placeholder="Mobile number" class="box" required="true">
-             
+                <input type="email"    id="email" placeholder="Email-Id"  class="box" >
+                <p class="wrong_password2"></p>
+                <input type="password"  id="password" title="Use (UpperCase, LowerCase, Number/SpecialChar and min 8 Chars)" placeholder="Password" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"   placeholder="Password" class="box">
+                <p class="wrong_password3"></p>
+                <input type="password" id="confirm_password" title="Use (UpperCase, LowerCase, Number/SpecialChar and min 8 Chars)" placeholder="confirm Password" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"placeholder="Confirm-password" class="box" >
+                <p class="wrong_password4"></p>
+                <textarea type="text" id="address" placeholder="address"  title="Use only lowercase(abc...z)" pattern="[a-z]{3,}" class="box" ></textarea>
+                <p class="wrong_password6"></p>
+                <input  pattern="[0-9]{10}" type="tel" title="Please enter a valid 10 digit mobile number." id="mobilenumber"  title="Enter 10 number only" placeholder="Mobile number" class="box">
+                <p class="wrong_password"></p>
+                <p class="wrong_password123"></p>
                 <button  type="submit" class="btn"> Signup </button>
                 <div>
                     <p class="sign">If your are already a customer <a href="../../pages/login/login.html">Login</a></p>
                     </div>
 
-
+                    <!-- pattern ="^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$." -->
                 
         
             </form>
-          
- 
         </section>
         <!-- pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" -->
          </body>
@@ -94,10 +94,7 @@
             //     // console.log(password);
             //     // console.log( confirmPassword);
             //     // console.log(mobileNumber);
-
-
             // //    window.location.href="../../index.html";
-
             //     // localStorage.setItem("name",userName);
             //     // localStorage.setItem("email",email);
             //     // localStorage.setItem("password",password);
@@ -105,7 +102,6 @@
             //     // localStorage.setItem("mobile_Number",mobileNumber);
             // users.push({userName ,email ,password,confirmPassword,mobileNumber});
             // const userData=JSON.stringfy(users);
-
             // localStorage.setItem("users",userData);
             // }
         // code for storing data in the local storage
@@ -123,18 +119,79 @@
     let a = JSON.parse(localStorage.getItem('user_list'))||[];
     let exist = a.length &&
             JSON.parse(localStorage.getItem('user_list')).some(data =>
-            data.user_mobile.toLowerCase() == user_mobile.toLowerCase() ||
             data.user_email.toLowerCase() == user_email.toLowerCase()
         );
-    if(!exist){
+    
+
+
+    if(user_name == ''){
+      let  v = document.querySelector(".wrong_password1").innerHTML = "Fill your name ";
+        return v;
+    }
+     if(user_email== ''){
+        v = document.querySelector(".wrong_password2").innerHTML = "Fill your email address ";
+        return v;
+    } 
+     if(user_password== ''){
+        v = document.querySelector(".wrong_password3").innerHTML = "Fill your password ";
+        return v;
+    }
+    if(user_confirm_password== ''){
+        v = document.querySelector(".wrong_password4").innerHTML = "Fill your password ";
+        return v;
+    }
+    if(user_address == ''){
+        v = document.querySelector(".wrong_password6").innerHTML = "Fill your address ";
+        return a;
+    }
+     if(user_mobile == ''){
+        v = document.querySelector(".wrong_password").innerHTML = "Fill your mobile number ";
+        return a;
+    }
+
+            let pwd_expression = /(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/ ;
+            let letters = /^[a-zA-Z][a-zA-Z0-9-_\.]{1,15}$/;
+            let number = /^[0-9]{10}/;
+            let email = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+            let address =/[a-z]{3,}/;
+           if(!letters.test(user_name)){
+            v = document.querySelector(".wrong_password123").innerHTML = "Use firstletter between (A-Z) and min 15 character";
+            }
+            else if(!number.test(user_address)){
+                v = document.querySelector(".wrong_password123").innerHTML = "Use only lowercase(abc...z)";
+            }
+            else if(!email.test(user_email)){
+                v = document.querySelector(".wrong_password123").innerHTML = 'Invalid Phonenumber';
+            }
+            else if(!number.test(user_mobile)){
+                v = document.querySelector(".wrong_password123").innerHTML = "Please enter a valid 10 digit mobile number.";
+            }
+            else if(!pwd_expression.test(user_password))
+            {
+                v = document.querySelector(".wrong_password123").innerHTML =   'Upper case, Lower case, Special character and Numeric letter are required in Password filed';
+            }   
+            else if(!pwd_expression.test(user_confirm_password))
+            {
+                v = document.querySelector(".wrong_password123").innerHTML =   'Upper case, Lower case, Special character and Numeric letter are required in Password filed';
+            }
+
+
+    let wrong_password0 = user_password != user_confirm_password ;
+    
+    if (wrong_password0){
+        a = document.querySelector(".wrong_password").innerHTML = "Password not match."
+        return a;
+    }
+    else {
+        if(!exist){
         if(user_password==user_confirm_password){
             let unique_id = uuidv4();
         a.push({ user_name,  user_email,user_password, user_confirm_password, user_mobile,unique_id,user_address});
         localStorage.setItem('user_list', JSON.stringify(a));
         // console.log(localStorage.getItem('user_list'));
         document.querySelector('form').reset();
-        document.getElementById('user_mobile').focus();
-        document.getElementById('user_email').focus();
+      
+     
         alert('Account created Successfully');
         location.href = "../../index.html";
         }
@@ -146,9 +203,16 @@
         alert('Sorry the User already Exist!! \n Try with different Phone number or email');
         document.querySelector('form').reset();
     }
+    }
+    
+    
+    }
+
+
+
+   
     
 
-}
 
 //password verification 
 // function verifyPassword() {  
