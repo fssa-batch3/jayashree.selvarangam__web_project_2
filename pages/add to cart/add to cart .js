@@ -810,8 +810,17 @@ for (let i = 0; i < total_price.length; i++) {
                 let  add_products_cart = JSON.parse(localStorage.getItem('add_products_cart'));
                 let mode_of_delivery = radio();
                 console.log(mode_of_delivery);
+                // const arr = JSON.parse(localStorage.getItem('add_products_cart'));
+
+                const uuid = uuidv4();
+
+                for (let i = 0; i < add_products_cart.length; i++) {
+                add_products_cart[i].ordered_object_at_a_time = uuid;
+                localStorage.setItem('add_products_cart',JSON.stringify(add_products_cart));
+                }
                 const array = add_products_cart.map(object => {
                     return Object.assign(object, {
+                        total_price:total_items.innertext,
                         date:moment().format('YYYY-MM-DD'),
                         order_id: uuidv4(),
                         mode_of_delivery : radio(),
@@ -831,7 +840,7 @@ for (let i = 0; i < total_price.length; i++) {
                 pushArray(order, add_products_cart);
                 add_products_cart.splice(0, add_products_cart.length);
                 //   order.forEach(object => {
-                //   object.date = new Date() ,
+                //   object.date = new Date(),
                 //   object.dat = 'Res';
                 //   });
                 localStorage.setItem('orders',JSON.stringify(order));
@@ -842,15 +851,22 @@ for (let i = 0; i < total_price.length; i++) {
                 // console.log(mode_of_delivery);
                 let  order = JSON.parse(localStorage.getItem('orders'));
                 let  add_products_cart = JSON.parse(localStorage.getItem('add_products_cart'));
+                const uuid = uuidv4();
+                for (let i = 0; i < add_products_cart.length; i++) {
+                    add_products_cart[i].ordered_object_at_a_time = uuid;
+                    localStorage.setItem('add_products_cart',JSON.stringify(add_products_cart));
+                    }
                 const array = add_products_cart.map(object => {
-                    return Object.assign(object, { 
+                    return Object.assign(object,{
+                    total_price:total_items.innertext,
                     date:moment().format('YYYY-MM-DD'),
                     order_id: uuidv4(),
                     mode_of_delivery : radio(),
                     delivery_address:delivery_address.innerText,
                     time_check :moment().format('YYYY-MM-DD  hh:mm:ssA').toString(),
                     before_30_minutes : moment().add({minutes:2}).format('YYYY-MM-DD hh:mm:ssA'),
-                    delivery:'not delivered'});
+                    delivery:'not delivered'
+                });
                 });
                 function pushArray(array, array2) {
                     array.push.apply(array, array2);

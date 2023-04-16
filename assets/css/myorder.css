@@ -40,9 +40,9 @@
     padding: 1rem 4%;
     margin-bottom: 2rem;
 }
-.beverage{
+/* .beverage{
     border-bottom: 1px solid var(--bs-gray-700);
-}
+} */
 .beverage-container{
     display:grid;
     grid-template-columns:130px 3fr 150px 150px 250px 200px 50px;

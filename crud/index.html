@@ -197,8 +197,8 @@
 
 
       // addData(category,name,size_name,quantity_value,calories_value,description, cost);
-      let product_detail_list = JSON.parse(localStorage.getItem('product_detail_list')) || [];
-      let exist = product_detail_list.length &&
+      let product_detail_list_1 = JSON.parse(localStorage.getItem('product_detail_list')) ;
+      let exist = product_detail_list_1.length &&
          JSON.parse(localStorage.getItem('product_detail_list')).some(data =>
             data.name.toLowerCase() == name.toLowerCase()
             );
@@ -252,7 +252,7 @@
          alert("product already exists");
       }
 }
-let product_detail_list = JSON.parse(localStorage.getItem('product_detail_list'))
+let product_detail_list_1 = JSON.parse(localStorage.getItem('product_detail_list'))
 
 
    for (let i = 0; i < product_detail_list.length;i++) {
@@ -336,12 +336,6 @@ let product_detail_list = JSON.parse(localStorage.getItem('product_detail_list')
 
 
    // let unique_id=JSON.parse(localStorage.getItem())
-
-
-
-
-
-
    let edit = document.querySelectorAll(".edit");
    edit.forEach(function (findId) {
       findId.addEventListener('click', function () {
@@ -481,20 +475,10 @@ let product_detail_list = JSON.parse(localStorage.getItem('product_detail_list')
    //    localStorage.setItem("product_detail_list", JSON.stringify(product_detail_list));
    //    location.reload();
    // };
-
-
-
-
-
-
-
-
-
-
 </script>
 <script src="https://cdn.jsdelivr.net/npm/uuid@8.3.2/dist/umd/uuidv4.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/uuid@8.3.2/dist/umd/uuidv4.min.js"></script>
-<script src="./pages/order/header.js"></script>
+<script src="../pages/order/header.js"></script>
 </html>
 
 <!-- <!DOCTYPE html>

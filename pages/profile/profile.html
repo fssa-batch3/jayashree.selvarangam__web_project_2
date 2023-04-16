@@ -39,10 +39,14 @@
         
         </header> --> 
         <section class="profile" id="profile">
-
+<!-- 
             <h1 class="heading"><i class="fa-solid fa-circle-user"></i> Profile </h1>
-         
+             -->
+         \
             <form action="">
+                
+               <i class="fa-solid fa-delete-right" onclick="del(event)"></i>
+               
                 <label>Name:</label>
                 <input type="text" id="user_name" class="box" readonly/>
                 <label>Email_id:</label>
@@ -58,12 +62,12 @@
                 <span class="save"> -->
                     <button  type="button"class="btn" id="edit1">edit
                     </button>
+                           <!-- <button  class="btn" id="delete" >delete profile
+                    </button>  -->
           
                 <button  type="button" class="btn" id="save" style="display: none">Save
                     </button>
-                         <!-- <span class="save"> 
-                            <button  class="btn"  onclick="del(event)">delete
-                                </button></span> -->
+                         
 
                                 <span class="save"> 
                                 <a href="../../index.html"><button  class="btn" type="button" id="logout">logout
@@ -119,6 +123,7 @@ document.getElementById("user_mobilenumber").value= person_data["user_mobile"] ;
 
 function update(e){
                 let user_data = JSON.parse(localStorage.getItem('user_data'));
+                console.log(user_data);
                 let unique1 = user_data["user_email"];
                 localStorage.setItem('unique',JSON.stringify(unique1))
                 let unique=JSON.parse(localStorage.getItem('unique'))
@@ -148,15 +153,13 @@ function edit(e){
 }
 
 
-
-
-
-//////////////////////////////////////////////////////
-function del(e){
+let del1 = document.getElementById('delete');
+del1.addEventListener('click',function(){
+                let user_data = JSON.parse(localStorage.getItem('user_data'));
                 let unique1 = user_data["user_email"];
                 localStorage.setItem('unique',JSON.stringify(unique1))
                 let unique=JSON.parse(localStorage.getItem('unique'))
-                let user_data = JSON.parse(localStorage.getItem('user_data'));
+              
                 
                 let user_list = JSON.parse(localStorage.getItem('user_list'))
                 function findPlayer(e) {
@@ -172,9 +175,33 @@ localStorage.setItem("user_list",JSON.stringify(user_list));
 // localStorage.
 
 
+})
 
 
-}
+//////////////////////////////////////////////////////
+// function del(e){
+//                 let unique1 = user_data["user_email"];
+//                 localStorage.setItem('unique',JSON.stringify(unique1))
+//                 let unique=JSON.parse(localStorage.getItem('unique'))
+//                 let user_data = JSON.parse(localStorage.getItem('user_data'));
+                
+//                 let user_list = JSON.parse(localStorage.getItem('user_list'))
+//                 function findPlayer(e) {
+//                     return e.user_email == unique ;
+//                 }
+// person_data = user_list.find(findPlayer);
+
+// const indexOfUser = user_list.indexOf(person_data);
+// user_list.splice(indexOfUser,1);
+
+// console.log(indexOfUser);
+// localStorage.setItem("user_list",JSON.stringify(user_list));
+// // localStorage.
+
+
+
+
+// }
 
 // function logOut(e){
 //     localStorage.setItem('user_data'," ");
