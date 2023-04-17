@@ -115,13 +115,13 @@ const sign = e =>{
     let a = JSON.parse(localStorage.getItem('user_list')) || [];
     let exist = a.length &&
     JSON.parse(localStorage.getItem('user_list')).some(data => 
-    data.user_email.toLowerCase() == user_email && 
-    data.user_password.toLowerCase() == user_password);
+    data.user_email.toLowerCase() == user_email.toLowerCase() && 
+    data.user_password.toLowerCase() == user_password.toLowerCase());
     if(!exist){
         alert("Incorrect login credentials");
     }
     else{
-        user_detail = {user_email }
+        user_detail = {user_email}
         unique_id = user_email ;
         localStorage.setItem("unique_id",   JSON.stringify(unique_id));
         localStorage.setItem('user_data', JSON.stringify(user_detail))

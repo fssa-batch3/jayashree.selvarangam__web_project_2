@@ -218,6 +218,7 @@ for (i = 0; i < orders.length; i++) {
             let cancel_1 = document.createElement("button");
             cancel_1.setAttribute("id", "cancel_1");
             cancel_1.setAttribute("data-id", order['order_id']);
+            cancel_1.setAttribute("data-order_id", order['ordered_object_at_a_time']);
             cancel_1.innerText = 'cancel'
             cancel.append(cancel_1);
         }
@@ -296,16 +297,18 @@ let removeOrder = document.querySelectorAll('#cancel_1');
 removeOrder.forEach(function (remove_id) {
     remove_id.addEventListener("click", function () {
 
-        const cartId = this.dataset.id;
+        const cartId = this.dataset.order_id;
         // console.log('cartId');
         // let cart_ids = JSON.parse(localStorage.getItem("crud"));
         let product_order = JSON.parse(localStorage.getItem('orders'));
-        function find_id(e) {
-            return e.order_id === cartId;
-        };
-        let remove_food = product_order.find(find_id);
-        console.log(remove_food)
-        remove_food['delivery'] = 'cancelled';
+        
+        let remove_food = product_order.filter(function separate(type) {
+          return type.ordered_object_at_a_time === cartId ;
+        });
+        console.log(remove_food);
+        remove_food.forEach(object => {
+            object['delivery'] = 'cancelled';
+        });
         // product_order.push(remove_food);
         // let indexOfItem = product_order.indexOf(remove_food);
         // product_order.splice(indexOfItem, 1);

@@ -29,7 +29,7 @@ const header_after_login = `
     
     <!--<a href="${root}/pages/payment/payment.html">Pay</a>-->
     <a href="${root}/pages/My orders/myorders.html">My orders</a>
-    <a href="${root}/crud/index.html">Admin</a>
+    <a href="${root}/crud/addproduct.html">Admin</a>
     <!--<a href="${root}/pages/blogs/blog.html">Blogs</a>--> 
 </nav>
 <div class="icons">

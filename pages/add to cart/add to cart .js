@@ -780,9 +780,6 @@ for (let i = 0; i < total_price.length; i++) {
         let total_items =  document.getElementById('total_items');
         total_items.innerText='Rs.' + price_1;
 
-
-
-        
         let order =  document.getElementById('btn_order');
         order.addEventListener('click',function(){
         // myfunction();
