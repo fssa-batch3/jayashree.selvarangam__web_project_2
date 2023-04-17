@@ -1099,7 +1099,6 @@ let minus_card;
 
 const queryString = window.location.search;
 // console.log(queryString);
-
 const urlParams = new URLSearchParams(queryString);
 console.log(urlParams);
 const product = urlParams.get('product_id');

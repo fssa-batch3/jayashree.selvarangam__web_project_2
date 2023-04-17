@@ -1,9 +1,11 @@
 body{
-    background-color:#1d2630 ;
+background-color:#1d2630 ;
 }
-*{
-    color:white
+*{ 
+color:white
 }
 #Update{
-    display:none;
+display:none;
 }
+
+
