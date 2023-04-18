@@ -76,7 +76,7 @@ Expected Result:
 1. Navigate to the profile page through the profile icon.
 2. Click the "Log out" button.
 3. You are logged out as a user.
-/////////////////////////////////////
+
 # View categories and their respective products
 Scenario 1: Successfully view Category&products
 Steps:
@@ -114,7 +114,7 @@ Steps:
 3. Remove the selected products from the cart that you dont need.
 Expected Result:
 1. The product is removed from the user's cart.
-/////////////////////////////////////////////
+
 # Buy products from the cart
 Scenario 1: Successfully purchase a product
 Steps:
@@ -128,7 +128,7 @@ Expected Result:
 1. The Order is placed.
 2. The user is redirected to the my orders page.
 An order confirmation email is sent to the user's email address.(not completed)
-/////////////////////////////////////////
+
 # View list of orders and order details
 Scenario 1: Successfully view list of orders.
 Steps:
@@ -157,7 +157,7 @@ Steps:
 4. Click the "Cancel" button.
 Expected Result:
 1. The buyer can cancel the order.
-/////////////////////////////////////////////
+
 ## Seller
 # Register page(not completed)
 # Login page(not completed)
