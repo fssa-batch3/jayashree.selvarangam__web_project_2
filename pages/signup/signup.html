@@ -262,7 +262,7 @@ function setSuccessFor(input, message) {
     //     //     alert("invalid password");
     //     // }
     
-    if(!exist){    
+  
     if(full_namevalue !== "" && !full_namespace.test(full_namevalue) && fullnamepattern.test(full_namevalue) && emailpattern.test(emailvalue) && emailvalue !== "" && !exist && mobile_numbervalue !== "" && passwordvalue !== "" && re_enter_passwordvalue !== "" && re_enter_passwordvalue == passwordvalue ){
         let unique_id = uuidv4();
         a.push({
@@ -280,14 +280,10 @@ function setSuccessFor(input, message) {
         document.querySelector('form').reset();
         window.location.href = "../../pages/login/login.html";
 }
-}else{
-        alert('Sorry the User already Exist!! \n Try with different Phone number or email');
-        document.querySelector('form').reset();
-    }
+}
 
     
-}
-    
+
     
     // }
 

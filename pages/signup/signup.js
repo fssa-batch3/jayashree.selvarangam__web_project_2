@@ -102,7 +102,7 @@ function signUp(e) {
     let mobile_numbervalue = mobile_number.value.trim()
     let passwordvalue = password.value
     let re_enter_passwordvalue = re_enter_password.value
-    let unique_id = crypto.randomUUID();
+   
 
     ///extra details collecting from user
     // let gender = "";
@@ -166,7 +166,8 @@ function signUp(e) {
     if (passwordvalue == "") {
         setErrorFor(password, "Enter the password")
     }
-    else if (passwordvalue.length <6) {
+    else if (passwordvalue.length < 6) 
+    {
         setErrorFor(password, "password must contain at least 6 characters")
     }
     else {
