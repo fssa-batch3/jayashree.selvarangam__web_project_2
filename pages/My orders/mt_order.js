@@ -78,7 +78,7 @@ const orders = groupedOrders.reduce((acc, curr) => {
 console.log(orders);
 
 // console.log(order);
-for (i = 0; i < orders.length; i++) {
+for (i = 0; i < orders.length; i++){
     const group = orders[i];
     for (let j = 0; j < group.length; j++) {
         const order = group[j];
@@ -260,9 +260,6 @@ for (i = 0; i < orders.length; i++) {
         // a1_card.innerText=" remove";
         // remove.append(a1_card);
         // }
-
-
-
         // re_order=document.createElement("div");
         // re_order.setAttribute("class","reorder");
         // beverage_costdetail_card.append(re_order);
@@ -282,10 +279,7 @@ for (i = 0; i < orders.length; i++) {
            console.log(new_card)
            beverage_card.append(new_card);
            }
-        
-        
         }
-  
    }
     
 

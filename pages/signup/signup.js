@@ -86,3 +86,216 @@ form.addEventListener("submit", function (event) {
 //     window.location.href = "";
 //   }
 // });
+///////////////////////////////
+let full_name = document.getElementById("full_name")
+let email = document.getElementById("email")
+let mobile_number = document.getElementById("mobile_number")
+let password = document.getElementById("password")
+let re_enter_password = document.getElementById("re_enter_password")
+
+function signUp(e) {
+
+    e.preventDefault();
+
+    let full_namevalue = full_name.value.trim()
+    let emailvalue = email.value.trim()
+    let mobile_numbervalue = mobile_number.value.trim()
+    let passwordvalue = password.value
+    let re_enter_passwordvalue = re_enter_password.value
+    let unique_id = crypto.randomUUID();
+
+    ///extra details collecting from user
+    // let gender = "";
+    // let dob = "";
+    // let address = "";
+    // let hintname = "";
+
+    full_namespace = /\s/;
+    fullnamepattern = /^[a-zA-Z]+$/;
+    emailpattern = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    mobilenumberpattern = /^[1-9]\d{9}$/;
+
+
+    if (full_namevalue == "") {
+        setErrorFor(full_name, "Enter your Fullname");
+    }
+    if (full_namespace.test(full_namevalue)) {
+        setErrorFor(full_name, "name must not contain spaces");
+    }
+    if (fullnamepattern.test(full_namevalue)) {
+        setSuccessFor(full_name);
+    }
+
+    let user_list = JSON.parse(localStorage.getItem('user_list')) || [];
+    console.log(user_list);
+
+        let exist = user_list.length &&
+        JSON.parse(localStorage.getItem('user_list')).some(data =>
+            data.email.toLowerCase() == emailvalue.toLowerCase() &&
+            data.password.toLowerCase() == passwordvalue.toLowerCase()
+        ); 
+
+        console.log(exist)
+
+
+    if (emailvalue == "") {
+        setErrorFor(email, "enter your email address");
+    }
+    else if (!emailpattern.test(emailvalue)) {
+        setErrorFor(email, "Please enter a valid email address");
+    }
+    else if(exist){
+            setErrorFor(email, "Sorry the User already Exist!! \n Try with different Email'");
+    }
+
+    else {
+            setSuccessFor(email);
+    }
+
+    if (mobile_numbervalue == "") {
+        setErrorFor(mobile_number, "Enter your mobile number")
+    }
+    else if (!mobilenumberpattern.test(mobile_numbervalue)) {
+        setErrorFor(mobile_number, "Please enter a valid mobilenumber");
+    }
+    else {
+        setSuccessFor(mobile_number)
+    }
+
+
+    if (passwordvalue == "") {
+        setErrorFor(password, "Enter the password")
+    }
+    else if (passwordvalue.length <6) {
+        setErrorFor(password, "password must contain at least 6 characters")
+    }
+    else {
+        setSuccessFor(password);    
+    }
+
+    if (re_enter_passwordvalue == "") {
+        setErrorFor(re_enter_password, "Enter the password")
+    }
+    if (re_enter_passwordvalue !== passwordvalue) {
+        setErrorFor(re_enter_password, "password must be the same")
+    }
+    if (re_enter_passwordvalue == passwordvalue){
+        setSuccessFor(re_enter_password);
+    }
+
+    function setErrorFor(input, message) {
+        const formcontrol = input.parentElement;
+        console.log(formcontrol)
+        const small_msg = formcontrol.querySelector("small")
+        console.log(small_msg)
+
+        small_msg.innerHTML = `<i class="fa-solid fa-circle-info"></i> ${message}`;
+
+        formcontrol.className = "form-control error"
+    }
+
+
+    function setSuccessFor(input, message) {
+
+        const formcontrol = input.parentElement;
+        const small_msg = formcontrol.querySelector("small")
+        console.log(small_msg);
+        // formcontrol.addEventListener("keyup",function(){
+        small_msg.innerHTML = "";
+        formcontrol.className = "form-control success";
+        // })
+    }
+  }
+  
+
+
+//   <!DOCTYPE html>
+// <html lang="en">
+
+// <head>
+//     <meta charset="UTF-8">
+//     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+//     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+//     <link rel="stylesheet" href="../../assets/css/signup.css">
+//     <link rel="preconnect" href="https://fonts.googleapis.com">
+//     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+//     <link
+//         href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+//         rel="stylesheet">
+
+//     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+//         integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+//         crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+//     <title>signup</title>
+// </head>
+
+// <body>
+//     <div class="container">
+//         <img src="../../assets/images/homepage-images/logo.png" alt="" />
+
+//         <div class="container-form">
+
+//             <div class="x-mark">
+//                 <a href="../../index.html">
+//                     <i class="fa-solid fa-xmark"></i>
+//                 </a>
+//             </div>
+
+//             <h2>create account</h2>
+
+//             <form role="form" onsubmit="signUp(event)" id="signup">
+//                 <div class="form-control">
+//                     <label class="label_field">full name</label><br />
+//                     <input class="input_field" id="full_name" type="text" placeholder="Eg.Marion ame"/>
+//                    <small></small>
+//                 </div>
+
+//                 <div class="form-control">
+//                     <label class="label_field">Email address</label><br/>
+//                     <input class="input_field" id="email" type="email" placeholder="Eg.helloMarion@gmail.com" />
+//                     <small></small>
+//                 </div>
+
+//                 <div class="form-control ">
+//                     <label class="label_field">Mobile number</label><br/>
+//                     <input class="input_field" id="mobile_number" type="tel" placeholder="Mobile number"  />
+//                    <small></small>
+//                 </div>
+
+//                 <div class="form-control">
+//                     <label class="label_field">Password</label><br />
+//                     <input class="input_field" type="password" id="password" placeholder="password" maxlength="6"
+//                         title="Must contain 6 characters only" />
+//                     <small></small>
+//                 </div>
+
+//                 <div class="form-control">
+//                     <label class="label_field">Re-enter password</label><br/>
+//                     <input class="input_field" type="password" id="re_enter_password"  placeholder="Re-enter password" maxlength="6" />
+//                     <small></small>
+
+//                 </div>
+
+//                 <div class="buttons">
+//                     <div>
+//                         <button type="submit">Create Your MFS Account
+//                         </button>
+//                     </div>
+
+//                     <div>
+//                         <span>already have an account?</span><a href="../../pages/homepage/login.html">log in</a>
+//                     </div>
+//                 </div>
+
+//             </form>
+
+//         </div>
+
+//     </div>
+
+//     <script src="/js/storage.js"></script>
+// </body>
+
+// </html> 
