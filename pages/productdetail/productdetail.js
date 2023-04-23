@@ -1215,35 +1215,36 @@ btn3_card.setAttribute("class", "btn-button");
 btn3_card.setAttribute("id", "btn-3");
 btn3_card.innerText = "small";
 size_card.append(btn3_card);
+// product quantity increase and decrease button
 
-inc_dec_button_card = document.createElement("div");
-inc_dec_button_card.setAttribute("class", "inc-dec-button");
-button_card.append(inc_dec_button_card);
+// inc_dec_button_card = document.createElement("div");
+// inc_dec_button_card.setAttribute("class", "inc-dec-button");
+// button_card.append(inc_dec_button_card);
 
-inc_dec_card = document.createElement("button");
-inc_dec_card.setAttribute("class", "inc_dec");
-inc_dec_button_card.append(inc_dec_card);
+// inc_dec_card = document.createElement("button");
+// inc_dec_card.setAttribute("class", "inc_dec");
+// inc_dec_button_card.append(inc_dec_card);
 
-minus_card = document.createElement("span");
-minus_card.setAttribute("class", "minus");
-inc_dec_card.append(minus_card);
+// minus_card = document.createElement("span");
+// minus_card.setAttribute("class", "minus");
+// inc_dec_card.append(minus_card);
 
-i1_card = document.createElement("i");
-i1_card.setAttribute("class", "fa-solid fa-minus");
-minus_card.append(i1_card);
+// i1_card = document.createElement("i");
+// i1_card.setAttribute("class", "fa-solid fa-minus");
+// minus_card.append(i1_card);
 
-volume_card = document.createElement("span");
-volume_card.setAttribute("class", "volume");
-volume_card.innerText = "0";
-inc_dec_card.append(volume_card);
+// volume_card = document.createElement("span");
+// volume_card.setAttribute("class", "volume");
+// volume_card.innerText = "0";
+// inc_dec_card.append(volume_card);
 
-plus_card = document.createElement("span");
-plus_card.setAttribute("class", "plus");
-inc_dec_card.append(plus_card);
+// plus_card = document.createElement("span");
+// plus_card.setAttribute("class", "plus");
+// inc_dec_card.append(plus_card);
 
-i2_card = document.createElement("i");
-i2_card.setAttribute("class", "fa-solid fa-plus");
-plus_card.append(i2_card);
+// i2_card = document.createElement("i");
+// i2_card.setAttribute("class", "fa-solid fa-plus");
+// plus_card.append(i2_card);
 
 
 add_item_card = document.createElement("div");
@@ -1338,7 +1339,7 @@ let add_item =document.querySelector(".add-item-cart");
 
 ////////////////////////////////////////////////////////////////////////|
 
-add_item.addEventListener('click',function(e){
+    add_item.addEventListener('click',function(e){
     
     let unique_id111 = this.dataset.id;
     localStorage.setItem("unique_id111", JSON.stringify(unique_id111));
@@ -1408,7 +1409,6 @@ add_item.addEventListener('click',function(e){
         //     found = true;
         //    };
         // };
-      
         for(let i=0;i<add_to_cart.length;i++){
             if(  unique ===  add_to_cart[i]['product_id'] &&  price === add_to_cart[i]['price']){
             logic = true;
@@ -1427,7 +1427,6 @@ add_item.addEventListener('click',function(e){
                 "quantities":quantity_calories,
                 "user_id":user_id,
                 "image": {
-    
                    "source": productData["image"]["source"],
                    "alt": ""
                 },

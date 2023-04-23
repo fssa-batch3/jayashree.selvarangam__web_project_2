@@ -392,10 +392,168 @@ console.log(m);
 let find_notDelivered_data = groupedOrders.filter(data =>
     data.delivery == "not delivered");
 console.log(find_notDelivered_data);
-
 for (i = 0; i < find_notDelivered_data.length; i++) {
     if (find_notDelivered_data[i]["before_30_minutes"] <= m) {
         find_notDelivered_data[i]["delivery"] = "delivered"
         localStorage.setItem("orders", JSON.stringify(groupedOrders));
     };
 };
+
+//  <section class="Yourcart">
+//  <div class="beverage">
+//     <div class="id_status">
+//         <div class="order_id">
+//             <p class="order_id1">order-id</p>
+//             <p  class="order_id2">#1</p>
+//         </div>
+//         <div class="delivery_status">
+//             <p class="delivery_status1">delivery_status</p>
+//             <p class="deliver_status2">Delivered</p>
+//         </div>
+//     </div>
+// <div class="beverage-container">
+//             <div class="beverage-image">
+//             <img src="../../assets/image/redhatmocha.jpg" alt="">
+//             </div>
+//     <div class="beverage-content">
+//             <div class="beverage-title">Crunchy Red Hat Mocha</div>
+//             <div class=" beverage-message">SHORT(237 ML) .412 Kcal</div>
+//             <div class="cost">Rs.404</div>
+//     </div>
+//     <div class="quantity">1</div>
+//     <div class ="reorder" ><button id="reorder_1">reorder</button></div>
+    
+//     <div>
+//     </div>
+// </div>
+// <div class="date_mode_cancel_review">
+//     <div class="mode_of_delivery">
+//         <p class="mode_of_delivery1">mode of delivery: </p> 
+//        <p class="mode_of_delivery2">dine in</p> 
+//     </div>
+//         <div class="ordered-date">
+//         <p class="ordered-date1">ordered-date: </p>
+//         <p class="ordered-date2">15-12-2022</p>
+//         </div>
+//        <div class ="cancel">
+//         <button id="cancel_1">cancel</button>
+//        </div>
+    
+//        <div class="Goback">
+//         <a href="../../pages/fill forms/review.html"> <button>review</button>
+//             </a>
+//     </div>
+
+// </div>
+//  </div>
+// </section> 
+
+// let your_cart_card = document.createElement('div');
+// your_cart_card.setAttribute('class','Yourcart')
+// console.log(your_cart_card);
+
+// let beverage_card =  document.createElement('div');
+// beverage_card.setAttribute('class','beverage');
+// your_cart_card.append(beverage_card);
+
+// let id_status_card = document.createElement('div')
+// id_status_card.setAttribute('class','id_status')
+// beverage_card.append(id_status_card)
+
+
+// let order_id_card = document.createElement('div')
+// order_id_card.setAttribute('class','order_id')
+// id_status_card.append(order_id_card);
+
+// let order_id1_card = document.createElement('p')
+// order_id1_card.setAttribute('class','order_id1')
+// order_id1_card.innerText='order_id';
+// order_id_card.append('order_id1_card');
+
+// let order_id2_card = document.createElement('p')
+// order_id2_card.setAttribute('class','order_id2')
+// order_id2_card.innerText='#1';
+// order_id_card.append('order_id2_card');
+
+// let delivery_status_card = document.createElement('div')
+// delivery_status_card.setAttribute('class','delivery_status')
+// id_status_card.append(delivery_status_card);
+
+// let delivery_status1_card = document.createElement('p')
+// delivery_status_card.setAttribute('class','delivery_status1')
+// delivery_status_card.innerText='delivery_status';
+// delivery_status_card.append('delivery_status1_card');
+
+// let  delivery_status2_card= document.createElement('p');
+// delivery_status2_card.setAttribute('class','delivery_status2');
+// delivery_status2_card.innerText='dine in';
+// delivery_status_card.append('delivery_status2_card');
+
+
+// let beverage_container_card =  document.createElement('div');
+// beverage_container_card.setAttribute('class','beverage-container');
+// beverage_card.append(beverage_container_card);
+
+
+// let beverage_image_card =  document.createElement('div');
+// beverage_image_card.setAttribute('class','beverage-image');
+// beverage_container_card.append(beverage_image_card);
+
+// let image1_card =  document.createElement('img');
+// image1_card.setAttribute('src','../../assets/image/redhatmocha.jpg');
+// beverage_image_card.append(image1_card);
+
+// let beverage_content_card = document.createElement('div');
+// beverage_content_card.setAttribute('class','beverage-content');
+// beverage_container_card.append(beverage_content_card);
+
+// let beverage_title_card = document.createElement('div');
+// beverage_title_card.setAttribute('class','beverage-title');
+// beverage_title_card.innerText = "Crunchy Red Hat Mocha";
+// beverage_content_card.append(beverage_title_card);
+
+// let beverage_message_card = document.createElement('div')
+// beverage_message_card.setAttribute('class','beverage-message');
+// beverage_message_card.innerText="SHORT(237 ML) .412 Kcal";
+// beverage_content_card.append(beverage_message_card);
+
+// let cost_cart = document.createElement('div')
+// cost_card.setAttribute('class','cost');
+// cost_card.innerText="Rs.404";
+// cost_card.append(beverage_message_card);
+
+// let quantity_card = document.createElement('div');
+// quantity_card.setAttribute('class','quantity');
+// quantity_card.innerText = 'quantity';
+// beverage_container_card.append(quantity_card);
+
+// let reorder_1 = document.createElement('div');
+// reorder_1.setAttribute('class','reorder');
+// beverage_container_card.append(reorder_1);
+
+// let button_1 =  document.createElement('button');
+// button_1.setAttribute('id','reorder_1');
+// button_1.innerText = "reorder";
+// beverage_container_card.append(button_1);
+
+// let date_mode_cancel_review_card = document.createElement('div');
+// date_mode_cancel_review_card.setAttribute('class','date_mode_cancel_review');
+// beverage_container_card.append(date_mode_cancel_review_card);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

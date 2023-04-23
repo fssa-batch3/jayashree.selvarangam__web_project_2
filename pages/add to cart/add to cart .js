@@ -766,9 +766,9 @@ function radio(){
     add_cart_id_values[i] = productData[i]["add_to_cart_id"];
     //  permittedValues.push(permittedValues[i] );
     };
-console.log(add_cart_id_values);
-localStorage.setItem('add_cart_id_values',JSON.stringify(add_cart_id_values));
-let total_price = productData;
+    console.log(add_cart_id_values);
+    localStorage.setItem('add_cart_id_values',JSON.stringify(add_cart_id_values));
+    let total_price = productData;
 let price_1 = 0;
 for (let i = 0; i < total_price.length; i++) {
     price_1 += parseInt(total_price[i]["price"].replace("Rs.", "")*total_price[i]["quantity_ordered"]);
@@ -830,12 +830,19 @@ for (let i = 0; i < total_price.length; i++) {
                         delivery:'not delivered'
                     });
                 });
+                
                 function pushArray(array, array2) {
-                    array.push.apply(array, array2);
+                    array.push.apply(array,array2);
                     console.log(array);
                 };
                 pushArray(order, add_products_cart);
-                add_products_cart.splice(0, add_products_cart.length);
+                let unique_id = JSON.parse(localStorage.getItem('unique_id'));
+                for(let i =add_products_cart.length-1 ; i>=0;i--){
+                    if(unique_id===add_products_cart[i].user_id){
+                    add_products_cart.splice(i,1);
+                    localStorage.setItem('add_products_cart',JSON.stringify(add_products_cart))
+                    }
+                }
                 //   order.forEach(object => {
                 //   object.date = new Date(),
                 //   object.dat = 'Res';
@@ -846,13 +853,14 @@ for (let i = 0; i < total_price.length; i++) {
                 //   arr.splice(0, arr.length)
                 }else{
                 // console.log(mode_of_delivery);
+                
                 let  order = JSON.parse(localStorage.getItem('orders'));
                 let  add_products_cart = JSON.parse(localStorage.getItem('add_products_cart'));
                 const uuid = uuidv4();
                 for (let i = 0; i < add_products_cart.length; i++) {
                     add_products_cart[i].ordered_object_at_a_time = uuid;
                     localStorage.setItem('add_products_cart',JSON.stringify(add_products_cart));
-                    }
+                    } 
                 const array = add_products_cart.map(object => {
                     return Object.assign(object,{
                     total_price:total_items.innertext,
@@ -872,7 +880,13 @@ for (let i = 0; i < total_price.length; i++) {
                 pushArray(order, add_products_cart);
                 
                 
-                add_products_cart.splice(0, add_products_cart.length);
+                let unique_id = JSON.parse(localStorage.getItem('unique_id'));
+                for(let i =add_products_cart.length-1 ; i>=0;i--){
+                    if(unique_id===add_products_cart[i].user_id){
+                    add_products_cart.splice(i,1);
+                    localStorage.setItem('add_products_cart',JSON.stringify(add_products_cart))
+                    }
+                }
                 // for each method for adding date
                 //   order.forEach(object => {
                 //     object.date =  new Date(),
@@ -895,9 +909,7 @@ for (let i = 0; i < total_price.length; i++) {
 
 
        
-       
-        
-
+    
             
 });
 

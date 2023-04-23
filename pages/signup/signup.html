@@ -244,8 +244,6 @@ function setSuccessFor(input, message) {
     formcontrol.className = "form-control success";
     // })
 }
-
-
     //     if(!exist){
     //     // if(user_password==user_confirm_password){
     //         
@@ -262,7 +260,7 @@ function setSuccessFor(input, message) {
     //     //     alert("invalid password");
     //     // }
     
-  
+    if(!exist){
     if(full_namevalue !== "" && !full_namespace.test(full_namevalue) && fullnamepattern.test(full_namevalue) && emailpattern.test(emailvalue) && emailvalue !== "" && !exist && mobile_numbervalue !== "" && passwordvalue !== "" && re_enter_passwordvalue !== "" && re_enter_passwordvalue == passwordvalue ){
         let unique_id = uuidv4();
         a.push({
@@ -281,7 +279,7 @@ function setSuccessFor(input, message) {
         window.location.href = "../../pages/login/login.html";
 }
 }
-
+}
     
 
     

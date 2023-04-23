@@ -36,89 +36,87 @@ const veg_img=["../../assets/image/veg.svg"]
 // const cost_items =[ "Rs 404" ," Rs 273","Rs 474","Rs 414","Rs 494","Rs 324","Rs 273","Rs 299","Rs.304"]
 
 
-const list_names=[
-{
-    "main_img":"../../assets/image/redhatmocha.jpg",
-    "main_content":" A decadent mix of cocoa, topped with a playfully crafted Hat..",
-    "main_names":" Crunchy Red Hat Mocha",
-     "sub_content":" SHORT(237 ML) .412 Kcal",
-     "link_pages": "../../pages/productdetail/productdetail1.html",
-     "cost_items":"Rs 404"
-},
-{
-    "main_img":"../../assets/image/cappacino.jpg",
-    "main_content":"Dark, Rich in flavour espresso lies in wait under a smoothed...",
-    "main_names":"Cappuccino",
-     "sub_content":"SHORT(237 ML) .104 Kcal",
-     "link_pages":"../../pages/productdetail/product-cappu.html",
-     "cost_items":" Rs 273"
-},
+// const list_names=[
+// {
+//     "main_img":"../../assets/image/redhatmocha.jpg",
+//     "main_content":" A decadent mix of cocoa, topped with a playfully crafted Hat..",
+//     "main_names":" Crunchy Red Hat Mocha",
+//      "sub_content":" SHORT(237 ML) .412 Kcal",
+//      "link_pages": "../../pages/productdetail/productdetail1.html",
+//      "cost_items":"Rs 404"
+// },
+// {
+//     "main_img":"../../assets/image/cappacino.jpg",
+//     "main_content":"Dark, Rich in flavour espresso lies in wait under a smoothed...",
+//     "main_names":"Cappuccino",
+//      "sub_content":"SHORT(237 ML) .104 Kcal",
+//      "link_pages":"../../pages/productdetail/product-cappu.html",
+//      "cost_items":" Rs 273"
+// },
 
-{
-    "main_img":"../../assets/image/hazelnutmochacheese.jpg",
-    "main_content":"Hazelnut syrup combined with light cream cheese styled sauce..",
-    "main_names":"Hazelnut Mocha  Frappuccino",
-     "sub_content":"TALL(354 ML) .491 kcal",
-     "link_pages":"../../pages/productdetail/product-hazelfrap.html",
-     "cost_items":"Rs 474"
-},
+// {
+//     "main_img":"../../assets/image/hazelnutmochacheese.jpg",
+//     "main_content":"Hazelnut syrup combined with light cream cheese styled sauce..",
+//     "main_names":"Hazelnut Mocha  Frappuccino",
+//      "sub_content":"TALL(354 ML) .491 kcal",
+//      "link_pages":"../../pages/productdetail/product-hazelfrap.html",
+//      "cost_items":"Rs 474"
+// },
 
-{
-    "main_img":"../../assets/image/carameljava.jpg",
-    "main_content":"Rich Coffee blended with milk, chocolaty chip, caramel syrup....",
-    "main_names":"Caramel  Frappuccino",
-     "sub_content":"TALL(354 ML) .398 kcal",
-     "link_pages":"../../pages/productdetail/product-caramelfrap.html",
-     "cost_items":"Rs 414"
-},
+// {
+//     "main_img":"../../assets/image/carameljava.jpg",
+//     "main_content":"Rich Coffee blended with milk, chocolaty chip, caramel syrup....",
+//     "main_names":"Caramel  Frappuccino",
+//      "sub_content":"TALL(354 ML) .398 kcal",
+//      "link_pages":"../../pages/productdetail/product-caramelfrap.html",
+//      "cost_items":"Rs 414"
+// },
 
-{
-    "main_img":"../../assets/image/pourover.jpg",
-    "main_content":"Pour-over is an accessible way to brew...",
-    "main_names":"Pour over – Christmas Blend",
-     "sub_content":"SHORT(237 ML) .- 0 KCAL",
-     "link_pages":"../../pages/productdetail/product-chris.html",
-     "cost_items":"Rs 494"
-},
+// {
+//     "main_img":"../../assets/image/pourover.jpg",
+//     "main_content":"Pour-over is an accessible way to brew...",
+//     "main_names":"Pour over – Christmas Blend",
+//      "sub_content":"SHORT(237 ML) .- 0 KCAL",
+//      "link_pages":"../../pages/productdetail/product-chris.html",
+//      "cost_items":"Rs 494"
+// },
 
-{
-    "main_img":"../../assets/image/pourover.jpg",
-    "main_content":"Pour-over is a beautifully simple and accessible way to brew...",
-    "main_names":"Pour Over - Italian Blend",
-     "sub_content":"SHORT(237 ML) .0 kcal",
-     "link_pages":"../../pages/productdetail/product-italian.html",
-     "cost_items":"Rs 324"
-},
+// {
+//     "main_img":"../../assets/image/pourover.jpg",
+//     "main_content":"Pour-over is a beautifully simple and accessible way to brew...",
+//     "main_names":"Pour Over - Italian Blend",
+//      "sub_content":"SHORT(237 ML) .0 kcal",
+//      "link_pages":"../../pages/productdetail/product-italian.html",
+//      "cost_items":"Rs 324"
+// },
 
-{
-    "main_img":"../../assets/image/chaitea.jpg",
-    "main_content":"Black tea infused with cinnamon, clove, and other warming sp...",
-    "main_names":"Chai Tea Latte",
-     "sub_content":"SHORT(237 ML) .170 kcal",
-     "link_pages":"../../pages/productdetail/product-chaitea.html",
-     "cost_items":"Rs 273"
-},
+// {
+//     "main_img":"../../assets/image/chaitea.jpg",
+//     "main_content":"Black tea infused with cinnamon, clove, and other warming sp...",
+//     "main_names":"Chai Tea Latte",
+//      "sub_content":"SHORT(237 ML) .170 kcal",
+//      "link_pages":"../../pages/productdetail/product-chaitea.html",
+//      "cost_items":"Rs 273"
+// },
 
-{
-    "main_img":"../../assets/image/emperortea.jpg",
-    "main_content":"Receiving plenty of rain during the early spring harvest, th.",
-    "main_names":"Emperor'S Mist Green Tea",
-     "sub_content":"SHORT(237 ML) .0 kcal",
-     "link_pages":" ../../pages/productdetail/product-emperor.html",
-     "cost_items":"Rs 299"
-},
+// {
+//     "main_img":"../../assets/image/emperortea.jpg",
+//     "main_content":"Receiving plenty of rain during the early spring harvest, th.",
+//     "main_names":"Emperor'S Mist Green Tea",
+//      "sub_content":"SHORT(237 ML) .0 kcal",
+//      "link_pages":" ../../pages/productdetail/product-emperor.html",
+//      "cost_items":"Rs 299"
+// },
 
-{
-    "main_img":"../../assets/image/coldcold.jpg",
-    "main_content":"Starbucks® Kenya coffee is freshly ground and then steeped f...",
-    "main_names":"Cold Brew Black",
-     "sub_content":"TALL() .0 kcal",
-     "link_pages":"../../assets/image/coldcold.jpg",
-     "cost_items":"Rs 299"
-}
-]
-
-
+// {
+//     "main_img":"../../assets/image/coldcold.jpg",
+//     "main_content":"Starbucks® Kenya coffee is freshly ground and then steeped f...",
+//     "main_names":"Cold Brew Black",
+//      "sub_content":"TALL() .0 kcal",
+//      "link_pages":"../../assets/image/coldcold.jpg",
+//      "cost_items":"Rs 299"
+// }
+// ]
 
 
 
@@ -128,10 +126,14 @@ const list_names=[
 
 
 
+const list_names_1 = JSON.parse(localStorage.getItem('product_detail_list'));
+const list_names =list_names_1 .filter((element, index) => {
+    return index < 5;
+  });
+console.log(list_names)
 
 
-for(i=0;i<6;i++){
-
+for(i=0;i<list_names.length;i++){
 
 container_card =document.createElement("div");
 container_card.setAttribute("class","beverage-container");
@@ -146,7 +148,7 @@ image_card.setAttribute("class","beverage-image");
 img_content_cost_card.append(image_card);
 
 img_main_card = document.createElement("img");
-img_main_card.setAttribute("src",list_names[i]["main_img"]);
+img_main_card.setAttribute("src",list_names[i]["image"]["source"]);
 img_main_card.setAttribute("alt"," ")
 image_card.append(img_main_card);
 
@@ -172,7 +174,7 @@ title_card.setAttribute("class","beverage-title");
 content_card.append(title_card);
 
 h3_card = document.createElement("h3");
-h3_card.innerText=list_names[i]["main_names"];
+h3_card.innerText=list_names[i]["name"];
 title_card.append(h3_card);
 
 
@@ -184,7 +186,11 @@ content_card.append(message_1_card);
 
 p_1 = document.createElement("p");
 p_1.setAttribute("class","p-1");
-p_1.innerText=list_names[i]["sub_content"];
+p_1.innerText=list_names[i]["quantities"]["medium"]["name"] +
+list_names[i]["quantities"]["medium"]["quantity"] +
+list_names[i]["quantities"]["medium"]["unit"] +
+list_names[i]["quantities"]["medium"]["calories"] +
+list_names[i]["quantities"]["medium"]["calories_unit"];
 message_1_card.append(p_1);
 
 p_star = document.createElement("p");
@@ -203,7 +209,7 @@ content_card.append(message_2_card);
 
 p_2 = document.createElement("p");
 p_2.setAttribute("class","p-2");
-p_2.innerText=list_names[i]["main_content"];
+p_2.innerText=list_names[i]['description']
 message_2_card.append(p_2);
 
 costdetail_card = document.createElement("div");
@@ -212,25 +218,42 @@ content_cost_card.append(costdetail_card);
 
 cost_card = document.createElement("div");
 cost_card.setAttribute("class","cost");
-cost_card.innerText=list_names[i]["cost_items"];
+cost_card.innerText=list_names[i]["currency"] + list_names[i]["price_1"]["medium"]
 costdetail_card.append(cost_card);
 
 add_item_card = document.createElement("div");
 add_item_card.setAttribute("class","add-item");
 costdetail_card.append(add_item_card);
 
-a_card = document.createElement("a");
-a_card.setAttribute("href",list_names[i]["link_pages"]);
-add_item_card.append(a_card)
+// a_card = document.createElement("a");
+// a_card.setAttribute("href",list_names[i]["link_pages"]);
+// add_item_card.append(a_card)
 
 button_card = document.createElement("button");
+button_card.setAttribute("data-id",list_names[i]["product_id"]);
+button_card.setAttribute("class","btn-add-item");
 button_card.innerText="add item";
-a_card.append(button_card);
+add_item_card.append(button_card);
 
 document.querySelector("div.beverages").append(container_card);
 
 }
 
+
+let btn_add_item = document.querySelectorAll(".btn-add-item");
+let user_login_id1 = JSON.parse(localStorage.getItem('unique_id'));
+
+btn_add_item.forEach(findId =>{
+    findId.addEventListener('click',function(e){
+        if(user_login_id1 === null){
+            alert('login to buy your coffee');
+        }else{
+        let unique_id = findId.dataset.id;
+        console.log(unique_id)
+        location.href=`../../pages/productdetail/product-cappu.html?product_id=${unique_id}`
+        };
+    });
+});
 
 
 
