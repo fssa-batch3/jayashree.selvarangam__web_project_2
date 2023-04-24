@@ -362,10 +362,10 @@ for(i=0;i<object1.length;i++){
     
     coffee_message_card = document.createElement("div");
     coffee_message_card.setAttribute("class","coffee-message");
-    coffee_message_card.innerText= object1[i]["quantities"]["medium"]["name"] +
-    object1[i]["quantities"]["medium"]["quantity"] +
-    object1[i]["quantities"]["medium"]["unit"] +
-    object1[i]["quantities"]["medium"]["calories"] +
+    coffee_message_card.innerText= object1[i]["quantities"]["medium"]["name"] +"( "+
+    object1[i]["quantities"]["medium"]["quantity"]+" )" +
+    object1[i]["quantities"]["medium"]["unit"] +"(  "+
+    object1[i]["quantities"]["medium"]["calories"] +") "+
     object1[i]["quantities"]["medium"]["calories_unit"];
     coffee_content_card.append(coffee_message_card);
     

@@ -56,9 +56,13 @@
                 
                 <textarea name="" placeholder="Add your address" class="box" id="address" cols="30" rows="10"></textarea>
                
-                <button class="btn" id="sub">Submit</button>  
-        
             </form>
+
+
+
+            <button class="btn" id="sub">Submit</button>  
+
+
            
         </section>
 
@@ -73,13 +77,12 @@
         function findPlayer(e){
         return e.user_email == user_data;
         }
-       
         person_data = user_listq.find(findPlayer);
         console.log(person_data)
         let new_address = document.getElementById('address').value;
         person_data['user_address'] = new_address;
         let user_list = localStorage.setItem('user_list',JSON.stringify(user_listq));
-        location.href= "../../pages/add to cart/addtocart.html";
+        location.href= "/pages/add to cart/addtocart.html";
     });
 
         </script>

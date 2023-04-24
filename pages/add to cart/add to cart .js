@@ -354,10 +354,10 @@ for(let i=0;i< object.length;i++){
     
     coffee_message_card = document.createElement("div");
     coffee_message_card.setAttribute("class","coffee-message");
-    coffee_message_card.innerText= object[i]["quantities"]["medium"]["name"] +
-    object[i]["quantities"]["medium"]["quantity"] +
-    object[i]["quantities"]["medium"]["unit"] +
-    object[i]["quantities"]["medium"]["calories"] +
+    coffee_message_card.innerText= object[i]["quantities"]["medium"]["name"] +"(  "+
+    object[i]["quantities"]["medium"]["quantity"] +") "+
+    object[i]["quantities"]["medium"]["unit"] +"(  "+
+    object[i]["quantities"]["medium"]["calories"] +") "+
     object[i]["quantities"]["medium"]["calories_unit"];
     coffee_content_card.append(coffee_message_card);
     
@@ -593,7 +593,7 @@ a1_card.setAttribute("class","Go_back");
 a1_card.setAttribute("data-product_cart_id", productData[i]["add_to_cart_id"]);
 a1_card.setAttribute("data-cart_id", productData[i]["product_id"]);
 
-// a1_card.setAttribute("href","../../pages/fill forms/review.html");  //object[i]["link_pages"]
+// a1_card.setAttribute("href","../../pages/fill forms/review.html");  //object[i]["link_pages"];
 a1_card.innerText="remove";
 go_back.append(a1_card);
 
@@ -683,7 +683,6 @@ let minus_1 = document.querySelectorAll(".minus_1");
         n -= 1;
         }
         num.textContent = n;
-
 //         // getting the ID
         let parentBox = this.closest(".near_to_remove");
         let idButton = parentBox.querySelector(".beverage-costdetail").querySelector(".Goback").querySelector(".Go_back").getAttribute("data-product_cart_id");
@@ -692,7 +691,6 @@ let minus_1 = document.querySelectorAll(".minus_1");
         function find_cart(e){
         return e.add_to_cart_id == idButton;
         }
-
         let cart_quantity = cart_product.find(find_cart);
         console.log(cart_quantity)
         if (cart_quantity) {
@@ -715,13 +713,9 @@ let minus_1 = document.querySelectorAll(".minus_1");
 // }
 // console.log(txt)
 // }
-
 // ProductData.forEach(object => {
-//     object.type_of_delivery = document.querySelector('input [name = yes_no” ]:checked').value
-        
+//     object.type_of_delivery = document.querySelector('input [name = yes_no” ]:checked').value      
 // });
-
-
 
 function radio(){
     // let  productData= JSON.parse(localStorage.getItem('add_products_cart'));
@@ -739,8 +733,6 @@ function radio(){
                 location.reload;
          };
     // adding the address in the cart page
-
-
     let user_data = JSON.parse(localStorage.getItem('unique_id'));
     // let unique1 = user_data["user_email"];
     // localStorage.setItem('unique',JSON.stringify(unique1))
@@ -750,12 +742,10 @@ function radio(){
     return e.user_email == user_data;
     }
     person_data = user_list.find(findPlayer);
-   
     let delivery_name = document.getElementById('del-name');
     let delivery_address = document.getElementById('del-address');
     delivery_name.innerText = person_data['user_name'] ;
     delivery_address.innerText = person_data['user_address'];
-    
     let change_address = document.querySelector('.change-address');
     change_address.addEventListener('click',function(){
       window.location.href='../../pages/fill forms/change-address.html'
@@ -773,7 +763,6 @@ let price_1 = 0;
 for (let i = 0; i < total_price.length; i++) {
     price_1 += parseInt(total_price[i]["price"].replace("Rs.", "")*total_price[i]["quantity_ordered"]);
 };
-
 
         let item_total  = document.getElementById('amount');
         item_total.innerText='Rs.' + price_1;
@@ -830,12 +819,16 @@ for (let i = 0; i < total_price.length; i++) {
                         delivery:'not delivered'
                     });
                 });
-                
+                let user_id1 = JSON.parse(localStorage.getItem('unique_id'));
+                let add_products_cart1 = add_products_cart.filter(function separate(type){
+                    return  type.user_id == user_id1
+                  })
+                console.log(add_products_cart1)
                 function pushArray(array, array2) {
                     array.push.apply(array,array2);
                     console.log(array);
                 };
-                pushArray(order, add_products_cart);
+                pushArray(order, add_products_cart1);
                 let unique_id = JSON.parse(localStorage.getItem('unique_id'));
                 for(let i =add_products_cart.length-1 ; i>=0;i--){
                     if(unique_id===add_products_cart[i].user_id){
@@ -873,13 +866,18 @@ for (let i = 0; i < total_price.length; i++) {
                     delivery:'not delivered'
                 });
                 });
+                let user_id1 = JSON.parse(localStorage.getItem('unique_id'));
+                
+                let add_products_cart1 = add_products_cart.filter(function separate(type){
+                  return  type.user_id == user_id1
+                })
+                console.log(add_products_cart1)
                 function pushArray(array, array2) {
                     array.push.apply(array, array2);
                     console.log(array);
                 };
-                pushArray(order, add_products_cart);
-                
-                
+                pushArray(order, add_products_cart1);
+    
                 let unique_id = JSON.parse(localStorage.getItem('unique_id'));
                 for(let i =add_products_cart.length-1 ; i>=0;i--){
                     if(unique_id===add_products_cart[i].user_id){

@@ -32,6 +32,11 @@ const  footer_before_login = `
             <a href="#"> <i class="fab fa-instagram"></i> instagram </a>
             <a href="#"> <i class="fab fa-linkedin"></i> linkedin </a>
         </div>
+
+    <div class="box">
+    <h3>address</h3>
+    <a href="#">378, BSR Mall, Rajiv Gandhi Salai, Jothi Nagar, Thoraipakkam, Tamil Nadu 600097</a>
+    </div>
     </div>
 </section>
 </footer>
@@ -71,6 +76,10 @@ const footer_after_login = `
             <a href="#"> <i class="fab fa-instagram"></i> instagram </a>
             <a href="#"> <i class="fab fa-linkedin"></i> linkedin </a>
         </div>
+        <div class="box">
+    <h3>address</h3>
+    <a href="#">378, BSR Mall, Rajiv Gandhi Salai, Jothi Nagar, Thoraipakkam, Tamil Nadu 600097</a>
+    </div>
     </div>
 </section>
 </footer>

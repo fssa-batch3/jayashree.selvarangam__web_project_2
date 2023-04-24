@@ -1798,7 +1798,6 @@ function render(object) {  // const object = list6_names[i]
     container_card.setAttribute("class", "beverage-container");
     // container_card.append(beverages)
   
-
     img_content_cost_card = document.createElement("div");
     img_content_cost_card.setAttribute("class", "beverage-img-content-cost");
     container_card.append(img_content_cost_card);
@@ -1846,19 +1845,16 @@ function render(object) {  // const object = list6_names[i]
 
     p_1 = document.createElement("p");
     p_1.setAttribute("class", "p-1");
-    p_1.innerText = object["quantities"]["medium"]["name"] +
-        object["quantities"]["medium"]["quantity"] +
-        object["quantities"]["medium"]["unit"] +
-        object["quantities"]["medium"]["calories"] +
-        object["quantities"]["medium"]["calories_unit"];
+    p_1.innerText = object["quantities"]["medium"]["name"]+" "+"("+
+    object["quantities"]["medium"]["quantity"]+")"+" "+
+    object["quantities"]["medium"]["unit"] +" "+"("+
+    object["quantities"]["medium"]["calories"]+")"+" "+
+    object["quantities"]["medium"]["calories_unit"];
     message_1_card.append(p_1);
-
-
 
     message_2_card = document.createElement("div");
     message_2_card.setAttribute("class", "beverage-message-2");
     content_card.append(message_2_card);
-
 
     p_2 = document.createElement("p");
     p_2.setAttribute("class", "p-2");

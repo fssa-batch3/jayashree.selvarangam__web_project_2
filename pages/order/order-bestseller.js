@@ -35,7 +35,6 @@ const veg_img=["../../assets/image/veg.svg"]
 // const link_pages=[ "../../pages/productdetail/productdetail1.html","../../pages/productdetail/product-cappu.html","../../pages/productdetail/product-hazelfrap.html","../../pages/productdetail/product-caramelfrap.html","../../pages/productdetail/product-chris.html","../../pages/productdetail/product-italian.html","../../pages/productdetail/product-chaitea.html"," ../../pages/productdetail/product-emperor.html","../../pages/productdetail/product-coldbrew.html"]
 // const cost_items =[ "Rs 404" ," Rs 273","Rs 474","Rs 414","Rs 494","Rs 324","Rs 273","Rs 299","Rs.304"]
 
-
 // const list_names=[
 // {
 //     "main_img":"../../assets/image/redhatmocha.jpg",
@@ -45,6 +44,7 @@ const veg_img=["../../assets/image/veg.svg"]
 //      "link_pages": "../../pages/productdetail/productdetail1.html",
 //      "cost_items":"Rs 404"
 // },
+
 // {
 //     "main_img":"../../assets/image/cappacino.jpg",
 //     "main_content":"Dark, Rich in flavour espresso lies in wait under a smoothed...",
@@ -130,8 +130,8 @@ const list_names_1 = JSON.parse(localStorage.getItem('product_detail_list'));
 const list_names =list_names_1 .filter((element, index) => {
     return index < 5;
   });
-console.log(list_names)
 
+console.log(list_names);
 
 for(i=0;i<list_names.length;i++){
 
@@ -186,10 +186,10 @@ content_card.append(message_1_card);
 
 p_1 = document.createElement("p");
 p_1.setAttribute("class","p-1");
-p_1.innerText=list_names[i]["quantities"]["medium"]["name"] +
-list_names[i]["quantities"]["medium"]["quantity"] +
-list_names[i]["quantities"]["medium"]["unit"] +
-list_names[i]["quantities"]["medium"]["calories"] +
+p_1.innerText=list_names[i]["quantities"]["medium"]["name"] +" "+"("+
+list_names[i]["quantities"]["medium"]["quantity"]+")"+" "+
+list_names[i]["quantities"]["medium"]["unit"]+" "+"("+
+list_names[i]["quantities"]["medium"]["calories"]+")"+" "+
 list_names[i]["quantities"]["medium"]["calories_unit"];
 message_1_card.append(p_1);
 
@@ -218,7 +218,7 @@ content_cost_card.append(costdetail_card);
 
 cost_card = document.createElement("div");
 cost_card.setAttribute("class","cost");
-cost_card.innerText=list_names[i]["currency"] + list_names[i]["price_1"]["medium"]
+cost_card.innerText=list_names[i]["currency"]+"  "+ list_names[i]["price_1"]["medium"]
 costdetail_card.append(cost_card);
 
 add_item_card = document.createElement("div");

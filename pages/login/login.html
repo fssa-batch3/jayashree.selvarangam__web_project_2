@@ -39,12 +39,11 @@
         <section class="profile" id="profile">
 
             <h1 class="heading">Login</h1>
-         
             <form action="" role="form" onsubmit="sign(event)">
                 <label>Email-id:</label>
-                <input type="email"  id="user_email" placeholder="" class="box" required="true">
+                <input type="email"  id="user_email" pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"placeholder="" class="box" required="true">
                 <label>Password:</label>
-                <input type="password"   id="user_password" placeholder="" class="box" required="true">
+                <input type="password" id="user_password" placeholder="" class="box" required="true">
                 <button class="btn" type="submit"> Login</button>
                
                 <div>

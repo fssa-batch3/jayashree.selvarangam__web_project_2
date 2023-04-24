@@ -64,8 +64,8 @@ header{
 }
 .header .logo{
     font-size:1.6rem;
-    text-transform: capitalize;
-    text-decoration: none;
+    text-transform:capitalize;
+    text-decoration:none;
     color:var(--main-color);
 }
  /* header .fa-bars{

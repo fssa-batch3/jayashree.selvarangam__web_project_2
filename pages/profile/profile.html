@@ -9,9 +9,9 @@
    
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" 
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../../assets/css/profile.css">
     <link rel="stylesheet" href="../../assets/css/header.css">
     <link rel="stylesheet" href="../../assets/css/footer.css ">
@@ -39,14 +39,12 @@
         
         </header> --> 
         <section class="profile" id="profile">
-<!-- 
+
             <h1 class="heading"><i class="fa-solid fa-circle-user"></i> Profile </h1>
-             -->
-         \
+            
+         
             <form action="">
-                
-               <i class="fa-solid fa-delete-right" onclick="del(event)"></i>
-               
+                <!-- <i class="fa-solid fa-trash" id="delete"></i> -->
                 <label>Name:</label>
                 <input type="text" id="user_name" class="box" readonly/>
                 <label>Email_id:</label>
@@ -62,19 +60,17 @@
                 <span class="save"> -->
                     <button  type="button"class="btn" id="edit1">edit
                     </button>
-                           <!-- <button  class="btn" id="delete" >delete profile
+                    <!-- <button  class="btn" id="delete" >delete profile
                     </button>  -->
                 <button  type="button" class="btn" id="save" style="display: none">Save
                 </button>
                          
 
-                                <span class="save"> 
+                                <span class="save1"> 
                                 <a href="../../index.html"><button  class="btn" type="button" id="logout">logout
                                 </button></a> </span> 
         
             </form>
-         
-        
         </section>
 
         </body>
@@ -107,7 +103,7 @@ let user_data = JSON.parse(localStorage.getItem('user_data'));
 let unique1 = user_data["user_email"];
 localStorage.setItem('unique_id',JSON.stringify(unique1))
 let user_list = JSON.parse(localStorage.getItem('user_list'));
-let unique=JSON.parse(localStorage.getItem('unique_id'))
+let unique =JSON.parse(localStorage.getItem('unique_id'))
 function findPlayer(e){
   return e.user_email == unique;
 }
@@ -120,7 +116,7 @@ document.getElementById("user_mobilenumber").value= person_data["user_mobile"] ;
 
 
 
-function update(e){
+                function update(e){
                 let user_data = JSON.parse(localStorage.getItem('user_data'));
                 console.log(user_data);
                 let unique1 = user_data["user_email"];
@@ -143,38 +139,39 @@ function update(e){
                 // again paste it to the
                 localStorage.setItem("user_list", JSON.stringify(user_list));
                 console.log(userData);
+                location.reload();
               }
 
 
 function edit(e){
-      window.location.href="../../pages/profile/profile_edit.html";
-
+    window.location.href="../../pages/profile/profile_edit.html";
 }
 
 
-let del1 = document.getElementById('delete');
-del1.addEventListener('click',function(){
-                let user_data = JSON.parse(localStorage.getItem('user_data'));
-                let unique1 = user_data["user_email"];
-                localStorage.setItem('unique',JSON.stringify(unique1))
-                let unique=JSON.parse(localStorage.getItem('unique'))
-              
-                
-                let user_list = JSON.parse(localStorage.getItem('user_list'))
-                function findPlayer(e) {
-                    return e.user_email == unique ;
-                }
-person_data = user_list.find(findPlayer);
-
-const indexOfUser = user_list.indexOf(person_data);
-user_list.splice(indexOfUser,1);
-
-console.log(indexOfUser);
-localStorage.setItem("user_list",JSON.stringify(user_list));
-// localStorage.
-
-
-})
+// let del1 = document.getElementById('delete');
+// del1.addEventListener('click',function(){
+// let user_data = JSON.parse(localStorage.getItem('user_data'));
+// let unique1 = user_data["user_email"];
+// localStorage.setItem('unique',JSON.stringify(unique1));
+// let unique=JSON.parse(localStorage.getItem('unique')); 
+// console.log(unique)          
+// let user_list = JSON.parse(localStorage.getItem('user_list'));
+// function findPlayer(e) {
+//     return e.user_email == unique ;
+// }
+// person_data = user_list.find(findPlayer);
+// const indexOfUser = user_list.indexOf(person_data);
+// user_list.splice(indexOfUser,1);
+// console.log(indexOfUser);
+// localStorage.setItem("user_list",JSON.stringify(user_list));
+// location.reload();
+// function logOut(e){
+//     localStorage.setItem('user_data'," ");
+//     window.location.href="../../index.html";
+// }
+// logOut(e);
+// // localStorage.
+// })
 
 
 //////////////////////////////////////////////////////
@@ -202,10 +199,7 @@ localStorage.setItem("user_list",JSON.stringify(user_list));
 
 // }
 
-// function logOut(e){
-//     localStorage.setItem('user_data'," ");
-//     window.location.href="../../index.html";
-// }
+
 
 
 
@@ -230,8 +224,7 @@ const edit1 = document.querySelector("#edit1");
             document.querySelector("#edit1").setAttribute("style", "display:none");
             let head = document.querySelector(".heading");
             head.innerHTML = "My Profile-Edit"
-
-
+            
         };
 
         function findReadonly1(e) {
@@ -240,7 +233,10 @@ const edit1 = document.querySelector("#edit1");
             document.getElementById("user_password").setAttribute("readonly", "true");
             document.getElementById("user_mobilenumber").setAttribute("readonly", "true")
             document.querySelector("#save").setAttribute("style", "display:none")
-            document.querySelector("#edit1").setAttribute("style","display:flex" );
+            document.querySelector("#edit1").setAttribute("style","display:inline-block" );
+            let head = document.querySelector(".heading");
+            head.innerHTML = "My Profile"
+            // location.reload();
         }
 
 

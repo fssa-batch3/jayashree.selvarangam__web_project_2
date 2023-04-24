@@ -1168,11 +1168,11 @@ content_card.append(h3_card);
 
 p_card = document.createElement("p");
 p_card.setAttribute("class", "calorie");
-p_card.innerText =  productData["quantities"]["medium"]["name"] +
-productData["quantities"]["medium"]["quantity"] +
-productData["quantities"]["medium"]["unit"] +
-productData["quantities"]["medium"]["calories"] +
-productData["quantities"]["medium"]["calories_unit"];
+p_card.innerText =  productData["quantities"]["medium"]["name"] +" "
++"("+productData["quantities"]["medium"]["quantity"] +" ) "+" "+
+productData["quantities"]["medium"]["unit"] +"  "+
+"("+productData["quantities"]["medium"]["calories"] +")"+" "
++productData["quantities"]["medium"]["calories_unit"];
 ;
 content_card.append(p_card);
 
@@ -1270,10 +1270,10 @@ tall.addEventListener('click',function(){
  
     p2_card.innerText = 'Rs.' + productData["price_1"]['tall'];
     let sum = p2_card.innerText.replace("Rs.", "") ;
-    p_card.innerText = productData["quantities"]["tall"]["name"] +
-    productData["quantities"]["tall"]["quantity"] +
-    productData["quantities"]["tall"]["unit"] +
-    productData["quantities"]["tall"]["calories"] +
+    p_card.innerText = productData["quantities"]["tall"]["name"] +" "+
+   "("+ productData["quantities"]["tall"]["quantity"]+")" +" "+
+    productData["quantities"]["tall"]["unit"] +" "+
+    "("+productData["quantities"]["tall"]["calories"] +" )"+
     productData["quantities"]["tall"]["calories_unit"];
 ;
 });
@@ -1288,11 +1288,11 @@ short.addEventListener('click',function(){
     console.log(sum);
 
 
-    p_card.innerText = productData["quantities"]["short"]["name"] +
-    productData["quantities"]["short"]["quantity"] +
-    productData["quantities"]["short"]["unit"] +
-    productData["quantities"]["short"]["calories"] +
-    productData["quantities"]["short"]["calories_unit"];
+    p_card.innerText = productData["quantities"]["short"]["name"] +" "
+   +"("+ productData["quantities"]["short"]["quantity"] +")"+" "+
+    productData["quantities"]["short"]["unit"] +" "
+   +"("+ productData["quantities"]["short"]["calories"] +")"+" "
+    +productData["quantities"]["short"]["calories_unit"];
 });
 
 
@@ -1303,11 +1303,11 @@ medium.addEventListener('click',function(){
     p2_card.innerText = 'Rs.' + productData["price_1"]['medium'];
     let sum = p2_card.innerText.replace("Rs.", "");
 
-    p_card.innerText = productData["quantities"]["medium"]["name"] +
-    productData["quantities"]["medium"]["quantity"] +
-    productData["quantities"]["medium"]["unit"] +
-    productData["quantities"]["medium"]["calories"] +
-    productData["quantities"]["medium"]["calories_unit"];
+    p_card.innerText = productData["quantities"]["medium"]["name"] +"  "+
+   "("+ productData["quantities"]["medium"]["quantity"] +"  "+")"+
+    productData["quantities"]["medium"]["unit"] +"  "+
+   "("+ productData["quantities"]["medium"]["calories"] +")"
+    +productData["quantities"]["medium"]["calories_unit"];
     
 });
 let add_item =document.querySelector(".add-item-cart");
@@ -1409,9 +1409,13 @@ let add_item =document.querySelector(".add-item-cart");
         //     found = true;
         //    };
         // };
+        let unique1 = JSON.parse(localStorage.getItem('unique_id'))
+        console.log(unique1)
         for(let i=0;i<add_to_cart.length;i++){
-            if(  unique ===  add_to_cart[i]['product_id'] &&  price === add_to_cart[i]['price']){
-            logic = true;
+            console.log(  add_to_cart[i]['user_id'])
+            if(  unique ===  add_to_cart[i]['product_id'] && price === add_to_cart[i]['price'] && unique1 === add_to_cart[i]['user_id']){
+              console.log(  add_to_cart[i]['user_id'])
+                logic = true;
             };
         };      
         // if(!found){
@@ -1483,10 +1487,10 @@ for(i=0;i<object1.length;i++){
     
     coffee_message_card = document.createElement("div");
     coffee_message_card.setAttribute("class","coffee-message");
-    coffee_message_card.innerText= object1[i]["quantities"]["medium"]["name"] +
-    object1[i]["quantities"]["medium"]["quantity"] +
-    object1[i]["quantities"]["medium"]["unit"] +
-    object1[i]["quantities"]["medium"]["calories"] +
+    coffee_message_card.innerText= object1[i]["quantities"]["medium"]["name"] +"( "+
+    object1[i]["quantities"]["medium"]["quantity"] +") "+
+    object1[i]["quantities"]["medium"]["unit"] +"(  "+
+    object1[i]["quantities"]["medium"]["calories"] +") "+
     object1[i]["quantities"]["medium"]["calories_unit"];
     coffee_content_card.append(coffee_message_card);
     

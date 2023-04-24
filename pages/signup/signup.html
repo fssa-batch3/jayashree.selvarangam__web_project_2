@@ -45,10 +45,26 @@
             <h1 class="heading"><i class="fa-solid fa-circle-user"></i> Signup </h1>
          
             <form role="form" onsubmit="signUP(event)">
-               
+                <input type="text"  id="name" title="Use firstletter between (A-Z) and dont leave space in between" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,15}$" placeholder="Name" class="box" required="true">
+
+           
+            
+                <input type="email"   pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" id="email" placeholder="Email-Id"  class="box" required="true">
+
+                <input type="password"  id="password" title="Use (UpperCase, LowerCase, Number/SpecialChar and min 8 Chars)" placeholder="Password" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"   placeholder="Password" class="box" required="true">
+
+                <input type="password" id="confirm_password" title="Use (UpperCase, LowerCase, Number/SpecialChar and min 8 Chars)" placeholder="confirm Password" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"placeholder="Confirm-password" class="box" required="true">
+              
+                <textarea type="text" id="address" placeholder="address"  title="Use only lowercase(abc...z)" pattern="[a-z]{3,}" class="box" required="true"></textarea>
+
+                <input  pattern="[0-9]{10}" type="tel" title="Please enter a valid 10 digit mobile number." id="mobilenumber"  title="Enter 10 number only" placeholder="Mobile number" class="box" required="true">
+               <button  type="submit" class="btn"> Signup </button>
+                <div>
+                 <p class="sign">If your are already a customer <a href="../../pages/login/login.html">Login</a></p>
+                 </div>
 <!--                
                 <input type="text"  id="name" title="Use firstletter between (A-Z) and min 15 character" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,15}$" placeholder="Name" class="box" >
-                <p class="wrong_password1"></p>
+                <p class="wrong_password1"></p> `
             -->
 <!--             
                 <input type="email"    id="email" placeholder="Email-Id"  class="box" >
@@ -63,7 +79,7 @@
                 <p class="wrong_password"></p>
                 <p class="wrong_password123"></p>
                 <button  type="submit" class="btn"> Signup </button> -->
-                <div class="form-control">
+                <!-- <div class="form-control">
                 <input type="text" id="name" placeholder="Name" class="box" >
                 <small></small>
                 </div>
@@ -88,8 +104,8 @@
 
 
                 <div class="form-control">
-                <!-- <input type="password" id="confirm_password" placeholder="Confirm-password" maxlength="6" class="box" required="true"> -->
-                <textarea type="text" id="address" placeholder="address"  class="box" ></textarea>
+                 <input type="password" id="confirm_password" placeholder="Confirm-password" maxlength="6" class="box" required="true"> -->
+                <!-- <textarea type="text" id="address" placeholder="address"  class="box" ></textarea>
                 <small></small>
                 </div>
                 
@@ -102,7 +118,7 @@
                 <button  type="submit" class="btn"> Signup </button>
                 <div>
                 <p class="sign">If your are already a customer <a href="../../pages/login/login.html">Login</a></p>
-                </div>
+                </div> --> 
 
                     <!-- pattern ="^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$." -->
                 
@@ -142,7 +158,7 @@
             // localStorage.setItem("users",userData);
             // }
         // code for storing data in the local storage
-const signUP = e =>{
+const signUP1= e =>{
 e.preventDefault();
 let user_name = document.getElementById("name");
 let user_email = document.getElementById("email");
@@ -284,7 +300,46 @@ function setSuccessFor(input, message) {
 
     
     // }
+    const signUP = e =>{
 
+e.preventDefault();
+let user_name = document.getElementById("name").value.trim();
+let user_email = document.getElementById("email").value.trim();
+let user_password = document.getElementById("password").value;
+let user_confirm_password=document.getElementById("confirm_password").value;
+let user_mobile = document.getElementById("mobilenumber").value.trim();
+let user_address = document.getElementById("address").value.trim();
+
+
+let a = JSON.parse(localStorage.getItem('user_list'))||[];
+let exist = a.length &&
+     JSON.parse(localStorage.getItem('user_list')).some(data =>
+     data.user_email.toLowerCase() == user_email.toLowerCase()
+ );
+    if(!exist){
+        if(user_password==user_confirm_password){
+            let unique_id = uuidv4();
+        a.push({ user_name,  user_email,user_password, user_confirm_password, user_mobile,unique_id,user_address});
+        localStorage.setItem('user_list', JSON.stringify(a));
+        // console.log(localStorage.getItem('user_list'));
+        document.querySelector('form').reset();
+      
+     
+        alert('Account created Successfully');
+        location.href = "../../pages/login/login.html";
+        }
+        else{
+            alert("invalid password");
+        }
+    }
+    else{
+        alert('Sorry the User already Exist!! \n Try with different  email id');
+        
+    }
+    }
+    
+    
+    
 
 
    

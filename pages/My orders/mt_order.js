@@ -76,10 +76,21 @@ const orders = groupedOrders.reduce((acc, curr) => {
     return acc;
 }, []);
 console.log(orders);
-
+localStorage.setItem('groupedOrders',JSON.stringify(orders));
 // console.log(order);
 for (i = 0; i < orders.length; i++){
     const group = orders[i];
+
+    //    let beverage_container_card1 = document.createElement("div");
+    //     beverage_container_card1.setAttribute("class", "beverage-container");
+    //     beverage_container_card1.innerText= orders[0][0]['ordered_object_at_a_time']
+    //    document.querySelector(".whole").append(beverage_container_card1);
+
+    //    let beverage_container_card1 = document.createElement("div");
+    //     beverage_container_card1.setAttribute("class", "beverage-container");
+    //     beverage_container_card1.innerText= orders[0][0]['ordered_object_at_a_time']
+    //    document.querySelector(".whole").append(beverage_container_card1);
+
     for (let j = 0; j < group.length; j++) {
         const order = group[j];
 
@@ -90,6 +101,13 @@ for (i = 0; i < orders.length; i++){
         beverage_card = document.createElement("div");
         beverage_card.setAttribute("class", "beverage");
         your_cart_card.append(beverage_card);
+
+    //    let beverage_container_card1 = document.createElement("div");
+    //     beverage_container_card1.setAttribute("class", "beverage-container");
+    //     beverage_container_card1.innerText=order['ordered_object_at_a_time']
+
+    //     beverage_card.append(beverage_container_card1);
+
 
         beverage_container_card = document.createElement("div");
         beverage_container_card.setAttribute("class", "beverage-container");
@@ -189,8 +207,6 @@ for (i = 0; i < orders.length; i++){
 
         go_back.append(a_card);
 
-
-
         let beverage_costdetail_card1 = document.createElement("div");
         beverage_costdetail_card1.setAttribute("class", "beverage-costdetail1");
         beverage_container_card.append(beverage_costdetail_card1);
@@ -222,8 +238,6 @@ for (i = 0; i < orders.length; i++){
             cancel_1.innerText = 'cancel'
             cancel.append(cancel_1);
         }
-
-
 
         let reorder = document.createElement("div");
         reorder.setAttribute("class", "reorder");
@@ -280,6 +294,10 @@ for (i = 0; i < orders.length; i++){
            beverage_card.append(new_card);
            }
         }
+        // let beverage_container_card2 = document.createElement("div");
+        // beverage_container_card2.setAttribute("class", "beverage-container");
+        // beverage_container_card2.innerText= orders[0][0]['ordered_object_at_a_time']
+        // document.querySelector(".whole").append(beverage_container_card2);
    }
     
 
