@@ -16,7 +16,58 @@
     <link rel="stylesheet" href="../../assets/css/review.css ">
     <link rel="stylesheet" href="../../assets/css/header.css">
     <link rel="stylesheet" href="../../assets/css/footer.css ">
+ <style>
+*{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        } 
+        /* body{
+            height:flex;
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+            align-items:center;
 
+            /* background: linear-gradient(45deg,purple,blue); */
+         /* } */
+     
+        .star{
+            font-size:3rem;
+            color:#ff9800;
+            background-color:unset;
+            border:none;
+        }
+        .rating_heading{
+            color:black;
+            animation: scale-up 1s ease;
+        }
+        .star_rating{
+            user-select:none;
+            background-color:black;
+            padding:1.4rem 2.5rem;
+            margin:2rem;
+            border-radius:.4rem;
+            text-align:center;
+            animation: slide-up 1s ease;
+        }
+        .star:hover{
+            cursor:pointer;
+        }
+        .current_rating{
+            color:#ff9800;
+        }
+        @keyframes slide-up{
+            0%{
+                opacity:0;
+                transform:translateY(50px);
+            }
+            100%{
+                opacity:1;
+                transform:translateY(0px);
+            }
+}
+ </style> 
 </head>
 <body>
 <!-- header section starts  -->
@@ -42,43 +93,121 @@
 
 
 <section class="profile" id="profile">
-
-    <h1 class="heading"> Review</h1>
-
    
-        
-        <form action="">
-     <div class="customer">
-        <p class="ratings">Your ratings:</p>
-        
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
+<section class="form">
+    <h1 class="rating_heading">5 Star Rating</h1>
+ 
+    <div class="star_rating">
+    <button class="star">&#9734;</button>
+    <button class="star">&#9734;</button>
+    <button class="star">&#9734;</button>
+    <button class="star">&#9734;</button>
+    <button class="star">&#9734;</button>
+    <p class="current_rating">0 </p>
+</div>
 
-     </div>
-           
-    
-
-        <textarea name="" placeholder="Write your valuable feedback here" class="box" id="review" cols="30" rows="10"></textarea>
-
-      <button class="btn"><a href="../../index.html">Submit</a> </button> 
-
-    </form>
+<textarea  placeholder="Write your valuable feedback here" title="Use only lowercase(abc...z)" pattern="[a-z]{3,}"  class="box"  id="review"  required="true"></textarea>
+      <!-- <button class="btn"><a href="../../index.html">Submit</a> </button>  -->
+      <button type="submit" class="btn" id="submit">submit </button>
+ 
+    </section>
 
 </section>
+
 </body>
 <script src="../../pages/order/header.js"></script>
 <script>
-    function submit(){
-    const  review = document.getElementById("review").value;
-    //const  changeAddress = document.getElementById("address").value;
-    console.log(review);
-    //   console.log(password);
-    localStorage.setItem("review",review);
-    //    localStorage.setItem("password",password)
-     window.location.href="../../index.html";
+
+
+const queryString = window.location.search;
+// console.log(queryString);
+const urlParams = new URLSearchParams(queryString);
+console.log(urlParams);
+const product = urlParams.get('order_id');
+console.log(product);
+
+
+
+const queryString1 = window.location.search;
+// console.log(queryString);
+const urlParams1 = new URLSearchParams(queryString);
+console.log(urlParams);
+const product1 = urlParams.get('product_id');
+console.log(product1);
+
+
+   const allStars = document.querySelectorAll('.star');
+    let current_rating = document.querySelector('.current_rating');
+    // console.log(allStars)
+    allStars.forEach((star,i)=>{
+      star.onclick = function(){
+          // console.log(i+1)
+          let current_star_level = i+1;
+          current_rating.innerText = `${current_star_level}`
+          allStars.forEach((star,j)=>{
+              if(current_star_level >= j+1){
+                //   console.log(j+1)
+             star.innerHTML = '&#9733';
+          }else{
+              star.innerHTML = '&#9734';
+          }
+          });
+      }
+    });
+    console.log(1);
+   
+    let user_id_array = JSON.parse(localStorage.getItem('unique_id'));
+    console.log(user_id_array)
+    let user_list= JSON.parse(localStorage.getItem('user_list'));
+    console.log(user_list)
+    // let user_id = user_list.find(e=>{
+    //     e.user_email === user_id_array ; 
+    // })
+ 
+    function find_id(e){
+       return e.user_email ==user_id_array
     }
+    let user_id = user_list.find(find_id)
+    console.log(user_id)
+
+
+    const submit = document.getElementById('submit');
+    submit.addEventListener('click',
+    function (){
+      let stars = JSON.parse(localStorage.getItem('stars'));
+      let review_value = document.querySelector('#review').value;
+      console.log(current_rating.innerText);
+            if(current_rating.innerText === 0){
+                console.log(123435678)
+                alert('please give star rating and review');
+          }else{
+             if(stars===null){
+              let store_review = [{
+                  'no_of_stars':parseInt(current_rating.innerText),
+                  'review':review_value,
+                  'user_name':user_id.user_name,
+                  'order_id':product,
+                  'product_id':product1
+              }]
+              localStorage.setItem('stars',JSON.stringify(store_review))
+          }else{
+
+              let stars1 = JSON.parse(localStorage.getItem('stars'));
+              stars1.push({
+                  'no_of_stars':parseInt(current_rating.innerText),
+                  'review':review_value,
+                  'review':review_value,
+                  'user_name':user_id.user_name,
+                  'order_id':product,
+                  'product_id':product1
+              })
+              localStorage.setItem('stars',JSON.stringify(stars1))
+          }
+          location.reload();
+        }
+       
+      } 
+      );
+       
 </script>
 </html>

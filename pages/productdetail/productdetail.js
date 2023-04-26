@@ -1115,16 +1115,6 @@ function findProduct(e){
 let  productData = master_list.find(findProduct);
 // console.log(productData);
 
-
-
-
-
-
-
-
-
-
-
 // const newUser = urlParams.get('newuser');
 // // console.log(newUser);
 // // product
@@ -1351,7 +1341,7 @@ let add_item =document.querySelector(".add-item-cart");
     let product_detail_list = JSON.parse(localStorage.getItem('product_detail_list'));
     function findProduct(e) {
         return e.product_id == unique_id111;
-     }
+    }
 
      productData = product_detail_list.find(findProduct);
      // console.log(productData);
@@ -1531,7 +1521,6 @@ let user_login_id1 = JSON.parse(localStorage.getItem('user_data'));
                 alert('login')
             }else{
         let unique_id = findId.dataset.id;
-
         console.log(unique_id);
 
         window.location.href=`../../pages/productdetail/product-cappu.html?product_id=${unique_id}`

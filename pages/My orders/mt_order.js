@@ -202,7 +202,7 @@ for (i = 0; i < orders.length; i++){
         beverage_costdetail_card.append(go_back);
 
         a_card = document.createElement("a");
-        a_card.setAttribute("href", "../../pages/fill forms/review.html");
+        a_card.setAttribute("href", "../../pages/fill forms/review.html"+'?'+'order_id='+order['ordered_object_at_a_time']+'&&'+'product_id='+order['product_id']);
         a_card.innerText = "Write your review";
 
         go_back.append(a_card);
