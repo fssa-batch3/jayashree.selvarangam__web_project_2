@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>coffee shop </title>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+            integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+            crossorigin="anonymous" referrerpolicy="no-referrer">
+        <link rel="stylesheet" href="../../assets/css/profile.css">
+        <link rel="stylesheet" href="../../assets/css/header.css">
+        <link rel="stylesheet" href="../../assets/css/footer.css ">
+
+    </head>
+    <body>
+    
+        <section class="profile" id="profile">
+
+            <h1 class="heading">
+              add  address 
+            </h1>
+         
+            <form action="" onsubmit="address()">
+                <!-- <i class="fa-solid fa-trash" id="delete"></i> -->
+                <label>Address type:</label>
+                <input type="text" id="address-type" class="box" required>
+                <label>House no:</label>
+                <input type="number" id="house-no" class="box" required>
+                <label>Area:</label>
+                <input type="text" id="area"class="box" required>
+                <label> pincode:</label>
+                <input type="number" id="pincode" class="box" required>
+                <label for="default-address">default address</label>
+                <input type="checkbox" id="default-address"  >
+                <!-- <a href="../../pages/profile/profile_edit.html"><input type="submit" value="Edit" class="btn"></a>
+                    <span class="save"> -->
+                
+                <!-- <button  class="btn" id="delete" >delete profile
+                    </button>  -->
+                <button type="submit" class="btn" id="save">Save
+                </button>
+
+
+        
+            </form>
+        </section>
+
+    </body>
+    <script src="https://cdn.jsdelivr.net/npm/uuid@8.3.2/dist/umd/uuidv4.min.js"></script>
+    <script>
+        // const submit = document.getElementById('save')
+        // submit.addEventListener('submit',function(){
+            const address = function(e){
+            let address_type = document.getElementById('address-type').value
+            let house_no = document.getElementById('house-no').value
+            let area = document.getElementById('area').value
+            let pincode = document.getElementById('pincode').value
+            const checkbox = document.getElementById("default-address");
+            const isChecked = checkbox.checked;
+            let value;
+            if(isChecked===true){
+                value=true
+                let address_array = JSON.parse(localStorage.getItem('address'));
+                address_array.forEach((object) => {
+                object.value = false;
+                localStorage.setItem('address',JSON.stringify(address_array))
+    });
+
+            }else{
+                value=false
+            }
+            let address_array = JSON.parse(localStorage.getItem('address'))
+            if(address_array===null){
+                if(address_type==''||house_no==""||area==""||pincode==""){
+                alert('Please fill all the fields')
+
+            }else{
+              
+                address_array = [
+                    {
+                address_type,
+                house_no,
+                area,
+                pincode,
+                'id':uuidv4(),
+                value:value
+                    }
+                
+                ]
+                localStorage.setItem('address',JSON.stringify(address_array))
+                }
+            }else{
+               let address_array = JSON.parse(localStorage.getItem('address'))
+               if(address_type==''||house_no==""||area==""||pincode==""){
+                alert('Please fill all the fields')
+
+            }else{
+
+                address_array.push({    
+                address_type,
+                house_no,
+                area,
+                pincode,
+                'id':uuidv4(),
+                value:value     
+            })
+            localStorage.setItem('address',JSON.stringify(address_array))
+        }
+            }
+        }
+    
+    </script>
+    <script src="../../pages/order/header.js"></script>
+    </html>

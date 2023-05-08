@@ -10,7 +10,7 @@
 
 // }
 // if( age == ""){
- 
+
 //     alert("Age is required ");
 //     return false;
 // }
@@ -41,9 +41,9 @@
 //     }
 //     else{
 //         peoplelist=JSON.parse(localStorage.getItem("peoplelist"));
-       
+
 // };
-  
+
 // let html="";
 // peoplelist.forEach(function(items,index){
 // html +="<tr>"
@@ -72,22 +72,20 @@
 //     let email =document.getElementById("email").value;
 
 //     let peoplelist;
-    
-    
+
 //     if(localStorage.getItem("peoplelist")==null){
 //         peoplelist=[];
 //     }
 //     else{
 //         peoplelist=JSON.parse(localStorage.getItem("peoplelist"));
 //     }
-   
+
 //     peoplelist.push({  name:name1,
 //         age:age,address:address,email:email})
-     
 
 //         showData();
 //     localStorage.setItem(" peoplelist",JSON.stringify(peoplelist));
- 
+
 //     document.getElementById("name").value="";
 //     document.getElementById("age").value=""
 //     document.getElementById("address").value="";
@@ -99,7 +97,7 @@
 
 // selectData();
 // function manageData(){
-    
+
 //     document.getElementById('msg').innerHTML= "";
 //    let first_name = document.getElementById('first_name').value;
 //    if( first_name == ""){
@@ -111,7 +109,7 @@
 //        if(arr==null){
 //         let data=[first_name];
 //          localStorage.setItem('crud',JSON.stringify(data));
-         
+
 //        }else{
 //         arr.push(first_name);
 //         localStorage.setItem('crud',JSON.stringify(arr));
@@ -128,12 +126,8 @@
 //     document.getElementById('first_name').value="";
 //     selectData();
 //    }
-   
-  
+
 // }
-
-
-
 
 // function selectData(){
 //     let arr=  getCrudData();
@@ -147,9 +141,7 @@
 //         document.getElementById('root').innerHTML = html;
 //         console.log(html);
 
-
 //     }
-
 
 // }
 // function editData(rid){

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../assets/css/header.css">
+    <style>
+        .show_address{
+            width: 300px;
+            height:250px;
+            box-sizing: border-box;
+            margin-left: 300px;
+            display:flex;
+            flex-direction: row;
+            justify-content: space-between;
+            
+            
+        }
+        .address_container{
+            border: 1px solid #333;
+            padding: 10px 15px 10px 15px;
+        
+        }
+    </style>
+</head>
+<body>
+    <section class="add_address">
+        <div class="add_address">
+            <h2>Add Address</h2>
+         <a href="../address/address_form.html"> <img src="../assets/image/download1234.png" alt="" ></a>
+        </div>
+    </section>
+    <section class="show_address">
+        <!-- <div class="address_container">
+            <div class="address">
+                <h2 class="address_type">Home</h2>
+                <h2 class="no">No <span class="house_no">4</span></h2>
+                <h3 class="address_info"> maha st anna nagar </h3>
+                <h3 class="address_info1"> chennai </h3>
+                <h3 class="address_info2">238098</h3>
+                <p class="default">default address</p>
+            </div>
+            <div class="button">
+                <a href="../address/address_edit.html"> <button>Edit</button> </a>
+            </div>
+
+        </div> -->
+
+        <!-- <div class="address_container">
+            <div class="address">
+                <h2 class="address_type">Home</h2>
+                <h2 class="no">No <span class="house_no">4</span></h2>
+                <h3 class="address_info"> maha st anna nagar </h3>
+                <h3 class="address_info1"> chennai </h3>
+                <h3 class="address_info2">238098</h3>
+                <p class="default">default address</p>
+            </div>
+            <div class="button">
+                <a href=""> <button>Edit</button> </a>
+            </div>
+
+        </div> -->
+    </section>
+    
+</body>
+<script src="../pages/order/header.js"></script>
+<script>
+    let stored_address = JSON.parse(localStorage.getItem('address'));
+
+const requiredObjectIndex = stored_address.findIndex(obj => obj.value === true);
+
+if (requiredObjectIndex !== -1) {
+  const requiredObject = stored_address.splice(requiredObjectIndex, 1)[0];
+  stored_address.unshift(requiredObject);
+  localStorage.setItem('address',JSON.stringify(stored_address))
+}
+
+console.log(stored_address);
+
+    for(let i=0;i<stored_address.length;i++){
+        let value1;
+        if(stored_address[i]['value']===true){
+            value1 = 'default address'
+        }else{
+            value1 = 'not default address'
+        }
+
+        let address_container = `
+        <div class="address_container">
+            <div class="address">
+                <h2 class="address_type">${stored_address[i]['address_type']}</h2>
+                <h2 class="no">No <span class="house_no">${stored_address[i]['house_no']}</span></h2>
+                <h3 class="address_info">${stored_address[i]['area']}</h3>
+                <h3 class="address_info1">chennai</h3>
+                <h3 class="address_info2>${stored_address[i]['pincode']}</h3>
+                <p class="default">${value1}</p>
+            </div>
+            <div class="button">
+                <a href="../address/address_edit.html?address_id=${stored_address[i]['id']}" > <button id="edit" data-id="${stored_address[i]['id']}">Edit</button> </a>
+            </div>
+
+        </div>
+        `
+        document.querySelector('.show_address').insertAdjacentHTML('beforeend',address_container)
+    }
+
+//     let edit1 = document.getElementById('edit');
+//     edit1.forEach((findId) => {
+//   findId.addEventListener("click", (e) => {
+//         let id = findId.dataset.id;
+//         location.href = `../address/address_edit.html?address_id=${id}`;
+//   })
+//     })
+</script>
+</html>

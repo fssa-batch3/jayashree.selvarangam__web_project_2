@@ -1,70 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>coffee shop </title>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>coffee shop </title>
 
-   
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" 
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <link rel="stylesheet" 
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     
-    <link rel="stylesheet" href="../../assets/css/profile.css">
-    <link rel="stylesheet" href="../../assets/css/header.css">
-    <link rel="stylesheet" href="../../assets/css/footer.css ">
+        <link rel="stylesheet" href="../../assets/css/profile.css">
+        <link rel="stylesheet" href="../../assets/css/header.css">
+        <link rel="stylesheet" href="../../assets/css/footer.css ">
 
-</head>
-<body>
-<!-- header section starts  -->
+    </head>
+    <body>
+        <!-- header section starts  -->
         <header class="header">
             <input type="checkbox" name="" id="toggler">
             <label for="toggler" class="fas fa-bars"></label>
-            <a href="../../index.html" class="logo"> Coffee<i class="fas fa-mug-hot"></i> </a>
+            <a href="../../index.html" class="logo">
+                Coffee<i class="fas fa-mug-hot"></i> 
+            </a>
         
             <nav class="navbar">
                 <a href="../../index.html">Home</a>
                 <a href="../../pages/order/order-bestseller.html">Order</a>
                 <a href="../../pages/payment/payment.html">Pay</a>
                 <a href="../../pages/My orders/myorders.html">My orders</a>
-             <!--<a href="../../pages/blogs/blog.html">Blogs</a>--> 
+                <!--<a href="../../pages/blogs/blog.html">Blogs</a>--> 
             </nav>
-             <div class="icons">
-             <a href="../../pages/add to cart/addtocart.html" class="fas fa-shopping-cart"></a>
-             <a href="../../pages/profile/profile.html" class="fas fa-user"></a>
-    </div>
+            <div class="icons">
+                <a href="../../pages/add to cart/addtocart.html" class="fas fa-shopping-cart"></a>
+                <a href="../../pages/profile/profile.html" class="fas fa-user"></a>
+            </div>
             <a href="../../pages/login/login.html" class="btn">Login</a>
         
         </header>
         <section class="profile" id="profile">
 
-            <h1 class="heading"><i class="fa-solid fa-circle-user"></i> Profile </h1>
+            <h1 class="heading">
+                <i class="fa-solid fa-circle-user"></i> Profile 
+            </h1>
          
             <form action="" onsubmit="update(event)">
                 <label>Name:</label>
                 <input type="text" id="user_name" class="box">
                 <label>Email_id:</label>
-                <input type="email"  id="user_email" class="box" disabled/>
+                <input type="email" id="user_email" class="box" disabled>
                 <label>Password:</label>
-                <input type="password"  id="user_password"class="box" disabled/>
+                <input type="password" id="user_password"class="box" disabled>
                 <label>Mobile number:</label>
-                <input type="text"  id="user_mobilenumber" class="box">
-        
-               
+                <input type="text" id="user_mobilenumber" class="box">
                 
                 <!-- <input type="submit" value="Edit" class="btn"> -->
                 <span class="save">
-                    <button  type="submit" class="btn" id="save">Save
-                        </button></span>
+                    <button type="submit" class="btn" id="save">Save
+                    </button></span>
         
             </form>
         
         </section>
 
-        </body>
-        <script>
+    </body>
+    <script>
     //   let user_info = JSON.parse(window.localStorage.getItem("user_info"));
     //   console.log(user_info);
     //   document.getElementById("user_name1").value = user_info[0]["user_name"];
@@ -86,10 +86,10 @@
     // object ["user_password"]=password;
     // object ["user_mobile"]=mobile;
     // console.log(object);
-   
+
     // const updated = object.assign(user_info,object);
     //   let user_detail = JSON.parse(window.localStorage.getItem("user"));
- 
+
     //   for(i=0;i<user_detail.length;i++){
     //      if(email==user_detail[i].user_email){
     //         user_detail[i]=updated;
@@ -98,41 +98,34 @@
     //      }
     //   }
     // });
-      
-
-
-    
 
     //   }
-
-      
+    
     //   )
 
-let user_data = JSON.parse(localStorage.getItem('user_data'));
-let unique = user_data["user_email"];
-let user_list = JSON.parse(localStorage.getItem('user_list')) ;
+const user_data = JSON.parse(localStorage.getItem("user_data"));
+const unique = user_data.user_email;
+const user_list = JSON.parse(localStorage.getItem("user_list"));
 function findPlayer(e) {
-  return e.user_email == unique ;
+  return e.user_email == unique;
 }
 person_data = user_list.find(findPlayer);
 
-document.getElementById("user_name").value = person_data["user_name"];
-document.getElementById("user_email").value = person_data["user_email"] ;
-document.getElementById("user_password").value = person_data["user_password"] ;
-document.getElementById("user_mobilenumber").value= person_data["user_mobile"] ;
+document.getElementById("user_name").value = person_data.user_name;
+document.getElementById("user_email").value = person_data.user_email;
+document.getElementById("user_password").value = person_data.user_password;
+document.getElementById("user_mobilenumber").value = person_data.user_mobile;
 
-function update(e){
-                 // getting the updated data from the input field
-                let up_name = document.getElementById("user_name").value;
-                let up_mobile = document.getElementById("user_mobilenumber").value;
-                // paste the updated data to the correct object
-                person_data["user_name"] = up_name;
-                person_data["user_mobilenumber"] = up_mobile;
-                // again paste it to the
-                localStorage.setItem("user_list", JSON.stringify(user_list));
-                console.log(userData);
-              }
-
-
+function update(e) {
+      // getting the updated data from the input field
+      const up_name = document.getElementById("user_name").value;
+      const up_mobile = document.getElementById("user_mobilenumber").value;
+      // paste the updated data to the correct object
+      person_data.user_name = up_name;
+      person_data.user_mobilenumber = up_mobile;
+      // again paste it to the
+      localStorage.setItem("user_list", JSON.stringify(user_list));
+      console.log(userData);
+    }
         </script>
 </html>

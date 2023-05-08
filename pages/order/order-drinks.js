@@ -22,7 +22,7 @@ let a_card;
 let button_card;
 
 // const main_img=["../../assets/image/redhatmocha.jpg","../../assets/image/cappacino.jpg","../../assets/image/hazelnutmochacheese.jpg","../../assets/image/carameljava.jpg","../../assets/image/pourover.jpg","../../assets/image/pourover.jpg","../../assets/image/chaitea.jpg","../../assets/image/emperortea.jpg","../../assets/image/coldcold.jpg"]
-const veg_img = ["../../assets/image/veg.svg"]
+const veg_img = ["../../assets/image/veg.svg"];
 // const main_content =[" A decadent mix of cocoa, topped with a playfully crafted Hat..","Dark, Rich in flavour espresso lies in wait under a smoothed...","Hazelnut syrup combined with light cream cheese styled sauce..","Rich Coffee blended with milk, chocolaty chip, caramel syrup....","Pour-over is an accessible way to brew...","Pour-over is a beautifully simple and accessible way to brew...","Black tea infused with cinnamon, clove, and other warming sp...","Receiving plenty of rain during the early spring harvest, th.","Starbucks® Kenya coffee is freshly ground and then steeped f..."]
 // const main_names=[" Crunchy Red Hat Mocha","Cappuccino", "Hazelnut Mocha  Frappuccino","Caramel  Frappuccino","Pour over – Christmas Blend","Pour Over - Italian Blend","Chai Tea Latte","Emperor'S Mist Green Tea" ,"Cold Brew Black"]
 // const sub_content=[" SHORT(237 ML) .412 Kcal","SHORT(237 ML) .104 Kcal","TALL(354 ML) .491 kcal","TALL(354 ML) .398 kcal","SHORT(237 ML) .- 0 KCAL","SHORT(237 ML) .0 kcal","SHORT(237 ML) .170 kcal","SHORT(237 ML) .0 kcal","TALL() .0 kcal"]
@@ -164,7 +164,6 @@ const veg_img = ["../../assets/image/veg.svg"]
 //     ////////////////////////////////////////////
 // },
 
-
 // {
 
 //     "name": "Pumpkin Spice Latte",
@@ -202,9 +201,6 @@ const veg_img = ["../../assets/image/veg.svg"]
 
 //     "category": "Espresso",
 //     "category_description": "Everyone's favorite The Caffine factory put together in a specially curated collection.",
-
-
-
 
 //     /////////////////////////////////////
 //     "main_img": "../../assets/image/pumpkin.jpg",
@@ -254,9 +250,6 @@ const veg_img = ["../../assets/image/veg.svg"]
 //     "category": "Espresso",
 //     "category_description": "Everyone's favorite The Caffine factory put together in a specially curated collection.",
 
-
-
-
 //     /////////////////////////////////////
 //     "main_img": "../../assets/image/pumpkin.jpg",
 //     "main_content": "Our signature espresso and steamed milk with the celebrated ...",
@@ -294,9 +287,6 @@ const veg_img = ["../../assets/image/veg.svg"]
 
 //     "price": 244,
 //     "currency": "Rs",
-
-
-
 
 //     "image": {
 //         "source": "../../assets/image/vanila.jpg"
@@ -344,11 +334,8 @@ const veg_img = ["../../assets/image/veg.svg"]
 //     "price": 365,
 //     "currency": "Rs",
 
-
 //     "category": "Espresso",
 //     "category_description": "Everyone's favorite The Caffine factory put together in a specially curated collection.",
-
-
 
 //     "image": {
 //         "source": "../../assets/image/doppio.jpg",
@@ -419,11 +406,8 @@ const veg_img = ["../../assets/image/veg.svg"]
 //     "price": 474,
 //     "currency": "Rs ",
 
-
 //     "category": "Frappucino",
 //     "category_description": "The Frappuccino® is a blended beverage unique to The Caffine factory.",
-
-
 
 //     "image": {
 //         "source": "../../assets/image/hazelnutmochacheese.jpg",
@@ -468,11 +452,8 @@ const veg_img = ["../../assets/image/veg.svg"]
 //     "price": 414,
 //     "currency": "Rs ",
 
-
 //     "category": "Frappucino",
 //     "category_description": "The Frappuccino® is a blended beverage unique to The Caffine factory.",
-
-
 
 //     "image": {
 //         "source": "../../assets/image/carameljava.jpg",
@@ -518,11 +499,8 @@ const veg_img = ["../../assets/image/veg.svg"]
 //     "price": 351,
 //     "currency": "Rs",
 
-
 //     "category": "Frappucino",
 //     "category_description": "The Frappuccino® is a blended beverage unique to The Caffine factory.",
-
-
 
 //     "image": {
 //         "source": " ../../assets/image/javachip.jpg",
@@ -541,8 +519,6 @@ const veg_img = ["../../assets/image/veg.svg"]
 // },
 
 // {
-
-
 
 //     "name": " Pumpkin Spice Frappuccino",
 //     "description": "  Coffee and milk blended with the celebrated flavor combinati...",
@@ -572,22 +548,13 @@ const veg_img = ["../../assets/image/veg.svg"]
 //     "price": 572,
 //     "currency": "Rs",
 
-
 //     "category": "Frappucino",
 //     "category_description": "The Frappuccino® is a blended beverage unique to The Caffine factory.",
-
-
 
 //     "image": {
 //         "source": " ../../assets/image/pumpkinfrapp.jpg",
 //         "alt": ""
 //     },
-
-
-
-
-
-
 
 //     "main_img": " ../../assets/image/pumpkinfrapp.jpg",
 //     "main_content": " Coffee and milk blended with the celebrated flavor combinati...",
@@ -597,11 +564,6 @@ const veg_img = ["../../assets/image/veg.svg"]
 //     "cost_items": "Rs. 572 "
 // },
 // {
-
-
-
-
-
 
 //     "name": "Gingerbread Frappuccino",
 //     "description": " Feel the gingerbread love in this blended holiday drink of G..",
@@ -631,20 +593,13 @@ const veg_img = ["../../assets/image/veg.svg"]
 //     "price": 474,
 //     "currency": "Rs",
 
-
 //     "category": "Frappucino",
 //     "category_description": "The Frappuccino® is a blended beverage unique to The Caffine factory.",
-
-
 
 //     "image": {
 //         "source": "  ../../assets/image/gingerfrap.jpg",
 //         "alt": ""
 //     },
-
-
-
-
 
 //     ///////////////////////////////////////
 
@@ -657,7 +612,6 @@ const veg_img = ["../../assets/image/veg.svg"]
 //     ///////////////////////////////////////
 // },
 // {
-
 
 //     "name": "Toffee Nut Crunch Frappuccino",
 //     "description": "A perfect blend of coffee with butter... ",
@@ -689,8 +643,6 @@ const veg_img = ["../../assets/image/veg.svg"]
 
 //     "category": "Frappucino",
 //     "category_description": "The Frappuccino® is a blended beverage unique to The Caffine factory.",
-
-
 
 //     "image": {
 //         "source": "  ../../assets/image/toffee.jpg",
@@ -736,8 +688,6 @@ const veg_img = ["../../assets/image/veg.svg"]
 
 //     "category": "Brewedcoffee",
 //     "category_description": "The Caffine factory brews are made with premium estate coffee to impart a unique flavour..",
-
-
 
 //     "image": {
 //         "source": " ../../assets/image/pourover.jpg",
@@ -786,8 +736,6 @@ const veg_img = ["../../assets/image/veg.svg"]
 //     "category": "Brewedcoffee",
 //     "category_description": "The Caffine factory brews are made with premium estate coffee to impart a unique flavour..",
 
-
-
 //     "image": {
 //         "source": " ../../assets/image/pourover.jpg",
 //         "alt": ""
@@ -834,8 +782,6 @@ const veg_img = ["../../assets/image/veg.svg"]
 
 //     "category": "Brewedcoffee",
 //     "category_description": "The Caffine factory brews are made with premium estate coffee to impart a unique flavour..",
-
-
 
 //     "image": {
 //         "source": " ../../assets/image/brew.jpg ",
@@ -884,8 +830,6 @@ const veg_img = ["../../assets/image/veg.svg"]
 //     "category": "Brewedcoffee",
 //     "category_description": "The Caffine factory brews are made with premium estate coffee to impart a unique flavour..",
 
-
-
 //     "image": {
 //         "source": "  ../../assets/image/estates.jpg ",
 //         "alt": ""
@@ -900,7 +844,6 @@ const veg_img = ["../../assets/image/veg.svg"]
 //     ///////////////////////////////////////////////
 // },
 // {
-
 
 //     "name": "Pour Over - Kenya Blend",
 //     "description": " Pour-over is a beautifully simple and accessible way to brew...  ",
@@ -932,8 +875,6 @@ const veg_img = ["../../assets/image/veg.svg"]
 
 //     "category": "Brewedcoffee",
 //     "category_description": "The Caffine factory brews are made with premium estate coffee to impart a unique flavour..",
-
-
 
 //     "image": {
 //         "source": "  ../../assets/image/pourover.jpg ",
@@ -982,8 +923,6 @@ const veg_img = ["../../assets/image/veg.svg"]
 //     "category": "Brewedcoffee",
 //     "category_description": "The Caffine factory brews are made with premium estate coffee to impart a unique flavour..",
 
-
-
 //     "image": {
 //         "source": "  ../../assets/image/pourover.jpg ",
 //         "alt": ""
@@ -1031,13 +970,10 @@ const veg_img = ["../../assets/image/veg.svg"]
 //     "category": "Tea",
 //     "category_description": "An exclusive tea experience championed by  The Caffine factory.",
 
-
-
 //     "image": {
 //         "source": " ../../assets/image/chaitea.jpg ",
 //         "alt": ""
 //     },
-
 
 //     /////////////////////////////////////////
 //     "main_img": "../../assets/image/chaitea.jpg",
@@ -1050,7 +986,6 @@ const veg_img = ["../../assets/image/veg.svg"]
 // },
 
 // {
-
 
 //     "name": "Emperor'S Mist Green Tea ",
 //     "description": " Receiving plenty of rain during the early spring harvest, th.  ",
@@ -1082,8 +1017,6 @@ const veg_img = ["../../assets/image/veg.svg"]
 
 //     "category": "Tea",
 //     "category_description": "An exclusive tea experience championed by  The Caffine factory.",
-
-
 
 //     "image": {
 //         "source": " ../../assets/image/emperortea.jpg",
@@ -1132,8 +1065,6 @@ const veg_img = ["../../assets/image/veg.svg"]
 //     "category": "Tea",
 //     "category_description": "An exclusive tea experience championed by  The Caffine factory.",
 
-
-
 //     "image": {
 //         "source": " ../../assets/image/englishtea.jpg",
 //         "alt": ""
@@ -1150,7 +1081,6 @@ const veg_img = ["../../assets/image/veg.svg"]
 // },
 
 // {
-
 
 //     "name": "Hathikuli Tea ",
 //     "description": " An organic estate- specific Assam black tea with malty sweet...",
@@ -1183,8 +1113,6 @@ const veg_img = ["../../assets/image/veg.svg"]
 //     "category": "Tea",
 //     "category_description": "An exclusive tea experience championed by  The Caffine factory.",
 
-
-
 //     "image": {
 //         "source": " ../../assets/image/haitea.jpg",
 //         "alt": ""
@@ -1199,7 +1127,6 @@ const veg_img = ["../../assets/image/veg.svg"]
 //     ////////////////////////////////////////////////
 // },
 // {
-
 
 //     "name": "Iced Green Tea Latte",
 //     "description": " Smooth and creamy matcha is lightly sweetened and served with steamed milk",
@@ -1232,8 +1159,6 @@ const veg_img = ["../../assets/image/veg.svg"]
 //     "category": "Tea",
 //     "category_description": "An exclusive tea experience championed by  The Caffine factory.",
 
-
-
 //     "image": {
 //         "source": " ../../assets/image/icedgreen.jpg",
 //         "alt": ""
@@ -1249,7 +1174,6 @@ const veg_img = ["../../assets/image/veg.svg"]
 //     ////////////////////////////////////////////
 // },
 // {
-
 
 //     "name": " Green Tea Latte",
 //     "description": "Smooth and creamy matcha is lightly sweetened and served wit..",
@@ -1282,8 +1206,6 @@ const veg_img = ["../../assets/image/veg.svg"]
 //     "category": "Tea",
 //     "category_description": "An exclusive tea experience championed by  The Caffine factory.",
 
-
-
 //     "image": {
 //         "source": " ../../assets/image/greentea.jpg",
 //         "alt": ""
@@ -1299,7 +1221,6 @@ const veg_img = ["../../assets/image/veg.svg"]
 //     //////////////////////////////////////////
 // },
 // {
-
 
 //     "name": "Cold Brew Black",
 //     "description": "Starbucks® Kenya coffee is freshly ground and then steeped f...",
@@ -1331,8 +1252,6 @@ const veg_img = ["../../assets/image/veg.svg"]
 
 //     "category": "Cold Brew",
 //     "category_description": "Slow-steeped, complex, and full-bodied, the Cold Brew is an experience.",
-
-
 
 //     "image": {
 //         "source": "../../assets/image/coldcold.jpg",
@@ -1381,8 +1300,6 @@ const veg_img = ["../../assets/image/veg.svg"]
 //     "category": "Cold Brew",
 //     "category_description": "Slow-steeped, complex, and full-bodied, the Cold Brew is an experience.",
 
-
-
 //     "image": {
 //         "source": "../../assets/image/toffeecold.jpg",
 //         "alt": ""
@@ -1428,11 +1345,8 @@ const veg_img = ["../../assets/image/veg.svg"]
 //     "price": 584,
 //     "currency": "Rs",
 
-
 //     "category": "Cold Brew",
 //     "category_description": "Slow-steeped, complex, and full-bodied, the Cold Brew is an experience.",
-
-
 
 //     "image": {
 //         "source": " ../../assets/image/pumpkincold.jpg",
@@ -1479,11 +1393,8 @@ const veg_img = ["../../assets/image/veg.svg"]
 //     "price": 494,
 //     "currency": "Rs",
 
-
 //     "category": "Cold Brew",
 //     "category_description": "Slow-steeped, complex, and full-bodied, the Cold Brew is an experience.",
-
-
 
 //     "image": {
 //         "source": "../../assets/image/vanillacold.jpg ",
@@ -1529,10 +1440,8 @@ const veg_img = ["../../assets/image/veg.svg"]
 //     "price": 439,
 //     "currency": "Rs",
 
-
 //     "category": "Cold Brew",
 //     "category_description": "Slow-steeped, complex, and full-bodied, the Cold Brew is an experience.",
-
 
 //     "image": {
 //         "source": "../../assets/image/toffeenutcold.jpg",
@@ -1577,11 +1486,8 @@ const veg_img = ["../../assets/image/veg.svg"]
 //     "price": 404,
 //     "currency": " Rs ",
 
-
 //     "category": "Cold Brew",
 //     "category_description": "Slow-steeped, complex, and full-bodied, the Cold Brew is an experience.",
-
-
 
 //     "image": {
 //         "source": "../../assets/image/toffeecold.jpg",
@@ -1601,313 +1507,243 @@ const veg_img = ["../../assets/image/veg.svg"]
 // array.filter()
 const master_list = JSON.parse(localStorage.getItem("product_detail_list"));
 
-const list2_names = master_list.filter(function category(type) {
-
-
-    return type.category === "EXPRESSO";
-}
-);
+const list2_names = master_list.filter((type) => type.category === "EXPRESSO");
 
 console.log(list2_names);
 
-
-const list3_names = master_list.filter(function category(type) {
-
-
-    return type.category === "FRAPPUCINO";
-}
+const list3_names = master_list.filter(
+  (type) => type.category === "FRAPPUCINO"
 );
 
-
-
-
-const list4_names = master_list.filter(function category(type) {
-return type.category === "BREWED COFFEE";
-}
+const list4_names = master_list.filter(
+  (type) => type.category === "BREWED COFFEE"
 );
 
+const list5_names = master_list.filter((type) => type.category === "TEA");
 
-
-
-
-const list5_names = master_list.filter(function category(type) {
-return type.category === "TEA";
-}
-);
-
-
-
-
-
-const list6_names = master_list.filter(function category(type) {
-
-
-    return type.category === "COLD BREW";
-}
-);
-
-
-
-
+const list6_names = master_list.filter((type) => type.category === "COLD BREW");
 
 for (let i = 0; i < list2_names.length; i++) {
-    // <h3 class="expressoa-title">Espresso</h3>
-    // <p class="expressoa-p">Our smooth signature Espresso Roast with rich flavor and caramelly sweetness is at the very heart of everything we do</p>
-    if(list2_names !== null  && i=== 0 ){
-        let coffee_title = document.querySelector('.expressoa-title');
-        coffee_title.innerText= list2_names[i]['category'];
-        let coffee_description = document.querySelector('.expressoa-p');
-        coffee_description.innerText = list2_names[i]["description"];
-    };
-    
+  // <h3 class="expressoa-title">Espresso</h3>
+  // <p class="expressoa-p">Our smooth signature Espresso Roast with rich flavor and caramelly sweetness is at the very heart of everything we do</p>
+  if (list2_names !== null && i === 0) {
+    const coffee_title = document.querySelector(".expressoa-title");
+    coffee_title.innerText = list2_names[i].category;
+    const coffee_description = document.querySelector(".expressoa-p");
+    coffee_description.innerText = list2_names[i].description;
+  }
 
+  const container_card = render(list2_names[i]);
 
-    const container_card = render(list2_names[i]);
+  document.querySelector(".beverages").append(container_card);
 
-    document.querySelector(".beverages").append(container_card);
+  // const category_description =
 
-    // const category_description =
-    
-    // const category_description = document.getElementById('expressoa-p');
-    // category_description.innerText= list2_names[i]["category_description"]
-
+  // const category_description = document.getElementById('expressoa-p');
+  // category_description.innerText= list2_names[i]["category_description"]
 }
 
-
 for (let i = 0; i < list3_names.length; i++) {
+  if (list3_names !== null && i === 0) {
+    const coffee_title = document.querySelector(".expressoa-title1");
+    coffee_title.innerText = list3_names[i].category;
+    const coffee_description = document.querySelector(".expressoa-p1");
+    coffee_description.innerText = list3_names[i].description;
+  }
 
-    if(list3_names !== null  && i=== 0 ){
-        let coffee_title = document.querySelector('.expressoa-title1');
-        coffee_title.innerText= list3_names[i]['category'];
-        let coffee_description = document.querySelector('.expressoa-p1');
-        coffee_description.innerText = list3_names[i]["description"];
-       
-    
-        }
+  const container_card = render(list3_names[i]);
 
-    const container_card = render(list3_names[i])
-
-    document.querySelector(".beverages1").append(container_card);
-
-   
+  document.querySelector(".beverages1").append(container_card);
 }
 
 for (let i = 0; i < list4_names.length; i++) {
+  if (list4_names !== null && i === 0) {
+    const coffee_title = document.querySelector(".expressoa-title2");
+    coffee_title.innerText = list4_names[i].category;
+    const coffee_description = document.querySelector(".expressoa-p2");
+    coffee_description.innerText = list4_names[i].description;
+  }
 
+  const container_card = render(list4_names[i]);
 
-    if(list4_names !== null  && i=== 0 ){
-        let coffee_title = document.querySelector('.expressoa-title2');
-        coffee_title.innerText= list4_names[i]['category'];
-        let coffee_description = document.querySelector('.expressoa-p2');
-        coffee_description.innerText = list4_names[i]["description"];
-     };
+  document.querySelector(".beverages2").append(container_card);
 
-    const container_card = render(list4_names[i]);
-
-    document.querySelector(".beverages2").append(container_card);
-
-    // const category_description = 
-    
-    
+  // const category_description =
 }
 
 for (let i = 0; i < list5_names.length; i++) {
-    
-    if(list5_names !== null && i==0){
-        let coffee_title = document.querySelector('.expressoa-title3');
-        coffee_title.innerText= list5_names[i]['category'];
-        let coffee_description = document.querySelector('.expressoa-p3');
-        coffee_description.innerText = list5_names[i]["description"];
-   };
+  if (list5_names !== null && i == 0) {
+    const coffee_title = document.querySelector(".expressoa-title3");
+    coffee_title.innerText = list5_names[i].category;
+    const coffee_description = document.querySelector(".expressoa-p3");
+    coffee_description.innerText = list5_names[i].description;
+  }
 
-    const container_card = render(list5_names[i])
+  const container_card = render(list5_names[i]);
 
-    document.querySelector(".beverages3").append(container_card);
+  document.querySelector(".beverages3").append(container_card);
 
-    // const category_description =
-
+  // const category_description =
 }
 
 for (let i = 0; i < list6_names.length; i++) {
+  if (list6_names !== null && i == 0) {
+    const coffee_title = document.querySelector(".expressoa-title4");
+    coffee_title.innerText = list6_names[i].category;
+    const coffee_description = document.querySelector(".expressoa-p4");
+    coffee_description.innerText = list6_names[i].description;
+  }
 
-    if(list6_names !== null && i==0){
-        let coffee_title = document.querySelector('.expressoa-title4');
-        coffee_title.innerText= list6_names[i]['category'];
-        let coffee_description = document.querySelector('.expressoa-p4');
-        coffee_description.innerText = list6_names[i]["description"];
-   };
+  const container_card = render(list6_names[i]);
 
-    const container_card = render(list6_names[i]);
+  document.querySelector(".beverages4").append(container_card);
 
-    document.querySelector(".beverages4").append(container_card);
-
-    // const category_description =
-   
-   
-};
-
-
-
-function render(object) {  // const object = list6_names[i]
-
-
-
-
-//     h3_category=document.createElement("div");
-//     h3_category.setAttribute("class", "expressoa-title");
-//     h3_card.innerText =object["category"]
-   
-
-
-//    p_category=document.createElement("div");
-//    p_category.setAttribute("class", "expressoa-p");
-//    p_card.innerText =object["category_description"];
-  
-
-//    beverages = document.createElement("div");
-//     beverages.setAttribute("class", "beverages");
-//     console.log(beverages)
-
-
-
-// <div class="beverage-container">
-// <div class="beverage-img-content-cost">
-// <div class="beverage-image">
-//     <img src="../../assets/image/cappacino.jpg" alt="">
-// </div>
-// <div class="beverage-content-cost">
-// <div class="beverage-content">
-//     <div class="beverage-vegimg">
-//         <img src="../../assets/image/veg.svg" alt="">
-//     </div>
-//     <div class="beverage-title"><h3>Cappuccino</h3></div>
-//     <div class="beverage-message-1"><p>SHORT(237 ML) .104 Kcal</p></div>
-//     <div class="beverage-message-2"><p>Dark, Rich in flavour espresso lies in wait under a smoothed...</p></div>
-// </div>
-// <div class="beverage-costdetail">
-//     <div class="cost">Rs.273</div>
-//     <div class="add-item"><a href="../../pages/productdetail/product-cappu.html"><button>add item</button></a></div>
-// </div>
-// </div>
-// </div>
-// </div>
-
-
-
-    container_card = document.createElement("div");
-    container_card.setAttribute("class", "beverage-container");
-    // container_card.append(beverages)
-  
-    img_content_cost_card = document.createElement("div");
-    img_content_cost_card.setAttribute("class", "beverage-img-content-cost");
-    container_card.append(img_content_cost_card);
-
-    image_card = document.createElement("div");
-    image_card.setAttribute("class", "beverage-image");
-    img_content_cost_card.append(image_card);
-
-    img_main_card = document.createElement("img");
-    img_main_card.setAttribute("src", object["image"]["source"]);
-    img_main_card.setAttribute("alt", object["image"]["alt"])
-    image_card.append(img_main_card);
-
-    content_cost_card = document.createElement("div");
-    content_cost_card.setAttribute("class", "beverage-content-cost");
-    img_content_cost_card.append(content_cost_card);
-
-    content_card = document.createElement("div");
-    content_card.setAttribute("class", "beverage-content");
-    content_cost_card.append(content_card)
-
-    vegimg_card = document.createElement("div");
-    vegimg_card.setAttribute("class", "beverage-vegimg");
-    content_card.append(vegimg_card);
-
-    img_veg_card = document.createElement("img");
-    img_veg_card.setAttribute("src", veg_img[0]);
-    img_veg_card.setAttribute("alt", " ");
-    vegimg_card.append(img_veg_card);
-
-    title_card = document.createElement("div");
-    title_card.setAttribute("class", "beverage-title");
-    content_card.append(title_card);
-
-    h3_card = document.createElement("h3");
-    h3_card.innerText = object["name"];
-    title_card.append(h3_card);
-
-
-    message_1_card = document.createElement("div");
-    message_1_card.setAttribute("class", "beverage-message-1");
-    content_card.append(message_1_card);
-
-
-
-    p_1 = document.createElement("p");
-    p_1.setAttribute("class", "p-1");
-    p_1.innerText = object["quantities"]["medium"]["name"]+" "+"("+
-    object["quantities"]["medium"]["quantity"]+")"+" "+
-    object["quantities"]["medium"]["unit"] +" "+"("+
-    object["quantities"]["medium"]["calories"]+")"+" "+
-    object["quantities"]["medium"]["calories_unit"];
-    message_1_card.append(p_1);
-
-    message_2_card = document.createElement("div");
-    message_2_card.setAttribute("class", "beverage-message-2");
-    content_card.append(message_2_card);
-
-    p_2 = document.createElement("p");
-    p_2.setAttribute("class", "p-2");
-    p_2.innerText = object["description"];
-    message_2_card.append(p_2);
-
-    costdetail_card = document.createElement("div");
-    costdetail_card.setAttribute("class", "beverage-costdetail");
-    content_cost_card.append(costdetail_card);
-
-    cost_card = document.createElement("div");
-    cost_card.setAttribute("class", "cost");
-    cost_card.innerText = object["currency"] + object["price_1"]["medium"];
-    costdetail_card.append(cost_card);
-
-    add_item_card = document.createElement("div");
-    add_item_card.setAttribute("class", "add-item");
-
-    costdetail_card.append(add_item_card);
-
-    // a_card = document.createElement("a");
-    // a_card.setAttribute('href',"");
-    // // a_card.setAttribute("href", `../../pages/productdetail/product-cappu.html` + "?name=" + object["name"] +"&product_id=" + object["product_id"]);
-    // add_item_card.append(a_card);
-
-
-    button_card = document.createElement("button");
-    button_card.setAttribute("data-id",object["product_id"]);
-    button_card.innerText = "add item";
-    
-    button_card.setAttribute("class","btn-add-item")
-    add_item_card.append(button_card);
-
-    // document.querySelector(".beverages4").append(container_card);
-
-    return container_card;
-
-
+  // const category_description =
 }
 
+function render(object) {
+  // const object = list6_names[i]
+  //     h3_category=document.createElement("div");
+  //     h3_category.setAttribute("class", "expressoa-title");
+  //     h3_card.innerText =object["category"]
 
-let btn_add_item = document.querySelectorAll(".btn-add-item");
-let user_login_id1 = JSON.parse(localStorage.getItem('unique_id'));
+  //    p_category=document.createElement("div");
+  //    p_category.setAttribute("class", "expressoa-p");
+  //    p_card.innerText =object["category_description"];
 
-btn_add_item.forEach(findId =>{
-    findId.addEventListener('click',function(e){
-        if(user_login_id1 === null){
-            alert('login to buy your coffee');
-        }else{
-        let unique_id = findId.dataset.id;
-        // console.log(unique_id)
-        location.href=`../../pages/productdetail/product-cappu.html?product_id=${unique_id}`
-        };
-    });
+  //    beverages = document.createElement("div");
+  //     beverages.setAttribute("class", "beverages");
+  //     console.log(beverages)
+
+  // <div class="beverage-container">
+  // <div class="beverage-img-content-cost">
+  // <div class="beverage-image">
+  //     <img src="../../assets/image/cappacino.jpg" alt="">
+  // </div>
+  // <div class="beverage-content-cost">
+  // <div class="beverage-content">
+  //     <div class="beverage-vegimg">
+  //         <img src="../../assets/image/veg.svg" alt="">
+  //     </div>
+  //     <div class="beverage-title"><h3>Cappuccino</h3></div>
+  //     <div class="beverage-message-1"><p>SHORT(237 ML) .104 Kcal</p></div>
+  //     <div class="beverage-message-2"><p>Dark, Rich in flavour espresso lies in wait under a smoothed...</p></div>
+  // </div>
+  // <div class="beverage-costdetail">
+  //     <div class="cost">Rs.273</div>
+  //     <div class="add-item"><a href="../../pages/productdetail/product-cappu.html"><button>add item</button></a></div>
+  // </div>
+  // </div>
+  // </div>
+  // </div>
+
+  container_card = document.createElement("div");
+  container_card.setAttribute("class", "beverage-container");
+  // container_card.append(beverages)
+
+  img_content_cost_card = document.createElement("div");
+  img_content_cost_card.setAttribute("class", "beverage-img-content-cost");
+  container_card.append(img_content_cost_card);
+
+  image_card = document.createElement("div");
+  image_card.setAttribute("class", "beverage-image");
+  img_content_cost_card.append(image_card);
+
+  img_main_card = document.createElement("img");
+  img_main_card.setAttribute("src", object.image.source);
+  img_main_card.setAttribute("alt", object.image.alt);
+  image_card.append(img_main_card);
+
+  content_cost_card = document.createElement("div");
+  content_cost_card.setAttribute("class", "beverage-content-cost");
+  img_content_cost_card.append(content_cost_card);
+
+  content_card = document.createElement("div");
+  content_card.setAttribute("class", "beverage-content");
+  content_cost_card.append(content_card);
+
+  vegimg_card = document.createElement("div");
+  vegimg_card.setAttribute("class", "beverage-vegimg");
+  content_card.append(vegimg_card);
+
+  img_veg_card = document.createElement("img");
+  img_veg_card.setAttribute("src", veg_img[0]);
+  img_veg_card.setAttribute("alt", " ");
+  vegimg_card.append(img_veg_card);
+
+  title_card = document.createElement("div");
+  title_card.setAttribute("class", "beverage-title");
+  content_card.append(title_card);
+
+  h3_card = document.createElement("h3");
+  h3_card.innerText = object.name;
+  title_card.append(h3_card);
+
+  message_1_card = document.createElement("div");
+  message_1_card.setAttribute("class", "beverage-message-1");
+  content_card.append(message_1_card);
+
+  p_1 = document.createElement("p");
+  p_1.setAttribute("class", "p-1");
+  p_1.innerText =
+    `${object.quantities.medium.name} ` +
+    `(${object.quantities.medium.quantity})` +
+    ` ${object.quantities.medium.unit} ` +
+    `(${object.quantities.medium.calories})` +
+    ` ${object.quantities.medium.calories_unit}`;
+  message_1_card.append(p_1);
+
+  message_2_card = document.createElement("div");
+  message_2_card.setAttribute("class", "beverage-message-2");
+  content_card.append(message_2_card);
+
+  p_2 = document.createElement("p");
+  p_2.setAttribute("class", "p-2");
+  p_2.innerText = object.description;
+  message_2_card.append(p_2);
+
+  costdetail_card = document.createElement("div");
+  costdetail_card.setAttribute("class", "beverage-costdetail");
+  content_cost_card.append(costdetail_card);
+
+  cost_card = document.createElement("div");
+  cost_card.setAttribute("class", "cost");
+  cost_card.innerText = object.currency + object.price_1.medium;
+  costdetail_card.append(cost_card);
+
+  add_item_card = document.createElement("div");
+  add_item_card.setAttribute("class", "add-item");
+
+  costdetail_card.append(add_item_card);
+
+  // a_card = document.createElement("a");
+  // a_card.setAttribute('href',"");
+  // // a_card.setAttribute("href", `../../pages/productdetail/product-cappu.html` + "?name=" + object["name"] +"&product_id=" + object["product_id"]);
+  // add_item_card.append(a_card);
+
+  button_card = document.createElement("button");
+  button_card.setAttribute("data-id", object.product_id);
+  button_card.innerText = "add item";
+
+  button_card.setAttribute("class", "btn-add-item");
+  add_item_card.append(button_card);
+
+  // document.querySelector(".beverages4").append(container_card);
+
+  return container_card;
+}
+
+const btn_add_item = document.querySelectorAll(".btn-add-item");
+const user_login_id1 = JSON.parse(localStorage.getItem("unique_id"));
+
+btn_add_item.forEach((findId) => {
+  findId.addEventListener("click", (e) => {
+    if (user_login_id1 === null) {
+      alert("login to buy your coffee");
+    } else {
+      const unique_id = findId.dataset.id;
+      // console.log(unique_id)
+      location.href = `../../pages/productdetail/product-cappu.html?product_id=${unique_id}`;
+    }
+  });
 });
-

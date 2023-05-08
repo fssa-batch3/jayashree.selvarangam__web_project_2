@@ -1,5 +1,5 @@
 const root2 = window.location.origin;
-const  footer_before_login = `
+const footer_before_login = `
 <footer>
 <section class="footer">
 
@@ -41,8 +41,7 @@ const  footer_before_login = `
 </section>
 </footer>
 
-`
-
+`;
 
 const footer_after_login = `
 <footer>
@@ -84,22 +83,24 @@ const footer_after_login = `
 </section>
 </footer>
 
-`
+`;
 
-let user_login_id2 = JSON.parse(localStorage.getItem('unique_id'));
-console.log( user_login_id2);
-if(user_login_id2 ){
-    document.body.insertAdjacentHTML("beforeEnd",footer_after_login);
-    const logoutBtn1 = document.querySelector("#logout");
-    logoutBtn1?.addEventListener("click", () => {
-        localStorage.removeItem("unique_id");
-        document.body.innerHTML = footer_before_login;
-    });
-}else{
-    document.body.insertAdjacentHTML("beforeEnd",footer_before_login);
+const user_login_id2 = JSON.parse(localStorage.getItem("unique_id"));
+console.log(user_login_id2);
+if (user_login_id2) {
+  document.body.insertAdjacentHTML("beforeEnd", footer_after_login);
+  const logoutBtn1 = document.querySelector("#logout");
+  logoutBtn1?.addEventListener("click", () => {
+    localStorage.removeItem("unique_id");
+    document.body.innerHTML = footer_before_login;
+  });
+} else {
+  document.body.insertAdjacentHTML("beforeEnd", footer_before_login);
 
-    const logoutBtn1 = document.querySelector("#logout");
-    logoutBtn1?.removeEventListener("click", () => 
-    document.body.innerHTML = footer_after_login);
-    localStorage.removeItem("user_login_id");
-};
+  const logoutBtn1 = document.querySelector("#logout");
+  logoutBtn1?.removeEventListener(
+    "click",
+    () => (document.body.innerHTML = footer_after_login)
+  );
+  localStorage.removeItem("user_login_id");
+}
