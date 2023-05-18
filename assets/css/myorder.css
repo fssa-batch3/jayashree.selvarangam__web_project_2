@@ -80,6 +80,7 @@
     padding-left: 50px;
     padding-right: 50px;
 }
+
 .beverage-image img{
     width:80px;
     height: 80px;
@@ -89,6 +90,30 @@
 .beverage-content{
     margin-top: 5px;
 }
+.whole-package{
+    display:flex;
+    justify-content: space-around;
+    width: 80vw;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-left: 10vw;
+    margin-bottom: 8vh;
+}
+.total_price1,.order_id1{
+    display: flex;
+    
+}
+.total_price2, .order_id2{
+    margin-right: 10px;
+}
+
+.order_id123{
+    width:200px
+}
+/* .order_id123{
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+} */
 
 .beverage-title{
     margin-top:0;

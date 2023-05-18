@@ -7,32 +7,70 @@
     <title>Document</title>
     <link rel="stylesheet" href="../assets/css/header.css">
     <style>
-        .show_address{
-            width: 300px;
-            height:250px;
-            box-sizing: border-box;
-            margin-left: 300px;
-            display:flex;
-            flex-direction: row;
-            justify-content: space-between;
-            
-            
-        }
-        .address_container{
-            border: 1px solid #333;
-            padding: 10px 15px 10px 15px;
         
+        .address_container{
+            border: 1px solid wheat;
+            border-radius: 15px;
+            padding: 10px 15px 10px 15px;
+            margin: 30px;
+            background-color: wheat;
+            box-shadow: 3px 3px #6f6044;
         }
+        .show_address{
+            margin-top: 30px;
+        }
+        #edit{
+            padding: 5px 25px;
+            border-radius: 5px;
+            position: absolute;
+            top: 500px;
+            background-color: #debb79;
+        }
+        .add_address{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 50px;
+        }
+        .add_address img{
+            margin-left:10px;
+            border-style: inset;
+        }
+        .single_address{
+            display: flex;
+            flex-direction: row;
+            margin:30px 60px;
+        }
+        .address1{
+            max-width: 500px;
+            width: 250px;
+            height: 280px;
+        }
+        .address_type{
+            margin-left: 70px;
+        }
+        .main_address{
+            padding: 30px 10px;
+            width: 300px;
+        }
+        .default{
+            position: absolute;
+            top: 540px;
+        }
+
     </style>
 </head>
 <body>
     <section class="add_address">
         <div class="add_address">
             <h2>Add Address</h2>
-         <a href="../address/address_form.html"> <img src="../assets/image/download1234.png" alt="" ></a>
+         <a href="../address/address_form.html"> <img src="../assets/image/download1234.png" alt="" width="35px"></a>
         </div>
     </section>
     <section class="show_address">
+        <div class="single_address">
+
+        </div>
         <!-- <div class="address_container">
             <div class="address">
                 <h2 class="address_type">Home</h2>
@@ -48,27 +86,13 @@
 
         </div> -->
 
-        <!-- <div class="address_container">
-            <div class="address">
-                <h2 class="address_type">Home</h2>
-                <h2 class="no">No <span class="house_no">4</span></h2>
-                <h3 class="address_info"> maha st anna nagar </h3>
-                <h3 class="address_info1"> chennai </h3>
-                <h3 class="address_info2">238098</h3>
-                <p class="default">default address</p>
-            </div>
-            <div class="button">
-                <a href=""> <button>Edit</button> </a>
-            </div>
-
-        </div> -->
     </section>
     
 </body>
 <script src="../pages/order/header.js"></script>
 <script>
     let stored_address = JSON.parse(localStorage.getItem('address'));
-
+ console.log(stored_address)
 const requiredObjectIndex = stored_address.findIndex(obj => obj.value === true);
 
 if (requiredObjectIndex !== -1) {
@@ -78,33 +102,77 @@ if (requiredObjectIndex !== -1) {
 }
 
 console.log(stored_address);
-
     for(let i=0;i<stored_address.length;i++){
         let value1;
         if(stored_address[i]['value']===true){
-            value1 = 'default address'
+            value1 = 'default address';
         }else{
-            value1 = 'not default address'
+            value1 = 'not default address';
         }
 
         let address_container = `
         <div class="address_container">
-            <div class="address">
-                <h2 class="address_type">${stored_address[i]['address_type']}</h2>
-                <h2 class="no">No <span class="house_no">${stored_address[i]['house_no']}</span></h2>
-                <h3 class="address_info">${stored_address[i]['area']}</h3>
-                <h3 class="address_info1">chennai</h3>
-                <h3 class="address_info2>${stored_address[i]['pincode']}</h3>
-                <p class="default">${value1}</p>
+            <div class="address1">
+                    <div class="address">
+                        <h2 class="address_type">${stored_address[i]['address_type']}</h2>
+                        <div class="main_address">
+                        <h3 class="no">No <span class="house_no">${stored_address[i]['house_no']}</span></h3>
+                        <h3 class="address_info">${stored_address[i]['area']}</h3>
+                        <h3 class="address_info1">chennai</h3>
+                        <h3 class="address_info2>${stored_address[i]['pincode']}</h3>
+                        <p class="default">${value1}</p>
+                        </div>
+                    </div>
+                    <div class="button">
+                        <a href="../address/address_edit.html?address_id=${stored_address[i]['id']}" > <button id="edit" data-id="${stored_address[i]['id']}">Edit</button> </a>
+                    </div>
+                    <div class="default">
+                        <h4 id="default_id" data-id=${stored_address[i]['id']}>set as default</h4>
+                    </div>
             </div>
-            <div class="button">
-                <a href="../address/address_edit.html?address_id=${stored_address[i]['id']}" > <button id="edit" data-id="${stored_address[i]['id']}">Edit</button> </a>
-            </div>
-
         </div>
         `
-        document.querySelector('.show_address').insertAdjacentHTML('beforeend',address_container)
+    document.querySelector('.single_address').insertAdjacentHTML('beforeend',address_container)
     }
+    let default1='';
+    for(let i=0;i<stored_address.length;i++){
+    if(stored_address[i].value===true){
+        
+         let div_default = document.getElementById('default_id');
+        div_default.setAttribute('style','display:none')
+    }else{
+        default1='';
+    }
+}
+
+let set_default_button = document.querySelectorAll('#default_id');
+
+
+set_default_button.forEach(function (findUid) {
+findUid.addEventListener("click", function () {
+    let stored_address = JSON.parse(localStorage.getItem('address'));
+    function findAddress1(e){
+    return    e.value === true;
+    };
+    let personData1 = stored_address.find(findAddress1)
+    personData1.value = false;
+    localStorage.setItem('address',JSON.stringify(stored_address)) 
+    let stored_address1 = JSON.parse(localStorage.getItem('address')); 
+
+    let uid = this.dataset.id;
+    console.log(uid)
+    function findAddress(e){
+    return    e.id === uid;
+    };
+    let personData = stored_address1.find(findAddress)
+    console.log(personData)
+     personData.value = true;
+     localStorage.setItem('address',JSON.stringify(stored_address1));
+
+     console.log(stored_address1)
+     location.reload();
+     });
+    });
 
 //     let edit1 = document.getElementById('edit');
 //     edit1.forEach((findId) => {

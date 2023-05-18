@@ -22,1092 +22,43 @@ let btn3_card;
 let inc_dec_button_card;
 let inc_dec_card;
 let minus_card;
-
-// const product_detail_list =
-//     [
-//         {
-//             "image": {
-//                 "source": "../../assets/image/vanila.jpg ",
-//                 "alt": " "
-//             },
-//             "name": " Vanilla Caffe Latte ",
-//             "description": " Our dark, rich espresso balanced with vanilla flavored syrup, steamed milk and a light layer of foam. ",
-//             "price": 244,
-//             "currency": " Rs. ",
-//             "quantities": {
-//                 "name": " SHORT ",
-//                 "quantity": " 237 ",
-//                 "unit": " ML ",
-//                 "calories": " .125 ",
-//                 "calories_unit": " Kcal "
-//             },
-//             "sizes": [
-
-//                 {
-//                     "name": "tall",
-//                     "quantity": 2
-//                 },
-//                 {
-//                     "name": "medium",
-//                     "quantity": 2
-//                 },
-//                 {
-//                     "name": "small",
-//                     "quantity": 2
-//                 },
-//             ]
-//         },
-//         {
-//             "image": {
-//                 "source": "./../assets/image/redhatmocha.jpg",
-//                 "alt": " "
-//             },
-//             "name": " CRUNCHY RED HAT MOCHA ",
-//             "description": " A decadent mix of cocoa, topped with a playfully crafted Hat made with velvety whipped cream, strawberry drizzle and a dollop of chocolate whipped cream completes the “Hat”, topped with graham cracker topping for that awesome crunch. ",
-//             "price": 404,
-//             "currency": " Rs. ",
-//             "quantities": {
-//                 "name": " SHORT ",
-//                 "quantity": " 237 ",
-//                 "unit": " ML ",
-//                 "calories": " .412 ",
-//                 "calories_unit": " Kcal "
-//             },
-//             "sizes": [
-
-//                 {
-//                     "name": "tall",
-//                     "quantity": 2
-//                 },
-//                 {
-//                     "name": "medium",
-//                     "quantity": 2
-//                 },
-//                 {
-//                     "name": "small",
-//                     "quantity": 2
-//                 },
-//             ]
-//         },
-//         {
-//             "image": {
-//                 "source": "../../assets/image/cappacino.jpg",
-//                 "alt": " "
-//             },
-//             "name": " CAPPUCCINO ",
-//             "description": " Dark, Rich in flavour espresso lies in wait under a smoothed and stretched layer of thick foam. It's truly the height of our baristas' craft. ",
-//             "price": 244,
-//             "currency": " Rs. ",
-//             "quantities": {
-//                 "name": " SHORT ",
-//                 "quantity": " 237 ",
-//                 "unit": " ML ",
-//                 "calories": " .125 ",
-//                 "calories_unit": " Kcal "
-//             },
-//             "sizes": [
-
-//                 {
-//                     "name": "tall",
-//                     "quantity": 2
-//                 },
-//                 {
-//                     "name": "medium",
-//                     "quantity": 2
-//                 },
-//                 {
-//                     "name": "small",
-//                     "quantity": 2
-//                 },
-//             ]
-//         },
-//         {
-//             "image": {
-//                 "source": "../../assets/image/pumpkin.jpg ",
-//                 "alt": " "
-//             },
-//             "name": " PUMPKIN SPICE LATTE ",
-//             "description": "Our signature espresso and steamed milk with the celebrated flavor combination of pumpkin, cinnamon, nutmeg and clove. Topped with whipped cream and Pumpkin Spice topping.  ",
-//             "price": 484,
-//             "currency": " Rs. ",
-//             "quantities": {
-//                 "name": " SHORT ",
-//                 "quantity": " 237 ",
-//                 "unit": " ML ",
-//                 "calories": " .216",
-//                 "calories_unit": " Kcal "
-//             },
-//             "sizes": [
-
-//                 {
-//                     "name": "tall",
-//                     "quantity": 2
-//                 },
-//                 {
-//                     "name": "medium",
-//                     "quantity": 2
-//                 },
-//                 {
-//                     "name": "small",
-//                     "quantity": 2
-//                 },
-//             ]
-//         },
-//         {
-//             "image": {
-//                 "source": "../../assets/image/iced.jpg ",
-//                 "alt": " "
-//             },
-//             "name": "Iced Hazelnut  Latte ",
-//             "description": " Our signature espresso and steamed milk with the celebrated flavor combination of pumpkin, cinnamon, nutmeg and clove. Topped with whipped cream and Pumpkin Spice topping. ",
-//             "price": 524,
-//             "currency": " Rs. ",
-//             "quantities": {
-//                 "name": "TALL ",
-//                 "quantity": 354,
-//                 "unit": " ML ",
-//                 "calories": .407,
-//                 "calories_unit": " Kcal "
-//             },
-//             "sizes": [
-
-//                 {
-//                     "name": "tall",
-//                     "quantity": 2
-//                 },
-//                 {
-
-//                     "name": "medium",
-//                     "quantity": 2
-//                 },
-//                 {
-//                     "name": "small",
-//                     "quantity": 2
-//                 },
-//             ]
-//         },
-//         /////////////////////////////
-//         // {
-//         //     "image": {
-//         //         "source": "../../assets/image/vanila.jpg ",
-//         //         "alt": " "
-//         //     },
-//         //     "name": " Vanilla Caffe Latte ",
-//         //     "description": " Our dark, rich espresso balanced with vanilla flavored syrup, steamed milk and a light layer of foam. ",
-//         //     "price": 244,
-//         //     "currency": " Rs. ",
-//         //     "quantities": {
-//         //         "name": " SHORT ",
-//         //         "quantity": " 237 ",
-//         //         "unit": " ML ",
-//         //         "calories": " .125 ",
-//         //         "calories_unit": " Kcal "
-//         //     },
-//         //     "sizes": [
-
-//         //         {
-//         //             name: "tall",
-//         //             quantity: 2
-//         //         },
-//         //         {
-//         //             name: "medium",
-//         //             quantity: 2
-//         //         },
-//         //         {
-//         //             name: "small",
-//         //             quantity: 2
-//         //         },
-//         //     ]
-//         // },
-//         {
-//             "image": {
-//                 "source": "../../assets/image/doppio.jpg ",
-//                 "alt": " "
-//             },
-//             "name": " DOPPIO ESPRESSO",
-//             "description": " Our smooth signature Espresso Roast and its caramelly sweetness is at the very heart of everything we do.",
-//             "price": 484,
-//             "currency": " Rs. ",
-//             "quantities": {
-//                 "name": " PER SERVE ",
-//                 "quantity": 45,
-//                 "unit": " ML ",
-//                 "calories": 0,
-//                 "calories_unit": " Kcal "
-//             },
-//             "sizes": [
-
-//                 {
-//                     name: "tall",
-//                     quantity: 2
-//                 },
-//                 {
-//                     name: "medium",
-//                     quantity: 2
-//                 },
-//                 {
-//                     name: "small",
-//                     quantity: 2
-//                 },
-//             ]
-//         },
-//         {
-//             "image": {
-//                 "source": "../../assets/image/hazelnutmochacheese.jpg ",
-//                 "alt": " "
-//             },
-//             "name": "HAZELNUT MOCHA FRAPPUCCINO",
-//             "description": " Our signature espresso and steamed milk with the celebrated flavor combination of pumpkin, cinnamon, nutmeg and clove. Topped with whipped cream and Pumpkin Spice topping.",
-//             "price": 474,
-//             "currency": " Rs. ",
-//             "quantities": {
-//                 "name": " TALL",
-//                 "quantity": 354,
-//                 "unit": " ML ",
-//                 "calories": .491,
-//                 "calories_unit": " Kcal "
-//             },
-//             "sizes": [
-
-//                 {
-//                     name: "tall",
-//                     quantity: 2
-//                 },
-//                 {
-//                     name: "medium",
-//                     quantity: 2
-//                 },
-//                 {
-//                     name: "small",
-//                     quantity: 2
-//                 },
-//             ]
-//         },
-//         {
-//             "image": {
-//                 "source": "../../assets/image/carameljava.jpg ",
-//                 "alt": " "
-//             },
-
-//             "name": "CARAMEL FRAPPUCCINO",
-//             "description": " Rich Coffee blended with milk, chocolaty chip, caramel syrup and Ice. Topped with sweetened whipped cream and chocolate drizzle",
-//             "price": 414,
-//             "currency": " Rs. ",
-//             "quantities": {
-//                 "name": " TALL",
-//                 "quantity": 354,
-//                 "unit": " ML ",
-//                 "calories": .398,
-//                 "calories_unit": " Kcal "
-//             },
-//             "sizes": [
-
-//                 {
-//                     name: "tall",
-//                     quantity: 50
-//                 },
-//                 {
-//                     name: "medium",
-//                     quantity: 30
-//                 },
-//                 {
-//                     name: "small",
-//                     quantity: 20
-//                 }
-//             ]
-
-//         },
-//         {
-//             "image": {
-//                 "source": " ../../assets/image/javachip.jpg",
-//                 "alt": " "
-//             },
-
-//             "name": "JAVACHIP FRAPPUCCINO",
-//             "description": " We blend mocha sauce and Frappuccino® chips with Frappuccino® roast coffee and milk and ice, then top with whipped cream and mocha drizzle to bring you endless java joy.",
-
-//             "price": 351,
-//             "currency": " Rs. ",
-
-//             "quantities": {
-//                 "name": " TALL",
-//                 "quantity": 354,
-//                 "unit": " ML ",
-//                 "calories": .392,
-//                 "calories_unit": " Kcal "
-//             },
-//             "sizes": [
-
-//                 {
-//                     name: "tall",
-//                     quantity: 50
-//                 },
-//                 {
-//                     name: "medium",
-//                     quantity: 30
-//                 },
-//                 {
-//                     name: "small",
-//                     quantity: 20
-//                 },
-//             ]
-//         },
-//         // {
-//         //     "image":{
-//         //        "source":" ../../assets/image/javachip.jpg" ,
-//         //        "alt":" "
-//         //     },
-
-//         //     "name":"JAVACHIP FRAPPUCCINO",
-//         //     "description":" We blend mocha sauce and Frappuccino® chips with Frappuccino® roast coffee and milk and ice, then top with whipped cream and mocha drizzle to bring you endless java joy.",
-
-//         //     "currency":" Rs. ",
-
-//         //     "quantities":{
-//         //         "name": " TALL",
-//         //         "quantity": 354,
-//         //         "unit": " ML ",
-//         //         "calories": .392 ,
-//         //         "calories_unit":" Kcal "
-//         //         },
-//         //     "sizes":[
-
-//         //     {name : "tall",
-//         //     quantity : 50
-//         //     },
-//         //     {name : "medium",
-//         //     quantity : 30
-//         //        },
-//         //     {
-//         //     name : "small",
-//         //     quantity : 20
-//         //     },
-//         // ]
-//         // }
-//         {
-//             "image": {
-//                 "source": " ../../assets/image/gingerfrap.jpg",
-//                 "alt": " "
-//             },
-
-//             "name": "GINGERBREAD FRAPPUCCINO",
-//             "description": " Feel the gingerbread love in this blended holiday drink of Gingerbread syrup, Frappuccino® Roast coffee, milk and ice, topped with even more love – gingerbread whipped cream and brown sugar drizzle.",
-//             "price": 474,
-//             "currency": " Rs. ",
-
-//             "quantities": {
-//                 "name": " TALL",
-//                 "quantity": 354,
-//                 "unit": " ML ",
-//                 "calories": .329,
-//                 "calories_unit": " Kcal "
-//             },
-//             "sizes": [
-
-//                 {
-//                     name: "tall",
-//                     quantity: 50
-//                 },
-//                 {
-//                     name: "medium",
-//                     quantity: 30
-//                 },
-//                 {
-//                     name: "small",
-//                     quantity: 20
-//                 },
-//             ]
-//         },
-
-//         {
-//             "image": {
-//                 "source": " ../../assets/image/toffee.jpg",
-//                 "alt": " "
-//             },
-
-//             "name": "TOFFEE NUT CRUNCH FRAPPUCCINO",
-//             "description": " A perfect blend of coffee and heartwarming flavors of buttery toffee nut balanced by subtle notes of toasted nuts. The crescendo is a whipped cream peak sprinkled in a crunchy toffee nut topping",
-//             "currency": " Rs. ",
-
-//             "quantities": {
-//                 "name": " TALL",
-//                 "quantity": 354,
-//                 "unit": " ML ",
-//                 "calories": .352,
-//                 "calories_unit": " Kcal "
-//             },
-//             "sizes": [
-
-//                 {
-//                     name: "tall",
-//                     quantity: 50
-//                 },
-//                 {
-//                     name: "medium",
-//                     quantity: 30
-//                 },
-//                 {
-//                     name: "small",
-//                     quantity: 20
-//                 },
-//             ]
-//         },
-//         {
-//             "image": {
-//                 "source": "../../assets/image/pourover.jpg",
-//                 "alt": " "
-//             },
-//             "name": "POUR OVER – CHRISTMAS BLEND",
-//             "description": "Pour-over is a beautifully simple and accessible way to brew a single cup of coffee with clean, fully developed flavor and body. Brewed with Christmas Blend.",
-//             "price": 494,
-//             "currency": " Rs. ",
-
-//             "quantities": {
-//                 "name": " SHORT",
-//                 "quantity": 237,
-//                 "unit": " ML ",
-//                 "calories": .0,
-//                 "calories_unit": " Kcal "
-//             },
-//             "sizes": [
-
-//                 {
-//                     name: "tall",
-//                     quantity: 50
-//                 },
-//                 {
-//                     name: "medium",
-//                     quantity: 30
-//                 },
-//                 {
-//                     name: "small",
-//                     quantity: 20
-//                 },
-//             ]
-//         },
-//         {
-//             "image": {
-//                 "source": " ../../assets/image/pourover.jpg",
-//                 "alt": " "
-//             },
-
-//             "name": "POUR OVER - ITALIAN BLEND",
-//             "description": " Pour-over is a beautifully simple and accessible way to brew a single cup of coffee with clean, fully developed flavor and body. Brewed with Italian Roast",
-
-//             "price": 324,
-//             "currency": " Rs. ",
-
-//             "quantities": {
-//                 "name": " SHORT",
-//                 "quantity": 237,
-//                 "unit": " ML ",
-//                 "calories": .0,
-//                 "calories_unit": " Kcal "
-//             },
-//             "sizes": [
-
-//                 {
-//                     name: "tall",
-//                     quantity: 50
-//                 },
-//                 {
-//                     name: "medium",
-//                     quantity: 30
-//                 },
-//                 {
-//                     name: "small",
-//                     quantity: 20
-//                 },
-//             ]
-//         },
-//         {
-//             "image": {
-//                 "source": "../../assets/image/brew.jpg",
-//                 "alt": " "
-//             },
-
-//             "name": "FRENCH PRESS - KENYA",
-//             "description": " Brewing with a French press retains the precious natural oils that paper filters absorb, and extracts the coffee’s full flavour while giving it a consistency that’s thick and rich. Brewed with Kenya Blend",
-//             "price": 674,
-//             "currency": " Rs. ",
-
-//             "quantities": {
-//                 "name": " PER SERVE",
-//                 "quantity": 273,
-//                 "unit": " ML ",
-//                 "calories": .0,
-//                 "calories_unit": " Kcal "
-//             },
-//             "sizes": [
-
-//                 {
-//                     "name": "tall",
-//                     "quantity": 50
-//                 },
-//                 {
-//                     "name": "medium",
-//                     "quantity": 30
-//                 },
-//                 {
-//                     "name": "small",
-//                     "quantity": 20
-//                 },
-//             ]
-//         },
-//         {
-//             "image": {
-//                 "source": " ../../assets/image/estates.jpg",
-//                 "alt": " "
-//             },
-
-//             "name": "FRENCH PRESS - INDIA ESTATES BLEND",
-//             "description": " Brewing with a coffee press retains the precious natural oils that paper filters absorb, and extracts the coffee’s full flavor while giving it a consistency that’s thick and Rich in flavour. Brewed with India Estates Blend.",
-//             "price": 476,
-//             "currency": " Rs. ",
-
-//             "quantities": {
-//                 "name": " PER SERVE",
-//                 "quantity": 473,
-//                 "unit": " ML ",
-//                 "calories": .0,
-//                 "calories_unit": " Kcal "
-//             },
-//             "sizes": [
-
-//                 {
-//                     name: "tall",
-//                     quantity: 50
-//                 },
-//                 {
-//                     name: "medium",
-//                     quantity: 30
-//                 },
-//                 {
-//                     name: "small",
-//                     quantity: 20
-//                 },
-//             ]
-//         },
-//         {
-//             "image": {
-//                 "source": " ../../assets/image/pourover.jpg",
-//                 "alt": " "
-//             },
-
-//             "name": "POUR OVER - KENYA BLEND",
-//             "description": " Pour-over is a beautifully simple and accessible way to brew a single cup of coffee with clean, fully developed flavor and body. Brewed with Kenya Roast.",
-//             "price": 234,
-//             "currency": " Rs. ",
-
-//             "quantities": {
-//                 "name": " SHORT",
-//                 "quantity": 237,
-//                 "unit": " ML ",
-//                 "calories": .0,
-//                 "calories_unit": " Kcal "
-//             },
-//             "sizes": [
-
-//                 {
-//                     "name": "tall",
-//                     "quantity": 50
-//                 },
-//                 {
-//                     "name": "medium",
-//                     "quantity": 30
-//                 },
-//                 {
-//                     "name": "small",
-//                     "quantity": 20
-//                 },
-//             ]
-//         },
-//         {
-//             "image": {
-//                 "source": " ../../assets/image/pourover.jpg",
-//                 "alt": " "
-//             },
-
-//             "name": "POUR OVER - SUMATRA BLEND",
-//             "description": " Pour-over is a beautifully simple and accessible way to brew a single cup of coffee with clean, fully developed flavor and body. Brewed with Sumatra Roast.",
-//             "price": 304,
-//             "currency": " Rs. ",
-
-//             "quantities": {
-//                 "name": " SHORT",
-//                 "quantity": 237,
-//                 "unit": " ML ",
-//                 "calories": .0,
-//                 "calories_unit": " Kcal "
-//             },
-//             "sizes": [
-
-//                 {
-//                     "name": "tall",
-//                     "quantity": 50
-//                 },
-//                 {
-//                     "name": "medium",
-//                     "quantity": 30
-//                 },
-//                 {
-//                     "name": "small",
-//                     "quantity": 20
-//                 },
-//             ]
-//         },
-//         {
-//             "image": {
-//                 "source": "../../assets/image/chaitea.jpg",
-//                 "alt": " "
-//             },
-
-//             "name": "CHAI TEA LATTE",
-//             "description": " Black tea infused with cinnamon, clove, and other warming spices are combined with milk for the perfect balance of sweet and spicy.",
-//             "price": 273,
-//             "currency": " Rs. ",
-
-//             "quantities": {
-//                 "name": " SHORT",
-//                 "quantity": 237,
-//                 "unit": " ML ",
-//                 "calories": .170,
-//                 "calories_unit": " Kcal "
-//             },
-//             "sizes": [
-
-//                 {
-//                     name: "tall",
-//                     quantity: 50
-//                 },
-//                 {
-//                     name: "medium",
-//                     quantity: 30
-//                 },
-//                 {
-//                     name: "small",
-//                     quantity: 20
-//                 },
-//             ]
-//         },
-//         {
-//             "image": {
-//                 "source": " ../../assets/image/emperortea.jpg",
-//                 "alt": " "
-//             },
-
-//             "name": "EMPEROR'S MIST GREEN TEA",
-//             "description": " Receiving plenty of rain during the early spring harvest, this is a curly, silver-speckled, leaf-and-bud green tea combination with a lightly floral beginning, a toasty middle body and a softly sweet finish",
-//             "price": 299,
-//             "currency": " Rs. ",
-
-//             "quantities": {
-//                 "name": " SHORT",
-//                 "quantity": 237,
-//                 "unit": " ML ",
-//                 "calories": .0,
-//                 "calories_unit": " Kcal "
-//             },
-//             "sizes": [
-
-//                 {
-//                     name: "tall",
-//                     quantity: 50
-//                 },
-//                 {
-//                     name: "medium",
-//                     quantity: 30
-//                 },
-//                 {
-//                     name: "small",
-//                     quantity: 20
-//                 },
-//             ]
-//         },
-//         {
-//             "image": {
-//                 "source": " ../../assets/image/englishtea.jpg",
-//                 "alt": " "
-//             },
-
-//             "name": "ENGLISH BREAKFAST BLACK TEA ",
-//             "description": "A breakfast-style black tea of malty boldness and bright flavour, invigorating any time of the day.",
-//             "price": 474,
-//             "currency": " Rs. ",
-
-//             "quantities": {
-//                 "name": " SHORT",
-//                 "quantity": 237,
-//                 "unit": " ML ",
-//                 "calories": .0,
-//                 "calories_unit": " Kcal "
-//             },
-//             "sizes": [
-
-//                 {
-//                     name: "tall",
-//                     quantity: 50
-//                 },
-//                 {
-//                     name: "medium",
-//                     quantity: 30
-//                 },
-//                 {
-//                     name: "small",
-//                     quantity: 20
-//                 },
-//             ]
-//         },
-//         {
-//             "image": {
-//                 "source": "../../assets/image/haitea.jpg ",
-//                 "alt": " "
-//             },
-
-//             "name": "HATHIKULI TEA",
-//             "description": "An organic estate- specific Assam black tea with malty sweetness and a nutty finish. ",
-//             "price": 406,
-//             "currency": " Rs. ",
-
-//             "quantities": {
-//                 "name": "Hathikuli Tea",
-//                 "quantity": 437,
-//                 "unit": " ML ",
-//                 "calories": .0,
-//                 "calories_unit": " Kcal "
-//             },
-//             "sizes": [
-
-//                 {
-//                     name: "tall",
-//                     quantity: 50
-//                 },
-//                 {
-//                     name: "medium",
-//                     quantity: 30
-//                 },
-//                 {
-//                     name: "small",
-//                     quantity: 20
-//                 },
-//             ]
-//         },
-
-//         {
-//             "image": {
-//                 "source": "../../assets/image/icedgreen.jpg ",
-//                 "alt": " "
-//             },
-
-//             "name": "ICED GREEN TEA LATTE",
-//             "description": "Beautiful layers of green tea, our bold espresso and milk create a smooth, richly textured beverage ",
-//             "price": 309,
-//             "currency": " Rs. ",
-
-//             "quantities": {
-//                 "name": "SHORT",
-//                 "quantity": 237,
-//                 "unit": " ML ",
-//                 "calories": .412,
-//                 "calories_unit": " Kcal "
-//             },
-//             "sizes": [
-//                 {
-//                     name: "tall",
-//                     quantity: 50
-//                 },
-//                 {
-//                     name: "medium",
-//                     quantity: 30
-//                 },
-//                 {
-//                     name: "small",
-//                     quantity: 20
-//                 },
-//             ]
-//         },
-//         {
-//             "image": {
-//                 "source": "../../assets/image/greentea.jpg ",
-//                 "alt": " "
-//             },
-
-//             "name": "GREEN TEA LATTE",
-//             "description": "Smooth and creamy matcha is lightly sweetened and served with steamed milk",
-//             "price": 404,
-//             "currency": " Rs. ",
-
-//             "quantities": {
-//                 "name": "SHORT",
-//                 "quantity": 237,
-//                 "unit": " ML ",
-//                 "calories": .171,
-//                 "calories_unit": " Kcal "
-//             },
-//             "sizes": [
-
-//                 {
-//                     name: "tall",
-//                     quantity: 50
-//                 },
-//                 {
-//                     name: "medium",
-//                     quantity: 30
-//                 },
-//                 {
-//                     name: "small",
-//                     quantity: 20
-//                 },
-//             ]
-//         },
-//         {
-//             "image": {
-//                 "source": "../../assets/image/coldcold.jpg ",
-//                 "alt": " "
-//             },
-
-//             "name": "COLD BREW BLACK",
-//             "description": "Starbucks® Kenya coffee is freshly ground and then steeped for 48 hours. This artisanal process results in deliciously iced coffee that is served over ice, unsweetened.",
-//             "price": 299,
-//             "currency": " Rs. ",
-
-//             "quantities": {
-//                 "name": "SHORT",
-//                 "quantity": 221,
-//                 "unit": " ML ",
-//                 "calories": .171,
-//                 "calories_unit": " Kcal "
-//             },
-//             "sizes": [
-
-//                 {
-//                     name: "tall",
-//                     quantity: 50
-//                 },
-//                 {
-//                     name: "medium,
-//                     quantity: 30
-//                 },
-//                 {
-//                     name: "small",
-//                     quantity: 20
-//                 },
-//             ]
-//         },
-//         {
-//             "image": {
-//                 "source": "../../assets/image/toffeecold.jpg ",
-//                 "alt": " "
-//             },
-
-//             "name": "TOFFEE NUT CRUNCH COLD BREW",
-//             "description": "Starbucks signature Cold Brew, balanced by subtle notes of toasted nuts toffee Nut flavored foam and crunchy toffee nut topping",
-//             "price": 404,
-//             "currency": " Rs. ",
-
-//             "quantities": {
-//                 "name": "TALL",
-//                 "quantity": 354,
-//                 "unit": " ML ",
-//                 "calories": .193,
-//                 "calories_unit": " Kcal "
-//             },
-//             "sizes": [
-
-//                 {
-//                     name: "tall",
-//                     quantity: 50
-//                 },
-//                 {
-//                     name: "medium",
-//                     quantity: 30
-//                 },
-//                 {
-//                     name: "small",
-//                     quantity: 20
-//                 },
-//             ]
-//         },
-//         {
-//             "image": {
-//                 "source": "../../assets/image/pumpkincold.jpg",
-//                 "alt": " "
-//             },
-
-//             "name": "PUMPKIN SPICE CREAM COLD BREW",
-//             "description": "Our Cold Brew sweetened with vanilla syrup, topped with a pumpkin spice cold foam topping.",
-//             "price": 584,
-//             "currency": " Rs. ",
-//             "quantities": {
-//                 "name": "TALL",
-//                 "quantity": 354,
-//                 "unit": " ML ",
-//                 "calories": .261,
-//                 "calories_unit": " Kcal "
-//             },
-//             "sizes": [
-
-//                 {
-//                     name: "tall",
-//                     quantity: 50
-//                 },
-//                 {
-//                     name: "medium",
-//                     quantity: 30
-//                 },
-//                 {
-//                     name: "small",
-//                     quantity: 20
-//                 },
-//             ]
-//         },
-//         {
-//             "image": {
-//                 "source": "../../assets/image/vanillacold.jpg ",
-//                 "alt": " "
-//             },
-
-//             "name": "VANILLA SWEET CREAM COLD BREW",
-//             "description": "Cold Brew with Vanilla Sweet Cream is made with Starbucks® Cold Brew over ice and topped with a hand crafted vanilla sweet cream, which floats on top of the beverage before slowly cascading down.",
-//             "price": 494,
-//             "currency": " Rs. ",
-
-//             "quantities": {
-//                 "name": "TALL",
-//                 "quantity": 354,
-//                 "unit": " ML ",
-//                 "calories": .63,
-//                 "calories_unit": " Kcal "
-//             },
-//             "sizes": [
-
-//                 {
-//                     name: "tall",
-//                     quantity: 50
-//                 },
-//                 {
-//                     name: "medium",
-//                     quantity: 30
-//                 },
-//                 {
-//                     name: "small",
-//                     quantity: 20
-//                 },
-//             ]
-//         },
-//         {
-//             "image": {
-//                 "source": "../../assets/image/toffeenutcold.jpg ",
-//                 "alt": " "
-//             },
-
-//             "name": "TOFFEE NUT CRUNCH NITRO COLD BREW",
-//             "description": "Starbucks signature Nitro Cold Brew, balanced by subtle notes of toasted nuts toffee Nut flavored foam and crunchy toffee nut topping.",
-//             "price": 439,
-//             "currency": " Rs. ",
-
-//             "quantities": {
-//                 "name": "SHORT",
-//                 "quantity": 237,
-//                 "unit": " ML ",
-//                 "calories": .163,
-//                 "calories_unit": " Kcal "
-//             },
-//             "sizes": [
-//                 {
-//                     name: "tall",
-//                     quantity: 50
-//                 },
-//                 {
-//                     name: "medium",
-//                     quantity: 30
-//                 },
-//                 {
-//                     name: "small",
-//                     quantity: 20
-//                 },
-//             ]
-//         },
-//         {
-//             "image": {
-//                 "source": "../../assets/image/whitecold.jpg",
-//                 "alt": " "
-//             },
-
-//             "name": "WHITE MOCHA CARAMEL COLD BREW",
-//             "description": "Our slow steeped Cold brew shaken with milk and white chocolate to strike the perfect balance of coffee and sweetness.",
-//             "price": 404,
-//             "currency": " Rs. ",
-
-//             "quantities": {
-//                 "name": "TALL",
-//                 "quantity": 354,
-//                 "unit": " ML ",
-//                 "calories": .194,
-//                 "calories_unit": " Kcal "
-//             },
-//             "sizes": [
-
-//                 {
-//                     "name": "tall",
-//                     "quantity": 50
-//                 },
-//                 {
-//                     "name": "medium",
-//                     "quantity": 30
-//                 },
-//                 {
-//                     "name": "small",
-//                     "quantity": 20
-//                 },
-//             ]
-//         }
-//     ]
-
-// console.log(window.location)
-// let url_1 = window.location.search;
-
-// const product = new URLSearchParams(url_1);
-// console.log(product);
+let plus_card;
+let add_item_card;
 
 const queryString = window.location.search;
-// console.log(queryString);
 const urlParams = new URLSearchParams(queryString);
-console.log(urlParams);
+// //(urlParams);
 const product = urlParams.get("product_id");
-// console.log(product);
 
 const master_list = JSON.parse(localStorage.getItem("product_detail_list"));
-// console.log(master_list)
+const reviews = JSON.parse(localStorage.getItem("stars"));
+let review_array = reviews.filter((e)=>e.product_id===product);
+console.log(review_array);
+let sum =0;
+ for(let i=0;i<review_array.length;i++){
+   sum+=review_array[i].no_of_stars;
+ };
+ let avg = sum/review_array.length;
+ let avg_int =parseFloat(avg.toFixed(1));
+console.log(avg)
+
 
 function findProduct(e) {
   return e.product_id === product;
 }
 
 let productData = master_list.find(findProduct);
-// console.log(productData);
 
-// const newUser = urlParams.get('newuser');
-// // console.log(newUser);
-// // product
-// const color = urlParams.get('color')
-// // console.log(color);
-// // black
-// const newUser = urlParams.get('newuser')
-// // console.log(newUser);
-// // empty string
-// const size = urlParams.get('size');
-// // console.log(size);
-// s
 
-// // console.log(url_1);
+
+
 
 const add_to_cart = JSON.parse(localStorage.getItem("add_products_cart"));
-console.log(add_to_cart);
+//(add_to_cart);
 
 row_card = document.createElement("div");
 row_card.setAttribute("class", "row");
-// console.log(row_card);
+// //(row_card);
 
 image_card = document.createElement("div");
 image_card.setAttribute("class", "image");
@@ -1136,6 +87,14 @@ p_card.innerText =
   ` ${productData.quantities.medium.calories_unit}`;
 
 content_card.append(p_card);
+if(!isNaN(avg)){
+p3_card = document.createElement("p");
+p3_card.setAttribute("class", "calorie");
+p3_card.setAttribute("style", "color:brown");
+p3_card.innerText =`${avg_int} ratings`;
+
+content_card.append(p3_card);
+}
 
 p1_card = document.createElement("p");
 p1_card.setAttribute("class", "detail");
@@ -1236,10 +195,10 @@ tall.addEventListener("click", () => {
 const short = document.getElementById("btn-3");
 short.addEventListener("click", () => {
   p2_card.innerText = `Rs.${productData.price_1.short}`;
-  console.log(p2_card);
+  //(p2_card);
 
   const sum = p2_card.innerText.replace("Rs.", "");
-  console.log(sum);
+  //(sum);
 
   p_card.innerText =
     `${productData.quantities.short.name} ` +
@@ -1266,7 +225,7 @@ const add_item = document.querySelector(".add-item-cart");
 
 //     let items=[]
 //     let unique_id = this.dataset.id;
-//     // console.log(unique_id);
+//     // //(unique_id);
 
 //     if((JSON.parse(localStorage.getItem('items'))==null)){
 
@@ -1276,7 +235,7 @@ const add_item = document.querySelector(".add-item-cart");
 //     }else{
 //         let localItems = JSON.parse(localStorage.getItem('items'));
 //        if(unique_id==localItems["unique_id"]){
-//         // // console.log(unique_id);
+//         // // //(unique_id);
 //         localItems.push({unique_id});
 //         localStorage.setItem('items',JSON.stringify(items));
 //        }else{
@@ -1302,7 +261,7 @@ add_item.addEventListener("click", function (e) {
   }
 
   productData = product_detail_list.find(findProduct);
-  // console.log(productData);
+  // //(productData);
   // getting unique id
   const unique = JSON.parse(localStorage.getItem("unique_id111"));
   // getting price
@@ -1312,7 +271,7 @@ add_item.addEventListener("click", function (e) {
   // declaring empty string to perform the add to the cart
   const id = "";
 
-  // console.log(id);
+  // //(id);
 
   if (id == "") {
     // introducing an array of objects to get  value , whether the array is already declared or not
@@ -1330,7 +289,7 @@ add_item.addEventListener("click", function (e) {
           name: productData.name,
           quantities: quantity_calories,
           user_id,
-          image: {
+          image:{
             source: productData.image.source,
             alt: "",
           },
@@ -1340,7 +299,7 @@ add_item.addEventListener("click", function (e) {
           currency: "Rs.",
           add_to_cart_id: uuidv4(),
           product_id: unique,
-          quantity_ordered: 1,
+          quantity_ordered: 1
         },
       ];
       // localStorage.setItem('crud',JSON.stringify(data));
@@ -1357,15 +316,15 @@ add_item.addEventListener("click", function (e) {
       //    };
       // };
       const unique1 = JSON.parse(localStorage.getItem("unique_id"));
-      console.log(unique1);
+      //(unique1);
       for (let i = 0; i < add_to_cart.length; i++) {
-        console.log(add_to_cart[i].user_id);
+        //(add_to_cart[i].user_id);
         if (
           unique === add_to_cart[i].product_id &&
           price === add_to_cart[i].price &&
           unique1 === add_to_cart[i].user_id
         ) {
-          console.log(add_to_cart[i].user_id);
+          //(add_to_cart[i].user_id);
           logic = true;
         }
       }
@@ -1406,7 +365,7 @@ for (i = 0; i < object1.length; i++) {
   if (product !== object1[i].product_id) {
     coffee_items_card = document.createElement("div");
     coffee_items_card.setAttribute("class", "coffee-items");
-    console.log(coffee_items_card);
+    //(coffee_items_card);
 
     coffee_description_card = document.createElement("div");
     coffee_description_card.setAttribute("class", "coffee-description");
@@ -1448,7 +407,7 @@ for (i = 0; i < object1.length; i++) {
     add_items = document.createElement("div");
     add_items.setAttribute("class", "add-item");
     add_items.setAttribute("data-id", object1[i].product_id);
-    console.log(object1[i].product_id);
+    //(object1[i].product_id);
 
     coffee_cost_details_card.append(add_items);
 
@@ -1473,7 +432,7 @@ btn_add_item.forEach((findId) => {
       alert("login");
     } else {
       const unique_id = findId.dataset.id;
-      console.log(unique_id);
+      //(unique_id);
 
       window.location.href = `../../pages/productdetail/product-cappu.html?product_id=${unique_id}`;
     }
@@ -1482,7 +441,7 @@ btn_add_item.forEach((findId) => {
 
 const stars = JSON.parse(localStorage.getItem("stars"));
 
-console.log(stars);
+//(stars);
 if (stars !== null) {
   const stars1 = stars.filter((type) => type.product_id === product);
 } else {
@@ -1493,7 +452,7 @@ const stars1 = stars.filter((type) => type.product_id === product);
 if (stars1 == "") {
   document.getElementById("no_reviews").innerText = "no reviews";
 } else {
-  // console.log(stars1)
+  // //(stars1)
 
   // let show_stars = document.querySelector('.stars1')
   // <span class="star">&#9733;</span>
@@ -1545,7 +504,7 @@ if (stars1 == "") {
       //  showing_star.insertAdjacentHTML("afterbegin",icon);
     }
 
-    console.log(showing_star);
+    //(showing_star);
     const review_info = document.createElement("div");
     review_info.setAttribute("class", "review-detail");
     div_card.append(review_info);
@@ -1556,13 +515,13 @@ if (stars1 == "") {
     // showing_star.append(icon);
     // document.querySelector(".hello").insertAdjacentHTML("afterbegin",icon)
 
-    console.log(div_card);
+    //(div_card);
   }
 }
 
 // add_item.addEventListener('click',function(e) {
 //     let unique_id = this.dataset.id;
-//     // console.log(unique_id);
+//     // //(unique_id);
 //    let crud = JSON.parse(localStorage.getItem('crud')) || [];
 //    let exist = crud.length &&
 //       JSON.parse(localStorage.getItem('crud')).some(data =>

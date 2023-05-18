@@ -26,9 +26,6 @@
     border:var(--border-hover);
     
 } */
-
-
-
 header #toggler{
     display: none;
  }
@@ -50,10 +47,9 @@ header{
     display:flex;
     justify-content:space-between;
     align-items: center;
-    
+    background-color: white;
     padding:1.3rem 5%;
     z-index: 1000;
-    background:#fff;
     box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
 }
 

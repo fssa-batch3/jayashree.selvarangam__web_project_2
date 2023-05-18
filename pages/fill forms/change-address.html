@@ -144,16 +144,21 @@ input[type=radio]{
 //     });
 
 
-let address_array = JSON.parse(localStorage.getItem('address'))
+let address_array = JSON.parse(localStorage.getItem('address'));
+
 for(let i=0;i<address_array.length;i++){
+    if(address_array[i].value === true){
+        let x = document.getElementsByClassName('.radio');
+        x.setAttribute('checked','checked')
+    }
     let new_address = ` <div class="choices">
                         <div class="radio"> 
-                            <input type="radio" id=${i+1} data-id=${address_array[i]['id']} name="address_type" value='${address_array[i]['address_type']+address_array[i]['house_no']+address_array[i]['area']+address_array[i]['pincode']}''>
-                            </div>
-                            <div class="name">
-                            <label for=${i+1} >${address_array[i]['address_type']+address_array[i]['house_no']+address_array[i]['area']+address_array[i]['pincode']}</label>
-                            </div>
-                         </div>`
+                        <input type="radio" id=${i+1} data-id=${address_array[i]['id']} name="address_type" value='${address_array[i]['address_type']+address_array[i]['house_no']+address_array[i]['area']+address_array[i]['pincode']}''>
+                        </div>
+                        <div class="name">
+                        <label for=${i+1} >${address_array[i]['address_type']+address_array[i]['house_no']+address_array[i]['area']+address_array[i]['pincode']}</label>
+                        </div>
+                        </div>`
         document.querySelector('.pickup-choices').insertAdjacentHTML('beforeend',new_address)
 }
 console.log(form)
@@ -163,20 +168,52 @@ function radio(){
 const delivery = document.querySelectorAll('input[name="address_type"]');
 
 let selectedValue;
+let value1;
 for (let i = 0; i < delivery.length; i++) {
   const element = delivery[i];
   if (element.checked === true) {
     selectedValue = element.value;
+    value1=i;
     break;
   }
-console.log(selectedValue)
+console.log(selectedValue);
+}
+let address = JSON.parse(localStorage.getItem('address'))
+for( i=0;i<address.length;i++){
+if(address[i].value===true){
+    address[i].value=false;
+    localStorage.setItem('address',JSON.stringify(address));
+}
+}
+address[value1]['value'] = true;
+localStorage.setItem('address',JSON.stringify(address));
+console.log(address)
+
+return selectedValue;
 
 }
-return selectedValue;
-}
+
+
+
+
+
+
 let selectedValue = radio();
 console.log(selectedValue);
-    })
+ })
+
+//  const delivery1 = document.querySelectorAll('input[name="address_type"]');
+
+// let selectedValue;
+// for (let i = 0; i < delivery.length; i++) {
+//   const element = delivery[i];
+//   if (element.checked === true) {
+//     selectedValue = element.value;
+//     break;
+//   }
+// }
+// console.log(selectedValue)
+
 // console.log(radio())
 // // }
 // console.log(selectedValue)

@@ -72,6 +72,12 @@
     border: var(--border-hover);
     border-radius:var(--border-radius-hover);
 }
+.whole{
+    padding: 50px;
+}
+.Coldbrew{
+    margin-bottom: 50px;
+}
 .drinks-p{
     text-align:left;
     font-size:1.05rem;
@@ -98,8 +104,10 @@
     color:var(--bs-gray-600);
 }
 /*navigate ends*/
-.Expressoa{
-    margin-bottom:3rem;
+.product_container{
+display: grid;
+grid-template-columns: 1fr 1fr 1fr;
+
 }
 .expressoa-title,.expressoa-title1,.expressoa-title2,.expressoa-title3,.expressoa-title4{
     padding-left:50px;
@@ -204,7 +212,7 @@
     padding-left:50px;
     padding-right: 50px;
 }
-.beverages1{
+/* .beverages1{
     display:grid;
     grid-template-columns:1fr 1fr 1fr;
     column-gap:1rem;
@@ -227,7 +235,7 @@
     row-gap: 2rem;
     padding-left:50px;
     padding-right: 50px; 
-}
+} */
 .beverages4{
     display:grid;
     grid-template-columns:1fr 1fr 1fr;

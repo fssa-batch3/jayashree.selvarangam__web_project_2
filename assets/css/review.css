@@ -51,11 +51,11 @@ body{
 .profile .form{
     position: relative;
     left: 350px;
-    top: 100px;
+    top: 50px;
     bottom: 200px;
     max-width: 45rem;
     border-radius:5px;
-    padding:3rem;
+    padding:2.5rem;
     border:var(--border);
 }
 
@@ -76,7 +76,7 @@ body{
 }
 
 .profile .form textarea{
-    height:25rem;
+    height:20rem;
     resize: none;
 }
 .ratings{

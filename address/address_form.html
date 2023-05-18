@@ -37,14 +37,10 @@
                 <input type="checkbox" id="default-address"  >
                 <!-- <a href="../../pages/profile/profile_edit.html"><input type="submit" value="Edit" class="btn"></a>
                     <span class="save"> -->
-                
                 <!-- <button  class="btn" id="delete" >delete profile
                     </button>  -->
                 <button type="submit" class="btn" id="save">Save
                 </button>
-
-
-        
             </form>
         </section>
 
@@ -76,7 +72,6 @@
             if(address_array===null){
                 if(address_type==''||house_no==""||area==""||pincode==""){
                 alert('Please fill all the fields')
-
             }else{
               
                 address_array = [
@@ -98,7 +93,6 @@
                 alert('Please fill all the fields')
 
             }else{
-
                 address_array.push({    
                 address_type,
                 house_no,
@@ -108,8 +102,7 @@
                 value:value     
             })
             localStorage.setItem('address',JSON.stringify(address_array))
-        }
-            }
+        }}
         }
     
     </script>

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Search Example</title>
+  <link rel="stylesheet" href="./search.css">
+</head>
+<style>
+     form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  input[type="text"] {
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    margin-right: 5px;
+  }
+  
+  button[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  li {
+    margin: 10px 0;
+  }
+
+  main{
+      padding: 0 100px 50px 100px;
+  }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 100px;
+  }
+  th{
+    padding: 30px 8px;
+    text-align: left;
+    border-bottom: 1px solid #979797;
+    text-align: center;
+  }
+  td {
+    padding: 15px 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+  }
+  th {
+    background-color: #2874F0;
+    color:white
+  }
+  tr{
+      border-left:  1px solid #ddd;
+      border-right:  1px solid #ddd;
+      width: 100%;
+  }
+  tr:hover {
+      background-color: #EFF6FF;
+      color:#3484fc;
+  }
+  td button{
+      cursor: pointer;
+      padding: 5px 18px ;
+      background-color: #176047;
+      border: 1.5px solid #176047;
+      color: white;
+      border-radius: 3px;
+  }
+  td button:hover{
+      background-color: #FAFFFD;
+      color: #176047;
+  }
+  
+</style>
+<body>
+  <h1>add category</h1>
+  <form name="add-category-form">
+    <input type="text" id="add_category" placeholder="add category">
+    <button type="submit">add category</button>
+    <!-- <button type="submit">cancel</button>  -->
+  </form>
+
+
+    
+      <table>
+          <thead>
+            <tr>
+              <th>Category ID</th>
+              <th>Category Name</th>
+             
+              <th >Status</th>
+              <th >Status Change</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- <tr>
+              <td>2</td>
+              <td>Category B</td>
+              <td>Type 2</td>
+              <td><button>Remove</button></td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Category C</td>
+              <td>Type 1</td>
+              <td><button>Remove</button></td>
+            </tr> -->
+            <!-- Add more rows as needed -->
+          </tbody>
+        </table>
+
+        <script>
+          function generateShortId() {
+          const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+          let shortId = '';
+          for (let i = 0; i < 10; i++) {
+            const randomIndex = Math.floor(Math.random() * characters.length);
+            shortId += characters.charAt(randomIndex);
+          }
+          return shortId;
+        }
+        const addCategoryForm = document.forms["add-category-form"];
+        // Add an event listener to the form submit event
+        addCategoryForm.addEventListener("submit", function(event) {
+          // Prevent the default form submission behavior
+        event.preventDefault();
+          
+          // Get the form inputs
+          const categoryInput  = addCategoryForm["add_category"];
+           const category = categoryInput.value.trim();
+           if (category === "") {
+          showError(categoryInput, "Product name is required");
+          return;
+          }
+        
+        
+        
+          const addCategory = JSON.parse(
+               localStorage.getItem("category")
+          )||[];
+             const exist =
+             addCategory.length &&
+               JSON.parse(localStorage.getItem("category")).some(
+                 (data) => data.category.toLowerCase() == category.toLowerCase()
+               );
+             if (!exist) {
+               const category_detail = {
+                'category':category,
+                'category_id': generateShortId(),
+                'category_status':true
+                };
+                addCategory.push(category_detail);
+               localStorage.setItem(
+                 "category",
+                 JSON.stringify(addCategory)
+               );
+             } else {
+               alert("category already exists");
+             }
+            addCategoryForm.submit();
+        }
+        )
+        function showError(input, errorMessage) {
+          // Set the input as invalid
+          input.setCustomValidity(errorMessage);
+          // Display the error message
+          const errorElement = document.createElement("div");
+          errorElement.className = "error-message";
+          errorElement.textContent = errorMessage;
+          input.parentNode.insertBefore(errorElement, input.nextSibling);
+          // Add a listener to remove the error message when the input is changed
+          input.addEventListener("input", function() {
+            input.setCustomValidity("");
+            errorElement.remove();
+          });
+        }
+        
+        const categoryContainer = JSON.parse(localStorage.getItem("category"));
+                //console.log(categoryContainer);
+        for(let i=0; i<categoryContainer.length; i++){
+                // Create the table row
+        const row = document.createElement('tr');
+        // Create the first table cell for Category ID
+        const idCell = document.createElement('td');
+        idCell.textContent = categoryContainer[i]["category_id"] ; // Replace with your category ID
+        row.appendChild(idCell);
+        // Create the second table cell for Category Name
+        const nameCell = document.createElement('td');
+        nameCell.textContent = categoryContainer[i]["category"] ; // Replace with your category name
+        row.appendChild(nameCell);
+        // // Create the third table cell for Category Type
+        // const typeCell = document.createElement('td');
+        // typeCell.textContent = categoryContainer[i]["category_type"] ; // Replace with your category type
+        // row.appendChild(typeCell);
+        // // Create the fourth table cell for Category Type
+        const statusCell = document.createElement('td');
+        statusCell.textContent = categoryContainer[i]["category_status"] ; // Replace with your category type
+        row.appendChild(statusCell);
+        // Create the fifth table cell for Remove button
+        const removeCell = document.createElement('td');
+        const removeButton = document.createElement('button');
+        removeButton.className = "removeCategory";
+        removeButton.value = categoryContainer[i]["category_id"];
+        removeButton.textContent = 'Update Status';
+        removeCell.appendChild(removeButton);
+        row.appendChild(removeCell);
+        // Add the row to the table body
+        const tableBody = document.querySelector('tbody');
+        tableBody.appendChild(row);
+         // Add event listener to each remove button
+         removeButton.addEventListener("click", (event) => {
+          const categoryId = event.target.value;
+          const cartIdIndex = categoryContainer.findIndex(
+            (data) => data.category_id === categoryId
+          );
+          if (cartIdIndex !== -1) {
+            if (categoryContainer[cartIdIndex].category_status === false) {
+              categoryContainer[cartIdIndex].category_status = true;
+              alert("Category status  updated to true");
+            } else {
+              categoryContainer[cartIdIndex].category_status = false;
+              alert("Category status updated to false");
+            }
+             window.location.href = "./addcategory.html";
+            localStorage.setItem("category", JSON.stringify(categoryContainer));
+            // location.reload();
+          }
+        });
+        }
+        
+        </script>
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/uuid@8.3.2/dist/umd/uuidv4.min.js"></script>
+</html>
+

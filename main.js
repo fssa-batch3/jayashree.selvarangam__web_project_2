@@ -9,6 +9,7 @@ if (!product_detail_list) {
     JSON.stringify([
       {
         category: "TEA",
+        'category_id':'4n6IYaZobQ',
         // "category_description":category_description,
         // "description":description,
         name: "English green tea ",
@@ -52,6 +53,7 @@ if (!product_detail_list) {
       },
       {
         category: "ESPRESSO",
+        'category_id':'4n6iYaZobQ',
         // "category_description":category_description,
         // "description":description,
         name: "Java chip frappucino",
@@ -94,6 +96,7 @@ if (!product_detail_list) {
       },
       {
         category: "FRAPPUCINO",
+        'category_id':'8n6iYaZobQ',
         // "category_description":category_description,
         // "description":description,
         name: "Caramel frappucino",
@@ -137,6 +140,8 @@ if (!product_detail_list) {
       },
       {
         category: "COLD BREW",
+      'category_id':'4n6IYaZoBQ',
+
         // "category_description":category_description,
         // "description":description,
         name: "Brewed coffee",
@@ -181,7 +186,9 @@ if (!product_detail_list) {
       {
         category: "COLD BREW",
         // "category_description":category_description,
-        // "description":description,
+      'category_id':'4n6IYaZoBQ',
+      // "description":description,
+
         name: "Pour-kenya",
         quantities: {
           tall: {
@@ -308,6 +315,45 @@ if (!product_detail_list) {
     ])
   );
 }
+
+
+
+const category_detail_list = JSON.parse(
+  localStorage.getItem("category")
+);
+if (!category_detail_list) {
+  localStorage.setItem("category",JSON.stringify(
+    [
+    {
+      'category':'ESPRESSO',
+      'category_id':'4n6iYaZobQ'
+    },
+    {
+      'category':'FRAPPUCINO',
+      'category_id':'8n6iYaZobQ'
+    },
+    {
+      'category':'TEA',
+      'category_id':'4n6IYaZobQ'
+    },
+    {
+      'category':'COLD BREW',
+      'category_id':'4n6IYaZoBQ'
+    },
+    {
+      'category':'BREWED COFFEE',
+      'category_id':'4n9iYaZobQ'
+    },
+    ]
+  ))}
+
+
+
+
+
+
+
+
 
 const user_list = JSON.parse(
   localStorage.getItem("user_list")

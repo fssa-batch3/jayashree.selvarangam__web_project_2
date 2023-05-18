@@ -1,312 +1,4 @@
-//       const user_name= localStorage.getItem("name");
-//       const address= localStorage.getItem("address");
 
-//    // console.log(user_name);
-//    // console.log(address);
-
-//    document.querySelector(".delivery-name").innerHTML= user_name
-//    document.querySelector(".delivery-address").innerHTML= address
-
-let coffee_items_card;
-let coffee_description_card;
-let coffee_image_card;
-let image;
-let coffee_content_card;
-let coffee_title_card;
-let coffee_message_card;
-let coffee_cost_details_card;
-let cost;
-let add_items;
-let a_card;
-let button_card;
-
-const object1 = [
-  {
-    name: "Pumpkin Spice Cream Cold Brew ",
-    description:
-      "Our Cold Brew sweetened with vanilla syrup, topped with a pu... ",
-    quantities: {
-      name: "TALL",
-      quantity: "354",
-      unit: "ML",
-      calories: 0.261,
-      calories_unit: "kcal",
-    },
-    // {
-    //     "name": "",
-    //     "unit": "",
-    //     "quantity": "",
-    //     "calories": "",
-    //     "price": ""
-    // },
-    // {
-    //     "name": "",
-    //     "unit": "",
-    //     "quantity": "",
-    //     "calories": "",
-    //     "price": ""
-    // }
-
-    price: 584,
-    currency: "Rs",
-
-    category: "Cold Brew",
-    category_description:
-      "Slow-steeped, complex, and full-bodied, the Cold Brew is an experience.",
-    image: {
-      source: " ../../assets/image/pumpkincold.jpg",
-      alt: "",
-    },
-    /// //////////////////////////////////////////
-
-    main_img: " ../../assets/image/pumpkincold.jpg",
-    main_content:
-      "Our Cold Brew sweetened with vanilla syrup, topped with a pu... ",
-    main_names: "Pumpkin Spice Cream Cold Brew ",
-    sub_content: "TALL(354 ML) .261 kcal ",
-    link_pages: "../../pages/productdetail/product-pumpkincold.html ",
-    cost_items: " Rs.584",
-    /// ///////////////////////////////////////
-  },
-
-  {
-    name: "Vanilla Sweet Cream Cold Brew ",
-    description:
-      "Cold Brew with Vanilla Sweet Cream is made with Starbucks® C...  ",
-    quantities: {
-      name: "TALL",
-      quantity: "354",
-      unit: "ML",
-      calories: 0.63,
-      calories_unit: "kcal",
-    },
-
-    // {
-    //     "name": "",
-    //     "unit": "",
-    //     "quantity": "",
-    //     "calories": "",
-    //     "price": ""
-    // },
-    // {
-    //     "name": "",
-    //     "unit": "",
-    //     "quantity": "",
-    //     "calories": "",
-    //     "price": ""
-    // }
-
-    price: 494,
-    currency: "Rs",
-
-    category: "Cold Brew",
-    category_description:
-      "Slow-steeped, complex, and full-bodied, the Cold Brew is an experience.",
-
-    image: {
-      source: "../../assets/image/vanillacold.jpg ",
-      alt: "",
-    },
-    /// //////////////////////////////////////////
-
-    main_img: "../../assets/image/vanillacold.jpg ",
-    main_content:
-      "Cold Brew with Vanilla Sweet Cream is made with Starbucks® C... ",
-    main_names: "Vanilla Sweet Cream Cold Brew ",
-    sub_content: "TALL(354 ML) .63 kcal ",
-    link_pages: "../../pages/productdetail/product-vanillacold.html ",
-    cost_items: "Rs.494 ",
-    /// ////////////////////////////////////////////
-  },
-  {
-    name: "Toffee Nut Crunch Nitro Cold Brew",
-    description:
-      "The caffine factory signature Nitro Cold Brew, balanced by subtle note.. ",
-    quantities: {
-      name: "SHORT",
-      quantity: "237",
-      unit: "ML",
-      calories: 0.163,
-      calories_unit: "kcal",
-    },
-    // {
-    //     "name": "",
-    //     "unit": "",
-    //     "quantity": "",
-    //     "calories": "",
-    //     "price": ""
-    // },
-    // {
-    //     "name": "",
-    //     "unit": "",
-    //     "quantity": "",
-    //     "calories": "",
-    //     "price": ""
-    // }
-
-    price: 439,
-    currency: "Rs",
-
-    category: "Cold Brew",
-    category_description:
-      "Slow-steeped, complex, and full-bodied, the Cold Brew is an experience.",
-
-    image: {
-      source: "../../assets/image/toffeenutcold.jpg",
-      alt: "",
-    },
-    /// //////////////////////////////////////////
-
-    // "main_img": " ../../assets/image/toffeenutcold.jpg",
-    // "main_content": "The caffine factory signature Nitro Cold Brew, balanced by subtle note.. ",
-    // "main_names": "Toffee Nut Crunch Nitro Cold Brew",
-    // "sub_content": " SHORT(237 ML) .163 Kcal",
-    link_pages: " ../../pages/productdetail/product-toffeenutcold.html",
-    // "cost_items": " Rs.439"
-  },
-  {
-    name: "White Mocha Caramel Cold Brew",
-    description:
-      "Our slow steeped Cold brew shaken with milk and white chocol... ",
-    quantities: {
-      name: "TALL ",
-      quantity: " 354",
-      unit: "ML ",
-      calories: 0.194,
-      calories_unit: " kcal",
-    },
-    // {
-    //     "name": "",
-    //     "unit": "",
-    //     "quantity": "",
-    //     "calories": "",
-    //     "price": ""
-    // },
-    // {
-    //     "name": "",
-    //     "unit": "",
-    //     "quantity": "",
-    //     "calories": "",
-    //     "price": ""
-    // }
-
-    price: 404,
-    currency: " Rs ",
-
-    category: "Cold Brew",
-    category_description:
-      "Slow-steeped, complex, and full-bodied, the Cold Brew is an experience.",
-
-    image: {
-      source: "../../assets/image/toffeecold.jpg",
-      alt: "",
-    },
-    /// //////////////////////////////////////////
-
-    // "main_img": " ../../assets/image/whitecold.jpg",
-    // "main_content": " Our slow steeped Cold brew shaken with milk and white chocol...",
-    // "main_names": " White Mocha Caramel Cold Brew",
-    // "sub_content": "TALL(354 ML) .194 kcal ",
-    link_pages: " ../../pages/productdetail/product-whitecold.html",
-    // "cost_items": " Rs.404"
-  },
-  {
-    name: " Green Tea Latte",
-    description:
-      "Smooth and creamy matcha is lightly sweetened and served wit..",
-    quantities: {
-      name: "SHORT",
-      quantity: "273",
-      unit: "ML",
-      calories: 0.171,
-      calories_unit: "kcal",
-    },
-    // {
-    //     "name": "",
-    //     "unit": "",
-    //     "quantity": "",
-    //     "calories": "",
-    //     "price": ""
-    // },
-    // {
-    //     "name": "",
-    //     "unit": "",
-    //     "quantity": "",
-    //     "calories": "",
-    //     "price": ""
-    // }
-
-    price: 309,
-    currency: "Rs",
-
-    category: "Tea",
-    category_description:
-      "An exclusive tea experience championed by  The Caffine factory.",
-
-    image: {
-      source: " ../../assets/image/greentea.jpg",
-      alt: "",
-    },
-    /// //////////////////////////////////////////
-
-    main_img: " ../../assets/image/greentea.jpg",
-    main_content:
-      " Smooth and creamy matcha is lightly sweetened and served wit..",
-    main_names: " Green Tea Latte ",
-    sub_content: " SHORT(237 ML) .171 kcal",
-    link_pages: "../../pages/productdetail/product-greenlatte.html ",
-    cost_items: " Rs.309",
-    /// ///////////////////////////////////////
-  },
-  {
-    name: "Cold Brew Black",
-    description:
-      "Starbucks® Kenya coffee is freshly ground and then steeped f...",
-    quantities: {
-      name: "TALL",
-      quantity: "221",
-      unit: "ML",
-      calories: 0.171,
-      calories_unit: "kcal",
-    },
-    // {
-    //     "name": "",
-    //     "unit": "",
-    //     "quantity": "",
-    //     "calories": "",
-    //     "price": ""
-    // },
-    // {
-    //     "name": "",
-    //     "unit": "",
-    //     "quantity": "",
-    //     "calories": "",
-    //     "price": ""
-    // }
-
-    price: 299,
-    currency: "Rs",
-
-    category: "Cold Brew",
-    category_description:
-      "Slow-steeped, complex, and full-bodied, the Cold Brew is an experience.",
-
-    image: {
-      source: "../../assets/image/coldcold.jpg",
-      alt: "",
-    },
-
-    /// ///////////////////////////////////////////
-    main_img: "../../assets/image/coldcold.jpg",
-    main_content:
-      "Starbucks® Kenya coffee is freshly ground and then steeped f...",
-    main_names: "Cold Brew Black",
-    sub_content: "TALL() .0 kcal",
-    link_pages: "../../pages/productdetail/product-coldbrew.html",
-    cost_items: "Rs 299",
-    /// /////////////////////////////////////////
-  },
-];
 const object = JSON.parse(localStorage.getItem("product_detail_list"));
 for (let i = 0; i < object.length; i++) {
   coffee_items_card = document.createElement("div");
@@ -658,72 +350,137 @@ minus_1.forEach((find_quantity) => {
   });
 });
 
-// let type_of_delivery = document.querySelector('input [name = hello ]:checked').value
-// console.log(type_of_delivery);
-// function myfunction(){
-// let txt = '';
-// let hello =document.forms[0]
-// for(let i=0;i<hello.length;i++){
-//     if(hello[i].checked){
-//         txt += txt+gender[i].value+''
-//     }
-// }
-// console.log(txt)
-// }
-// ProductData.forEach(object => {
-//     object.type_of_delivery = document.querySelector('input [name = yes_no” ]:checked').value
-// });
-
+let selectedValue;
 function radio() {
   // let  productData= JSON.parse(localStorage.getItem('add_products_cart'));
   const delivery = document.querySelectorAll('input[name="delivery_type"]');
-
-  let selectedValue;
   for (let i = 0; i < delivery.length; i++) {
     const element = delivery[i];
     if (element.checked === true) {
       selectedValue = element.value;
+      // let type_of_address = localStorage.setItem('type_of_address',JSON.stringify(selectedValue))
       break;
     }
   }
   return selectedValue;
+ 
   // location.reload;
 }
 
 
-if(radio()=='delivery'){
-  let address =      ` <div class="address">
-  <div class="delivery-details">
-      <div class="delivery-name">
-          Delivery to <span class="name" id="del-name"></span>
-      </div>
-      <div class="delivery-address" id="del-address"></div>
-  </div>
 
-  <div class="change-address">
-      <a href="../../pages/fill forms/change-address.html">
-          <button>Select address</button>
-      </a> 
-  </div>
-</div>
-</section>`
-document.querySelector('.delivery').insertAdjacentHTML('beforeend',address)
+let address = JSON.parse(localStorage.getItem('address'));
+let boolean;
+for(let i=0;i<address.length;i++){
+ 
+  if(address[i].value === false){
+    boolean = false
+  }else{
+    boolean=true;
+    break;
+  }
+}
+if(boolean===false){
+  address[0]['value']=true;
+  localStorage.setItem('address',JSON.stringify(address1));
 }
 
-// adding the address in the cart page
+let address_Input;
+let address_array = JSON.parse(localStorage.getItem('address'));
+ for(let i=0;i<address.length;i++){
+  if(address[i].value===true){
+    address_Input = address_array[i]['address_type']+address_array[i]['house_no']+address_array[i]['area']+address_array[i]['pincode']
+  }console.log(address_Input)
+}
+// const selectedRadioButton = document.querySelector("input[type=radio]:checked") && document.querySelector("input[type=radio]:checked").checked == false;
+
+//////// code for takeaway , dine_in , delivery address is not shown 
+// let deliveryType1 = '';
+// let radioBtnValue ='';
+// const deliveryType = document.querySelectorAll('input[type="radio"]:not(:checked)')
+// if(deliveryType){
+//   document.querySelector('.address').setAttribute('style','display:none')
+// }
+// deliveryType.forEach(function (radioButton){
+// radioButton.addEventListener("click", () =>{
+
+//   deliveryType1 = document.querySelector("input[type=radio]:checked").value;
+// console.log(deliveryType1)
+// if(deliveryType.checked===false){
+//   document.querySelector('.address').setAttribute('style','display:none')
+// }
+
+
+// if(deliveryType1 !== 'delivery' ){
+// //   let address1 = `<div class="address">
+// //   <div class="delivery-details">
+// //       <div class="delivery-name">
+// //         Delivery to <span class="name" id="del-name">Scarlet</span>
+// //       </div>
+// //       <div class="delivery-address" id="del-address">${address_Input}</div>
+// //   </div>
+// //   <div class="change-address">
+// //       <a href="../../pages/fill forms/change-address.html">
+// //           <button>Select address</button>
+// //       </a> 
+// //   </div>
+// // </div>
+// // </section>`
+
+// document.querySelector('.address').setAttribute('style','display:none')
+// // console.log(address1)
+// }
+// else{
+//   document.querySelector('.address').removeAttribute('style')  
+// }
+
+//   });
+// });
+////////// it ends here
+
+// console.log(radioBtnValue)
+// deliveryType.forEach(radioButton => {
+//   if (radioButton.checked) {
+//     deliveryType1 = radioButton.value;
+//   }
+// });
+// console.log(deliveryType1)
+
+
+// console.log(type_of_address)
+// if(radio() =='delivery'){
+//   let address = `<div class="address">
+//   <div class="delivery-details">
+//       <div class="delivery-name">
+//         Delivery to <span class="name" id="del-name">Scarlet</span>
+//       </div>
+//       <div class="delivery-address" id="del-address">${address_Input}</div>
+//   </div>
+//   <div class="change-address">
+//       <a href="../../pages/fill forms/change-address.html">
+//           <button>Select address</button>
+//       </a> 
+//   </div>
+// </div>
+// </section>`
+// document.querySelector('.delivery').insertAdjacentHTML('beforeend',address)
+// }
+
+// important should look after it//
+// // adding the address in the cart page
 const user_data = JSON.parse(localStorage.getItem("unique_id"));
-// let unique1 = user_data["user_email"];
-// localStorage.setItem('unique',JSON.stringify(unique1))
 const user_list = JSON.parse(localStorage.getItem("user_list"));
-// let unique=JSON.parse(localStorage.getItem('unique'))
 function findPlayer(e) {
   return e.user_email == user_data;
 }
 person_data = user_list.find(findPlayer);
+///////
+
 const delivery_name = document.getElementById("del-name");
 const delivery_address = document.getElementById("del-address");
-delivery_name.innerText = person_data.user_name;
-delivery_address.innerText = person_data.user_address;
+// delivery_name.innerText = person_data.user_name;
+delivery_address.innerText =address_Input;
+
 const change_address = document.querySelector(".change-address");
 change_address.addEventListener("click", () => {
   window.location.href = "../../pages/fill forms/change-address.html";
@@ -740,21 +497,34 @@ const total_price = productData;
 let price_1 = 0;
 for (let i = 0; i < total_price.length; i++) {
   price_1 += parseInt(
-    total_price[i].price.replace("Rs.", "") * total_price[i].quantity_ordered
+    total_price[i].price.replace("Rs.","") * total_price[i].quantity_ordered
   );
 }
 
+
+
 const item_total = document.getElementById("amount");
 item_total.innerText = `Rs.${price_1}`;
+const item_total1 = price_1;
 const total_items = document.getElementById("total_items");
 total_items.innerText = `Rs.${price_1}`;
+
+
+function generateShortId() {
+  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  let shortId = '';
+  for (let i = 0; i < 10; i++) {
+    const randomIndex = Math.floor(Math.random() * characters.length);
+    shortId += characters.charAt(randomIndex);
+  }
+  return shortId;
+}
 
 const order = document.getElementById("btn_order");
 order.addEventListener("click", () => {
   // myfunction();
   //   let order = JSON.parse(localStorage.getItem('orders'))||[];
   //   let exist=order.length && JSON.parse(localStorage.getItem('orders')).some()
-
   let allow = " ";
   if ((allow = " ")) {
     const add_products_cart1 = JSON.parse(
@@ -767,7 +537,7 @@ order.addEventListener("click", () => {
       alert("no products");
       console.log(2);
     }
-    if (radio() == null) {
+    if (radio()== null) {
       alert("enter the mode of delivery");
     }
     //  if(){
@@ -787,11 +557,10 @@ order.addEventListener("click", () => {
           const mode_of_delivery = radio();
           console.log(mode_of_delivery);
           // const arr = JSON.parse(localStorage.getItem('add_products_cart'));
-
           const uuid = uuidv4();
-
           for (let i = 0; i < add_products_cart.length; i++) {
             add_products_cart[i].ordered_object_at_a_time = uuid;
+            add_products_cart[i].order_id_for_customer = generateShortId();
             localStorage.setItem(
               "add_products_cart",
               JSON.stringify(add_products_cart)
@@ -799,7 +568,7 @@ order.addEventListener("click", () => {
           }
           const array = add_products_cart.map((object) =>
             Object.assign(object, {
-              total_price: total_items.innertext,
+              total_price: item_total1,
               date: moment().format("YYYY-MM-DD"),
               order_id: uuidv4(),
               mode_of_delivery: radio(),
@@ -809,9 +578,10 @@ order.addEventListener("click", () => {
               before_30_minutes: moment()
                 .add({ minutes: 2 })
                 .format("YYYY-MM-DD hh:mm:ssA"),
+              
               // time_check :moment().format('YYYY-MM-DD  hh:mm:ssA').toString(),
               // before_30_minutes : moment().add({minutes:2}).format('YYYY-MM-DD hh:mm:ssA'),
-              delivery: "not delivered",
+              delivery: "not delivered"
             })
           );
           const user_id1 = JSON.parse(localStorage.getItem("unique_id"));
@@ -855,14 +625,16 @@ order.addEventListener("click", () => {
           const uuid = uuidv4();
           for (let i = 0; i < add_products_cart.length; i++) {
             add_products_cart[i].ordered_object_at_a_time = uuid;
+            add_products_cart[i].order_id_for_customer = generateShortId();
             localStorage.setItem(
               "add_products_cart",
               JSON.stringify(add_products_cart)
             );
           }
+
           const array = add_products_cart.map((object) =>
             Object.assign(object, {
-              total_price: total_items.innertext,
+              total_price: item_total1,
               date: moment().format("YYYY-MM-DD"),
               order_id: uuidv4(),
               mode_of_delivery: radio(),
@@ -871,7 +643,8 @@ order.addEventListener("click", () => {
               before_30_minutes: moment()
                 .add({ minutes: 2 })
                 .format("YYYY-MM-DD hh:mm:ssA"),
-              delivery: "not delivered",
+                
+              delivery: "not delivered"
             })
           );
           const user_id1 = JSON.parse(localStorage.getItem("unique_id"));
@@ -902,7 +675,6 @@ order.addEventListener("click", () => {
           //     object['dat']['delivery'] = 'Res',
           //     object['dat']['deliver'] = 'ser';
           //     });
-
           localStorage.setItem("orders", JSON.stringify(order));
           localStorage.setItem(
             "add_products_cart",
@@ -918,20 +690,4 @@ order.addEventListener("click", () => {
   }
 });
 
-// document.get
 
-// i_plus.addEventListener("click",()=>{
-//     a++;
-//     // console.log("a");
-//     num.innerText=a;
-// }
-// )
-// i_minus.addEventListener("click",()=>{
-//     a--;
-//     if (a<0){
-//         a=0;
-//     }
-//     // console.log("a");
-//     num.innerText=a;
-// }
-// )
