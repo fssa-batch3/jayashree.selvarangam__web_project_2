@@ -13,7 +13,15 @@
         <link rel="stylesheet" href="../../assets/css/profile.css">
         <link rel="stylesheet" href="../../assets/css/header.css">
         <link rel="stylesheet" href="../../assets/css/footer.css ">
-
+        <link href="https://fonts.googleapis.com/css2?family=Aclonica&family=Merienda:wght@300;400;500;600&family=Montserrat:wght@400;500&family=Poppins:ital,wght@0,100;0,300;0,400;1,100;1,200;1,300;1,400&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        <style>
+          * { font-family: 'Aclonica', sans-serif;
+font-family: 'Merienda', cursive;
+font-family: 'Montserrat', sans-serif;
+font-family: 'Poppins', sans-serif;
+font-family: 'Quicksand', sans-serif;
+        }
+        </style>
     </head>
     <body>
         <!-- header section starts  -->
@@ -42,16 +50,19 @@
                 <i class="fa-solid fa-circle-user"></i> Profile 
             </h1>
          
-            <form action="">
+            <form action="" name="add-pr">
                 <!-- <i class="fa-solid fa-trash" id="delete"></i> -->
                 <label>Name:</label>
-                <input type="text" id="user_name" class="box" readonly>
+                <input type="text" id="user_name"  pattern="[A-Za-z.]+"
+                title="Enter alphabet without space" class="box" readonly>
                 <label>Email_id:</label>
-                <input type="email" id="user_email" class="box" readonly>
+                <input type="email" id="user_email" class="box" disabled>
                 <label>Password:</label>
-                <input type="password" id="user_password"class="box" readonly>
+                <input type="password"   pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                title="Must contain at least one number, one uppercase, lowercase and one symbol, and at least 8 or more characters"
+                id="user_password"class="box" readonly>
                 <label>Mobile number:</label>
-                <input type="text" id="user_mobilenumber" class="box" readonly>
+                <input type="text" id="user_mobilenumber" class="box" disabled>
                 
                 <!-- <a href="../../pages/profile/profile_edit.html"><input type="submit" value="Edit" class="btn"></a>
                     <span class="save"> -->
@@ -66,33 +77,11 @@
                     <a href="../../index.html">
                         <button class="btn" type="button" id="logout">logout
                         </button></a> </span> 
-        
             </form>
         </section>
-
     </body>
-    <script src="./pages/order/header.js"></script>
-    <script>
-//   const name= localStorage.getItem("name");
-//   const email= localStorage.getItem("email");
-//   const password= localStorage.getItem("password");
-//   const number= localStorage.getItem("mobile_Number");
-//   console.log(name);
-//   console.log(email);
-//   console.log(password);
-//   console.log(number);
-
-//   // document.getElementById("name").value= name
-//   // document.getElementById("email").value= email
-//   // document.getElementById("password").value= password
-//   // document.getElementById("mobilenumber").value= number -->
-
-// let user_details = JSON.parse(window.localStorage.getItem("user_details"));
-
-//       document.getElementById("user_name").value = user_details[0]["user_name"];
-//       document.getElementById("user_email").value = user_details[0]["user_email"];
-//       document.getElementById("user_password").value = user_details[0]["user_password"];
-//       document.getElementById("user_mobilenumber").value = user_details[0]["user_mobile"];
+<script src="./pages/order/header.js"></script>
+<script>
 const user_data = JSON.parse(localStorage.getItem("user_data"));
 const unique1 = user_data.user_email;
 localStorage.setItem("unique_id", JSON.stringify(unique1));
@@ -109,6 +98,7 @@ document.getElementById("user_password").value = person_data.user_password;
 document.getElementById("user_mobilenumber").value = person_data.user_mobile;
 
 function update(e) {
+  e.preventDefault();
   const user_data = JSON.parse(localStorage.getItem("user_data"));
   console.log(user_data);
   const unique1 = user_data.user_email;
@@ -120,24 +110,59 @@ function update(e) {
   }
   person_data = user_list.find(findPlayer);
 
+  const up_nameInput = document.getElementById("user_name");
+  const up_passwordInput = document.getElementById("user_password");
+  
+  
+  const up_name = up_nameInput.value.trim();
+  const up_password = up_passwordInput.value.trim();
+
+  if(up_name==""){
+    alert('fill up name')
+  }
+  if(up_password == ""){
+    alert('fill up password')
+  }
+
   // getting the updated data from the input field
-  const up_name = document.getElementById("user_name").value;
-  const up_mobile = document.getElementById("user_mobilenumber").value;
-  const up_email = document.getElementById("user_email").value;
-  const up_password = document.getElementById("user_password").value;
+  // const up_name = document.getElementById("user_name").value;
+  // const up_password = document.getElementById("user_password").value;
+
+
+  
   // paste the updated data to the correct object
   person_data.user_name = up_name;
-  person_data.user_mobilenumber = up_mobile;
+  person_data.user_password = up_password;
   // again paste it to the
   localStorage.setItem("user_list", JSON.stringify(user_list));
   console.log(userData);
   location.reload();
 }
 
+
+function showError(input, errorMessage) {
+  // Set the input as invalid
+  input.setCustomValidity(errorMessage);
+
+  // Display the error message
+  const errorElement = document.createElement("div");
+  errorElement.className = "error-message";
+  errorElement.textContent = errorMessage;
+  input.parentNode.insertBefore(errorElement, input.nextSibling);
+
+  // Add a listener to remove the error message when the input is changed
+  input.addEventListener("input", function() {
+    input.setCustomValidity("");
+    errorElement.remove();
+  });
+}
+
+
+
 function edit(e) {
   window.location.href = "../../pages/profile/profile_edit.html";
 }
-
+// for delete feature
 // let del1 = document.getElementById('delete');
 // del1.addEventListener('click',function(){
 // let user_data = JSON.parse(localStorage.getItem('user_data'));
@@ -162,7 +187,6 @@ function edit(e) {
 // logOut(e);
 // // localStorage.
 // })
-
 //////////////////////////////////////////////////////
 // function del(e){
 //                 let unique1 = user_data["user_email"];
@@ -184,7 +208,7 @@ function edit(e) {
 // // localStorage.
 
 // }
-
+// it ends here.
 const edit1 = document.querySelector("#edit1");
 edit1.addEventListener("click", findReadonly);
 
@@ -195,9 +219,20 @@ save.addEventListener("click", findReadonly1);
 
 function findReadonly(e) {
   document.getElementById("user_name").removeAttribute("readonly");
-  document.getElementById("user_email").removeAttribute("readonly");
+  // document.getElementById("user_email").removeAttribute("readonly");
   document.getElementById("user_password").removeAttribute("readonly");
-  document.getElementById("user_mobilenumber").removeAttribute("readonly");
+  // document.getElementById("user_mobilenumber").removeAttribute("readonly");
+  
+  // document.getElementById("user_name").setAttribute("pattern", "^[a-zA-Z][a-zA-Z0-9-_\.]{1,15}$");
+  // // document.getElementById("user_email").setAttribute("pattern", "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$");
+  // document.getElementById("user_password").setAttribute("pattern","(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$")
+  // // document.getElementById("user_mobilenumber").setAttribute("pattern", "[0-9]{10}");
+
+  // document.getElementById("user_name").setAttribute("required", "true");
+  // // document.getElementById("user_email").setAttribute("required", "true");
+  // document.getElementById("user_password").setAttribute("required", "true");
+  // document.getElementById("user_mobilenumber").setAttribute("required", "true");
+
   document.querySelector("#save").removeAttribute("style", "display:flex");
   document.querySelector("#edit1").setAttribute("style", "display:none");
   const head = document.querySelector(".heading");
@@ -205,25 +240,27 @@ function findReadonly(e) {
 }
 
 function findReadonly1(e) {
+
+  if(document.getElementById("user_name").value.trim()==""||document.getElementById("user_password").value.trim()==""||(document.getElementById("user_password").value.trim()==""&&document.getElementById("user_name").value.trim())){
+
+
+    document.getElementById("user_name").setAttribute("style", "border:1px solid red;");
+    document.querySelector("#save").setAttribute("style", "display:inline-block");
+  }else{
   document.getElementById("user_name").setAttribute("readonly", "true");
-  document.getElementById("user_email").setAttribute("readonly", "true");
+  // document.getElementById("user_email").setAttribute("readonly", "true");
   document.getElementById("user_password").setAttribute("readonly", "true");
-  document.getElementById("user_mobilenumber").setAttribute("readonly", "true");
   document.querySelector("#save").setAttribute("style", "display:none");
-  document
-    .querySelector("#edit1")
-    .setAttribute("style", "display:inline-block");
+  document.querySelector("#edit1").setAttribute("style", "display:inline-block");
   const head = document.querySelector(".heading");
   head.innerHTML = "My Profile";
+  }
+  // document.getElementById("user_mobilenumber").setAttribute("readonly", "true");
+ 
   // location.reload();
 }
 
-//   let user_info = JSON.parse(window.localStorage.getItem("user_info"));
-//   console.log(user_info);
-//   document.getElementById("user_name").value = user_info[0]["user_name"];
-//   document.getElementById("user_email").value = user_info[0]["user_email"];
-//   document.getElementById("user_password").value = user_info[0]["user_password"];
-//   document.getElementById("user_mobilenumber").value = user_info[0]["user_mobile"];
+
 </script>
     <script src="../../pages/order/header.js"></script>
         

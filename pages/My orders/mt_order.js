@@ -71,21 +71,55 @@ const orders = groupedOrders.reduce((acc, curr) => {
 console.log(orders);
 localStorage.setItem("groupedOrders", JSON.stringify(orders));
 // console.log(order);
+
 for (i = 0; i < orders.length; i++) {
   const group = orders[i];
+  let value;
+  let cancel;
+  let order_id1;
+  let total_price;
 
-  //    let beverage_container_card1 = document.createElement("div");
-  //     beverage_container_card1.setAttribute("class", "beverage-container");
-  //     beverage_container_card1.innerText= orders[0][0]['ordered_object_at_a_time']
-  //    document.querySelector(".whole").append(beverage_container_card1);
+  let whole_package;
+  whole_package = document.createElement("div");
+  whole_package.setAttribute("class", "whole-package");
+  document.querySelector(".whole").append(whole_package);
+  
+  
+  total_price = document.createElement("div");
+  total_price.setAttribute("class", "total_price1");
+  whole_package.append(total_price);
 
-  //    let beverage_container_card1 = document.createElement("div");
-  //     beverage_container_card1.setAttribute("class", "beverage-container");
-  //     beverage_container_card1.innerText= orders[0][0]['ordered_object_at_a_time']
-  //    document.querySelector(".whole").append(beverage_container_card1);
+  let  total_price3 = document.createElement("div");
+  total_price3.setAttribute("class", "total_price2");
+  total_price3.innerText= 'Total-price:';
+  total_price.append(total_price3);
+
+  let total_price1 = document.createElement("div");
+   total_price1.setAttribute("class", "total_price3");
+   total_price1.innerText= orders[i][0]['total_price'];
+   total_price.append(total_price1);
+
+  order_id1 = document.createElement("div")
+  order_id1.setAttribute("class", "order_id1");
+  whole_package.append(order_id1);
+
+    let order_id3 =document.createElement("div");
+    order_id3.setAttribute("class", "order_id2");
+    order_id3.innerText= 'Order_id:';
+    order_id1.append(order_id3);
+
+    let order_id2 = document.createElement("div");
+    order_id2.setAttribute("class", "order_id3");
+    order_id2.innerText= orders[0][0]['order_id_for_customer']
+    order_id1.append(order_id2);
+    //  let beverage_container_card1 = document.createElement("div");
+    //   beverage_container_card1.setAttribute("class", "beverage-container");
+    //   beverage_container_card1.innerText= orders[i][0]['ordered_object_at_a_time']
+    //  document.querySelector(".whole").append(beverage_container_card1);
 
   for (let j = 0; j < group.length; j++) {
     const order = group[j];
+   
 
     your_cart_card = document.createElement("section");
     your_cart_card.setAttribute("class", "Yourcart");
@@ -110,7 +144,7 @@ for (i = 0; i < orders.length; i++) {
     beverage_container_card.append(beverage_image_card);
 
     image = document.createElement("img");
-    image.setAttribute("src", order.image.source);
+    image.setAttribute("src", order.image.src);
     beverage_image_card.append(image);
 
     beverage_content_card = document.createElement("div");
@@ -216,76 +250,44 @@ for (i = 0; i < orders.length; i++) {
     const delivery_card1 = document.createElement("div");
     delivery_card1.setAttribute("class", "delivery-status1");
     beverage_costdetail_card1.append(delivery_card1);
+
     if (order.delivery == "cancelled" || order.delivery == "delivered") {
-      const cancel = document.createElement("div");
-      cancel.setAttribute("class", "cancel");
-      delivery_card1.append(cancel);
+       value =  true
+      // const cancel = document.createElement("div");
+      // cancel.setAttribute("class", "cancel");
+      // delivery_card1.append(cancel);
 
-      const cancel_1 = document.createElement("button");
-      cancel_1.setAttribute("id", "cancel_1");
-      cancel_1.setAttribute("data-id", order.order_id);
-      cancel_1.setAttribute("style", "display:none");
-      cancel_1.innerText = "cancel";
-      cancel.append(cancel_1);
+      // const cancel_1 = document.createElement("button");
+      // cancel_1.setAttribute("id", "cancel_1");
+      // cancel_1.setAttribute("data-id", order.order_id);
+      // cancel_1.setAttribute("style", "display:none");
+      // cancel_1.innerText = "cancel";
+      // cancel.append(cancel_1);
     } else {
-      const cancel = document.createElement("div");
-      cancel.setAttribute("class", "cancel");
-      delivery_card1.append(cancel);
-
-      const cancel_1 = document.createElement("button");
-      cancel_1.setAttribute("id", "cancel_1");
-      cancel_1.setAttribute("data-id", order.order_id);
-      cancel_1.setAttribute("data-order_id", order.ordered_object_at_a_time);
-      cancel_1.innerText = "cancel";
-      cancel.append(cancel_1);
+      value = false
+      // const cancel = document.createElement("div");
+      // cancel.setAttribute("class", "cancel");
+      // delivery_card1.append(cancel);
+      // const cancel_1 = document.createElement("button");
+      // cancel_1.setAttribute("id", "cancel_1");
+      // cancel_1.setAttribute("data-id", order.order_id);
+      // cancel_1.setAttribute("data-order_id", order.ordered_object_at_a_time);
+      // cancel_1.innerText = "cancel";
+      // cancel.append(cancel_1);
     }
-
     const reorder = document.createElement("div");
     reorder.setAttribute("class", "reorder");
     delivery_card1.append(reorder);
-
     const reorder_1 = document.createElement("button");
     reorder_1.setAttribute("id", "reorder_1");
     reorder_1.setAttribute("data-cart_id", order.add_to_cart_id);
     reorder_1.innerText = "reorder";
     reorder.append(reorder_1);
 
-    // if(order[i]["delivery"] == "cancelled" || order[i]["delivery"] == "delivered") {
-    // remove=document.createElement("div");
-    // remove.setAttribute("class","remove_1");
-    // beverage_costdetail_card.append(remove);
+    
+  
 
-    // a1_card=document.createElement("a");
-    // a1_card.setAttribute("data-id",order[i]['order_id']);
-    // a1_card.setAttribute("class","remove");
-    // a1_card.setAttribute("style", "display:none")
-    // a1_card.setAttribute("href","");
-    // a1_card.innerText=" remove";
-
-    // remove.append(a1_card);
-    // }
-    // else{
-    // remove=document.createElement("div");
-    // remove.setAttribute("class","remove_1");
-    // beverage_costdetail_card.append(remove);
-    // a1_card=document.createElement("a");
-    // a1_card.setAttribute("data-id",order[i]['order_id']);
-    // a1_card.setAttribute("class","remove");
-    // a1_card.setAttribute("href","");
-    // a1_card.innerText=" remove";
-    // remove.append(a1_card);
-    // }
-    // re_order=document.createElement("div");
-    // re_order.setAttribute("class","reorder");
-    // beverage_costdetail_card.append(re_order);
-
-    // a2_card=document.createElement("a");
-    // a2_card.setAttribute("data-cart_id",order[i]['add_to_cart_id']);
-    // a2_card.setAttribute("class","re_order");
-    // a2_card.setAttribute("href","");
-    // a2_card.innerText=" reorder";
-
-    // re_order.append(a2_card);
+   
     document.querySelector(".whole").append(your_cart_card);
     if (j === orders[i].length - 1) {
       const new_card = document.createElement("div");
@@ -293,22 +295,33 @@ for (i = 0; i < orders.length; i++) {
       new_card.style.borderBottom = "1px  solid black";
       console.log(new_card);
       beverage_card.append(new_card);
+    }}
+
+  cancel = document.createElement("div");
+  cancel.setAttribute("class", "cancel");
+  whole_package.append(cancel);
+
+    
+    if(value===true){
+      const cancel_1 = document.createElement("a");
+      cancel_1.setAttribute("id", "cancel_1");
+      cancel_1.setAttribute("style", "display:none");
+      cancel_1.innerText = "cancel";
+      cancel.append(cancel_1);
+    }else{
+      const cancel_1 = document.createElement("a");
+      cancel_1.setAttribute("id", "cancel_1");
+      cancel_1.setAttribute("data-order_id", group[0].ordered_object_at_a_time);
+      cancel_1.innerText = "cancel";
+      cancel.append(cancel_1);
     }
-  }
-  // let beverage_container_card2 = document.createElement("div");
-  // beverage_container_card2.setAttribute("class", "beverage-container");
-  // beverage_container_card2.innerText= orders[0][0]['ordered_object_at_a_time']
-  // document.querySelector(".whole").append(beverage_container_card2);
 }
 
 const removeOrder = document.querySelectorAll("#cancel_1");
 removeOrder.forEach((remove_id) => {
   remove_id.addEventListener("click", function () {
     const cartId = this.dataset.order_id;
-    // console.log('cartId');
-    // let cart_ids = JSON.parse(localStorage.getItem("crud"));
     const product_order = JSON.parse(localStorage.getItem("orders"));
-
     const remove_food = product_order.filter(
       (type) => type.ordered_object_at_a_time === cartId
     );
@@ -316,9 +329,6 @@ removeOrder.forEach((remove_id) => {
     remove_food.forEach((object) => {
       object.delivery = "cancelled";
     });
-    // product_order.push(remove_food);
-    // let indexOfItem = product_order.indexOf(remove_food);
-    // product_order.splice(indexOfItem, 1);
     localStorage.setItem("orders", JSON.stringify(product_order));
     location.reload();
   });
@@ -345,6 +355,7 @@ re_order1.forEach((add_products) => {
         delivery_address,
         time_check,
         before_30_minutes,
+        order_id_for_customer,
         ordered_object_at_a_time,
         ...rest
       }) => rest

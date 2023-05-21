@@ -13,7 +13,15 @@
         <link rel="stylesheet" href="../../assets/css/profile.css">
         <link rel="stylesheet" href="../../assets/css/header.css">
         <link rel="stylesheet" href="../../assets/css/footer.css ">
-
+        <link href="https://fonts.googleapis.com/css2?family=Aclonica&family=Merienda:wght@300;400;500;600&family=Montserrat:wght@400;500&family=Poppins:ital,wght@0,100;0,300;0,400;1,100;1,200;1,300;1,400&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        <style>
+          * { font-family: 'Aclonica', sans-serif;
+              font-family: 'Merienda', cursive;
+              font-family: 'Montserrat', sans-serif;
+              font-family: 'Poppins', sans-serif;
+              font-family: 'Quicksand', sans-serif;
+        }
+        </style>
     </head>
     <body>
     
@@ -23,35 +31,36 @@
               edit  address 
             </h1>
          
-            <form action="" >
+            <form action="" name="add-product-form" >
                 <!-- <i class="fa-solid fa-trash" id="delete"></i> -->
                 <label>Address type:</label>
-                <input type="text" id="address-type" class="box" required>
+                <input type="text" id="address-type" class="box" >
                 <label>House no:</label>
-                <input type="number" id="house-no" class="box" required>
+                <input type="number" id="house-no" class="box" >
                 <label>Area:</label>
-                <input type="text" id="area"class="box" required>
+                <input type="text" id="area"class="box" >
                 <label> pincode:</label>
-                <input type="number" id="pincode" class="box" required>
-                <label for="default-address">default address</label>
-                <input type="checkbox" id="default-address">
+                <input type="number" id="pincode"  maxlength="5" pattern="\d{5}" title="must have 6 digits" class="box" >
+                <!-- <label for="default-address">default address</label>
+                <input type="checkbox" id="default-address"> -->
                 <!-- <a href="../../pages/profile/profile_edit.html"><input type="submit" value="Edit" class="btn"></a>
                     <span class="save"> -->
                 
-                <!-- <button  class="btn" id="delete" >delete profile
-                    </button>  -->
-               
-
-
-        
+                <!--<button  class="btn" id="delete" >delete profile
+                    </button>-->
+                    <button type="submit" class="btn" id="save">Save
+                    </button>
             </form>
-            <button type="button" class="btn" id="save">Save
-            </button>
+         
         </section>
 
     </body>
     <script>
-const stored_address = JSON.parse(localStorage.getItem("address"));
+
+
+
+
+let stored_address = JSON.parse(localStorage.getItem('address'));
 
 const queryString = window.location.search;
 // console.log(queryString);
@@ -65,52 +74,18 @@ function findAddress(e) {
 }
 
 let addressData = stored_address.find(findAddress);
-console.log()
+console.log(addressData)
 
 document.getElementById("address-type").value = addressData.address_type;
 document.getElementById("house-no").value = addressData.house_no;
 document.getElementById("area").value = addressData.area;
 document.getElementById("pincode").value = addressData.pincode;
 
-// const checkbox = document.getElementById("default-address");
-//             const isChecked = checkbox.checked;
-//             console.log(isChecked)
-//             let value;
-//             if(isChecked===true){
-//                 value=true
-//                 console.log(1)
-//                 let stored_address = JSON.parse(localStorage.getItem('address'));
-//              for(let i=0;i<stored_address.length;i++){
-//                 stored_address.value=false
-//                 localStorage.setItem('address',JSON.stringify(stored_address))
-//              }
-//             }else{
-//                 value=false
-//             }
+const addProductForm = document.forms["add-product-form"];
+// Add an event listener to the form submit event
+addProductForm.addEventListener("submit", function(event) {
 
-
-
-
-let save = document.getElementById('save')
-save.addEventListener('click',function update(e) {
-
-
-  const checkbox = document.getElementById("default-address");
-            const isChecked = checkbox.checked;
-            let value1;
-            if(isChecked===true){
-                value1=true
-                let stored_address = JSON.parse(localStorage.getItem('address'));
-             for(let i=0;i<stored_address.length;i++){
-                if(stored_address[i]['value']===true){
-                    stored_address[i]['value'] = false;
-                }
-                localStorage.setItem('address',JSON.stringify(stored_address))
-                console.log(stored_address)
-             } 
-            }else{
-                value1=false
-            }
+event.preventDefault();
 
 const stored_address = JSON.parse(localStorage.getItem("address"));
 const queryString = window.location.search;
@@ -124,24 +99,74 @@ function findAddress(e) {
 }
 let addressData = stored_address.find(findAddress);   
 // getting the updated data from the input field
-const up_address_type = document.getElementById("address-type").value;
-const up_house_no = document.getElementById("house-no").value;
-const up_area = document.getElementById("area").value;
-const up_pincode = document.getElementById("pincode").value;
-const up_checkbox = checkbox.checked;
+
+
+const up_address_typeInput = addProductForm["address-type"];
+  const up_house_noInput = addProductForm["house-no"];
+  const up_areaInput = addProductForm["area"];
+  const up_pincodeInput = addProductForm["pincode"];
+
+  const up_address_type = up_address_typeInput.value.trim();
+  const up_house_no = up_house_noInput.value.trim();
+  const up_area = up_areaInput.value.trim();
+  const up_pincode = up_pincodeInput.value.trim();
+
+  if (up_address_type === "") {
+  showError(up_address_typeInput, "Address is required");
+  return;
+  }
+
+  if (up_house_no === "") {
+  showError(up_house_noInput, "House no is required");
+  return;
+}
+
+  if (up_area === "") {
+  showError(up_areaInput, "Area is required");
+  return;
+  }
+  
+  if ( up_pincode=== "") {
+  showError(up_pincodeInput, "pincode is required");
+  return;
+  }
+ 
+// // const up_checkbox = checkbox.checked;
   // paste the updated data to the correct object
   addressData.address_type = up_address_type;
   addressData.house_no =up_house_no ;
   addressData.area = up_area;
   addressData.pincode =up_pincode ;
-  addressData.value=value1;
+//   addressData.value=value1;
 
   // again paste it to the
   localStorage.setItem("address", JSON.stringify(stored_address));
   console.log(addressData,stored_address)
   
-  
-})
+  addProductForm.submit();
+  location.href="../../address/address.html";
+
+});
+
+// Helper function to show an error message for a form input
+function showError(input, errorMessage) {
+  // Set the input as invalid
+  input.setCustomValidity(errorMessage);
+
+  // Display the error message
+  const errorElement = document.createElement("div");
+  errorElement.className = "error-message";
+  errorElement.textContent = errorMessage;
+  input.parentNode.insertBefore(errorElement, input.nextSibling);
+
+  // Add a listener to remove the error message when the input is changed
+  input.addEventListener("input", function() {
+    input.setCustomValidity("");
+    errorElement.remove();
+  });
+}
+
+
     </script>
     <script src="../../pages/order/header.js"></script>
     </html>
