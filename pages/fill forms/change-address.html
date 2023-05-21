@@ -11,6 +11,15 @@
         <!-- <link rel="stylesheet" href="../../assets/css/addtocart.css"> -->
         <link rel="stylesheet" href="../../assets/css/header.css">
         <link rel="stylesheet" href="../../assets/css/footer.css ">
+        <link href="https://fonts.googleapis.com/css2?family=Aclonica&family=Merienda:wght@300;400;500;600&family=Montserrat:wght@400;500&family=Poppins:ital,wght@0,100;0,300;0,400;1,100;1,200;1,300;1,400&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        <style>
+          * { font-family: 'Aclonica', sans-serif;
+font-family: 'Merienda', cursive;
+font-family: 'Montserrat', sans-serif;
+font-family: 'Poppins', sans-serif;
+font-family: 'Quicksand', sans-serif;
+        }
+        </style>
         <style>
             .choices{
     display:flex;
@@ -117,7 +126,7 @@ input[type=radio]{
                
             </form>
 
-            <button class="btn" id="sub">Submit</button>  
+            <button class="btn" type="button" id="sub">Submit</button>
            
         </section>
 
@@ -144,19 +153,18 @@ input[type=radio]{
 //     });
 
 
-let address_array = JSON.parse(localStorage.getItem('address'));
+let address_array= JSON.parse(localStorage.getItem('address'));
+
+
 
 for(let i=0;i<address_array.length;i++){
-    if(address_array[i].value === true){
-        let x = document.getElementsByClassName('.radio');
-        x.setAttribute('checked','checked')
-    }
+  
     let new_address = ` <div class="choices">
                         <div class="radio"> 
-                        <input type="radio" id=${i+1} data-id=${address_array[i]['id']} name="address_type" value='${address_array[i]['address_type']+address_array[i]['house_no']+address_array[i]['area']+address_array[i]['pincode']}''>
+                        <input type="radio" id="${i+1}" data-id=${address_array[i]['id']} name="address_type" value='${address_array[i]['address_type']+address_array[i]['house_no']+address_array[i]['area']+address_array[i]['pincode']}''>
                         </div>
                         <div class="name">
-                        <label for=${i+1} >${address_array[i]['address_type']+address_array[i]['house_no']+address_array[i]['area']+address_array[i]['pincode']}</label>
+                        <label for="${i+1}" >${address_array[i]['address_type']+",  no "+address_array[i]['house_no']+", "+address_array[i]['area']+", "+address_array[i]['pincode']}</label>
                         </div>
                         </div>`
         document.querySelector('.pickup-choices').insertAdjacentHTML('beforeend',new_address)
@@ -178,6 +186,7 @@ for (let i = 0; i < delivery.length; i++) {
   }
 console.log(selectedValue);
 }
+
 let address = JSON.parse(localStorage.getItem('address'))
 for( i=0;i<address.length;i++){
 if(address[i].value===true){
@@ -191,6 +200,7 @@ console.log(address)
 
 return selectedValue;
 
+
 }
 
 
@@ -200,6 +210,8 @@ return selectedValue;
 
 let selectedValue = radio();
 console.log(selectedValue);
+
+window.location.href="../../pages/add to cart/addtocart.html"
  })
 
 //  const delivery1 = document.querySelectorAll('input[name="address_type"]');

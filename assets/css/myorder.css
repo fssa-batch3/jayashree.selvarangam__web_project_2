@@ -30,6 +30,7 @@
     color: var(--bs-orange);
     font-size: 1.1rem;
    }
+
 .Yourcart{
     padding: 1rem 4%;
     margin-bottom: 2rem;
@@ -104,7 +105,15 @@
 }
 .total_price2, .order_id2{
     margin-right: 10px;
+    color: var(--bs-orange);
+    font-weight: 700;
 }
+.total_price3, .order_id3{
+    margin-right: 10px;
+    color: var(--bs-gray-600);
+    font-weight: 700;
+}
+
 
 .order_id123{
     width:200px
@@ -136,9 +145,11 @@
 .beverage-costdetail,.beverage-costdetail1{
     margin-top:5px;
 }
-.delivery-status,.delivery-status1{
-    color:var(--bs-gray-800);
-    font-size:1.1rem;
+.delivery-status, .delivery-status1 {
+    /* color: var(--bs-gray-800); */
+    font-size: 1rem;
+    margin-top: 12px;
+    color: var(--bs-gray-600);
 }
 .beverage-costdetail a{
     color:var(--bs-teal);
@@ -156,13 +167,15 @@
     padding-top: 7px;
     
 }
-#cancel_1,#reorder_1{
-    padding:10px 8px 10px 8px;
+#cancel_1,#reorder_1 {
+    padding: 10px 8px 10px 8px;
     font-size: 15px;
-    color:teal;
-    border:1px solid var(--bs-orange)
+    color: teal;
+    border: 1px solid var(--bs-orange);
+    position: relative;
+    bottom: 15px;
+    font-weight: 600;
 }
-
 .quantity{
     position: relative;
     top:20px;

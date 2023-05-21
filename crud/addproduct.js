@@ -30,7 +30,7 @@
 //     events_td.append(edit_button);
 
 //     let delete_button = document.createElement("button");
-//     delete_button.setAttribute("class", "del_button");
+//     delete_button.setAttribute("class", "del_button"); 
 //     delete_button.innerText = "delete";
 //     events_td.append(delete_button);
 

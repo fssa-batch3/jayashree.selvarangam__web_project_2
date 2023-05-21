@@ -12,7 +12,15 @@
         <link rel="stylesheet" href="../../assets/css/login.css">
         <link rel="stylesheet" href="../../assets/css/header.css">
         <link rel="stylesheet" href="../../assets/css/footer.css ">
-
+        <link href="https://fonts.googleapis.com/css2?family=Aclonica&family=Merienda:wght@300;400;500;600&family=Montserrat:wght@400;500&family=Poppins:ital,wght@0,100;0,300;0,400;1,100;1,200;1,300;1,400&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        <style>
+          * { font-family: 'Aclonica', sans-serif;
+font-family: 'Merienda', cursive;
+font-family: 'Montserrat', sans-serif;
+font-family: 'Poppins', sans-serif;
+font-family: 'Quicksand', sans-serif;
+        }
+        </style>
     </head>
     <body>
         <!-- header section starts  -->
@@ -41,10 +49,14 @@
             <h1 class="heading">Login</h1>
             <form action="" role="form" onsubmit="sign(event)">
                 <label>Email-id:</label>
-                <input type="email" id="user_email" pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"placeholder="" class="box" required="true">
+                <input type="email" value="riya678@gmail.com" id="user_email" pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"placeholder="" class="box" required="true">
                 <label>Password:</label>
-                <input type="password" id="user_password" placeholder="" class="box" required="true">
-                <button class="btn" type="submit"> Login</button>
+                <input type="password" id="user_password" value="asdA123!" placeholder="" class="box" required="true">
+                <div>
+                    <input type="checkbox" id="show-password" class="btn">
+                    <label for="show-password">show-password</label>
+                    </div>
+                <button class="btn" type="submit">Login</button>
                
                 <div>
                     <p class="sign">
@@ -56,47 +68,7 @@
         </section>
 
     </body>
-    <script>//     function submit(){
-        //    const username= document.getElementById("username").value;
-        //    const password= document.getElementById("password").value;
-
-        //    console.log(username)
-        //    console.log(password)
-
-        //    window.location.href="../../index.html";
-        //     }
-
-//         let logIn=document.getElementById("form");
-
-//         logIn.addEventListener("submit", function (event){
-
-//   let log=[];
-
-//   let User_data=JSON.parse(window.localStorage.getItem("user"));
-//   let user_email = document.getElementById('user_email').value;
-//   let user_password = document.getElementById('user_password').value;
-//   let verify=false;
-
-//   for(i=0;i<User_data.length;i++){
-//     if((user_email==User_data[i].user_email)&&(user_password==User_data[i].user_password)){
-//       verify=true;
-//       log.push(User_data[i]);
-//       console.log(log);
-//     window.localStorage.setItem("user_info",JSON.stringify(log));
-//       break;
-        
-//   }else{
-//     verify=false
-//   }
-
-//   }
-//   if (verify === true) {
-//     alert("you are logged in");
-// } else {
-//     alert("login failed");
-
-//   }
-// });
+    <script>
 
 const sign = (e) => {
   const user_email = document.getElementById("user_email").value;
@@ -121,25 +93,20 @@ const sign = (e) => {
   }
   e.preventDefault();
 };
+// Get references to the checkbox and password input field
+const checkbox = document.getElementById('show-password');
+const passwordField = document.getElementById('user_password');
 
-// function signIn(e){
-//     let phonenumber = document.getElementById('phonenumber').value,
-//         password = document.getElementById('password').value;
-//     let user_detail = JSON.parse(localStorage.getItem('user_detail')) || [];
-//     let exist = user_detail.some(data =>
-//         data.phoneNumber == phonenumber
-//      && data.password == password);
-//     if(!exist){
-//         alert("Incorrect login credentials");
-//     }
-//     else{
-//         user_detail_single = { "phoneNumber": phonenumber}
-//         localStorage.setItem('user_data', JSON.stringify(user_detail))
-//         alert("Your login in successful");
-//         window.location.href = "./pages/homepage/hpexist.html";
-//     }
-//     e.preventDefault();
-// }
+// Add event listener to the checkbox
+checkbox.addEventListener('change', function () {
+  // Toggle the password visibility based on the checkbox state
+  if (checkbox.checked) {
+    passwordField.setAttribute('type', 'text');
+  } else {
+    passwordField.setAttribute('type', 'password');
+  }
+});
+
         </script>
     <script src="../../pages/order/header.js"></script>
 </html>

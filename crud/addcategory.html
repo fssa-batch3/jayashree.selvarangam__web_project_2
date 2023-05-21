@@ -3,6 +3,19 @@
 <head>
   <title>Search Example</title>
   <link rel="stylesheet" href="./search.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+  integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+  crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="../../assets/css/header.css">
+  <link href="https://fonts.googleapis.com/css2?family=Aclonica&family=Merienda:wght@300;400;500;600&family=Montserrat:wght@400;500&family=Poppins:ital,wght@0,100;0,300;0,400;1,100;1,200;1,300;1,400&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { font-family:  'Aclonica', sans-serif;
+font-family: 'Merienda', cursive;
+font-family: 'Montserrat', sans-serif;
+font-family: 'Poppins', sans-serif;
+font-family: 'Quicksand', sans-serif;
+  }
+  </style>
 </head>
 <style>
      form {
@@ -10,16 +23,24 @@
     align-items: center;
     justify-content: center;
   }
+  .full_div {
+    padding: 2rem 9%;
+}
+td button:hover {
+    background-color: #FAFFFD;
+    color: teal;
+}
   
   input[type="text"] {
     padding: 10px;
     border: 2px solid #ccc;
     border-radius: 4px;
     margin-right: 5px;
+    width: 200px;
   }
   
   button[type="submit"] {
-    background-color: #4CAF50;
+    background-color: #008080;;
     color: white;
     padding: 10px 20px;
     border: none;
@@ -57,7 +78,8 @@
     text-align: center;
   }
   th {
-    background-color: #2874F0;
+   
+    background-color: teal;
     color:white
   }
   tr{
@@ -72,53 +94,57 @@
   td button{
       cursor: pointer;
       padding: 5px 18px ;
-      background-color: #176047;
-      border: 1.5px solid #176047;
+      background-color:teal;
+      border: 1.5px solid white;
       color: white;
       border-radius: 3px;
   }
-  td button:hover{
-      background-color: #FAFFFD;
-      color: #176047;
+  .catego{
+    color:teal;
   }
   
+   
 </style>
+
 <body>
-  <h1>add category</h1>
-  <form name="add-category-form">
-    <input type="text" id="add_category" placeholder="add category">
-    <button type="submit">add category</button>
-    <!-- <button type="submit">cancel</button>  -->
-  </form>
-
-
-    
-      <table>
-          <thead>
-            <tr>
-              <th>Category ID</th>
-              <th>Category Name</th>
-             
-              <th >Status</th>
-              <th >Status Change</th>
-            </tr>
-          </thead>
-          <tbody>
-            <!-- <tr>
-              <td>2</td>
-              <td>Category B</td>
-              <td>Type 2</td>
-              <td><button>Remove</button></td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>Category C</td>
-              <td>Type 1</td>
-              <td><button>Remove</button></td>
-            </tr> -->
-            <!-- Add more rows as needed -->
-          </tbody>
-        </table>
+  <div class="full_div">
+    <h1 class="catego">ADD CATEGORY</h1>
+    <form name="add-category-form">
+      <input type="text" value="MILKSHAKES"id="add_category" placeholder="add category">
+      <button type="submit">Add category</button>
+      <!-- <button type="submit">cancel</button>  -->
+    </form>
+  
+  
+      
+        <table>
+            <thead>
+              <tr>
+                <th>Category ID</th>
+                <th>Category Name</th>
+               
+                <th >Status</th>
+                <th >Status Change</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- <tr>
+                <td>2</td>
+                <td>Category B</td>
+                <td>Type 2</td>
+                <td><button>Remove</button></td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>Category C</td>
+                <td>Type 1</td>
+                <td><button>Remove</button></td>
+              </tr> -->
+              <!-- Add more rows as needed -->
+            </tbody>
+          </table>
+  </div>
+  
 
         <script>
           function generateShortId() {
@@ -241,7 +267,7 @@
         
         </script>
 </body>
-
+<script src="../../pages/order/header.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/uuid@8.3.2/dist/umd/uuidv4.min.js"></script>
 </html>
 

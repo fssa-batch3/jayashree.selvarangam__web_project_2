@@ -1,11 +1,4 @@
-// //  <div class="inc-dec-button">
-// // <button class="inc-dec" >
-// //     <span class="minus"> <i class="fa-solid fa-minus"></i></span><span>0</span><span class="plus"><i class="fa-solid fa-plus"></i></span>
-// //     </button>
-// // </div>
-// // <div class="add-item-cart">
-// // <a href="../../pages/add to cart/addtocart.html"><button class="btn-button" id="btn-4">Add to the cart</button></a>
-// </div>
+
 let row_card;
 let image_card;
 let image_main_card;
@@ -32,16 +25,23 @@ const product = urlParams.get("product_id");
 
 const master_list = JSON.parse(localStorage.getItem("product_detail_list"));
 const reviews = JSON.parse(localStorage.getItem("stars"));
-let review_array = reviews.filter((e)=>e.product_id===product);
-console.log(review_array);
+let avg_int;
+let avg;
+
+if(reviews!==null){
+let review_array = reviews.filter((e)=>e.product_id === product);
+
 let sum =0;
  for(let i=0;i<review_array.length;i++){
    sum+=review_array[i].no_of_stars;
  };
- let avg = sum/review_array.length;
- let avg_int =parseFloat(avg.toFixed(1));
+ avg = sum/review_array.length;
+ avg_int =parseFloat(avg.toFixed(1));
 console.log(avg)
-
+}
+else{
+  avg_int = 0;
+}
 
 function findProduct(e) {
   return e.product_id === product;
@@ -51,7 +51,7 @@ let productData = master_list.find(findProduct);
 
 
 
-
+ 
 
 const add_to_cart = JSON.parse(localStorage.getItem("add_products_cart"));
 //(add_to_cart);
@@ -65,7 +65,7 @@ image_card.setAttribute("class", "image");
 row_card.append(image_card);
 
 image_main_card = document.createElement("img");
-image_main_card.setAttribute("src", productData.image.source);
+image_main_card.setAttribute("src", productData.image.src);
 image_card.append(image_main_card);
 
 content_card = document.createElement("div");
@@ -87,14 +87,19 @@ p_card.innerText =
   ` ${productData.quantities.medium.calories_unit}`;
 
 content_card.append(p_card);
-if(!isNaN(avg)){
+if(isNaN(avg_int)){
+  p3_card = document.createElement("p");
+  p3_card.setAttribute("class", "calorie");
+  p3_card.setAttribute("style", "display:none");
+  content_card.append(p3_card);
+  }else{
 p3_card = document.createElement("p");
 p3_card.setAttribute("class", "calorie");
 p3_card.setAttribute("style", "color:brown");
 p3_card.innerText =`${avg_int} ratings`;
 
 content_card.append(p3_card);
-}
+  }
 
 p1_card = document.createElement("p");
 p1_card.setAttribute("class", "detail");
@@ -341,7 +346,7 @@ add_item.addEventListener("click", function (e) {
           quantities: quantity_calories,
           user_id,
           image: {
-            source: productData.image.source,
+            src: productData.image.src,
             alt: "",
           },
 
@@ -376,7 +381,7 @@ for (i = 0; i < object1.length; i++) {
     coffee_description_card.append(coffee_image_card);
 
     image = document.createElement("img");
-    image.setAttribute("src", object1[i].image.source);
+    image.setAttribute("src", object1[i].image.src);
     image.setAttribute("width", "80px");
     image.setAttribute("height", "80px");
     coffee_image_card.append(image);

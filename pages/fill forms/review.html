@@ -18,6 +18,15 @@
     <link rel="stylesheet" href="../../assets/css/review.css " />
     <link rel="stylesheet" href="../../assets/css/header.css" />
     <link rel="stylesheet" href="../../assets/css/footer.css " />
+    <link href="https://fonts.googleapis.com/css2?family=Aclonica&family=Merienda:wght@300;400;500;600&family=Montserrat:wght@400;500&family=Poppins:ital,wght@0,100;0,300;0,400;1,100;1,200;1,300;1,400&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        <style>
+          * { font-family: 'Aclonica', sans-serif;
+font-family: 'Merienda', cursive;
+font-family: 'Montserrat', sans-serif;
+font-family: 'Poppins', sans-serif;
+font-family: 'Quicksand', sans-serif;
+        }
+        </style>
     <style>
       * {
         margin: 0;
@@ -103,6 +112,7 @@
 
     ]<section class="profile" id="profile">
       <section class="form">
+        <form>
         <h1 class="rating_heading">5 Star Rating</h1>
 
         <div class="star_rating">
@@ -120,12 +130,15 @@
           pattern="[a-z]{3,}"
           class="box"
           id="review"
+         
           required="true"
         ></textarea>
         <!-- <button class="btn"><a href="../../index.html">Submit</a> </button>  -->
-        <button type="submit" class="btn" id="submit">submit</button>
+        <button type="button" class="btn" id="submit">submit</button>
+      </form>
       </section>
     </section>
+  
   </body>
   <script src="../../pages/order/header.js"></script>
   <script>
@@ -207,7 +220,8 @@
               review: review_value,
               user_name: user_id.user_name,
               order_id: product,
-              product_id: product1
+              product_id: product1,
+              user_id:user_id_array
             }
           ];
           localStorage.setItem("stars", JSON.stringify(store_review));
@@ -238,8 +252,9 @@
         myOrderObject.review = true;
       }
       localStorage.setItem("orders", JSON.stringify(myOrder));
+      
       window.location.href = `../../pages/My orders/myorders.html`;
-      window.location.reload();
     });
+  
   </script>
 </html>

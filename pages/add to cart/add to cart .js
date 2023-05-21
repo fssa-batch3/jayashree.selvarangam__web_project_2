@@ -14,7 +14,7 @@ for (let i = 0; i < object.length; i++) {
   coffee_description_card.append(coffee_image_card);
 
   image = document.createElement("img");
-  image.setAttribute("src", object[i].image.source);
+  image.setAttribute("src", object[i].image.src);
   image.setAttribute("width", "80px");
   image.setAttribute("height", "80px");
   coffee_image_card.append(image);
@@ -74,31 +74,7 @@ btn_add_item.forEach((findId) => {
   });
 });
 
-//     <!-- <div class="beverage">
-//     <div class="beverage-container">
-//     <div class="beverage-image">
-//         <img src="../../assets/image/redhatmocha.jpg" alt="">
-//     </div>
-//     <div class="beverage-content">
-//         <div class="beverage-vegimg">
-//             <img src="../../assets/image/veg.svg" alt="">
-//         </div>
-//             <div class="beverage-title"> Crunchy Red Hat Mocha</div>
-//             <div class=" beverage-message">SHORT(237 ML) .412 Kcal</div>
 
-//     </div>
-//     <div class="inc-dec-button">
-//         <button>
-//         <span class="minus"> <i class="fa-solid fa-minus"></span></i><span class="num">1</span><span class="plus"><i class="fa-solid fa-plus"></i></span>
-//         </button>
-
-//     </div>
-//     <div class="beverage-costdetail">
-//         <div class="cost">Rs.404</div>
-//         <div class="Goback"><a href="../../pages/productdetail/productdetail1.html">Go back</a></div>
-//     </div>
-// </div>
-// </div> -->
 let your_cart_card;
 let beverage_card;
 let beverage_container_card;
@@ -162,7 +138,7 @@ for (i = 0; i < productData.length; i++) {
   beverage_container_card.append(beverage_image_card);
 
   image_1 = document.createElement("img");
-  image_1.setAttribute("src", productData[i].image.source);
+  image_1.setAttribute("src", productData[i].image.src);
   beverage_image_card.append(image_1);
 
   beverage_content_card = document.createElement("div");
@@ -370,101 +346,31 @@ function radio() {
 
 
 let address = JSON.parse(localStorage.getItem('address'));
+if(address!==null){
 let boolean;
 for(let i=0;i<address.length;i++){
- 
   if(address[i].value === false){
     boolean = false
   }else{
     boolean=true;
     break;
-  }
-}
+  }}
 if(boolean===false){
   address[0]['value']=true;
-  localStorage.setItem('address',JSON.stringify(address1));
-}
-
+  localStorage.setItem('address',JSON.stringify(address));
+}}
 let address_Input;
 let address_array = JSON.parse(localStorage.getItem('address'));
+if(address_array!==null){
  for(let i=0;i<address.length;i++){
   if(address[i].value===true){
-    address_Input = address_array[i]['address_type']+address_array[i]['house_no']+address_array[i]['area']+address_array[i]['pincode']
+    address_Input = address_array[i]['address_type']+",  "+"no "+address_array[i]['house_no']+", "+address_array[i]['area']+", "+address_array[i]['pincode']+"."
   }console.log(address_Input)
 }
-// const selectedRadioButton = document.querySelector("input[type=radio]:checked") && document.querySelector("input[type=radio]:checked").checked == false;
-
-//////// code for takeaway , dine_in , delivery address is not shown 
-// let deliveryType1 = '';
-// let radioBtnValue ='';
-// const deliveryType = document.querySelectorAll('input[type="radio"]:not(:checked)')
-// if(deliveryType){
-//   document.querySelector('.address').setAttribute('style','display:none')
-// }
-// deliveryType.forEach(function (radioButton){
-// radioButton.addEventListener("click", () =>{
-
-//   deliveryType1 = document.querySelector("input[type=radio]:checked").value;
-// console.log(deliveryType1)
-// if(deliveryType.checked===false){
-//   document.querySelector('.address').setAttribute('style','display:none')
-// }
-
-
-// if(deliveryType1 !== 'delivery' ){
-// //   let address1 = `<div class="address">
-// //   <div class="delivery-details">
-// //       <div class="delivery-name">
-// //         Delivery to <span class="name" id="del-name">Scarlet</span>
-// //       </div>
-// //       <div class="delivery-address" id="del-address">${address_Input}</div>
-// //   </div>
-// //   <div class="change-address">
-// //       <a href="../../pages/fill forms/change-address.html">
-// //           <button>Select address</button>
-// //       </a> 
-// //   </div>
-// // </div>
-// // </section>`
-
-// document.querySelector('.address').setAttribute('style','display:none')
-// // console.log(address1)
-// }
-// else{
-//   document.querySelector('.address').removeAttribute('style')  
-// }
-
-//   });
-// });
-////////// it ends here
-
-// console.log(radioBtnValue)
-// deliveryType.forEach(radioButton => {
-//   if (radioButton.checked) {
-//     deliveryType1 = radioButton.value;
-//   }
-// });
-// console.log(deliveryType1)
-
-
-// console.log(type_of_address)
-// if(radio() =='delivery'){
-//   let address = `<div class="address">
-//   <div class="delivery-details">
-//       <div class="delivery-name">
-//         Delivery to <span class="name" id="del-name">Scarlet</span>
-//       </div>
-//       <div class="delivery-address" id="del-address">${address_Input}</div>
-//   </div>
-//   <div class="change-address">
-//       <a href="../../pages/fill forms/change-address.html">
-//           <button>Select address</button>
-//       </a> 
-//   </div>
-// </div>
-// </section>`
-// document.querySelector('.delivery').insertAdjacentHTML('beforeend',address)
-// }
+}
+else{
+  address_Input = ' ';
+}
 
 // important should look after it//
 // // adding the address in the cart page
@@ -478,7 +384,7 @@ person_data = user_list.find(findPlayer);
 
 const delivery_name = document.getElementById("del-name");
 const delivery_address = document.getElementById("del-address");
-// delivery_name.innerText = person_data.user_name;
+delivery_name.innerText = person_data.user_name;
 delivery_address.innerText =address_Input;
 
 const change_address = document.querySelector(".change-address");
@@ -501,14 +407,11 @@ for (let i = 0; i < total_price.length; i++) {
   );
 }
 
-
-
 const item_total = document.getElementById("amount");
 item_total.innerText = `Rs.${price_1}`;
 const item_total1 = price_1;
 const total_items = document.getElementById("total_items");
 total_items.innerText = `Rs.${price_1}`;
-
 
 function generateShortId() {
   const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -537,8 +440,11 @@ order.addEventListener("click", () => {
       alert("no products");
       console.log(2);
     }
-    if (radio()== null) {
+     else if (radio()== null) {
       alert("enter the mode of delivery");
+    }
+     else if(delivery_address.innerText===null||delivery_address.innerText===""){
+      alert("add the delivery address");
     }
     //  if(){
     //   alert('choose a address')

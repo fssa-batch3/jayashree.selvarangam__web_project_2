@@ -3,14 +3,18 @@ const root = window.location.origin;
 const header_before_login = `<header class="header">
 <input type="checkbox" name="" id="toggler">
 <label for="toggler" class="fas fa-bars"></label>
-<a href="../coffeeshop/index.html" class="logo"> Espresso cafe <i class="fas fa-mug-hot"></i> </a>
+<a href="../coffeeshop/index.html" class="logo"> <img class="logo-img" src="../../assets/image/logo-transparent-png.png" alt=""> </a>
 
 <nav class="navbar">
     <a href="${root}/index.html">Home</a>
-    <a href="${root}/pages/order/order-bestseller.html">Order</a>
-    \
+    <!-- <a href="${root}/pages/order/order-bestseller.html">Order</a> -->
+        <div class="dropdown">
+                            <a href="" class="nav">  <span>Order</span>  </a>
+                            <div class="dropdown-content">
+                            
+                            </div>
+                          </div>
     <!--<a href="${root}/pages/blogs/blog.html">Blogs</a>--> 
-    
 </nav>
 
 <button class="btn"><a href="${root}/pages/login/login.html">Login</a></button>
@@ -20,19 +24,32 @@ const header_after_login = `
 <header class="header">
 <input type="checkbox" name="" id="toggler">
 <label for="toggler" class="fas fa-bars"></label>
-<a href="${root}/index.html" class="logo"> Espresso cafe <i class="fas fa-mug-hot"></i> </a>
+<a href="${root}/index.html" class="logo"> <img class="logo-img" src="../../assets/image/logo-transparent-png.png" alt=""> </a>
 <nav class="navbar">
     <a href="${root}/index.html">Home</a>
-    <a href="${root}/pages/order/order-bestseller.html">Order</a>
+    <!-- <a href="${root}/pages/order/order-bestseller.html">Order</a> -->
     
     <!--<a href="${root}/pages/payment/payment.html">Pay</a>-->
+    <div class="dropdown">
+    <a href="" class="nav">  <span>Order</span>  </a>
+    <div class="dropdown-content">
+   
+    </div>
+  </div>
     <a href="${root}/pages/My orders/myorders.html">My orders</a>
   
     <!--<a href="${root}/pages/blogs/blog.html">Blogs</a>--> 
 </nav>
 <div class="icons">
 <a href="${root}/pages/add to cart/addtocart.html" class="fas fa-shopping-cart"></a>
-<a href="${root}/pages/profile/profile.html" class="fas fa-user"></a>
+<div class="dropdown1">
+<a href="#" class="fas fa-user"></a>
+<div class="dropdown-content1">
+   <a href="${root}/pages/profile/profile.html">profile</a>
+   <a href="${root}/address/address.html">Address profile</a>
+   <a href="${root}/address/address_form.html">Add address</a>
+    </div>
+</div>
 </div>
 </header>`;
 
@@ -40,10 +57,10 @@ const header_admin_header = `
 <header class="header">
 <input type="checkbox" name="" id="toggler">
 <label for="toggler" class="fas fa-bars"></label>
-<a href="#" class="logo"> Espresso cafe <i class="fas fa-mug-hot"></i> </a>
+<a href="${root}/pages/admin/admin-profile.html" class="logo"> <img class="logo-img" src="../../assets/image/logo-transparent-png.png" alt=""> </a>
 <nav class="navbar">
-    <a href="${root}/crud/addproduct.html">Home</a>
-    <a href="${root}">orders</a>
+    <a href="${root}/crud/addproduct.html">Add product</a>
+    <a href="${root}/crud/addcategory.html">Add category</a>
     <!--<a href="${root}/pages/blogs/blog.html">Blogs</a>--> 
 </nav>
 <div class="icons">
@@ -117,4 +134,17 @@ else if (user_id1 == null) {
     );
     localStorage.removeItem("user_id");
 
+}
+
+// category have to show in dropdown
+const categoryTypeUser = JSON.parse(localStorage.getItem("category")) || [];
+// console.log(categoryTypeUser)
+// console.log(findBrands)
+for(let i=0; i<categoryTypeUser.length; i++) {
+   if(categoryTypeUser[i].category_status === true){
+    const dropdownContent = document.createElement("a");
+    dropdownContent.setAttribute("href", `${root}/pages/order/order-drinks.html?category_id=${categoryTypeUser[i].category_id}`);
+    dropdownContent.innerHTML = categoryTypeUser[i].category
+    document.querySelector(".dropdown-content").append(dropdownContent)
+   }
 }

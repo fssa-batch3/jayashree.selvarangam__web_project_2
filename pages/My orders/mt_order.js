@@ -144,7 +144,7 @@ for (i = 0; i < orders.length; i++) {
     beverage_container_card.append(beverage_image_card);
 
     image = document.createElement("img");
-    image.setAttribute("src", order.image.source);
+    image.setAttribute("src", order.image.src);
     beverage_image_card.append(image);
 
     beverage_content_card = document.createElement("div");

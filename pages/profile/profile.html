@@ -13,7 +13,15 @@
         <link rel="stylesheet" href="../../assets/css/profile.css">
         <link rel="stylesheet" href="../../assets/css/header.css">
         <link rel="stylesheet" href="../../assets/css/footer.css ">
-
+        <link href="https://fonts.googleapis.com/css2?family=Aclonica&family=Merienda:wght@300;400;500;600&family=Montserrat:wght@400;500&family=Poppins:ital,wght@0,100;0,300;0,400;1,100;1,200;1,300;1,400&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        <style>
+          * { font-family: 'Aclonica', sans-serif;
+font-family: 'Merienda', cursive;
+font-family: 'Montserrat', sans-serif;
+font-family: 'Poppins', sans-serif;
+font-family: 'Quicksand', sans-serif;
+        }
+        </style>
     </head>
     <body>
         <!-- header section starts  -->
@@ -46,13 +54,13 @@
                 <!-- <i class="fa-solid fa-trash" id="delete"></i> -->
                 <label>Name:</label>
                 <input type="text" id="user_name"  pattern="[A-Za-z.]+"
-                title="Enter alphabet without space" required="true" class="box" readonly>
+                title="Enter alphabet without space" class="box" readonly>
                 <label>Email_id:</label>
                 <input type="email" id="user_email" class="box" disabled>
                 <label>Password:</label>
                 <input type="password"   pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                 title="Must contain at least one number, one uppercase, lowercase and one symbol, and at least 8 or more characters"
-                required="true" id="user_password"class="box" readonly>
+                id="user_password"class="box" readonly>
                 <label>Mobile number:</label>
                 <input type="text" id="user_mobilenumber" class="box" disabled>
                 
@@ -70,13 +78,6 @@
                         <button class="btn" type="button" id="logout">logout
                         </button></a> </span> 
             </form>
-            <div id="pattern">
-              <span class="number_pass">Must contain at least one number,</span>
-              <span class="upper_pass">one uppercase,</span>
-              <span class="lower_pass">one lowercase,</span>
-              <span class="symbol_pass">one symbol,</span>
-              <span class="char_pass">and at least 8 or more characters</span>
-          </div>
         </section>
     </body>
 <script src="./pages/order/header.js"></script>
@@ -97,6 +98,7 @@ document.getElementById("user_password").value = person_data.user_password;
 document.getElementById("user_mobilenumber").value = person_data.user_mobile;
 
 function update(e) {
+  e.preventDefault();
   const user_data = JSON.parse(localStorage.getItem("user_data"));
   console.log(user_data);
   const unique1 = user_data.user_email;
@@ -112,18 +114,15 @@ function update(e) {
   const up_passwordInput = document.getElementById("user_password");
   
   
-  const up_name = productNameInput.value.trim();
-  const up_password = tallPriceInput.value.trim();
+  const up_name = up_nameInput.value.trim();
+  const up_password = up_passwordInput.value.trim();
 
-if (up_name === ""  ) {
-  showError(up_nameInput, "Product name is required");
-  return;
-}
-
-  if (up_password === "") {
-  showError(up_passwordInput, "description is required");
-  return;
-}
+  if(up_name==""){
+    alert('fill up name')
+  }
+  if(up_password == ""){
+    alert('fill up password')
+  }
 
   // getting the updated data from the input field
   // const up_name = document.getElementById("user_name").value;
@@ -133,7 +132,7 @@ if (up_name === ""  ) {
   
   // paste the updated data to the correct object
   person_data.user_name = up_name;
-  person_data.user_mobilenumber = up_mobile;
+  person_data.user_password = up_password;
   // again paste it to the
   localStorage.setItem("user_list", JSON.stringify(user_list));
   console.log(userData);
@@ -241,16 +240,23 @@ function findReadonly(e) {
 }
 
 function findReadonly1(e) {
+
+  if(document.getElementById("user_name").value.trim()==""||document.getElementById("user_password").value.trim()==""||(document.getElementById("user_password").value.trim()==""&&document.getElementById("user_name").value.trim())){
+
+
+    document.getElementById("user_name").setAttribute("style", "border:1px solid red;");
+    document.querySelector("#save").setAttribute("style", "display:inline-block");
+  }else{
   document.getElementById("user_name").setAttribute("readonly", "true");
   // document.getElementById("user_email").setAttribute("readonly", "true");
   document.getElementById("user_password").setAttribute("readonly", "true");
-  // document.getElementById("user_mobilenumber").setAttribute("readonly", "true");
   document.querySelector("#save").setAttribute("style", "display:none");
-  document
-    .querySelector("#edit1")
-    .setAttribute("style", "display:inline-block");
+  document.querySelector("#edit1").setAttribute("style", "display:inline-block");
   const head = document.querySelector(".heading");
   head.innerHTML = "My Profile";
+  }
+  // document.getElementById("user_mobilenumber").setAttribute("readonly", "true");
+ 
   // location.reload();
 }
 

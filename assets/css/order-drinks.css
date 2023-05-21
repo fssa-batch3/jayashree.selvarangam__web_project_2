@@ -116,6 +116,9 @@ grid-template-columns: 1fr 1fr 1fr;
     color:var(--bs-orange);
     margin-bottom:1rem;
 }
+.beverage-title h3{
+    font-weight: 600;
+}
 .expressoa-p,.expressoa-p1,.expressoa-p2,.expressoa-p3,.expressoa-p4{
     padding-left:50px;
     padding-right: 50px;
@@ -123,6 +126,10 @@ grid-template-columns: 1fr 1fr 1fr;
     color:var(--bs-gray-700);
     margin-top: 0;
     margin-bottom:3rem;
+}
+.p-1,.p-2{
+    font-weight: 500;
+
 }
 
 .beverage-container{

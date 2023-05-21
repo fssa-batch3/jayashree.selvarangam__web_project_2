@@ -4,8 +4,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="../../assets/css/header.css">
+    <link rel="stylesheet" href="../../assets/css/footer.css ">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Aclonica&family=Merienda:wght@300;400;500;600&family=Montserrat:wght@400;500&family=Poppins:ital,wght@0,100;0,300;0,400;1,100;1,200;1,300;1,400&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style> 
+      * { font-family: 'Aclonica', sans-serif;
+font-family: 'Merienda', cursive;
+font-family: 'Montserrat', sans-serif;
+font-family: 'Poppins', sans-serif;
+font-family: 'Quicksand', sans-serif;
+    }
+    </style>
     <title>Document</title>
     <style>
          * {
@@ -35,6 +49,13 @@
   .form-group {
     margin-bottom: 20px;
   }
+  [type=submit]:not(:disabled), button:not(:disabled) {
+    cursor: pointer;
+    padding: 12px 8px;
+    border: 1px teal solid;
+    color: teal;
+}
+
   
   label {
     display: block;
@@ -54,6 +75,11 @@
     border: 1px solid #ccc;
     margin-top: 5px;
   }
+  .col-12 {
+    flex: 0 0 auto;
+    width: 100%;
+    padding: 2rem 9%;
+}
   
   input[type="submit"] {
     background-color: #4CAF50;
@@ -91,7 +117,7 @@
     <form name="add-product-form">
       <div class="form-group">
         <label for="product-name">Product Name:</label>
-        <input type="text" id="product-name" name="product-name" >
+        <input type="text" id="product-name" value="Hibiscus Tea"name="product-name" >
       </div>
         
     
@@ -110,58 +136,58 @@
 
        <div class="form-group">
         <label for="decription">decription:</label>
-        <textarea type="text" id="description" name="description" ></textarea>
+        <textarea type="text" value="Naturally grown hiiscus flower with fresh honey from Assam .Makes a perfect delight"id="description" name="description" ></textarea>
       </div>
         
       <div class="form-group">
         <label for="image_url">image_url:</label>
-        <input type="text" id="image_url" name="image_url" >
+        <input type="text" value="../../assets/image/haitea.jpg" id="image_url" name="image_url" >
       </div>
 
        <div class="form-group">
         <label for="tall_price">tall Price:</label>
-        <input type="text" id="tall_price" name="tall_price" >
+        <input type="text" value="450" id="tall_price" name="tall_price" >
       </div>
 
       <div class="form-group">
         <label for="tall_quantity_value">Quantity in ml for tall:</label>
-        <input type="number" id="tall_quantity_value" name="tall_quantity_value" >
+        <input type="number" value="750" id="tall_quantity_value" name="tall_quantity_value" >
       </div>
 
       <div class="form-group">
         <label for="tall_calorie_value">calories in kcal for tall:</label>
-        <input type="number" id="tall_calorie_value" name="tall_calorie_value" >
+        <input type="number" value="220"id="tall_calorie_value" name="tall_calorie_value" >
       </div>
 
 
       <div class="form-group">
         <label for="medium_price">medium Price:</label>
-        <input type="text" id="medium_price" name="medium_price" >
+        <input type="text" value="340"id="medium_price" name="medium_price" >
       </div>
 
       <div class="form-group">
         <label for="medium_quantity_value">Quantity in ml for medium:</label>
-        <input type="number" id="medium_quantity_value" name="medium_quantity_value" >
+        <input type="number"  value="500" id="medium_quantity_value" name="medium_quantity_value" >
       </div>
 
       <div class="form-group">
         <label for="medium_calorie_value">calories in kcal for medium:</label>
-        <input type="number" id="medium_calorie_value" name="medium_calorie_value" >
+        <input type="number" value="160"id="medium_calorie_value" name="medium_calorie_value" >
       </div>
 
       <div class="form-group">
         <label for="short_price">short Price:</label>
-        <input type="text" id="short_price" name="short_price" >
+        <input type="text" value="190" id="short_price" name="short_price" >
       </div>
     
       <div class="form-group">
         <label for="short_quantity_value">Quantity in ml for short:</label>
-        <input type="number" id="short_quantity_value" name="short_quantity_value" >
+        <input type="number" value="250" id="short_quantity_value" name="short_quantity_value" >
       </div>
 
       <div class="form-group">
         <label for="short_calorie_value">calories in kcal for short:</label>
-        <input type="number" id="short_calorie_value" name="short_calorie_value" >
+        <input type="number" value="120" id="short_calorie_value" name="short_calorie_value" >
       </div>
 
 
@@ -205,12 +231,16 @@ const category_list = JSON.parse(localStorage.getItem('category'));
         document.querySelector('#category').append(option);
        }
     // Get the form element
+
+    let category2 = document.getElementById('category').value
+
 const addProductForm = document.forms["add-product-form"];
 // Add an event listener to the form submit event
 addProductForm.addEventListener("submit", function(event) {
   // Prevent the default form submission behavior
 event.preventDefault();
-  let category2 = document.getElementById('category').value
+  
+  console.log(category2)
   // Get the form inputs
   const productNameInput = addProductForm["product-name"];
   const tallPriceInput = addProductForm["tall_price"];
@@ -383,17 +413,17 @@ event.preventDefault();
 
   let select_product_value = document.getElementById('category');
   const category_value = select_product_value.value;
-//  const category_name =select_product_value.innerText;
 
-  // If all inputs are valid, submit the form
+// const category_name =select_product_value.innerText;
+// If all inputs are valid, submit the form;
 
   const product_detail_list_1 = JSON.parse(
-       localStorage.getItem("pro")
+       localStorage.getItem("product_detail_list")
   )||[];
      const exist =
        product_detail_list_1.length &&
        JSON.parse(localStorage.getItem("product_detail_list")).some(
-         (data) => data.productName.toLowerCase() == productName.toLowerCase()
+         (data) => data.productName == productName
        );
      if (!exist) {
        const product_detail = {
@@ -403,8 +433,10 @@ event.preventDefault();
          'medium':mediumPrice,
         'short':shortPrice
         },
+        'description':description,
        
-        'category_id':category_value,
+      
+        'category':category_value,
        'image':{
         'src':image_url
        },
@@ -413,14 +445,14 @@ event.preventDefault();
              'name': "tall",
              'quantity': tallQuantity,
              'unit': "ml",
-            ' calories': tallCalorie,
+            calories: tallCalorie,
              'calories_unit': "kcal",
            },
            'medium': {
             'name': "medium",
              'quantity': mediumQuantity,
              'unit': "ml",
-             'calories': mediumCalorie,
+             calories: mediumCalorie,
              'calories_unit': "kcal",
            },
            'short': {
@@ -597,7 +629,7 @@ function create(prod) {
            document.getElementById("tall_price").value = productData.price_1.tall;
            document.getElementById("medium_price").value = productData.price_1.medium;
            document.getElementById("short_price").value = productData.price_1.short;
-           document.getElementById("image_url").value = productData.image.source;
+           document.getElementById("image_url").value = productData.image.src;
     
            document.querySelector("#update").setAttribute("style", "display:inline");
            document.querySelector("#create").setAttribute("style", "display:none");
@@ -814,7 +846,7 @@ function create(prod) {
 
 
    
-
+ 
 
 
 
@@ -846,4 +878,6 @@ function create(prod) {
        });
 
 </script>
+<script src="../../pages/order/header.js"></script>
+
 </html>

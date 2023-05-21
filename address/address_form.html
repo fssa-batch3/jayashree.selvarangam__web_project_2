@@ -10,10 +10,19 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
             integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
             crossorigin="anonymous" referrerpolicy="no-referrer">
+           
         <link rel="stylesheet" href="../../assets/css/profile.css">
         <link rel="stylesheet" href="../../assets/css/header.css">
         <link rel="stylesheet" href="../../assets/css/footer.css ">
-
+        <link href="https://fonts.googleapis.com/css2?family=Aclonica&family=Merienda:wght@300;400;500;600&family=Montserrat:wght@400;500&family=Poppins:ital,wght@0,100;0,300;0,400;1,100;1,200;1,300;1,400&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        <style>
+          * { font-family: 'Aclonica', sans-serif;
+font-family: 'Merienda', cursive;
+font-family: 'Montserrat', sans-serif;
+font-family: 'Poppins', sans-serif;
+font-family: 'Quicksand', sans-serif;
+        }
+        </style>
     </head>
     <body>
     
@@ -23,23 +32,23 @@
               add  address 
             </h1>
          
-            <form action="" onsubmit="address()">
+            <form action="" >
                 <!-- <i class="fa-solid fa-trash" id="delete"></i> -->
                 <label>Address type:</label>
-                <input type="text" id="address-type" class="box" required>
+                <input type="text" value="Home" id="address-type" class="box" required>
                 <label>House no:</label>
-                <input type="number" id="house-no" class="box" required>
+                <input type="number" value="15" id="house-no" class="box" required>
                 <label>Area:</label>
-                <input type="text" id="area"class="box" required>
+                <input type="text" value=" kandaswamy st anna nagar "id="area"class="box" required>
                 <label> pincode:</label>
-                <input type="number" id="pincode" class="box" required>
+                <input type="number" id="pincode" value="600002" maxlength="6" pattern="\d{6}" class="box" required>
                 <label for="default-address">default address</label>
                 <input type="checkbox" id="default-address"  >
                 <!-- <a href="../../pages/profile/profile_edit.html"><input type="submit" value="Edit" class="btn"></a>
                     <span class="save"> -->
                 <!-- <button  class="btn" id="delete" >delete profile
                     </button>  -->
-                <button type="submit" class="btn" id="save">Save
+                <button type="button" class="btn" id="save">Save
                 </button>
             </form>
         </section>
@@ -49,7 +58,11 @@
     <script>
         // const submit = document.getElementById('save')
         // submit.addEventListener('submit',function(){
-            const address = function(e){
+            const user_id = JSON.parse(localStorage.getItem("unique_id"));
+        const submit = document.getElementById('save')
+
+        submit.addEventListener('click',function(){
+    
             let address_type = document.getElementById('address-type').value
             let house_no = document.getElementById('house-no').value
             let area = document.getElementById('area').value
@@ -57,22 +70,32 @@
             const checkbox = document.getElementById("default-address");
             const isChecked = checkbox.checked;
             let value;
-            if(isChecked===true){
-                value=true
+            let address_array123 =[]
+            let address_array = JSON.parse(localStorage.getItem('address'))
+            if(isChecked===true && address_array===null){
+                value=true;
+            }else if(isChecked===true &&address_array!==null){
                 let address_array = JSON.parse(localStorage.getItem('address'));
                 address_array.forEach((object) => {
                 object.value = false;
                 localStorage.setItem('address',JSON.stringify(address_array))
-    });
-
-            }else{
-                value=false
-            }
-            let address_array = JSON.parse(localStorage.getItem('address'))
+    })
+} 
+else{
+    value=false
+            };
+            if(address_array!==null){
+            for(let i=0;i<address_array.length;i++){
+           if(house_no==address_array[i].house_no&&area==address_array[i].area){
+            alert('Address already exist')
+           }
+        }
+    }
             if(address_array===null){
                 if(address_type==''||house_no==""||area==""||pincode==""){
                 alert('Please fill all the fields')
             }else{
+              
               
                 address_array = [
                     {
@@ -81,7 +104,10 @@
                 area,
                 pincode,
                 'id':uuidv4(),
-                value:value
+                district:'chennai',
+                value:value,
+                user_id
+
                     }
                 
                 ]
@@ -99,12 +125,13 @@
                 area,
                 pincode,
                 'id':uuidv4(),
+                district:'chennai',
                 value:value     
             })
             localStorage.setItem('address',JSON.stringify(address_array))
         }}
-        }
-    
+        location.href="../../address/address.html";
+        })
     </script>
     <script src="../../pages/order/header.js"></script>
     </html>
