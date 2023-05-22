@@ -52,19 +52,23 @@ font-family: 'Quicksand', sans-serif;
       }
 
       .rating_heading {
-        color: black;
+        color: teal;
+       
         animation: scale-up 1s ease;
       }
-
-      .star_rating {
-        user-select: none;
-        background-color: black;
-        padding: 1.4rem 2.5rem;
-        margin: 2rem;
-        border-radius: 0.4rem;
-        text-align: center;
-        animation: slide-up 1s ease;
+      .rating_heading span{
+        font-size: 1.4rem;
+        font-weight: bold;
       }
+      .star_rating {
+    user-select: none;
+    background-color: teal;
+    padding: 0.9rem 1rem;
+    margin: 2rem;
+    border-radius: 0.4rem;
+    text-align: center;
+    animation: slide-up 1s ease;
+}
 
       .star:hover {
         cursor: pointer;
@@ -113,7 +117,7 @@ font-family: 'Quicksand', sans-serif;
     ]<section class="profile" id="profile">
       <section class="form">
         <form>
-        <h1 class="rating_heading">5 Star Rating</h1>
+        <h1 class="rating_heading"><span>Rating</span> </h1>
 
         <div class="star_rating">
           <button class="star">&#9734;</button>

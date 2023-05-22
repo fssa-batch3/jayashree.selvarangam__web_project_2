@@ -1,36 +1,4 @@
-// // <section class="Yourcart">
-
-// const moment = require("../../Library/moment");
-
-//    /// <div class="beverage">
-// ////<div class="beverage-container">
-//         {/* <div class="beverage-image">
-//             <img src="../../assets/image/icedgreen.jpg" alt="">
-//         </div> */}
-//         {/* <div class="beverage-content">
-
-//                 <div class="beverage-title">Iced Green Tea Latte</div>
-//                 <div class=" beverage-message">SHORT(237 ML) .412 Kcal</div>
-//                 <div class="cost">Rs.309</div>
-
-//         </div> */}
-//         {/* <div class="quantity">1</div> */}
-//         {/* <div class="inc-dec-button">
-//             <div class="ordered-date">
-
-//                 <p>14-12-2022</p>
-//             </div>
-
-//         </div> */}
-//         {/* <div class="beverage-costdetail">
-//             <div class="delivery-status">
-//             <p>Delivered</p>
-//             </div>
-//             <div class="Goback"><a href="../../pages/fill forms/review.html">Write your review</a></div>
-//         </div> */}
-//   ////</div>
-/// </div>
-// </section>
+//location.reload();
 
 let your_cart_card;
 let beverage_card;

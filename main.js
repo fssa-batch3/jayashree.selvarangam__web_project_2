@@ -44,9 +44,9 @@ if (!product_detail_list) {
         description: "A breakfast-style black tea of malty boldness & bright flavour, invigorating any time of the day.  ",
         description1: "A breakfast-style black tea of malty boldness & bright flavor....  ",
         price_1: {
-          tall: 340,
-          medium: 260,
-          short: 170,
+          tall: 250,
+          medium: 170,
+          short: 90,
         },
         currency: "Rs.",
         product_id: uuidv4(),
@@ -87,9 +87,9 @@ if (!product_detail_list) {
       description: "A tangy-sweet concoction featuring hibiscus flavour and pomegranate-juice pearls.",
       description1: "A tangy-sweet concoction featuring hibiscus flavour and pome... ",
       price_1: {
-        tall: 340,
-        medium: 260,
-        short: 170,
+        tall: 250,
+        medium: 170,
+        short: 90,
       },
       currency: "Rs.",
       product_id: uuidv4(),
@@ -130,9 +130,9 @@ if (!product_detail_list) {
       description: "Beautiful layers of matcha green tea, our bold espresso and milk create a smooth, richly textured beverage",
       description1: "Beautiful layers of matcha green tea, our bold espresso and ... ",
       price_1: {
-        tall: 340,
-        medium: 260,
-        short: 170,
+        tall: 250,
+        medium: 170,
+        short: 90,
       },
       currency: "Rs.",
       product_id: uuidv4(),
@@ -173,9 +173,9 @@ if (!product_detail_list) {
       description: "Black tea infused with cinnamon, clove, and other warming spices are combined with milk for the perfect balance of sweet and spicy.",
       description1: "Black tea infused with cinnamon, clove, and other warming sp... ",
       price_1: {
-        tall: 340,
-        medium: 260,
-        short: 170,
+        tall: 250,
+        medium: 170,
+        short: 90,
       },
       currency: "Rs.",
       product_id: uuidv4(),
@@ -217,9 +217,9 @@ if (!product_detail_list) {
       description: "Premium green tea is lightly sweetened, then shaken with ice or refreshing lemonade.",
       description1: "Premium green tea is lightly sweetened, then shaken with ice...",
       price_1: {
-        tall: 340,
-        medium: 260,
-        short: 170,
+        tall: 250,
+        medium: 170,
+        short: 90,
       },
       currency: "Rs.",
       product_id: uuidv4(),
@@ -260,9 +260,9 @@ if (!product_detail_list) {
       description: "Smooth and creamy matcha is lightly sweetened and served with steamed milk.",
       description1: "Smooth and creamy matcha is lightly sweetened and served wit...",
       price_1: {
-        tall: 340,
-        medium: 260,
-        short: 170,
+        tall: 250,
+        medium: 170,
+        short: 90,
       },
       currency: "Rs.",
       product_id: uuidv4(),
@@ -306,9 +306,9 @@ if (!product_detail_list) {
         description:'We blend mocha sauce and Frappuccino® chips with Frappuccino® roast coffee and milk and ice, then top with whipped cream and mocha drizzle to bring you endless java joy',
         description1: "We blend mocha sauce Frappuccino® roast coffee and milk and ice ...",
         price_1: {
-          tall: 310,
-          medium: 220,
-          short: 170
+          tall: 250,
+          medium: 170,
+          short: 90,
         },
         currency: "Rs.",
         product_id: uuidv4(),
@@ -349,9 +349,9 @@ if (!product_detail_list) {
         description:"Dark, Rich in flavour espresso lies in wait under a smoothed and stretched layer of thick foam. It's truly the height of our baristas craft.",
         description1: "Dark, Rich in flavour espresso lies in wait under a smoothed...",
         price_1: {
-          tall: 310,
-          medium: 220,
-          short: 170
+          tall: 250,
+          medium: 170,
+          short: 90,
         },
         currency: "Rs.",
         product_id: uuidv4(),
@@ -393,9 +393,9 @@ if (!product_detail_list) {
         description:"A perfect espresso shot and hazelnut syrup, topped with steamed milk",
         description1: "A perfect espresso shot and hazelnut syrup, topped with stea...",
         price_1: {
-          tall: 310,
-          medium: 220,
-          short: 170
+          tall: 250,
+          medium: 170,
+          short: 90,
         },
         currency: "Rs.",
         product_id: uuidv4(),
@@ -436,9 +436,9 @@ if (!product_detail_list) {
         description:"Our smooth signature Espresso Roast and its caramelly sweetness is at the very heart of everything we do.",
         description1: "Our smooth signature Espresso Roast and its caramelly sweetn...",
         price_1: {
-          tall: 310,
-          medium: 220,
-          short: 170
+          tall: 250,
+          medium: 170,
+          short: 90,
         },
         currency: "Rs.",
         product_id: uuidv4(),
@@ -479,9 +479,9 @@ if (!product_detail_list) {
         description:"Espresso combined with bittersweet mocha sauce and milk and served over ice. Topped with sweetened whipped cream.",
         description1: "Signature Italian style Cappuccino with espresso shot, mocha...",
         price_1: {
-          tall: 310,
-          medium: 220,
-          short: 170
+          tall: 250,
+          medium: 170,
+          short: 90,
         },
         currency: "Rs.",
         product_id: uuidv4(),
@@ -522,9 +522,9 @@ if (!product_detail_list) {
         description:"Our dark, Rich in flavour espresso balanced with steamed milk and a light layer of foam. A perfect coffee warm up.",
         description1: "Our dark, Rich in flavour espresso balanced with steamed mil...",
         price_1: {
-          tall: 310,
-          medium: 220,
-          short: 170
+          tall: 250,
+          medium: 170,
+          short: 90,
         },
         currency: "Rs.",
         product_id: uuidv4(),
@@ -565,9 +565,9 @@ if (!product_detail_list) {
         description:"Espresso with richly flavoured Belgium chocolate sauce, mocha sauce and steamed milk. Topped with chocolate whipped cream and dark chocolate chips.",
         description1: "Espresso with richly flavoured Belgium chocolate sauce, moch...",
         price_1: {
-          tall: 310,
-          medium: 220,
-          short: 170
+          tall: 250,
+          medium: 170,
+          short: 90,
         },
         currency: "Rs.",
         product_id: uuidv4(),
@@ -608,9 +608,9 @@ if (!product_detail_list) {
         description:"Our smooth signature Espresso Roast and its caramelly sweetness is at the very heart of everything we do.",
         description1: "Our smooth signature Espresso Roast and its caramelly sweetn...",
         price_1: {
-          tall: 310,
-          medium: 220,
-          short: 170
+          tall: 250,
+          medium: 170,
+          short: 90,
         },
         currency: "Rs.",
         product_id: uuidv4(),
@@ -651,9 +651,9 @@ if (!product_detail_list) {
         description:"We combine our Rich in flavour, full-bodied espresso with bittersweet mocha sauce and steamed milk, then top it off with sweetened whipped cream. The classic coffee drink to satisfy your sweet tooth.",
         description1: "We combine our Rich in flavour, full-bodied espresso with bi...",
         price_1: {
-          tall: 310,
-          medium: 220,
-          short: 170
+          tall: 250,
+          medium: 170,
+          short: 90,
         },
         currency: "Rs.",
         product_id: uuidv4(),
@@ -695,9 +695,9 @@ if (!product_detail_list) {
         description:"Alphonso mango flavoured cream blended with mango jelly. The beverage is topped with sandy textured graham crumbs. ",
         description1: "Alphonso mango flavoured cream blended with mango jelly. The...",
         price_1: {
-          tall: 310,
-          medium: 220,
-          short: 170
+          tall: 250,
+          medium: 170,
+          short: 90,
         },
         currency: "Rs.",
         product_id: uuidv4(),
@@ -738,9 +738,9 @@ if (!product_detail_list) {
         description:"Coffee meets milk and ice in a blender and together they create one of our original Frappuccino® beverages. ",
         description1: "Coffee meets milk and ice in a blender and together they cre...",
         price_1: {
-          tall: 310,
-          medium: 220,
-          short: 170
+          tall: 250,
+          medium: 170,
+          short: 90,
         },
         currency: "Rs.",
         product_id: uuidv4(),
@@ -781,9 +781,9 @@ if (!product_detail_list) {
         description:" Our signature rich in flavour espresso blended with delicate vanilla flavour and milk to create a perfect cold coffee delight.",
         description1: "Our signature rich in flavour espresso blended with delicate...",
         price_1: {
-          tall: 310,
-          medium: 220,
-          short: 170
+          tall: 250,
+          medium: 170,
+          short: 90,
         },
         currency: "Rs.",
         product_id: uuidv4(),
@@ -824,9 +824,9 @@ if (!product_detail_list) {
         description:"A blend of coffee, sweet caramel syrup, milk and ice topped with whipped cream and a swirl of caramel drizzle.",
         description1: "A blend of coffee, sweet caramel syrup, milk and ice topped .",
         price_1: {
-          tall: 310,
-          medium: 220,
-          short: 170
+          tall: 250,
+          medium: 170,
+          short: 90,
         },
         currency: "Rs.",
         product_id: uuidv4(),
@@ -841,7 +841,7 @@ if (!product_detail_list) {
 
         // "category_description":category_description,
         // "description":description,
-        name: "",
+        name: "pour over ethopia",
         quantities: {
           tall: {
             name: "tall",
@@ -871,9 +871,9 @@ if (!product_detail_list) {
          
         },
         price_1: {
-          tall: 310,
-          medium: 220,
-          short: 170
+          tall: 250,
+          medium: 170,
+          short: 90,
         },
         description: " Pour-over is a beautifully simple and accessible way to brew a single cup of coffee with clean, fully developed flavor and body. Brewed with Ethiopia Roast.",
         description1: "Pour-over is a beautifully simple and accessible way to brew...",
@@ -916,9 +916,9 @@ if (!product_detail_list) {
             src: "../../assets/image/eth.jpg"
           },
           price_1: {
-            tall:310,
-            medium: 220,
-            short: 170
+            tall: 250,
+            medium: 170,
+            short: 90,
           },
           description: " Pour-over is a beautifully simple and accessible way to brew a single cup of coffee with clean, fully developed flavor and body. Brewed with India Estates Blend.",
           description1: "Pour-over is a beautifully simple and accessible way to brew...",
@@ -965,9 +965,9 @@ if (!product_detail_list) {
         description: "Cold Brew with Vanilla Sweet Cream is made with Starbucks® Cold Brew over ice and topped with a hand crafted vanilla sweet cream, which floats on top of the beverage before slowly cascading down. ",
         description1: "Cold Brew with Vanilla Sweet Cream is made with... ",
         price_1: {
-          tall:310,
-          medium: 220,
-          short: 170
+          tall: 250,
+          medium: 170,
+          short: 90,
         },
         currency: "Rs.",
         product_id: uuidv4()
@@ -1009,9 +1009,9 @@ if (!product_detail_list) {
         description: "Our slow steeped Cold brew shaken with milk and white chocolate to strike the perfect balance of coffee and sweetness.",
         description1: "Our slow steeped Cold brew shaken with milk and white chocol...",
         price_1: {
-          tall:310,
-          medium: 220,
-          short: 170
+          tall: 250,
+          medium: 170,
+          short: 90,
         },
         currency: "Rs.",
         product_id: uuidv4()
@@ -1055,12 +1055,20 @@ if (!category_detail_list) {
       'category_status':true
     },
     ]
-  ))}
+  ))};
 
 
 
-
-
+  const address = JSON.parse(
+    localStorage.getItem("address")
+  );
+  if (!address) {
+    localStorage.setItem("address",JSON.stringify(
+[{"address_type":"Home","house_no":"28","area":" veeramani st kanda nagar ","pincode":"600002","id":"4976620d-f4a5-4bbc-a92b-8f04e3896604","district":"chennai","value":false ,"user_id":"riya678@gmail.com.com"}
+    ]
+    )
+    )
+  }
 
 
 

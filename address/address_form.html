@@ -84,13 +84,18 @@ font-family: 'Quicksand', sans-serif;
 else{
     value=false
             };
+            let assign ;
             if(address_array!==null){
             for(let i=0;i<address_array.length;i++){
            if(house_no==address_array[i].house_no&&area==address_array[i].area){
             alert('Address already exist')
+            assign = true;
+            break;
            }
         }
-    }
+       
+    };
+          if(assign !== true){
             if(address_array===null){
                 if(address_type==''||house_no==""||area==""||pincode==""){
                 alert('Please fill all the fields')
@@ -131,7 +136,11 @@ else{
             localStorage.setItem('address',JSON.stringify(address_array))
         }}
         location.href="../../address/address.html";
-        })
+        }
+    })
+
+    
+    
     </script>
     <script src="../../pages/order/header.js"></script>
     </html>
