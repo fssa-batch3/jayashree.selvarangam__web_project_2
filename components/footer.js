@@ -17,7 +17,7 @@ const footer_before_login = `
         <div class="box">
             <h3>quick links</h3>
             <a href="${root2}/index.html"> <i class="fas fa-arrow-right"></i> home </a>
-            <a href="${root2}/pages/My orders/myorders.html"> <i class="fas fa-arrow-right"></i> order </a>
+            <a href="${root2}/pages/order/order-drinks.html"> <i class="fas fa-arrow-right"></i> order </a>
           
             
             <!-- <a href="../../pages/blogs/blog.html"> <i class="fas fa-arrow-right"></i> blog </a> -->
@@ -61,7 +61,7 @@ const footer_after_login = `
         <div class="box">
             <h3>quick links</h3>
             <a href="${root2}/index.html"> <i class="fas fa-arrow-right"></i> home </a>
-            <a href="${root2}/pages/My orders/myorders.html"> <i class="fas fa-arrow-right"></i> order </a>
+            <a href="${root2}/pages/order/order-drinks.html"> <i class="fas fa-arrow-right"></i> order </a>
             <a href="${root2}/pages/My orders/myorders.html"> <i class="fas fa-arrow-right"></i> my orders </a>
             <!-- <a href="../../pages/blogs/blog.html"> <i class="fas fa-arrow-right"></i> blog </a> -->
         </div>

@@ -326,6 +326,7 @@ minus_1.forEach((find_quantity) => {
   });
 });
 
+
 let selectedValue;
 function radio() {
   // let  productData= JSON.parse(localStorage.getItem('add_products_cart'));
@@ -482,7 +483,10 @@ order.addEventListener("click", () => {
               date: moment().format("YYYY-MM-DD"),
               time_check: moment().format("YYYY-MM-DD  hh:mm:ssA").toString(),
               before_30_minutes: moment()
-                .add({ minutes: 2 })
+                .add({ minutes: 15 })
+                .format("YYYY-MM-DD hh:mm:ssA"),
+                before_5_minutes: moment()
+                .add({ minutes: 5 })
                 .format("YYYY-MM-DD hh:mm:ssA"),
               
               // time_check :moment().format('YYYY-MM-DD  hh:mm:ssA').toString(),
@@ -547,7 +551,10 @@ order.addEventListener("click", () => {
               delivery_address: delivery_address.innerText,
               time_check: moment().format("YYYY-MM-DD  hh:mm:ssA").toString(),
               before_30_minutes: moment()
-                .add({ minutes: 2 })
+                .add({ minutes: 15 })
+                .format("YYYY-MM-DD hh:mm:ssA"),
+                before_5_minutes: moment()
+                .add({ minutes: 5 })
                 .format("YYYY-MM-DD hh:mm:ssA"),
                 
               delivery: "not delivered"
@@ -591,6 +598,7 @@ order.addEventListener("click", () => {
         //  let  add_products_cart = JSON.parse(localStorage.getItem('add_products_cart'));
         //  add_products_cart.splice(0, add_products_cart.length)
       }
+      // alert('order placed successfully')
       window.location.href = "../../pages/My orders/myorders.html";
     }
   }

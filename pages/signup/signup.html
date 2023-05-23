@@ -26,7 +26,8 @@ font-family: 'Quicksand', sans-serif;
     </head>
     <body>
      
-<a href="../../assets/image/logo-transparent-png.png"></a>
+
+        <a href="../../assets/image/logo-transparent-png.png"></a>
         <section class="profile" id="profile">
 
             <h1 class="heading">
@@ -43,7 +44,8 @@ font-family: 'Quicksand', sans-serif;
                 <input type="password"value="asdA123!" id="confirm_password" title="Use (UpperCase, LowerCase, Number/SpecialChar and min 8 Chars)" placeholder="confirm Password" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"placeholder="Confirm-password" class="box" required="true">
               
               
-                <input pattern="[0-9]{10}" value="7845096138" type="tel" title="Please enter a valid 10 digit mobile number." id="mobilenumber" title="Enter 10 number only" placeholder="Mobile number" class="box" required="true">
+                <input value="7845096138" type="tel"  id="mobilenumber" title="Enter 10 number only" placeholder="Mobile number" class="box" required="true">
+                <div class="error"></div>
                 <div>
                 <input type="checkbox" id="show-password" class="btn">
                 <label for="show-password">show-password</label>
@@ -64,7 +66,25 @@ font-family: 'Quicksand', sans-serif;
     <script src="https://cdn.jsdelivr.net/npm/uuid@8.3.2/dist/umd/uuidv4.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/uuid@8.3.2/dist/umd/uuidv4.min.js"></script>
     <script>
-
+const mobileInput = document.getElementById("mobilenumber");
+const errorMessage = document.querySelector(".error");
+ mobileInput.addEventListener("input", () => {
+    const inputValue = mobileInput.value.trim(); // remove leading/trailing whitespace
+    const isValidInput = /^[6-9]{1}[0-9]{9}$/.test(inputValue);
+   //   /^[6-9]\d{9}$/.test(inputValue) && !/^\d*(\d)\1{9}\d*$/.test(inputValue); // use regex to match the updated criteria
+    if (!isValidInput || inputValue === "") {
+      if (inputValue === "") {
+        errorMessage.textContent = "Please enter a mobile number.";
+      } else if (/^\d+$/.test(inputValue)) {
+        errorMessage.textContent = "Enter a valid 10-digit mobile number.";
+      } else {
+        errorMessage.textContent = "Please enter digits only.";
+      }
+      errorMessage.style.color = "red";
+    } else {
+      errorMessage.textContent = "";
+    }
+});
 const signUP = (e) => {
   e.preventDefault();
 const user_name = document.getElementById("name").value.trim();

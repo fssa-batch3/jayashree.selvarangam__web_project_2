@@ -192,3 +192,43 @@ html{
     width: 100px;
     margin-left: 20px;
   }
+
+
+  .dropdown2 {
+    position: relative;
+    display: inline-block;
+    margin-right: 2vw;
+  }
+  .dropdown-content2 {
+    display:none;
+    position: absolute;
+    width:18vw;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding:  1rem 2rem;
+    z-index: 1;
+    background: white;
+    right:2px;
+  }
+  .navbar .dropdown-content2 a{
+    color:rgb(110, 107, 107);
+    display: block;
+    padding: 10px 0;
+    font-size: 16px;
+  }
+
+  .dropdown2 span{
+   position:relative;
+   left:2rem;
+
+   color: rgb(11 11 11);
+  }
+  .dropdown2 span:hover{
+    color:rgb(91, 88, 88);
+  }
+  .dropdown2:hover .dropdown-content2{
+    display:block;
+  }
+  .logo-img{
+    width: 100px;
+    margin-left: 20px;
+  }

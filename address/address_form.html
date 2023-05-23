@@ -22,6 +22,9 @@ font-family: 'Montserrat', sans-serif;
 font-family: 'Poppins', sans-serif;
 font-family: 'Quicksand', sans-serif;
         }
+        .profile{
+            height:120vh;
+        }
         </style>
     </head>
     <body>
@@ -42,6 +45,11 @@ font-family: 'Quicksand', sans-serif;
                 <input type="text" value=" kandaswamy st anna nagar "id="area"class="box" required>
                 <label> pincode:</label>
                 <input type="number" id="pincode" value="600002" maxlength="6" pattern="\d{6}" class="box" required>
+                <label> district:</label>
+                <input type="text" class="box" value="chennai"disabled>
+              <!-- <select value="chennai">
+                <option class="box" required>chennai</option>
+              </select> -->
                 <label for="default-address">default address</label>
                 <input type="checkbox" id="default-address"  >
                 <!-- <a href="../../pages/profile/profile_edit.html"><input type="submit" value="Edit" class="btn"></a>
@@ -60,6 +68,19 @@ font-family: 'Quicksand', sans-serif;
         // submit.addEventListener('submit',function(){
             const user_id = JSON.parse(localStorage.getItem("unique_id"));
         const submit = document.getElementById('save')
+
+        const pincodeInput = document.getElementById('pincode');
+pincodeInput.addEventListener('blur', function() {
+  const pincode = pincodeInput.value.trim();
+  if (pincode !== '') {
+    const pincodeRegex = /^6\d{5}$/; // regex pattern to match a pincode starting with 6 and having a total of 6 digits
+    if (!pincodeRegex.test(pincode)) {
+      alert('Invalid pincode! Please enter a valid pincode starting with 6 and having a total of 6 digits.');
+    }
+  }
+});
+
+
 
         submit.addEventListener('click',function(){
     

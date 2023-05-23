@@ -219,7 +219,7 @@ for (i = 0; i < orders.length; i++) {
     delivery_card1.setAttribute("class", "delivery-status1");
     beverage_costdetail_card1.append(delivery_card1);
 
-    if (order.delivery == "cancelled" || order.delivery == "delivered") {
+    if (order.delivery == "delivered") {
        value =  true
       // const cancel = document.createElement("div");
       // cancel.setAttribute("class", "cancel");
@@ -269,20 +269,20 @@ for (i = 0; i < orders.length; i++) {
   cancel.setAttribute("class", "cancel");
   whole_package.append(cancel);
 
-    
-    if(value===true){
-      const cancel_1 = document.createElement("a");
-      cancel_1.setAttribute("id", "cancel_1");
-      cancel_1.setAttribute("style", "display:none");
-      cancel_1.innerText = "cancel";
-      cancel.append(cancel_1);
-    }else{
+ 
+      // const cancel_1 = document.createElement("a");
+      // cancel_1.setAttribute("id", "cancel_1");
+      // cancel_1.setAttribute("style", "display:none");
+      // cancel_1.innerText = "cancel";
+      // cancel.append(cancel_1);
+   if(value!==true){
       const cancel_1 = document.createElement("a");
       cancel_1.setAttribute("id", "cancel_1");
       cancel_1.setAttribute("data-order_id", group[0].ordered_object_at_a_time);
       cancel_1.innerText = "cancel";
       cancel.append(cancel_1);
-    }
+   }
+    
 }
 
 const removeOrder = document.querySelectorAll("#cancel_1");
@@ -409,5 +409,14 @@ for (i = 0; i < find_notDelivered_data.length; i++) {
   if (find_notDelivered_data[i].before_30_minutes <= m) {
     find_notDelivered_data[i].delivery = "delivered";
     localStorage.setItem("orders", JSON.stringify(groupedOrders));
+    
+  }
+}
+
+for (i = 0; i < find_notDelivered_data.length; i++) {
+  if (find_notDelivered_data[i].before_5_minutes <= m) {
+   let cancel =  document.getElementById('cancel_1');
+   cancel.setAttribute('style',"display:none");
+
   }
 }

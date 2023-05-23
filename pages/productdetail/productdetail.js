@@ -31,7 +31,7 @@ let avg;
 
 if(reviews!==null){
 let review_array = reviews.filter((e)=>e.product_id === product);
-console.log(review_array);
+console.log(review_array)
 let sum =0;
  for(let i=0;i<review_array.length;i++){
    sum+=review_array[i].no_of_stars;
@@ -457,7 +457,7 @@ if (stars !== null) {
 }
 
 const stars1 = stars.filter((type) => type.product_id === product);
-console.log(stars1);
+console.log(stars1)
 if (stars1 == "") {
   document.getElementById("no_reviews").innerText = "no reviews";
 } else {

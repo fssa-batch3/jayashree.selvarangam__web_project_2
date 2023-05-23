@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+  integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Aclonica&family=Merienda:wght@300;400;500;600&family=Montserrat:wght@400;500&family=Poppins:ital,wght@0,100;0,300;0,400;1,100;1,200;1,300;1,400&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="../../assets/css/header.css">
+    <link rel="stylesheet" href="../../assets/css/footer.css ">
+ <style>
+    * { font-family:  'Aclonica', sans-serif;
+font-family: 'Merienda', cursive;
+font-family: 'Montserrat', sans-serif;
+font-family: 'Poppins', sans-serif;
+font-family: 'Quicksand', sans-serif;
+  }
+  * {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+  }
+  
+  .container {
+    max-width: 600px;
+    margin: 20px auto;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+  }
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  [type=submit]:not(:disabled), button:not(:disabled) {
+    cursor: pointer;
+    padding: 12px 8px;
+    border: 1px teal solid;
+    color: teal;
+}
+
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  .catego{
+    color:#444433;
+    padding: 2rem 9%;
+  }
+  input[type="text"],
+  input[type="url"],
+  input[type="number"],
+  select,
+  textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    border: 1px solid #ccc;
+    margin-top: 5px;
+  }
+  .col-12 {
+    flex: 0 0 auto;
+    width: 100%;
+    padding: 2rem 9%;
+}
+  
+  input[type="submit"] {
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #3e8e41;
+  }
+  
+  select {
+    height: 40px;
+  }
+  
+  textarea {
+    resize: vertical;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .container {
+      max-width: 100%;
+    }
+  } 
+  </style>
+  <body>
+    <h1 class="catego">EDIT & UPDATE PRODUCT</h1>
+
+    <h2 class="espresso-title"></h2>
+    <hr>
+    <div class="row mt-5">
+        <div class="col-12">
+            <table class="table table-bordered">
+                <thead>
+                    <td>Product_name</td>
+                   
+                   
+                    <td>tall_Rs</td>
+                    <td>short_Rs</td>
+                    <td>medium_Rs</td>
+                    <td>image_url</td>
+                    <td>edit</td>
+                    <td>delete</td>
+                </thead>
+                <tbody class="table_body"></tbody>
+                <!-- my method <tbody id="root"></tbody> -->
+            </table>
+        </div>
+    </div>
+    <hr>
+    <div class="container">
+        <form name="add-product-form">
+          <div class="form-group">
+            <label for="product-name">Product Name:</label>
+            <input type="text" id="product-name" name="product-name" >
+          </div>
+            
+        
+          <div class="form-group">
+            <label for="category">Category:</label>
+            <select type="text"  placeholder="select category" id="category" name="category">
+              <option value="" selected disabled>Select Category</option>
+              <!-- <option value="ESPRESSO">ESPRESSO</option>
+              <option value="FRAPPUCINO">FRAPPUCINO</option>
+              <option value="BREWED COFFEE">BREWED COFFEE</option>
+              <option value="TEA">TEA</option>
+              <option value="COLD BREW">COLD BREW</option> -->
+              
+          </select>
+           </div>
+    
+           <div class="form-group">
+            <label for="decription">decription:</label>
+            <textarea type="text" id="description" name="description" ></textarea>
+          </div>
+            
+          <div class="form-group">
+            <label for="image_url">image_url:</label>
+            <input type="text"  id="image_url" name="image_url" >
+          </div>
+    
+           <div class="form-group">
+            <label for="tall_price">tall Price:</label>
+            <input type="text"  id="tall_price" max="5000" name="tall_price" >
+          </div>
+    
+         
+    
+          <div class="form-group">
+            <label for="medium_price">medium Price:</label>
+            <input type="text"  id="medium_price" name="medium_price" >
+          </div>
+    
+         
+    
+          <div class="form-group">
+            <label for="short_price">short Price:</label>
+            <input type="text"  id="short_price" name="short_price" >
+          </div>
+        
+         
+    
+    
+        
+    
+        
+          </form>
+          <button type="submit"  id="update">update product </button>
+    
+          </div>
+  </body>
+  <script>
+
+    
+    const category_list = JSON.parse(localStorage.getItem('category'));
+      console.log(category_list)
+       for(let i=0;i<category_list.length;i++){
+        const option = document.createElement("option");
+        option.value = category_list[i].category_id;
+        option.innerText = category_list[i].category;
+        document.querySelector('#category').append(option);
+       };
+const product_detail_list_1 = JSON.parse(
+  localStorage.getItem("product_detail_list")
+);
+
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+// //(urlParams);
+const category = urlParams.get("category_id");
+console.log(category)
+
+const product_detail_list = product_detail_list_1.filter((e)=>e.category === category )
+
+
+
+/////////
+console.log(product_detail_list)
+   for (let i = 0; i < product_detail_list.length; i++) {
+     const table_data = create(product_detail_list[i]);
+     document.querySelector("tbody.table_body").append(tr);
+   }
+function create(prod) {
+     // tr
+     tr = document.createElement("tr");
+     // // // // console.log(tr);
+     // td 1
+     // td1 = document.createElement("td");
+     // td1.innerText = ;
+     // tr.append(td1);
+     // td 2
+     td2 = document.createElement("td");
+     td2.innerText = prod.name;
+     tr.append(td2);
+     // td 3
+    //  td3 = document.createElement("td");
+    //  td3.innerText = prod.description;
+    //  tr.append(td3);
+
+     // td 4
+     // td4 = document.createElement("td");
+     // td4.innerText = prod["price"];
+     // tr.append(td4);
+     // td 5
+    //  td5 = document.createElement("td");
+    //  td5.innerText = prod.category;
+    //  tr.append(td5);
+     // a update
+     // td11 = document.createElement("td");
+     // td11.innerText = prod["quantities"]["name"];
+     // tr.append(td11);
+
+     // td12 = document.createElement("td");
+     // td12.innerText = prod["quantities"]["quantity"];
+     // tr.append(td12);
+
+     // td13 = document.createElement("td");
+     // td13.innerText = prod["quantities"]["calories"];
+     // tr.append(td13);
+
+     // a update
+    //  console.log(prod.price_1[tall])
+    console.log(prod.price_1['tall']);
+     td17 = document.createElement("td");
+     td17.innerText = prod.price_1.tall;
+     tr.append(td17);
+
+     td15 = document.createElement("td");
+     td15.innerText = prod.price_1.medium;
+     tr.append(td15);
+
+     td16 = document.createElement("td");
+     td16.innerText = prod.price_1.short;
+     tr.append(td16);
+// console.log(prod.price_1[short])
+     td14 = document.createElement("td");
+     td14.innerText = prod.image.src;
+     tr.append(td14);
+
+     td6 = document.createElement("td");
+     tr.append(td6);
+     // a update
+     butup = document.createElement("button");
+     butup.setAttribute("data-id", prod.product_id);
+     butup.setAttribute("class", "edit");
+     butup.innerText = "EDIT";
+     td6.append(butup);
+     // a delete
+     td7 = document.createElement("td");
+     tr.append(td7);
+     // a delete
+     butdel = document.createElement("button");
+     butdel.setAttribute("class", "delete");
+     butdel.setAttribute("data-uid", prod.product_id);
+     butdel.innerText = "DELETE";
+     td7.append(butdel);
+   }
+
+
+       const edit = document.querySelectorAll(".edit");
+       edit.forEach(function (findId) {
+         findId.addEventListener("click", function () {
+           const uniqueId = this.dataset.id;
+           localStorage.setItem("product_id", JSON.stringify(uniqueId));
+
+           const unique_id = JSON.parse(localStorage.getItem("product_id"));
+           console.log(unique_id)
+           const product_detail_list = JSON.parse(
+       localStorage.getItem("product_detail_list")
+           );
+
+           function findProduct(e) {
+             return e.product_id === unique_id;
+           }
+
+           productData = product_detail_list.find(findProduct);
+           console.log(productData);
+
+
+
+             
+           document.getElementById("product-name").value = productData.name;
+           document.getElementById("category").value = productData.category;
+           document.getElementById("description").value = productData.description;
+           // document.getElementById("cost").value = productData["price"];
+    
+           // document.getElementById("size_name").value = productData["quantities"]["name"];
+          //  console.log(productData['quantities']['"tall1"']['calories'])
+          //  document.getElementById("tall_quantity_value").value =
+          //    productData.quantities.tall.quantity;
+          //  document.getElementById("tall_calorie_value").value =
+          //    productData.quantities.tall.calories;
+    
+          //  document.getElementById("medium_quantity_value").value =
+          //    productData.quantities.medium.quantity;
+
+          //  document.getElementById("medium_calorie_value").value =
+          //    productData.quantities.medium.calories;
+    
+          //  document.getElementById("short_quantity_value").value =
+          //    productData.quantities.short.quantity;
+          //  document.getElementById("short_calorie_value").value =
+          //    productData.quantities.short.calories;
+    
+           document.getElementById("tall_price").value = productData.price_1.tall;
+           document.getElementById("medium_price").value = productData.price_1.medium;
+           document.getElementById("short_price").value = productData.price_1.short;
+           document.getElementById("image_url").value = productData.image.src;
+    
+
+      });
+       });
+    
+       const addProductForm = document.forms["add-product-form"];
+// Add an event listener to the form submit event
+const update = document.querySelector("#update");
+       update.addEventListener("click", update_product);
+       function update_product() {
+       
+        event.preventDefault();
+         const unique_id = JSON.parse(localStorage.getItem("product_id"));
+         const product_detail_list = JSON.parse(
+        localStorage.getItem("product_detail_list")
+      );
+         function findProduct(e) {
+           return e.product_id == unique_id;
+         }
+         productData = product_detail_list.find(findProduct);
+
+
+  const productNameInput = addProductForm["product-name"];
+  const tallPriceInput = addProductForm["tall_price"];
+  const mediumPriceInput = addProductForm["medium_price"];
+  const shortPriceInput = addProductForm["short_price"];
+  const categoryInput = addProductForm["category"];
+  // const tallQuantityInput = addProductForm["medium_quantity_value"];
+  // const tallCalorieInput = addProductForm["medium_calorie_value"];
+  // const mediumQuantityInput = addProductForm["medium_quantity_value"];
+  // const mediumCalorieInput = addProductForm["medium_calorie_value"];
+  // const shortQuantityInput = addProductForm["short_quantity_value"];
+  const shortCalorieInput = addProductForm["short_calorie_value"];
+  const descriptionInput = addProductForm["description"];
+  const image_urlInput = addProductForm["image_url"];
+  // 
+  // Validate the inputs
+  const productName = productNameInput.value.trim();
+  const tallPrice = tallPriceInput.value.trim();
+  const mediumPrice = mediumPriceInput.value.trim();
+  const shortPrice = shortPriceInput.value.trim();
+  const category = categoryInput.value.trim();
+  // const tallQuantity = tallQuantityInput.value.trim();
+  // const tallCalorie = tallCalorieInput.value.trim();
+  // const mediumQuantity = mediumQuantityInput.value.trim();
+  // const mediumCalorie = mediumCalorieInput.value.trim();
+  // const shortQuantity = shortQuantityInput.value.trim();
+  // const shortCalorie = shortCalorieInput.value.trim();
+  const description = descriptionInput.value.trim();
+  const image_url = image_urlInput.value.trim();
+
+  if (productName === "") {
+  showError(productNameInput, "Product name is required");
+  return;
+  }
+
+  if (description === "") {
+  showError(descriptionInput, "description is required");
+  return;
+  }
+
+  if (image_url === "") {
+  showError(image_urlInput, "image_url is required");
+  return;
+  }
+
+  if (isNaN(tallPrice) || tallPrice === "") {
+    showError(tallPriceInput, "Price must be a number");
+    return;
+  }
+  if (isNaN(mediumPrice) || mediumPrice === "") {
+    showError(mediumPriceInput, "Price must be a number");
+    return;
+  }
+
+  if (isNaN(shortPrice) || shortPrice === "") {
+    showError(shortPriceInput, "Price must be a number");
+    return;
+  }
+
+ 
+  if (parseFloat(tallPrice) < 350 || parseFloat(tallPrice) > 450) {
+  showError(tallPriceInput, "Tall price must be between 350 and 450");
+  return;
+}
+
+if (parseFloat(mediumPrice) > (tallPrice-100) || parseFloat(mediumPrice) < 200) {
+  showError(mediumPriceInput, "Medium price must be greater than shortprice and lesser than tall price");
+  return;
+}
+if (parseFloat(shortPrice) > (mediumPrice-150) || parseFloat(shortPrice) < 100) {
+  showError(mediumPriceInput, "Medium price must be greater than shortprice and lesser than tall price");
+  return;
+}
+
+  /////
+//   if (isNaN(tallQuantity) || tallQuantity === "") {
+//     showError(tallQuantityInput, "quantity must be a number");
+//     return;
+//   }
+
+//   if (parseFloat(tallQuantity) <= 0) {
+//     showError(tallQuantityInput, "quantity must be greater than zero");
+//     return;
+//   }
+
+//   if (isNaN(tallCalorie) || tallCalorie === "") {
+//     showError(tallCalorieInput, "calorie must be a number");
+//     return;
+//   }
+
+//   if (parseFloat(tallCalorie) <= 0) {
+//     showError(tallCalorieInput, "calorie must be greater than zero");
+//     return;
+//   }
+
+//   ////
+//   if (isNaN(mediumQuantity) || mediumQuantity === "") {
+//     showError(mediumQuantityInput, "quantity must be a number");
+//     return;
+//   }
+
+//   if (parseFloat(mediumQuantity) <= 0) {
+//     showError(mediumQuantityInput, "quantity must be greater than zero");
+//     return;
+//   }
+
+//   if (isNaN(mediumCalorie) || mediumCalorie === "") {
+//     showError(mediumCalorieInput, "calorie must be a number");
+//     return;
+//   }
+
+//   if (parseFloat(mediumCalorie) <= 0) {
+//     showError(mediumCalorieInput, "calorie must be greater than zero");
+//     return;
+//   }
+//  //// 
+//   if (isNaN(shortQuantity) || shortQuantity === "") {
+//     showError(shortQuantityInput, "quantity must be a number");
+//     return;
+//   }
+
+//   if (parseFloat(shortQuantity) <= 0) {
+//     showError(shortQuantityInput, "quantity must be greater than zero");
+//     return;
+//   }
+
+
+//   if (isNaN(shortCalorie) || shortCalorie === "") {
+//     showError(shortCalorieInput, "calorie must be a number");
+//     return;
+//   }
+
+//   if (parseFloat(shortCalorie) <= 0) {
+//     showError(shortCalorieInput, "calorie must be greater than zero");
+//     return;
+//   }
+
+
+
+
+  if(category === ""){
+    showError(categoryInput,"category is required")
+    return;
+  }
+
+
+
+
+
+
+
+
+        //  // // // // // console.log(productData)
+        //  const category = document.getElementById("category").value;
+        //  // let category_description = document.getElementById("category_description").value;
+        //  const name = document.getElementById("product-name").value;
+        //  // let size_name = document.getElementById("size_name").value;
+        //  const quantity_value1 = document.getElementById("tall_quantity_value").value;
+        //  // let quantity_unit = document.getElementById("quantity_unit").value;
+        //  const calories_value1 = document.getElementById("tall_calorie_value").value;
+        //  const quantity_value2 = document.getElementById("medium_quantity_value").value;
+        //  // let quantity_unit = document.getElementById("quantity_unit").value;
+        //  const calories_value2 = document.getElementById("medium_calorie_value").value;
+        //  const quantity_value3 = document.getElementById("short_quantity_value").value;
+        //  // let quantity_unit = document.getElementById("quantity_unit").value;
+        //  const calories_value3 = document.getElementById("short_calorie_value").value;
+        //  // let calories_unit = document.getElementById("calories_unit").value;
+        //  const image_url = document.getElementById("image_url").value;
+        //  const description = document.getElementById("description").value;
+        //  // let cost = document.getElementById("cost").value;
+        //  const tall = document.getElementById("tall_price").value;
+        //  const short = document.getElementById("short_price").value;
+        //  const medium = document.getElementById("medium_price").value;
+    
+      productData.name = productName;
+         productData.category = category;
+         productData.description = description;
+         // productData["price"] = cost;
+         // productData["quantities"]["name"] = size_name;
+        //  productData.quantities.tall.quantity = tallQuantity;
+        //  productData.quantities.tall.calories = tallCalorie;
+        //  productData.quantities.medium.quantity = mediumQuantity;
+        //  productData.quantities.medium.calories = mediumCalorie;
+        //  productData.quantities.short.quantity = shortQuantity;
+        //  productData.quantities.short.calories = shortCalorie;
+         productData.price_1.tall = tallPrice;
+         productData.price_1.medium = mediumPrice;
+         productData.price_1.short = shortPrice;
+         productData.image.src = image_url;
+    
+         localStorage.setItem("product_detail_list",JSON.stringify(product_detail_list));
+         location.reload();
+
+};
+
+   
+ 
+    function showError(input, errorMessage) {
+  // Set the input as invalid
+  input.setCustomValidity(errorMessage);
+
+  // Display the error message
+  const errorElement = document.createElement("div");
+  errorElement.className = "error-message";
+  errorElement.textContent = errorMessage;
+  input.parentNode.insertBefore(errorElement, input.nextSibling);
+  errorElement.style.color = "red";
+
+  // Add a listener to remove the error message when the input is changed
+  input.addEventListener("input", function() {
+    input.setCustomValidity("");
+    errorElement.remove();
+  });
+}
+
+
+   const delete_product = document.querySelectorAll("button.delete");
+       delete_product.forEach(function (findUid) {
+        findUid.addEventListener("click", function () {
+           console.log(1)
+           const uniqueId = this.dataset.uid;
+           localStorage.setItem("product_id", JSON.stringify(uniqueId));
+           const unique_id = JSON.parse(localStorage.getItem("product_id"));
+           const product_detail_list = JSON.parse(
+             localStorage.getItem("product_detail_list")
+           );
+           function findProduct(e) {
+             return e.product_id == unique_id;
+           }
+           productData = product_detail_list.find(findProduct);
+    
+           const indexOfUser = product_detail_list.indexOf(productData);
+           product_detail_list.splice(indexOfUser, 1);
+    
+           // // // // console.log(indexOfUser);
+           localStorage.setItem(
+             "product_detail_list",
+             JSON.stringify(product_detail_list)
+           );
+        location.reload();
+         });
+       });
+
+  </script>
+  <script src="../../pages/order/header.js"></script>
+  </html>

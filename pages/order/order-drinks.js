@@ -236,7 +236,7 @@ const product_list = JSON.parse(localStorage.getItem("product_detail_list"));
 const current_category = product_list.filter(function category(type) {
     return type.category=== category_id;
 }
-);
+); 
 console.log(current_category)
 if(current_category.length!==0){
   for (let i = 0; i < current_category.length; i++) {

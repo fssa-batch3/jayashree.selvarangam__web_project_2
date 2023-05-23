@@ -60,6 +60,13 @@ const header_admin_header = `
 <a href="${root}/pages/admin/admin-profile.html" class="logo"> <img class="logo-img" src="../../assets/image/logo-transparent-png.png" alt=""> </a>
 <nav class="navbar">
     <a href="${root}/crud/addproduct.html">Add product</a>
+    <div class="dropdown2">
+    <a href="" class="nav2">  <span>View product</span>  </a>
+    <div class="dropdown-content2">
+   
+    </div>
+  </div>
+
     <a href="${root}/crud/addcategory.html">Add category</a>
     <!--<a href="${root}/pages/blogs/blog.html">Blogs</a>--> 
 </nav>
@@ -138,13 +145,33 @@ else if (user_id1 == null) {
 
 // category have to show in dropdown
 const categoryTypeUser = JSON.parse(localStorage.getItem("category")) || [];
+const categoryTypeUser1 = JSON.parse(localStorage.getItem("category")) || [];
 // console.log(categoryTypeUser)
 // console.log(findBrands)
-for(let i=0; i<categoryTypeUser.length; i++) {
-   if(categoryTypeUser[i].category_status === true){
-    const dropdownContent = document.createElement("a");
-    dropdownContent.setAttribute("href", `${root}/pages/order/order-drinks.html?category_id=${categoryTypeUser[i].category_id}`);
-    dropdownContent.innerHTML = categoryTypeUser[i].category
-    document.querySelector(".dropdown-content").append(dropdownContent)
-   }
+if(user_id1 !== admin_id){
+    for(let i=0; i<categoryTypeUser.length; i++) {
+        if(categoryTypeUser[i].category_status === true){
+         const dropdownContent = document.createElement("a");
+         dropdownContent.setAttribute("href", `${root}/pages/order/order-drinks.html?category_id=${categoryTypeUser[i].category_id}`);
+     
+         dropdownContent.innerHTML = categoryTypeUser[i].category;
+         document.querySelector(".dropdown-content").append(dropdownContent)
+        
+        }
+}
+
+
+}else{
+
+
+for(let i=0; i<categoryTypeUser1.length; i++) {
+    if(categoryTypeUser1[i].category_status === true){
+     
+     //////////
+     const dropdownContent2 = document.createElement("a");
+     dropdownContent2.setAttribute("href", `${root}/crud/viewproduct.html?category_id=${categoryTypeUser1[i].category_id}`);
+     dropdownContent2.innerHTML = categoryTypeUser1[i].category
+     document.querySelector(".dropdown-content2").append(dropdownContent2)
+    }
+ }
 }
