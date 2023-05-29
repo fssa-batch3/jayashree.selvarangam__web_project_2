@@ -433,17 +433,18 @@ const update = document.querySelector("#update");
   }
 
  
+ 
   if (parseFloat(tallPrice) < 350 || parseFloat(tallPrice) > 450) {
   showError(tallPriceInput, "Tall price must be between 350 and 450");
   return;
 }
 
-if (parseFloat(mediumPrice) > (tallPrice-100) || parseFloat(mediumPrice) < 200) {
-  showError(mediumPriceInput, "Medium price must be greater than shortprice and lesser than tall price");
+if (parseFloat(mediumPrice) >350 || parseFloat(mediumPrice) < 250) {
+  showError(mediumPriceInput, "medium price must be between 350 and 250");
   return;
 }
-if (parseFloat(shortPrice) > (mediumPrice-150) || parseFloat(shortPrice) < 100) {
-  showError(mediumPriceInput, "Medium price must be greater than shortprice and lesser than tall price");
+if (parseFloat(shortPrice) > 250|| parseFloat(shortPrice) < 150) {
+  showError(mediumPriceInput, "small price must be between 250 and 150");
   return;
 }
 

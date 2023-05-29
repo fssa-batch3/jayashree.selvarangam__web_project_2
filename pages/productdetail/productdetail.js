@@ -49,7 +49,7 @@ function findProduct(e) {
 }
 
 let productData = master_list.find(findProduct);
-
+console.log(productData)
 
 
  

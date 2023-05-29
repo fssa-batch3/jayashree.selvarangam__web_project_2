@@ -162,10 +162,10 @@ font-family: 'Quicksand', sans-serif;
 
     const queryString2 = window.location.search;
     // console.log(queryString);
-    const urlParams2 = new URLSearchParams(queryString);
-    console.log(urlParams);
-    const product2 = urlParams.get("order1_id");
-    console.log(product1);
+    // const urlParams2 = new URLSearchParams(queryString);
+    // console.log(urlParams);
+    // const product2 = urlParams.get("order_id");
+    // console.log(product1);
 
     localStorage.setItem("star_value", JSON.stringify("0"));
     const allStars = document.querySelectorAll(".star");
@@ -197,7 +197,7 @@ font-family: 'Quicksand', sans-serif;
     console.log(user_list);
     // let user_id = user_list.find(e=>{
     //     e.user_email === user_id_array ;
-    // })
+    // });
     function find_id(e) {
       return e.user_email === user_id_array;
     }
@@ -245,7 +245,7 @@ font-family: 'Quicksand', sans-serif;
       }
       const myOrder = JSON.parse(localStorage.getItem("orders"));
       function findProduct(type) {
-        return type.order_id === product2;
+        return type.order_id === product;
       }
       const myOrderObject = myOrder.find(findProduct);
       console.log(myOrderObject);

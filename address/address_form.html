@@ -67,9 +67,9 @@ font-family: 'Quicksand', sans-serif;
         // const submit = document.getElementById('save')
         // submit.addEventListener('submit',function(){
             const user_id = JSON.parse(localStorage.getItem("unique_id"));
-        const submit = document.getElementById('save')
+            const submit = document.getElementById('save')
 
-        const pincodeInput = document.getElementById('pincode');
+            const pincodeInput = document.getElementById('pincode');
 pincodeInput.addEventListener('blur', function() {
   const pincode = pincodeInput.value.trim();
   if (pincode !== '') {
@@ -121,8 +121,6 @@ else{
                 if(address_type==''||house_no==""||area==""||pincode==""){
                 alert('Please fill all the fields')
             }else{
-              
-              
                 address_array = [
                     {
                 address_type,

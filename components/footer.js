@@ -81,9 +81,7 @@ const footer_after_login = `
     </div>
     </div>
 </section>
-</footer>
-
-`;
+</footer>`;
 
 const user_login_id2 = JSON.parse(localStorage.getItem("unique_id"));
 console.log(user_login_id2);

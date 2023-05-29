@@ -351,7 +351,7 @@ if(address!==null){
 let boolean;
 for(let i=0;i<address.length;i++){
   if(address[i].value === false){
-    boolean = false
+    boolean = false;
   }else{
     boolean=true;
     break;
@@ -483,12 +483,12 @@ order.addEventListener("click", () => {
               date: moment().format("YYYY-MM-DD"),
               time_check: moment().format("YYYY-MM-DD  hh:mm:ssA").toString(),
               before_30_minutes: moment()
-                .add({ minutes: 15 })
-                .format("YYYY-MM-DD hh:mm:ssA"),
-                before_5_minutes: moment()
                 .add({ minutes: 5 })
                 .format("YYYY-MM-DD hh:mm:ssA"),
-              
+                before_5_minutes: moment()
+                .add({ minutes: 2 })
+                .format("YYYY-MM-DD hh:mm:ssA"),
+              review:false,
               // time_check :moment().format('YYYY-MM-DD  hh:mm:ssA').toString(),
               // before_30_minutes : moment().add({minutes:2}).format('YYYY-MM-DD hh:mm:ssA'),
               delivery: "not delivered"
@@ -551,12 +551,12 @@ order.addEventListener("click", () => {
               delivery_address: delivery_address.innerText,
               time_check: moment().format("YYYY-MM-DD  hh:mm:ssA").toString(),
               before_30_minutes: moment()
-                .add({ minutes: 15 })
-                .format("YYYY-MM-DD hh:mm:ssA"),
-                before_5_minutes: moment()
                 .add({ minutes: 5 })
                 .format("YYYY-MM-DD hh:mm:ssA"),
-                
+                before_5_minutes: moment()
+                .add({ minutes: 2 })
+                .format("YYYY-MM-DD hh:mm:ssA"),
+                review:false,
               delivery: "not delivered"
             })
           );
