@@ -35,12 +35,12 @@
                 <!-- <i class="fa-solid fa-trash" id="delete"></i> -->
                 <label>Address type:</label>
                 <input type="text" id="address-type" class="box" >
-                <label>House no:</label>
+                <!-- <label>House no:</label>
                 <input type="number" id="house-no" class="box" >
                 <label>Area:</label>
                 <input type="text" id="area"class="box" >
                 <label> pincode:</label>
-                <input type="number" id="pincode"  maxlength="5" pattern="\d{5}" title="must have 6 digits" class="box" >
+                <input type="number" id="pincode"  maxlength="5" pattern="\d{5}" title="must have 6 digits" class="box" > -->
                 <!-- <label for="default-address">default address</label>
                 <input type="checkbox" id="default-address"> -->
                 <!-- <a href="../../pages/profile/profile_edit.html"><input type="submit" value="Edit" class="btn"></a>
@@ -76,10 +76,10 @@ function findAddress(e) {
 let addressData = stored_address.find(findAddress);
 console.log(addressData)
 
-document.getElementById("address-type").value = addressData.address_type;
-document.getElementById("house-no").value = addressData.house_no;
-document.getElementById("area").value = addressData.area;
-document.getElementById("pincode").value = addressData.pincode;
+document.getElementById("address-type").value = addressData.address1;
+// document.getElementById("house-no").value = addressData.house_no;
+// document.getElementById("area").value = addressData.area;
+// document.getElementById("pincode").value = addressData.pincode;
 
 const addProductForm = document.forms["add-product-form"];
 // Add an event listener to the form submit event
@@ -98,45 +98,45 @@ function findAddress(e) {
   return e.id === address;
 }
 let addressData = stored_address.find(findAddress);   
-// getting the updated data from the input field
+// getting the updated data from the input field;
 
 
-const up_address_typeInput = addProductForm["address-type"];
-  const up_house_noInput = addProductForm["house-no"];
-  const up_areaInput = addProductForm["area"];
-  const up_pincodeInput = addProductForm["pincode"];
+const up_address_typeInput = addProductForm['address-type'];
+  // const up_house_noInput = addProductForm["house-no"];
+  // const up_areaInput = addProductForm["area"];
+  // const up_pincodeInput = addProductForm["pincode"];
 
   const up_address_type = up_address_typeInput.value.trim();
-  const up_house_no = up_house_noInput.value.trim();
-  const up_area = up_areaInput.value.trim();
-  const up_pincode = up_pincodeInput.value.trim();
+  // const up_house_no = up_house_noInput.value.trim();
+  // const up_area = up_areaInput.value.trim();
+  // const up_pincode = up_pincodeInput.value.trim();
 
   if (up_address_type === "") {
   showError(up_address_typeInput, "Address is required");
   return;
   }
 
-  if (up_house_no === "") {
-  showError(up_house_noInput, "House no is required");
-  return;
-}
+//   if (up_house_no === "") {
+//   showError(up_house_noInput, "House no is required");
+//   return;
+// }
 
-  if (up_area === "") {
-  showError(up_areaInput, "Area is required");
-  return;
-  }
+//   if (up_area === "") {
+//   showError(up_areaInput, "Area is required");
+//   return;
+//   }
   
-  if ( up_pincode=== "") {
-  showError(up_pincodeInput, "pincode is required");
-  return;
-  }
+//   if ( up_pincode=== "") {
+//   showError(up_pincodeInput, "pincode is required");
+//   return;
+//   }
  
 // // const up_checkbox = checkbox.checked;
   // paste the updated data to the correct object
-  addressData.address_type = up_address_type;
-  addressData.house_no =up_house_no ;
-  addressData.area = up_area;
-  addressData.pincode =up_pincode ;
+  addressData.address1 = up_address_type;
+  // addressData.house_no =up_house_no ;
+  // addressData.area = up_area;
+  // addressData.pincode =up_pincode ;
 //   addressData.value=value1;
 
   // again paste it to the

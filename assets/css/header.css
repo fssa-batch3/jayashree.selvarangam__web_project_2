@@ -225,9 +225,11 @@ html{
 } */
 
 .search-container {
-  max-width: 300px;
+  width:17vw;
   /* margin: 20px auto; */
   position: absolute;
+  margin-left: 3.7vw;
+  
   padding: 5px;
   background-color: #fff;
   left: 900px;
@@ -235,7 +237,7 @@ html{
   /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); */
 }
 #searchInput {
-  width: 90%;
+  width:16.5vw;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -247,6 +249,8 @@ html{
   list-style-type: none;
   margin: 10px 0;
   padding: 0;
+  position: absolute;
+  background-color: white;
 }
 
 #searchResults li {

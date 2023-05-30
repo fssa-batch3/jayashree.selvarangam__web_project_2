@@ -154,20 +154,21 @@ input[type=radio]{
 
 
 let address_array= JSON.parse(localStorage.getItem('address'));
+console.log(address_array)
 
+for (let i = 0; i < address_array.length; i++) {
+    let new_address = `
+        <div class="choices">
+            <div class="radio"> 
+                <input type="radio" id="${i + 1}" data-id="${address_array[i]['id']}" name="address_type" value="${address_array[i]['address1']}">
+            </div>
+            <div class="name">
+                <label for="${i + 1}">${address_array[i]['address1']}</label>
+            </div>
+        </div>
+    `;
 
-
-for(let i=0;i<address_array.length;i++){
-  
-    let new_address = ` <div class="choices">
-                        <div class="radio"> 
-                        <input type="radio" id="${i+1}" data-id=${address_array[i]['id']} name="address_type" value='${address_array[i]['address_type']+address_array[i]['house_no']+address_array[i]['area']+address_array[i]['pincode']}''>
-                        </div>
-                        <div class="name">
-                        <label for="${i+1}" >${address_array[i]['address_type']+",  no "+address_array[i]['house_no']+", "+address_array[i]['area']+", "+address_array[i]['pincode']}</label>
-                        </div>
-                        </div>`
-        document.querySelector('.pickup-choices').insertAdjacentHTML('beforeend',new_address)
+    document.querySelector('.pickup-choices').insertAdjacentHTML("beforeend", new_address);
 }
 console.log(form)
   const sub = document.getElementById("sub");

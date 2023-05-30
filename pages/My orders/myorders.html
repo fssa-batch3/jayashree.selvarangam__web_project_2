@@ -40,7 +40,7 @@ main {
 .order-item {
   border: 1px solid #ccc;
   padding: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 5vh;
 }
 
 .order-item h3 {
@@ -53,21 +53,26 @@ main {
 
 
 .req{
-    display: grid;
-    /* align-items: center; */
-    grid-template-columns: 1fr  1fr 1fr 1fr;
-    margin-bottom: 10px;
+   display: flex;
+   justify-content: space-between;
+    margin-bottom: 7vh;
+    padding: 14px 50px 10px 50px;
+    background-color: #ececec;
 } 
-
+.reorder1{
+  padding-top: 2.5vh;
+}
 .order-details{
-    display: grid;
-    /* align-items: center; */
-     grid-template-columns: 1fr  1fr 1fr 1fr;
-    margin-bottom: 10px;
+  display: flex;
+  justify-content: space-around;
+    margin-bottom:10vh;
+}
+.quantity{
+  padding-top: 4.5vh;
 }
 
  .order-details .product {
-  display: flex;
+  display:flex;
   align-items: center;
   margin-right: 20px;
 }
@@ -77,6 +82,7 @@ main {
   width: 80px;
   height: 80px;
   margin-right: 10px;
+  object-fit:cover;
 }
 
 .order-details .product-info h4,
@@ -86,7 +92,7 @@ main {
 
 .order-total {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
   margin-top: 20px;
 }
