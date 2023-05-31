@@ -237,7 +237,7 @@ html{
 .search-container{
   width:17vw;
   /* margin: 20px auto; */
-  position: absolute;
+  /* position: absolute; */
   margin-left: 3.7vw;
   padding: 5px;
   background-color: #fff;
@@ -265,6 +265,7 @@ html{
 
 #searchResults li{
   margin-bottom: 5px;
+  width:17vw;
 }
 
 #searchResults li a{
