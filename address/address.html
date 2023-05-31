@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+    <title>Document</title>
+    <link rel="stylesheet" href="../assets/css/header.css">
+    <link href="https://fonts.googleapis.com/css2?family=Aclonica&family=Merienda:wght@300;400;500;600&family=Montserrat:wght@400;500&family=Poppins:ital,wght@0,100;0,300;0,400;1,100;1,200;1,300;1,400&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+      * { font-family: 'Aclonica', sans-serif;
+font-family: 'Merienda', cursive;
+font-family: 'Montserrat', sans-serif;
+font-family: 'Poppins', sans-serif;
+font-family: 'Quicksand', sans-serif;
+    }
+    </style>
+    <style>
+   :root{
+    --main-color:#443;
+    --bs-pink: #d63384;
+    --bs-red: #dc3545;
+    --bs-orange: #b94728;
+    --bs-yellow: #ffc107;
+    --bs-green: #198754;
+    --bs-teal: #20c997;
+    --bs-cyan: #0dcaf0;
+    --bs-gray-400: #ced4da;
+    --bs-gray-500: #adb5bd;
+    --bs-gray-600: #6c757d;
+    --bs-gray-700: #495057;
+    --bs-gray-800: #343a40;
+    --bs-gray-900: #212529;
+    --bs-primary: #0d6efd;
+    --border-radius:30% 4% ;
+    --border-radius-hover:4% 30%;
+    --border:.2rem solid var(--main-color);
+    --border-hover:.2rem dashed var(--main-color);
+}
+        .address_container{
+            border: 1px solid wheat;
+            border-radius: 15px;
+            padding: 10px 15px 10px 15px;
+            margin: 30px;
+            background-color:var(--bs-gray-400);
+            box-shadow: 3px 3px var(--bs-gray-600);
+        }
+        *{
+            color:var(--bs-gray-800)
+        }
+        .add_address img {
+    margin-left: 10px;
+    border-style: inset;
+    color: teal;
+}
+        .show_address{
+            margin-top: 30px;
+        }
+        #edit{
+            /* padding: 5px 25px;
+            border-radius: 5px;
+            position: relative;
+            bottom: 30px; 
+            background-color: #debb79; */
+            padding: 5px 25px;
+    border-radius: 5px;
+    /* position: relative; */
+    /* bottom: 30px; */
+    /* background-color:var(--bs-teal); */
+        }
+        .add_address{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 50px;
+        }
+        .add_address img{
+            margin-left:10px;
+            border-style: inset;
+        }
+        .single_address{
+            display: flex;
+            flex-direction: row;
+            margin:30px 60px;
+            overflow-x: scroll;
+        }
+        .address1{
+            max-width: 500px;
+            width: 250px;
+            height: 280px;
+        }
+        .address_type{
+            text-align: center;
+            margin-top:10px;
+        }
+        /* .main_address{
+            padding: 10px 10px;
+            width: 300px;
+        } */
+        .main_address {
+    padding: 10px 10px;
+    width: 300px;
+    margin: 30px;
+}
+#default_id{
+    
+    position: relative;
+    bottom: 10px;
+    color:teal
+}
+#default_id:hover{
+    color:var(--bs-gray-600);
+}
+ .default123 {
+    border-style: none;
+    border-radius: 50px;
+    width: 70%;
+    padding: 5px;
+    background:teal;
+    color: white;
+    border-color: unset;
+    align-items: center;
+    text-align: center;
+}
+.button {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+#edit {
+    padding: 5px 25px;
+    border-radius: 5px;
+    /* position: relative; */
+    /* bottom: 30px; */
+    position: relative;
+    bottom: 10px;
+    /* background-color: #debb79; */
+}
+.main_address h3{
+    margin:5px 0px;
+    height:125px ;
+}
+.main_address{
+    padding: 10px 10px;
+    width: 100%;
+    margin: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.single_address::-webkit-scrollbar {
+ display: none;
+}
+       
+    /* .default {
+ */    /* position: absolute;
+    
+    /* text-align: center; */
+    /* padding-left: 75px;
+} */ 
+
+        .button{
+            width: 100%;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+        }
+.go{
+    margin-left: 50px;
+    font-weight: bold;
+
+}
+.go:hover{
+    color:var(--bs-teal)
+}
+
+    </style>
+</head>
+<body>
+    <section class="add_address">
+        <div class="add_address">
+            <h2>Add Address</h2>
+         <a href="../address/address_form.html"> <img src="../assets/image/download1234.png" alt="" width="35px"></a>
+        </div>
+    </section>
+    <section class="show_address">
+        <div class="single_address">
+
+        </div>
+        <!-- <div class="address_container">
+            <div class="address">
+                <h2 class="address_type">Home</h2>
+                <h2 class="no">No <span class="house_no">4</span></h2>
+                <h3 class="address_info"> maha st anna nagar </h3>
+                <h3 class="address_info1"> chennai </h3>
+                <h3 class="address_info2">238098</h3>
+                <p class="default">default address</p>
+            </div>
+            <div class="button">
+                <a href="../address/address_edit.html"> <button>Edit</button> </a>
+            </div>
+
+        </div> -->
+
+    </section>
+    <p class="go"><a href="../pages/add to cart/addtocart.html">Go to add to cart  &#8592;</a></p>
+    
+</body>
+<script src="../pages/order/header.js"></script>
+<script>
+    let stored_address = JSON.parse(localStorage.getItem('address'));
+ console.log(stored_address)
+const requiredObjectIndex = stored_address.findIndex(obj => obj.value === true);
+
+if (requiredObjectIndex !== -1) {
+  const requiredObject = stored_address.splice(requiredObjectIndex, 1)[0];
+  stored_address.unshift(requiredObject);
+  localStorage.setItem('address',JSON.stringify(stored_address))
+}
+console.log(stored_address);
+    for(let i=0;i<stored_address.length;i++){
+        let value1;
+        if(stored_address[i]['value']===true){
+            value1 = 'default';
+        }else{
+            value1 = 'not default';
+        }
+console.log(stored_address[i]['pincode']);
+
+
+        let address_container = `
+        <div class="address_container">
+            <div class="address1">
+                    <div class="address">
+                        <h2 class="address_type">Address${i+1}</h2>
+                        <div class="main_address">
+                       <!-- <h3 class="no">No <span class="house_no">${stored_address[i]['house_no']}</span></h3>-->
+                        <!--<h3 class="address_info">${stored_address[i]['area']}</h3> -->
+                      <!--  <h3 class="address_info1"> chennai</h3> -->
+                        <h3 class="address_info2">${stored_address[i]['address1']}</h3>
+                        <p class="default123">${value1} </p>
+                        </div>
+                    </div>
+                    <div class="button">
+                        <a href="../address/address_edit.html?address_id=${stored_address[i]['id']}" > <button id="edit" data-id="${stored_address[i]['id']}">Edit</button> </a>
+                    </div>
+                    <div class="default">
+                        <h4 id="default_id" data-id=${stored_address[i]['id']}>set as default</h4>
+                    </div>
+            </div>
+        </div>
+        `
+    document.querySelector('.single_address').insertAdjacentHTML('beforeend',address_container)
+    }
+    let default1='';
+    for(let i=0;i<stored_address.length;i++){
+    if(stored_address[i].value===true){
+        
+         let div_default = document.getElementById('default_id');
+        div_default.setAttribute('style','display:none')
+    }else{
+        default1='';
+    }
+}
+
+let set_default_button = document.querySelectorAll('#default_id');
+
+
+set_default_button.forEach(function (findUid) {
+findUid.addEventListener("click", function () {
+    let stored_address = JSON.parse(localStorage.getItem('address'));
+    function findAddress1(e){
+    return    e.value === true;
+    };
+    let personData1 = stored_address.find(findAddress1)
+    if(personData1){
+    personData1.value = false;
+    localStorage.setItem('address',JSON.stringify(stored_address)) 
+    }
+    let stored_address1 = JSON.parse(localStorage.getItem('address')); 
+
+    let uid = this.dataset.id;
+    console.log(uid)
+    function findAddress(e){
+    return    e.id === uid;
+    };
+    let personData = stored_address1.find(findAddress)
+    console.log(personData)
+    if(personData){
+     personData.value = true;
+     localStorage.setItem('address',JSON.stringify(stored_address1));
+    }
+     console.log(stored_address1)
+     location.reload();
+     });
+    });
+
+//     let edit1 = document.getElementById('edit');
+//     edit1.forEach((findId) => {
+//   findId.addEventListener("click", (e) => {
+//         let id = findId.dataset.id;
+//         location.href = `../address/address_edit.html?address_id=${id}`;
+//   })
+//     })
+</script>
+</html>

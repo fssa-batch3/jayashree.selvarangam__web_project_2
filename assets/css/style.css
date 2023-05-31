@@ -190,8 +190,9 @@ header{
 }
 .coffee-products{
     margin-top:2rem;
-    display: grid;
-    grid-template-columns:1fr 1fr 1fr 1fr 1fr 1fr;
+    display: flex;
+    
+    
     column-gap:3rem;
     overflow-x:scroll;
    
@@ -221,11 +222,13 @@ header{
     margin-top: 0;
     margin-bottom:.625rem;
     color: var(--bs-gray-600);
+    font-weight: 600;
 }
 .coffee-message{
    margin-top: 0;
    font-size:.9rem;
    color: var(--bs-gray-500);
+   font-weight: 600;
 }
 .coffee-cost-details{
     display:flex;
@@ -355,7 +358,7 @@ section{
 }
 .footer .box-container{
     display: grid;
-    grid-template-columns:1fr 1fr 1fr ;
+    grid-template-columns:1fr 1fr 1fr 1fr;
     gap:1.5rem;
     
 }

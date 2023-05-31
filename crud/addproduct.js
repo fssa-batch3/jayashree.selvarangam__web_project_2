@@ -1,10 +1,5 @@
-
-
-
-
 // const form = document.getElementById("form");
 // form.addEventListener("submit",submit1);
-
 
 // function   addData(category,name,size_name,quantity_value,calories_value,description, cost) {
 
@@ -21,8 +16,6 @@
 //     let cost_td= document.createElement("td");
 //     let events_td = document.createElement("td");
 
- 
-
 //     category_td.innerText = category;
 //     name_td.innerText =name ;
 //     size_name_td.innerText =size_name ;
@@ -30,35 +23,24 @@
 //     calories_value_td.innerText = calories_value;
 //     description_td.innerText = description;
 //     cost_td.innerText = cost;
-    
+
 //     let edit_button = document.createElement("button");
 //     edit_button.setAttribute("class", "edit_button");
 //     edit_button.innerText = "edit";
 //     events_td.append(edit_button);
 
-
 //     let delete_button = document.createElement("button");
-//     delete_button.setAttribute("class", "del_button");
+//     delete_button.setAttribute("class", "del_button"); 
 //     delete_button.innerText = "delete";
 //     events_td.append(delete_button);
 
 //     productDetails.append(category_td,name_td,size_name_td,quantity_value_td,calories_value_td,description_td,cost_td, events_td)
 //     crudTable.append(productDetails);
 
-    
 // };
 // product_detail_list.forEach(addData);
 
-
 // // let product_detail_list=JSON.parse(localStorage.getItem('product_detail_list'));
-
-
-
-
-
-
-
-
 
 // function submit1(e){
 //     e.preventDefault();
@@ -76,15 +58,10 @@
 //     // let currency = document.getElementById("currency").value;
 //     // let offers = document.getElementById("offers").value;
 
-
-
 //     addData(category,name,size_name,quantity_value,calories_value,description, cost);
-
 
 //     let product_detail_list= JSON.parse(localStorage.getItem('product_detail_list'))||[];
 
-
-    
 //          let product_detail = {
 //             "category":category,
 //             // "category_description":category_description,
@@ -98,37 +75,28 @@
 //             "calories_unit":"kcal",
 //             },
 //             "image":{
-   
+
 //                 "source":image_url,
 //                 "alt":""
 //             },
-           
+
 //             "description":description,
-           
+
 //             "price":cost,
 //             "currency":"Rs."
 //          }
 
-       
-         
-
 //           product_detail_list.push(product_detail);
-          
+
 //           localStorage.setItem("product_detail_list",JSON.stringify(product_detail_list));
-       
 
-  
 // }
-
-            
-    
-
 
 // let id="no";
 
 // selectData();
 // function manageData(){
-    
+
 //    document.getElementById('msg').innerHTML= "";
 // //    let first_name = document.getElementById('first_name').value;
 // let category = document.getElementById("category").value;
@@ -159,18 +127,18 @@
 //             calories_unit:"kcal",
 //             },
 //             image:{
-   
+
 //                 source:image_url,
 //                 alt:""
 //             },
-           
+
 //             description:description,
-           
+
 //             price:cost,
 //             currency:"Rs."
 //          }];
 //          localStorage.setItem('crud',JSON.stringify(data));
-         
+
 //        }else{
 //         arr.push({
 //             category:category,
@@ -185,19 +153,19 @@
 //             calories_unit:"kcal",
 //             },
 //             image:{
-   
+
 //                 source:image_url,
 //                 alt:""
 //             },
-           
+
 //             description:description,
-           
+
 //             price:cost,
 //             currency:"Rs."
 //          });
 //         localStorage.setItem('crud',JSON.stringify(arr));
 //        }
-       
+
 //        document.getElementById('msg').innerHTML = 'data added';
 //     }else{
 //        let arr=getCrudData();
@@ -242,7 +210,7 @@
 //             // sno++;
 //         }
 //         document.getElementById('root').innerHTML = html;
-        
+
 //         console.log(html);
 //     }
 // }
@@ -275,15 +243,12 @@
 // function setCrudData(arr){
 //     localStorage.setItem('crud',JSON.stringify(arr));
 //     return arr;
-// }      
-     
+// }
 
-
-   ////using bakya code
+/// /using bakya code
 
 // const form = document.getElementById("form");
 // form.addEventListener("submit",submit1);
-
 
 // function   addData(category,name,size_name,quantity_value,calories_value,description, cost) {
 
@@ -300,8 +265,6 @@
 //     let cost_td= document.createElement("td");
 //     let events_td = document.createElement("td");
 
- 
-
 //     category_td.innerText = category;
 //     name_td.innerText =name ;
 //     size_name_td.innerText =size_name ;
@@ -309,12 +272,11 @@
 //     calories_value_td.innerText = calories_value;
 //     description_td.innerText = description;
 //     cost_td.innerText = cost;
-    
+
 //     let edit_button = document.createElement("button");
 //     edit_button.setAttribute("class", "edit_button");
 //     edit_button.innerText = "edit";
 //     events_td.append(edit_button);
-
 
 //     let delete_button = document.createElement("button");
 //     delete_button.setAttribute("class", "del_button");
@@ -323,17 +285,9 @@
 //     productDetails.append(category_td,name_td,size_name_td,quantity_value_td,calories_value_td,description_td,cost_td, events_td)
 //     crudTable.append(productDetails);
 
-    
 // };
 // product_detail_list.forEach(addData);
 
-
 // // let product_detail_list=JSON.parse(localStorage.getItem('product_detail_list'));
 
-///////using bakya code
-
-
-
-
-
-
+/// ////using bakya code

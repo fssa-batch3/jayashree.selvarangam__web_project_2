@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="../../assets/css/header.css">
+    <link rel="stylesheet" href="../../assets/css/footer.css ">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Aclonica&family=Merienda:wght@300;400;500;600&family=Montserrat:wght@400;500&family=Poppins:ital,wght@0,100;0,300;0,400;1,100;1,200;1,300;1,400&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style> 
+      *{ font-family: 'Aclonica', sans-serif;
+        font-family: 'Merienda', cursive;
+        font-family: 'Montserrat', sans-serif;
+        font-family: 'Poppins', sans-serif;
+        font-family: 'Quicksand', sans-serif;
+    }
+    </style>
+    
+    <style>
+         * {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+  }
+  
+  .container {
+    max-width: 600px;
+    margin: 20px auto;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+  }
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  [type=submit]:not(:disabled), button:not(:disabled) {
+    cursor: pointer;
+    padding: 12px 8px;
+    border: 1px teal solid;
+    color: teal;
+}
+
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  input[type="text"],
+  input[type="url"],
+  input[type="number"],
+  select,
+  textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    border: 1px solid #ccc;
+    margin-top: 5px;
+  }
+  .col-12 {
+    flex: 0 0 auto;
+    width: 100%;
+    padding: 2rem 9%;
+}
+  
+  input[type="submit"] {
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #3e8e41;
+  }
+  
+  select {
+    height: 40px;
+  }
+  
+  textarea {
+    resize: vertical;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .container {
+      max-width: 100%;
+    }
+  } 
+  .catego{
+    color:#444433;
+    padding: 2rem 9%;
+  }
+  
+  .full_div {
+    padding: 2rem 9%;
+}
+  
+    </style>
+</head>
+<body>
+  <h1 class="catego">ADD PRODUCT</h1>
+  <div class="container">
+ 
+    <form name="add-product-form">
+      <div class="form-group">
+        <label for="product-name">Product Name:</label>
+        <input type="text" value="Ginger Frappucino" id="product-name" name="product-name" >
+      </div>
+        
+    
+      <div class="form-group">
+        <label for="category">Category:</label>
+        <select type="text"  placeholder="select category" id="category" name="category">
+          <option value="" selected disabled>Select Category</option>
+          <!-- <option value="ESPRESSO">ESPRESSO</option>
+          <option value="FRAPPUCINO">FRAPPUCINO</option>
+          <option value="BREWED COFFEE">BREWED COFFEE</option>
+          <option value="TEA">TEA</option>
+          <option value="COLD BREW">COLD BREW</option> -->
+          
+      </select>
+       </div>
+
+       <div class="form-group">
+        <label for="decription">decription:</label>
+        <textarea type="text" value="Old Brew with Vanilla Sweet Cream is made with Starbucks® Cold Brew over ice and topped with a hand crafted vanilla sweet cream, which floats on top of the beverage before slowly cascading down." id="description" name="description" ></textarea>
+      </div>
+        
+      <div class="form-group">
+        <label for="image_url">image_url:</label>
+        <input type="text" value="../../assets/images/frappu.jpg" id="image_url" name="image_url" >
+      </div>
+
+       <div class="form-group">
+        <label for="tall_price">tall Price:</label>
+        <input type="text"  id="tall_price" max="5000" name="tall_price" >
+      </div>
+
+     
+
+      <div class="form-group">
+        <label for="medium_price">medium Price:</label>
+        <input type="text"  id="medium_price" name="medium_price" >
+      </div>
+
+     
+
+      <div class="form-group">
+        <label for="short_price">short Price:</label>
+        <input type="text"  id="short_price" name="short_price" >
+      </div>
+    
+     
+
+
+    
+
+        <button type="submit" id="create">add product </button>
+      </form>
+      <!-- <button type="submit" style="display:none" id="update">update product </button> -->
+
+      </div>
+      <!-- <hr>
+      <div class="row mt-5">
+          <div class="col-12">
+              <table class="table table-bordered">
+                  <thead>
+                      <td>Product_name</td>
+                     
+                     
+                      <td>tall_Rs</td>
+                      <td>short_Rs</td>
+                      <td>medium_Rs</td>
+                      <td>image_url</td>
+                      <td>edit</td>
+                      <td>delete</td>
+                  </thead>
+                  <tbody class="table_body"></tbody>
+                  my method <tbody id="root"></tbody> -->
+              <!-- </table>
+          </div>
+      </div> -->
+</body>
+<script src="https://cdn.jsdelivr.net/npm/uuid@8.3.2/dist/umd/uuidv4.min.js"></script>
+<script>
+
+const category_list = JSON.parse(localStorage.getItem('category'));
+      console.log(category_list)
+       for(let i=0;i<category_list.length;i++){
+        const option = document.createElement("option");
+        option.value = category_list[i].category_id;
+        option.innerText = category_list[i].category;
+        document.querySelector('#category').append(option);
+       };
+    // Get the form element
+
+    let category2 = document.getElementById('category').value;
+
+const addProductForm = document.forms["add-product-form"];
+// Add an event listener to the form submit event
+addProductForm.addEventListener("submit", function(event) {
+  // Prevent the default form submission behavior
+event.preventDefault();
+  
+  console.log(category2)
+  // Get the form inputs
+  const productNameInput = addProductForm["product-name"];
+  const tallPriceInput = addProductForm["tall_price"];
+  const mediumPriceInput = addProductForm["medium_price"];
+  const shortPriceInput = addProductForm["short_price"];
+  const categoryInput = addProductForm["category"];
+  
+  const descriptionInput = addProductForm["description"];
+  const image_urlInput = addProductForm["image_url"];
+  // 
+  // Validate the inputs
+  const productName = productNameInput.value.trim();
+  const tallPrice = tallPriceInput.value.trim();
+  const mediumPrice = mediumPriceInput.value.trim();
+  const shortPrice = shortPriceInput.value.trim();
+  const category1 = categoryInput.value.trim();
+ 
+  const description = descriptionInput.value.trim();
+  const image_url = image_urlInput.value.trim();
+
+//////////////
+
+
+
+  if (productName === "") {
+  showError(productNameInput, "Product name is required");
+  return;
+  }
+
+  if (description === "") {
+  showError(descriptionInput, "description is required");
+  return;
+}
+
+  if (image_url === "") {
+  showError(image_urlInput, "image_url is required");
+  return;
+  }
+
+  if (isNaN(tallPrice) || tallPrice === "") {
+    showError(tallPriceInput, "Price must be a number");
+    return;
+  }
+  
+  if (isNaN(mediumPrice) || mediumPrice === "") {
+    showError(mediumPriceInput, "Price must be a number");
+    return;
+  }
+
+  if (isNaN(shortPrice) || shortPrice === "") {
+    showError(shortPriceInput, "Price must be a number");
+    return;
+  }
+
+ 
+  if (parseFloat(tallPrice) > 450 || parseFloat(tallPrice) < 350) {
+  showError(tallPriceInput, "Tall price must be between 350 and 450");
+  return;
+}
+
+if (parseFloat(mediumPrice) > 350 || parseFloat(mediumPrice) < 250) {
+  showError(mediumPriceInput, "medium price must be between 250 and 350");
+  return;
+}
+if (parseFloat(shortPrice) > 250|| parseFloat(shortPrice) < 150) {
+  showError(shortPriceInput, "small price must be between 150 and 250");
+  return;
+}
+
+  /////
+
+//   if(tallQuantity>shortQuantity&&tallQuantity>mediumQuantity ){
+//   showError(tallQuantityInput, "quantity must be greater than short quantity");
+//   return;
+// }
+
+
+//   if(tallCalorie>shortCalorie&&tallCalorie>mediumCalorie ){
+//   showError(tallCalorieInput,"calorie must be greater than short quantity");
+//   return;
+// }
+
+ 
+// if( mediumQuantity> shortQuantity&& mediumQuantity < tallQuantity ){
+//   showError(mediumQuantityInput, "quantity must be greater than short quantity");
+//   return;
+// }
+
+// if( mediumCalorie > shortCalorie && mediumCalorie < tallCalorie){
+//   showError(mediumCalorieInput, "quantity must be greater than short quantity");
+//   return;
+// }
+
+
+  
+ 
+//   if(shortQuantity<tallQuantity&&shortQuantity<mediumQuantity ){
+//   showError(shortQuantityInput, "quantity must be greater than short quantity");
+//   return;
+// }
+
+// if(shortCalorie<tallCalorie || shortCalorie<mediumCalorie){
+//   showError(shortCalorieInput, "calorie must be lesser than other quantity");
+//   return;
+// }
+
+
+  if(category === ""){
+    showError(categoryInput,"category is required")
+    return;
+  }
+
+  let select_product_value = document.getElementById('category');
+  const category_value = select_product_value.value;
+
+// const category_name =select_product_value.innerText;
+// If all inputs are valid, submit the form;
+
+  const product_detail_list_1 = JSON.parse(
+       localStorage.getItem("product_detail_list")
+  )||[];
+     const exist =
+       product_detail_list_1.length &&
+       JSON.parse(localStorage.getItem("product_detail_list")).some(
+         (data) => data.productName == productName
+       );
+     if (!exist) {
+       const product_detail = {
+        'name':productName,
+        'price_1':{
+          'tall':tallPrice,
+         'medium':mediumPrice,
+        'short':shortPrice
+        },
+        'description':description,
+       
+      
+        'category':category_value,
+       'image':{
+        'src':image_url
+       },
+         'quantities': {
+          'tall': {
+             'name': "tall",
+             'quantity': 650,
+             'unit': "ml",
+            calories: 300,
+             'calories_unit': "kcal",
+           },
+           'medium': {
+            'name': "medium",
+             'quantity': 450,
+             'unit': "ml",
+             calories: 200,
+             'calories_unit': "kcal",
+           },
+           'short': {
+             'name': "short",
+             'quantity': 250,
+             'unit': "ml",
+             'calories': 100,
+             'calories_unit': "kcal",
+           }
+         },
+         'product_id':uuidv4()
+        };
+       product_detail_list_1.push(product_detail);
+       localStorage.setItem(
+         "product_detail_list",
+         JSON.stringify(product_detail_list_1)
+       );
+       alert("product successfully added");
+      
+     } else {
+       alert("product already exists");
+     }
+addProductForm.submit();
+
+}
+)
+
+// Helper function to show an error message for a form input
+function showError(input, errorMessage) {
+  // Set the input as invalid
+  input.setCustomValidity(errorMessage);
+
+  // Display the error message
+  const errorElement = document.createElement("div");
+  errorElement.className = "error-message";
+  errorElement.textContent = errorMessage;
+  input.parentNode.insertBefore(errorElement, input.nextSibling);
+  errorElement.style.color = "red";
+
+  // Add a listener to remove the error message when the input is changed
+  input.addEventListener("input", function() {
+    input.setCustomValidity("");
+    errorElement.remove();
+  });
+}
+
+
+
+</script>
+<script src="../../pages/order/header.js"></script>
+
+</html>

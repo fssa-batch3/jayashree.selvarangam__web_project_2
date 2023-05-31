@@ -22,7 +22,7 @@
 
 .orders-header{
     display:grid;
-    grid-template-columns:130px 3fr 100px 250px 200px;
+    grid-template-columns:130px 3fr 150px 150px 250px 200px 50px;
     padding: 1rem 8%;
     margin-bottom: 2rem;
     border-bottom: 1px solid var(--bs-gray-700);
@@ -30,9 +30,40 @@
     color: var(--bs-orange);
     font-size: 1.1rem;
    }
+
 .Yourcart{
     padding: 1rem 4%;
     margin-bottom: 2rem;
+}
+.id_status{
+    display:flex;
+    justify-content:space-between;
+    padding: 1rem 7%;
+}
+.date_mode_cancel_review{
+    display:flex;
+    justify-content:space-between;
+    padding: 1rem 8%;
+}
+.order_id{
+    display:flex;
+    justify-content:space-between;
+}
+.mode_of_delivery{
+    display:flex;
+    justify-content:space-between;
+}
+.mode_of_delivery{
+    display:flex;
+    justify-content:space-between;
+}
+.ordered-date{
+    display:flex;
+    justify-content:space-between;
+}
+.delivery_status{
+        display:flex;
+    justify-content:space-between;
 }
 .heading-cart{
     margin-bottom:1.5rem ;
@@ -40,16 +71,17 @@
     padding: 1rem 4%;
     margin-bottom: 2rem;
 }
-.beverage{
+/* .beverage{
     border-bottom: 1px solid var(--bs-gray-700);
-}
+} */
 .beverage-container{
     display:grid;
-    grid-template-columns:130px 3fr 100px 250px 200px;
+    grid-template-columns:130px 3fr 150px 150px 250px 200px 50px;
     padding-bottom:30px;
     padding-left: 50px;
     padding-right: 50px;
 }
+
 .beverage-image img{
     width:80px;
     height: 80px;
@@ -59,6 +91,41 @@
 .beverage-content{
     margin-top: 5px;
 }
+.whole-package{
+    display:flex;
+    justify-content: space-around;
+    width: 80vw;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-left: 10vw;
+    margin-bottom: 8vh;
+}
+.total_price1,.order_id1{
+    display: flex;
+    
+}
+.review1{
+  margin-top: 4vh;
+}
+.total_price2, .order_id2{
+    margin-right: 10px;
+    color: var(--bs-orange);
+    font-weight: 700;
+}
+.total_price3, .order_id3{
+    margin-right: 10px;
+    color: var(--bs-gray-600);
+    font-weight: 700;
+}
+
+
+.order_id123{
+    width:200px
+}
+/* .order_id123{
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+} */
 
 .beverage-title{
     margin-top:0;
@@ -78,12 +145,14 @@
     margin-top:0;
     margin-bottom:4px;
 }
-.beverage-costdetail{
+.beverage-costdetail,.beverage-costdetail1{
     margin-top:5px;
 }
-.delivery-status{
-    color:var(--bs-gray-800);
-    font-size:1.1rem;
+.delivery-status, .delivery-status1 {
+    /* color: var(--bs-gray-800); */
+    font-size: 1rem;
+    margin-top: 12px;
+    color: var(--bs-gray-600);
 }
 .beverage-costdetail a{
     color:var(--bs-teal);
@@ -91,16 +160,30 @@
    position: relative;
    top:19px;
 }
-.ordered-date{
+.ordered-date , .mode_of_delivery{
     color:var(--bs-gray-600);
     font-size:1rem;
    position: relative;
    top:20px;
 }
+.cancel,.reorder{
+    padding-top: 7px;
+    
+}
+#cancel_1,#reorder_1 {
+    padding: 10px 8px 10px 8px;
+    font-size: 15px;
+    color: teal;
+    border: 1px solid var(--bs-orange);
+    position: relative;
+    bottom: 15px;
+    font-weight: 600;
+}
 .quantity{
     position: relative;
     top:20px;
 }
+
 header #toggler{
     display: none;
  }
@@ -108,7 +191,7 @@ header #toggler{
  header .fa-bars{
      font-size: 1rem;
      color:#333;
-     border-radius: .10rem;
+     border-radius:.10rem;
      padding:.1rem .5rem;
      cursor: pointer;
      border:.1rem solid rgba(0,0,0,.3);
@@ -127,33 +210,35 @@ header #toggler{
         padding:.1rem;
     }
     header .fa-bars{
-        display: inline-block;
+        display : inline-block;
     }
     header .navbar{
-        position:absolute;
-        top:100%; left:0; right:0;
-        background:#eee;
-        border-top: .1rem solid rgba(0,0,0,.1);
-        clip-path:polygon(0 0, 0 0, 0 0, 0 0);
+        position:absolute; 
+        top:100%; 
+        left:0; 
+        right:0; 
+        background:#eee; 
+        border-top: .1rem solid rgba(0,0,0,.1); 
+        clip-path:polygon(0 0, 0 0, 0 0, 0 0); 
     }
 
     header #toggler:checked ~ .navbar{
-        clip-path:polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+        clip-path:polygon(0 0, 100% 0, 100% 100%, 0% 100%); 
     }
 
     header .navbar a{
-        margin:1.5rem;
-        padding:1.5rem;
-        display:block;
+        margin:1.5rem; 
+        padding:1.5rem; 
+        display:block; 
     }
     .beverage{
-        width: 100%;
+        width: 100%; 
     }
     .beverage-container{
-        display:grid;
-        grid-template-columns:50px 1fr 1.5fr .5fr;
-        font-size: 1rem;
-        column-gap: 1rem;
+        display:grid; 
+        grid-template-columns:50px 1fr 1.5fr .5fr; 
+        font-size: 1rem; 
+        column-gap: 1rem; 
     }
     .beverage-image img{
         width:40px;

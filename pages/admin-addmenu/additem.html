@@ -1,241 +1,234 @@
+<!DOCTYPE html>
 <!-- <!DOCTYPE html>
-<html lang="en">
-<head>
+    <html lang="en">
+    <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> coffee shop </title>
-
-   
-
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="../../assets/css/bootstrap.css">
-<!-- 
+    <!-- 
     <link rel="stylesheet" href="../../assets/css/additem.css"> -->
-    <!-- <link rel="stylesheet" href="../../assets/css/header.css">
+<!-- <link rel="stylesheet" href="../../assets/css/header.css">
     <link rel="stylesheet" href="../../assets/css/footer.css ">
-</head>
-<body>
+    </head>
+    <body>
 
     <header class="header">
 
-        <a href="../../pages/admin/registeradmin.html" class="logo"> The Caffine factory <i class="fas fa-mug-hot"></i> </a>
+    <a href="../../pages/admin/registeradmin.html" class="logo"> The Caffine factory <i class="fas fa-mug-hot"></i> </a>
     
-        <nav class="navbar">
-            <a href="../../pages/admin/registeradmin.html">Home</a>
-            <div class="dropdown">
-            <a href="">Add products</a>
-            <div class="dropdown-content">
-                <p>
-                    <a href="../../pages/admin-addmenu/addmenu.html">Add menu</a>
-                    </p>
-                    <p><a href="../../pages/admin-addmenu/addtype.html">Add type</a></p>
-                    <p>
-                    <a href="../../pages/admin-addmenu/additem.html">Add items</a>
-                </p>
-            </div>
-        </div>
-            <a href="../../pages/admin-removemenu/removemenu.html">Remove products </a>
-           <a href="">Personal details</a>-->
-            <!-- <a href="../admin-removemenu/removetype.html">Payment</a>
-        </nav>
-        <div class="icons">
-            <a href="../../pages/admin/admin-profile.html" class="fas fa-user"></a>
-        </div>
-        <a href="../../pages/admin/adminlogin.html" class="btn">Login</a>
+    <nav class="navbar">
+    <a href="../../pages/admin/registeradmin.html">Home</a>
+    <div class="dropdown">
+    <a href="">Add products</a>
+    <div class="dropdown-content">
+    <p>
+    <a href="../../pages/admin-addmenu/addmenu.html">Add menu</a>
+    </p>
+    <p><a href="../../pages/admin-addmenu/addtype.html">Add type</a></p>
+    <p>
+    <a href="../../pages/admin-addmenu/additem.html">Add items</a>
+    </p>
+    </div>
+    </div>
+    <a href="../../pages/admin-removemenu/removemenu.html">Remove products </a>
+    <a href="">Personal details</a>-->
+<!-- <a href="../admin-removemenu/removetype.html">Payment</a>
+    </nav>
+    <div class="icons">
+    <a href="../../pages/admin/admin-profile.html" class="fas fa-user"></a>
+    </div>
+    <a href="../../pages/admin/adminlogin.html" class="btn">Login</a>
     
-</header>
+    </header>
     <section class="home">
-        <div class="home-site" id="home-site">
-            <form class="addmenu" onsubmit="submit_1(event)">
-               <h1 class="heading">ADD ITEMS <span class="edit"><button class="edit-btn"><a href="../../pages/editmenu/edit-item.html">EDIT TYPE</a>
-                </button></span> </h1>
-               <div class="form">
+    <div class="home-site" id="home-site">
+    <form class="addmenu" onsubmit="submit_1(event)">
+    <h1 class="heading">ADD ITEMS <span class="edit"><button class="edit-btn"><a href="../../pages/editmenu/edit-item.html">EDIT TYPE</a>
+    </button></span> </h1>
+    <div class="form">
   
-                    <div class="name">
-                       <div class="label-name">
-                           <label>SELECT MENU</label>
-                       </div>
-                       <div class="input">
-                           <select id="menu" class="box" >
-                               <option>CHOOSE MENU</option>
-                                 <option>BESTSELLERS</option>
-                                 <option>DRINKS</option>
-                               </select>
-                       </div>
+    <div class="name">
+    <div class="label-name">
+    <label>SELECT MENU</label>
+    </div>
+    <div class="input">
+    <select id="menu" class="box" >
+    <option>CHOOSE MENU</option>
+    <option>BESTSELLERS</option>
+    <option>DRINKS</option>
+    </select>
+    </div>
                  
-                   </div>  
+    </div>  
                 
-                   <div class="name">
-                    <div class="label-name">
-                        <label>SELECT TYPE</label>
-                    </div>
-                    <div class="input">
-                        <select id="category" class="box" >
-                            <option selected>CHOOSE TYPE</option>
-                              <option>EXPRESSO</option>
-                              <option>FRAPPUCINO</option>
-                              <option >COLD BREW</option>
-                              <option >TEA</option>
-                              <option >BREWED COFFEE</option>
-                            </select>
-                    </div>
+    <div class="name">
+    <div class="label-name">
+    <label>SELECT TYPE</label>
+    </div>
+    <div class="input">
+    <select id="category" class="box" >
+    <option selected>CHOOSE TYPE</option>
+    <option>EXPRESSO</option>
+    <option>FRAPPUCINO</option>
+    <option >COLD BREW</option>
+    <option >TEA</option>
+    <option >BREWED COFFEE</option>
+    </select>
+    </div>
               
-                </div> 
-                 <div class="image">
-                    <div class="label-name">
-                        <label > CATEGORY_DESCRIPTION</label>
-                    </div>
-                    <div class="input">
-                        <textarea id="category_description"placeholder="add your description here" ></textarea>
-                    </div>
+    </div> 
+    <div class="image">
+    <div class="label-name">
+    <label > CATEGORY_DESCRIPTION</label>
+    </div>
+    <div class="input">
+    <textarea id="category_description"placeholder="add your description here" ></textarea>
+    </div>
               
-                </div> 
+    </div> 
               
-                <div class="image">
-                    <div class="label-name">
-                        <label>ITEM NAME</label>
-                    </div>
-                    <div class="input">
-                        <input id="name" type="text" class="box">
-                    </div>
+    <div class="image">
+    <div class="label-name">
+    <label>ITEM NAME</label>
+    </div>
+    <div class="input">
+    <input id="name" type="text" class="box">
+    </div>
               
-                </div>
-                <div class="image">
-                    <div class="label-name">
-                        <label>SIZE</label>
-                    </div>
-                    <div class="input">
-                        <input id="size_name" type="text" class="box">
-                    </div>
+    </div>
+    <div class="image">
+    <div class="label-name">
+    <label>SIZE</label>
+    </div>
+    <div class="input">
+    <input id="size_name" type="text" class="box">
+    </div>
               
-                </div>
+    </div>
 
-                <div class="image">
-                    <div class="label-name">
-                        <label>quantity_value</label>
-                    </div>
-                    <div class="input">
-                        <input id="quantity_value" type="text" class="box">
-                    </div>
+    <div class="image">
+    <div class="label-name">
+    <label>quantity_value</label>
+    </div>
+    <div class="input">
+    <input id="quantity_value" type="text" class="box">
+    </div>
               
-                </div>
+    </div>
 
-                <div class="image">
-                    <div class="label-name">
-                        <label>QUANTITY UNIT</label>
-                    </div>
-                    <div class="input">
-                        <input id="quantity_unit" type="text" class="box">
-                    </div>
+    <div class="image">
+    <div class="label-name">
+    <label>QUANTITY UNIT</label>
+    </div>
+    <div class="input">
+    <input id="quantity_unit" type="text" class="box">
+    </div>
               
-                </div>
+    </div>
 
-                <div class="image">
-                    <div class="label-name">
-                        <label>CALORIES VALUE</label>
-                    </div>
-                    <div class="input">
-                        <input id="calories_value" type="text" class="box">
-                    </div>
+    <div class="image">
+    <div class="label-name">
+    <label>CALORIES VALUE</label>
+    </div>
+    <div class="input">
+    <input id="calories_value" type="text" class="box">
+    </div>
               
-                </div>
+    </div>
 
-                <div class="image">
-                    <div class="label-name">
-                        <label>CALORIES UNIT</label>
-                    </div>
-                    <div class="input">
-                        <input id="calories_unit" type="text" class="box">
-                    </div>
+    <div class="image">
+    <div class="label-name">
+    <label>CALORIES UNIT</label>
+    </div>
+    <div class="input">
+    <input id="calories_unit" type="text" class="box">
+    </div>
               
-                </div>
+    </div>
 
-                <div class="image">
-                    <div class="label-name">
-                        <label>ADD IMAGE</label>
-                    </div>
-                    <div class="input">
-                        <input  id="image_url" type="url" class="box-2">
-                    </div>
-                    </div>
-                     <div class="image">
-                        <div class="label-name">
-                            <label > DESCRIPTION</label>
-                        </div>
-                        <div class="input">
-                            <textarea id="description"placeholder="add your description here" ></textarea>
-                        </div>
+    <div class="image">
+    <div class="label-name">
+    <label>ADD IMAGE</label>
+    </div>
+    <div class="input">
+    <input  id="image_url" type="url" class="box-2">
+    </div>
+    </div>
+    <div class="image">
+    <div class="label-name">
+    <label > DESCRIPTION</label>
+    </div>
+    <div class="input">
+    <textarea id="description"placeholder="add your description here" ></textarea>
+    </div>
                   
-                    </div>
+    </div>
                    
-                    <div class="image">
-                        <div class="label-name">
-                            <label>COST</label>
-                        </div>
-                        <div class="input">
-                            <input id="cost"type="number" class="box">
-                        </div>
-                        </div>
-                    </div>
-                    <div class="image">
-                        <div class="label-name">
-                            <label>CURRENCY</label>
-                        </div>
-                        <div class="input">
-                            <input id="currency" type="text" class="box">
-                        </div>
-                        </div>
-                        <div class="image">
-                            <div class="label-name">
-                                <label>offers</label>
-                            </div>
-                            <div class="input">
-                                <input id="offers"type="number" class="box">
-                            </div>
-                  
+    <div class="image">
+    <div class="label-name">
+    <label>COST</label>
+    </div>
+    <div class="input">
+    <input id="cost"type="number" class="box">
+    </div>
+    </div>
+    </div>
+    <div class="image">
+    <div class="label-name">
+    <label>CURRENCY</label>
+    </div>
+    <div class="input">
+    <input id="currency" type="text" class="box">
+    </div>
+    </div>
+    <div class="image">
+    <div class="label-name">
+    <label>offers</label>
+    </div>
+    <div class="input">
+    <input id="offers"type="number" class="box">
+    </div>
              
-                        <div>
-                            <button id="submit_button"  class="submit" type="submit">SUBMIT
-                                </button>
-                         </div>
-                    </div>
-                    </form> --> -->
-                    <!-- <div class="d-flex justify-content-center">
-                    <form> 
-                        <div class="mb-3">
-                          <label for="exampleInputEmail1" class="form-label">Email address</label>
-                          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                          <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-                        </div>
+    <div>
+    <button id="submit_button"  class="submit" type="submit">SUBMIT
+    </button>
+    </div>
+    </div>
+    </form> --> -->
+<!-- <div class="d-flex justify-content-center">
+    <form> 
+    <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+    </div>
 
-                        <div class="mb-3">
-                          <label for="exampleInputPassword1" class="form-label">Password</label>
-                          <input type="password" class="form-control" id="exampleInputPassword1">
-                        </div>
-                        <div class="mb-3 form-check">
-                          <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                          <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                        </div>
-                        <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label">Email address</label>
-                            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-                          </div>
-                          <div class="mb-3">
-                            <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                          </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                      </form>
-</div> -->
-                 
-
-
+    <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1">
+    </div>
+    <div class="mb-3 form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+    </div>
+    <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">Email address</label>
+    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+    </div>
+    <div class="mb-3">
+    <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    </div> -->
 
                 </body>
-            <script>
-
+<script>
 // let user_data = JSON.parse(localStorage.getItem('user_data'));
 // let unique = user_data["user_email"];
 // let user_list = JSON.parse(localStorage.getItem('user_list'));
@@ -259,8 +252,6 @@
 //     let currency = document.getElementById("currency").value;
 //     let offers = document.getElementById("offers").value;
 
-
-
 //     let product_detail_list= JSON.parse(localStorage.getItem('product_detail_list'))||[];
 
 //     let product_name = product_detail_list.some( data => data.name == name);
@@ -279,27 +270,23 @@
 //             "calories_unit":calories_unit,
 //             },
 //             "image":{
-   
+
 //                 "source":image_url,
 //                 "alt":""
 //             },
-           
+
 //             "description":description,
-           
+
 //             "price":cost,
 //             "currency":currency
 //          }
 //           product_detail_list.push(product_detail);
 //           localStorage.setItem("product_detail_list",JSON.stringify(product_detail_list));
-       
 
 //     }else{
-//            alert("product already exists"); 
+//            alert("product already exists");
 //         }
 // }
-
-
-
 
 //                 </script>
 //                 </html> -->

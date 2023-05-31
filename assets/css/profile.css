@@ -36,7 +36,7 @@
     background:url(../image/book-bg.jpg) repeat ;
     background-position: center;
     background-size: cover;
-    height:100vh ;
+    height:130vh ;
     
 }
 
@@ -53,6 +53,10 @@ label{
     text-transform: none;
     color:var(--main-color);
 }
+
+#edit1{
+    margin-left: 0px;
+}
 .profile form .box{
     width:100%;
     padding:1rem 1.2rem;
@@ -68,8 +72,8 @@ label{
 .profile form .box:focus{
     border:var(--border-hover);
 }
-.save{
-    margin-left: 300px;
+.save1{
+    margin-left: 200px;
 }
 a{
     color:var(--main-color);
@@ -129,7 +133,7 @@ header #toggler{
         margin:4rem auto 4rem auto;
         max-width: 24rem;
     }
-    .save{
+    .save1{
         margin-left: 10px;
     }
 }

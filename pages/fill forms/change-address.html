@@ -1,87 +1,268 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>coffee shop </title>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>coffee shop </title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+        <link rel="stylesheet" href="../../assets/css/change-address.css ">
+        <!-- <link rel="stylesheet" href="../../assets/css/addtocart.css"> -->
+        <link rel="stylesheet" href="../../assets/css/header.css">
+        <link rel="stylesheet" href="../../assets/css/footer.css ">
+        <link href="https://fonts.googleapis.com/css2?family=Aclonica&family=Merienda:wght@300;400;500;600&family=Montserrat:wght@400;500&family=Poppins:ital,wght@0,100;0,300;0,400;1,100;1,200;1,300;1,400&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        <style>
+          * { font-family: 'Aclonica', sans-serif;
+font-family: 'Merienda', cursive;
+font-family: 'Montserrat', sans-serif;
+font-family: 'Poppins', sans-serif;
+font-family: 'Quicksand', sans-serif;
+        }
+        </style>
+        <style>
+            .choices{
+    display:flex;
+    flex-direction: row;
+    flex:1 1 55px;
+    font-size: 19px;
+}
+input[type=radio]{
+    color:teal;
+     
+}
+.name{
+    margin-left: 7px;
+    color:teal;
+}
+        </style>
+    </head>
+    <body>
+        <!-- header section starts  -->
+        <!-- <header class="header">
+            <input type="checkbox" name="" id="toggler">
+            <label for="toggler" class="fas fa-bars"></label>
+            <a href="../../index.html" class="logo"> coffee <i class="fas fa-mug-hot"></i> </a>
 
-   
+            <nav class="navbar">
+            <a href="../../index.html">Home</a>
+            <a href="../../pages/order/order-bestseller.html">Order</a>
+            <a href="../../pages/payment/payment.html">Pay</a>
+            <a href="../../pages/My orders/myorders.html">My orders</a>
+            <a href="../../pages/blogs/blog.html">Blogs</a>
+            </nav>
+            <div class="icons">
+            <a href="../../pages/add to cart/addtocart.html" class="fas fa-shopping-cart"></a>
+            <a href="../../pages/profile/profile.html" class="fas fa-user"></a>
+            </div>
+            <a href="../../pages/login/login.html" class="btn">Login</a>
 
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" 
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
- 
-    <link rel="stylesheet" href="../../assets/css/change-address.css ">
-    <link rel="stylesheet" href="../../assets/css/header.css">
-    <link rel="stylesheet" href="../../assets/css/footer.css ">
-
-</head>
-<body>
-<!-- header section starts  -->
-<header class="header">
-    <input type="checkbox" name="" id="toggler">
-    <label for="toggler" class="fas fa-bars"></label>
-    <a href="../../index.html" class="logo"> coffee <i class="fas fa-mug-hot"></i> </a>
-
-    <nav class="navbar">
-        <a href="../../index.html">Home</a>
-        <a href="../../pages/order/order-bestseller.html">Order</a>
-        <a href="../../pages/payment/payment.html">Pay</a>
-        <a href="../../pages/My orders/myorders.html">My orders</a>
-         <!--<a href="../../pages/blogs/blog.html">Blogs</a>--> 
-    </nav>
-     <div class="icons">
-     <a href="../../pages/add to cart/addtocart.html" class="fas fa-shopping-cart"></a>
-     <a href="../../pages/profile/profile.html" class="fas fa-user"></a>
-</div>
-    <a href="../../pages/login/login.html" class="btn">Login</a>
-
-</header>
+            </header> -->
         <section class="profile" id="profile">
 
             <h1 class="heading">Change your address </h1>
          
-            <form action="">
+            <form action="" id="form">
                
-                <input type="text" placeholder="Name" id="name"class="box">
+                <!-- <input type="text" placeholder="Name" id="name"class="box"> -->
                
-               
-<!--                 
-                <input type="text" placeholder="Mobile number" class="box">
+                <!--                 
+                    <input type="text" placeholder="Mobile number" class="box">
                 -->
-
-                <input type="password" placeholder="Password" id="password" class="box">
+                <!-- 
+                    <input type="password" placeholder="Password" id="password" class="box"> -->
 
                 <!-- <input type="text" placeholder="District" class="box">
                 
-                <input type="text" placeholder="Pincode" class="box">
+                    <input type="text" placeholder="Pincode" class="box">
                 
-                <input type="text" placeholder="State" class="box"> -->
+                    <input type="text" placeholder="State" class="box"> -->
                 
-                <textarea name="" placeholder="Add your address" class="box" id="address" cols="30" rows="10"></textarea>
+                    <div class="pickup-choices">
+                        <!-- <div class="choices">
+                            <div class="radio"> 
+                                <input type="radio" id="1" name="delivery_type" value="takeaway">
+                            </div>
+                            <div class="name">
+                                <label for="1">Takeaway</label>
+                            </div>
+    
+                        </div>
+                        <div class="choices">
+                            <div class="radio">
+                                <input type="radio" id="2" name="delivery_type" value="dine_in">
+                            </div>
+                            <div class="name">
+                                <label for="2">Dine in</label>
+                            </div>
+                        </div>
+                        <div class="choices">
+                            <div class="radio">
+                                <input type="radio" id="3" name="delivery_type" value="delivery">
+                            </div>
+                            <div class="name">
+                                <label for="3">Delivery</label>
+                            </div>
+                        </div> -->
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <!-- <textarea name="" placeholder="Add your address" class="box" id="address" cols="30" rows="10"></textarea> -->
                
-                <button class="btn" onclick="submit()"><a href="../../pages/add to cart/addtocart.html">Submit</a> </button>  
-        
             </form>
+
+            <button class="btn" type="button" id="sub">Submit</button>
            
         </section>
 
-        </body>
-        <script>
-             function submit(){
-                const  userName = document.getElementById("name").value;
-                const  password = document.getElementById("password").value;
-                const  changeAddress = document.getElementById("address").value;
-                
-                console.log(userName);
-               console.log(password);
-                console.log( changeAddress);
+    </body>
+    <script src="../../pages/order/header.js"></script>
+    <script>
+//     const sub = document.getElementById("sub");
+//     sub.addEventListener("click", function () {
+//       const user_listq = JSON.parse(localStorage.getItem("user_list"));
+    
+//       const user_data = JSON.parse(localStorage.getItem("unique_id"));
+//       function findPlayer(e) {
+//         return e.user_email == user_data;
+//       }
+//       person_data = user_listq.find(findPlayer);
+//       console.log(person_data);
+//       const new_address = document.getElementById("address").value;
+//       person_data.user_address = new_address;
+//       const user_list = localStorage.setItem(
+//     "user_list",
+//     JSON.stringify(user_listq)
+//   );
+//       location.href = "/pages/add to cart/addtocart.html";
+//     });
 
-                localStorage.setItem("name",userName)
-                localStorage.setItem("password",password)
-                localStorage.setItem("address",changeAddress)
-             }
+let stored_address = JSON.parse(localStorage.getItem('address'));
+ console.log(stored_address)
+const requiredObjectIndex = stored_address.findIndex(obj => obj.value === true);
+
+if (requiredObjectIndex !== -1) {
+  const requiredObject = stored_address.splice(requiredObjectIndex, 1)[0];
+  stored_address.unshift(requiredObject);
+  localStorage.setItem('address',JSON.stringify(stored_address))
+}
+
+let address_array= JSON.parse(localStorage.getItem('address'));
+console.log(address_array)
+
+for (let i = 0; i < address_array.length; i++) {
+    let new_address = `
+        <div class="choices">
+            <div class="radio"> 
+                <input type="radio" id="${i + 1}" data-id="${address_array[i]['id']}" name="address_type" value="${address_array[i]['address1']}">
+            </div>
+            <div class="name">
+                <label for="${i + 1}">${address_array[i]['address1']}</label>
+            </div>
+        </div>
+    `;
+
+    document.querySelector('.pickup-choices').insertAdjacentHTML("beforeend", new_address);
+}
+console.log(form)
+  const sub = document.getElementById("sub");
+    sub.addEventListener("click",  () => {
+function radio(){
+const delivery = document.querySelectorAll('input[name="address_type"]');
+
+let selectedValue;
+let value1;
+for (let i = 0; i < delivery.length; i++) {
+  const element = delivery[i];
+  if (element.checked === true) {
+    selectedValue = element.value;
+    value1=i;
+    break;
+  }
+console.log(selectedValue);
+}
+
+let address = JSON.parse(localStorage.getItem('address'))
+for( i=0;i<address.length;i++){
+if(address[i].value===true){
+    address[i].value=false;
+    localStorage.setItem('address',JSON.stringify(address));
+}
+}
+if(value1){
+address[value1]['value'] = true;
+localStorage.setItem('address',JSON.stringify(address));
+console.log(address);
+}else{
+    alert('no address selected')
+}
+
+return selectedValue;
+
+
+}
+
+
+
+
+
+
+let selectedValue = radio();
+console.log(selectedValue);
+
+window.location.href="../../pages/add to cart/addtocart.html"
+ })
+
+//  const delivery1 = document.querySelectorAll('input[name="address_type"]');
+
+// let selectedValue;
+// for (let i = 0; i < delivery.length; i++) {
+//   const element = delivery[i];
+//   if (element.checked === true) {
+//     selectedValue = element.value;
+//     break;
+//   }
+// }
+// console.log(selectedValue)
+
+// console.log(radio())
+// // }
+// console.log(selectedValue)
+
+
+
+//     const sub = document.getElementById("sub");
+//     sub.addEventListener("click",  () => {
+//         const options = document.getElementsByName("address_type");
+
+// let selectedOption = null;
+
+// for (let i = 0; i < options.length; i++) {
+//   if (options[i].checked) {
+//     selectedOption = options[i].value === "true";
+//     break;
+//   }
+// }
+
+// console.log(selectedOption);
+
+// })
+
+
         </script>
-        </html>
+</html>
