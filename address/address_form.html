@@ -1,6 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
+<!-- <!DOCTYPE html>
+<html lang="en"> -->
+    <!-- <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,6 +22,9 @@ font-family: 'Montserrat', sans-serif;
 font-family: 'Poppins', sans-serif;
 font-family: 'Quicksand', sans-serif;
         }
+        .profile{
+            height:120vh;
+        }
         </style>
     </head>
     <body>
@@ -33,8 +36,8 @@ font-family: 'Quicksand', sans-serif;
             </h1>
          
             <form action="" >
-                <!-- <i class="fa-solid fa-trash" id="delete"></i> -->
-                <label>Address type:</label>
+                 <i class="fa-solid fa-trash" id="delete"></i> -->
+                <!-- <label>Address type:</label>
                 <input type="text" value="Home" id="address-type" class="box" required>
                 <label>House no:</label>
                 <input type="number" value="15" id="house-no" class="box" required>
@@ -42,96 +45,351 @@ font-family: 'Quicksand', sans-serif;
                 <input type="text" value=" kandaswamy st anna nagar "id="area"class="box" required>
                 <label> pincode:</label>
                 <input type="number" id="pincode" value="600002" maxlength="6" pattern="\d{6}" class="box" required>
-                <label for="default-address">default address</label>
-                <input type="checkbox" id="default-address"  >
+                <label> district:</label>
+                <input type="text" class="box" value="chennai"disabled>
+              <select value="chennai">
+                <option class="box" required>chennai</option>
+              </select> -->
+                <!-- <label for="default-address">default address</label>
+                <input type="checkbox" id="default-address"  > -->
                 <!-- <a href="../../pages/profile/profile_edit.html"><input type="submit" value="Edit" class="btn"></a>
                     <span class="save"> -->
                 <!-- <button  class="btn" id="delete" >delete profile
                     </button>  -->
-                <button type="button" class="btn" id="save">Save
+                <!-- <button type="button" class="btn" id="save">Save
                 </button>
             </form>
         </section>
 
     </body>
     <script src="https://cdn.jsdelivr.net/npm/uuid@8.3.2/dist/umd/uuidv4.min.js"></script>
-    <script>
+    <script>  
         // const submit = document.getElementById('save')
         // submit.addEventListener('submit',function(){
-            const user_id = JSON.parse(localStorage.getItem("unique_id"));
-        const submit = document.getElementById('save')
+//             const user_id = JSON.parse(localStorage.getItem("unique_id"));
+//             const submit = document.getElementById('save')
 
-        submit.addEventListener('click',function(){
+//             const pincodeInput = document.getElementById('pincode');
+// pincodeInput.addEventListener('blur', function() {
+//   const pincode = pincodeInput.value.trim();
+//   if (pincode !== '') {
+//     const pincodeRegex = /^6\d{5}$/; // regex pattern to match a pincode starting with 6 and having a total of 6 digits
+//     if (!pincodeRegex.test(pincode)) {
+//       alert('Invalid pincode! Please enter a valid pincode starting with 6 and having a total of 6 digits.');
+//     }
+//   }
+// });
+
+
+
+//         submit.addEventListener('click',function(){
     
-            let address_type = document.getElementById('address-type').value
-            let house_no = document.getElementById('house-no').value
-            let area = document.getElementById('area').value
-            let pincode = document.getElementById('pincode').value
-            const checkbox = document.getElementById("default-address");
-            const isChecked = checkbox.checked;
-            let value;
-            let address_array123 =[]
-            let address_array = JSON.parse(localStorage.getItem('address'))
-            if(isChecked===true && address_array===null){
-                value=true;
-            }else if(isChecked===true &&address_array!==null){
-                let address_array = JSON.parse(localStorage.getItem('address'));
-                address_array.forEach((object) => {
-                object.value = false;
-                localStorage.setItem('address',JSON.stringify(address_array))
-    })
-} 
-else{
-    value=false
-            };
-            if(address_array!==null){
-            for(let i=0;i<address_array.length;i++){
-           if(house_no==address_array[i].house_no&&area==address_array[i].area){
-            alert('Address already exist')
-           }
-        }
-    }
-            if(address_array===null){
-                if(address_type==''||house_no==""||area==""||pincode==""){
-                alert('Please fill all the fields')
-            }else{
-              
-              
-                address_array = [
-                    {
-                address_type,
-                house_no,
-                area,
-                pincode,
-                'id':uuidv4(),
-                district:'chennai',
-                value:value,
-                user_id
+//             let address_type = document.getElementById('address-type').value
+//             let house_no = document.getElementById('house-no').value
+//             let area = document.getElementById('area').value
+//             let pincode = document.getElementById('pincode').value
+//             const checkbox = document.getElementById("default-address");
+//             const isChecked = checkbox.checked;
+//             let value;
+//             let address_array123 =[]
+//             let address_array = JSON.parse(localStorage.getItem('address'))
+//             if(isChecked===true && address_array===null){
+//                 value=true;
+//             }else if(isChecked===true &&address_array!==null){
+//                 let address_array = JSON.parse(localStorage.getItem('address'));
+//                 address_array.forEach((object) => {
+//                 object.value = false;
+//                 localStorage.setItem('address',JSON.stringify(address_array))
+//     })
+// } 
+// else{
+//     value=false
+//             };
+//             let assign ;
+//             if(address_array!==null){
+//             for(let i=0;i<address_array.length;i++){
+//            if(house_no==address_array[i].house_no&&area==address_array[i].area){
+//             alert('Address already exist')
+//             assign = true;
+//             break;
+//            }
+//         }
+       
+//     };
+//           if(assign !== true){
+//             if(address_array===null){
+//                 if(address_type==''||house_no==""||area==""||pincode==""){
+//                 alert('Please fill all the fields')
+//             }else{
+//                 address_array = [
+//                     {
+//                 address_type,
+//                 house_no,
+//                 area,
+//                 pincode,
+//                 'id':uuidv4(),
+//                 district:'chennai',
+//                 value:value,
+//                 user_id
 
-                    }
+//                     }
                 
-                ]
-                localStorage.setItem('address',JSON.stringify(address_array))
-                }
-            }else{
-               let address_array = JSON.parse(localStorage.getItem('address'))
-               if(address_type==''||house_no==""||area==""||pincode==""){
-                alert('Please fill all the fields')
+//                 ]
+//                 localStorage.setItem('address',JSON.stringify(address_array))
+//                 }
+//             }else{
+//                let address_array = JSON.parse(localStorage.getItem('address'))
+//                if(address_type==''||house_no==""||area==""||pincode==""){
+//                 alert('Please fill all the fields')
 
-            }else{
-                address_array.push({    
-                address_type,
-                house_no,
-                area,
-                pincode,
-                'id':uuidv4(),
-                district:'chennai',
-                value:value     
-            })
-            localStorage.setItem('address',JSON.stringify(address_array))
-        }}
-        location.href="../../address/address.html";
-        })
+//             }else{
+//                 address_array.push({    
+//                 address_type,
+//                 house_no,
+//                 area,
+//                 pincode,
+//                 'id':uuidv4(),
+//                 district:'chennai',
+//                 value:value     
+//             })
+//             localStorage.setItem('address',JSON.stringify(address_array))
+//         }}
+//         location.href="../../address/address.html";
+//         }
+//     })
+
+    
+    
+//     </script>
+//     <script src="../../pages/order/header.js"></script>
+//     </html>
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add address</title>
+    <link rel="stylesheet" href="../../assets/css/header.css">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGhGk3DTCkjF1EUxpMm5ypFoQ-ecrS2gY&callback=initAutocomplete&libraries=places&v=weekly" defer></script>
+    <style>
+          .distance-form {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background:url(../image/book-bg.jpg) repeat ;
+    background-position: center;
+    background-size: cover;
+        }
+
+        .distance-form h1 {
+            text-align: center;
+        }
+
+        .distance-form label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .distance-form input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+        }
+
+        .distance-form input[type="checkbox"] {
+            margin-bottom: 10px;
+        }
+
+        .distance-form button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: teal;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .distance-form #result {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+     
+    </style>
+
+</head>
+<body>
+    <div class="distance-form">
+    <h1>Add address</h1>
+
+    <label for="place1">store location:</label>
+    <input type="text" id="place1" placeholder="Enter Place 1" value="BSR Mall, Pallavaram-Thuraipakkam Rd, Seevaram, Thoraipakkam, Tamil Nadu 600097" readonly>
+<br>
+
+    <label for="place2">your location:</label>
+    <input type="text" id="place2" placeholder="Enter Place 2">
+<br>
+
+    <label for="default-address">Default address</label>
+    <input type="checkbox" id="default-address">
+    <br>
+
+    <button onclick="calculateDistance()">Add address</button>
+
+    <br>
+
+    <div id="result"></div>
+</div>
+    <script>   // Autocomplete initialization
+        function initAutocomplete() {
+            var place1Input = document.getElementById('place1');
+            var place2Input = document.getElementById('place2');
+
+            var autocomplete1 = new google.maps.places.Autocomplete(place1Input, { strictBounds: true });
+            var autocomplete2 = new google.maps.places.Autocomplete(place2Input, { strictBounds: true });
+
+            var chennaiBounds = new google.maps.LatLngBounds(
+                new google.maps.LatLng(12.7998, 80.0059), // Southwest corner of Chennai
+                new google.maps.LatLng(13.2140, 80.3272)  // Northeast corner of Chennai
+            );
+
+            autocomplete1.setBounds(chennaiBounds);
+            autocomplete2.setBounds(chennaiBounds);
+        }
+
+        // Function to calculate the distance between two places
+        function calculateDistance() {
+            var place1 = document.getElementById('place1').value;
+            var place2 = document.getElementById('place2').value;
+
+            var geocoder = new google.maps.Geocoder();
+            var distanceService = new google.maps.DistanceMatrixService();
+
+            geocoder.geocode({ 'address': place1 }, function (results, status) {
+                if (status === google.maps.GeocoderStatus.OK) {
+                    var origin = results[0].geometry.location;
+
+                    geocoder.geocode({ 'address': place2 }, function (results, status) {
+                        if (status === google.maps.GeocoderStatus.OK) {
+                            var destination = results[0].geometry.location;
+
+                            distanceService.getDistanceMatrix({
+                                origins: [origin],
+                                destinations: [destination],
+                                travelMode: google.maps.TravelMode.DRIVING
+                            }, function (response, status) {
+                                if (status === google.maps.DistanceMatrixStatus.OK) {
+                                    var distance = response.rows[0].elements[0].distance.text;
+                                    var durationText = response.rows[0].elements[0].duration.text;
+                                    var durationValue = response.rows[0].elements[0].duration.value;
+                                    var totalMinutes = Math.floor(durationValue / 60);
+
+
+                                    var hours = Math.floor(totalMinutes / 60);
+
+                                    var minutes = totalMinutes % 60;
+
+                                    var totalMinutes = hours * 60 + minutes;
+                                    document.getElementById('result').innerHTML = "Distance: " + distance + "<br/>Duration: " + totalMinutes + " mins";
+
+
+
+                                    const checkbox = document.getElementById("default-address");
+                                    const isChecked = checkbox.checked;
+                                    let value;
+
+                                    // Store checkbox value in localStorage
+                                    localStorage.setItem("default-address", isChecked);
+
+                                    // Rest of your code
+                          let address1 = JSON.parse(localStorage.getItem('address'));
+                          let user_id_Lc = JSON.parse(localStorage.getItem('unique_id'))
+                            if (isChecked === true && address1 === null) {
+                                value = true;
+                            } else if (isChecked === true && address1 !== null) {
+                                address1.forEach((object) => {
+                                    object.value = false;
+                                    localStorage.setItem('address', JSON.stringify(address1));
+                                    value = true;
+                                });
+                            } else {
+                                value = false;
+                            };
+
+                            let assign;
+                            if (address1 !== null) {
+                                for (let i = 0; i < address1.length; i++) {
+                                    if (address1[i].address1 == place2 && address1[i].user_id == user_id_Lc) {
+                                        alert('Address already exists');
+                                        assign = true;
+                                        break;
+                                    }
+                                }
+                            }
+                            
+                            if (assign !== true) {
+                                if (address1 === null) {
+                                    uuid = uuidv4();
+                                    localStorage.setItem('address_uuid', JSON.stringify(uuid));
+                                    let address_object = [{
+                                        "address1": place2,
+                                        "user_id": user_id_Lc,
+                                        "id": uuid,
+                                        'duration': totalMinutes,
+                                        'value': value
+                                    }];
+                                    localStorage.setItem('address', JSON.stringify(address_object));
+                                } else {
+                                    let address1 = JSON.parse(localStorage.getItem('address'));
+                                    uuid = uuidv4();
+                                    localStorage.setItem('address_uuid', JSON.stringify(uuid));
+                                    let address_object = {
+                                        "address1": place2,
+                                        "user_id": user_id_Lc,
+                                        "id": uuid,
+                                        'duration': totalMinutes,
+                                        'value': value
+                                    };
+                                    address1.push(address_object);
+                                    localStorage.setItem('address', JSON.stringify(address1));
+                                                                    
+                            }
+                    
+                            }
+                            // Redirect to another page
+                                    window.location.href = '../../address/address.html';
+                                } else {
+                                    document.getElementById('result').innerHTML = "Address is not valid";
+                                }
+                            });
+                        } else {
+                            document.getElementById('result').innerHTML = "Address is not valid ";
+                        }
+                    });
+                } else {
+                    document.getElementById('result').innerHTML = "Address is not valid " ;
+                };
+            });
+        }
+
+        // Function to handle checkbox state on page load
+        function handleCheckboxState() {
+            const checkbox = document.getElementById("default-address");
+            const storedValue = localStorage.getItem("default-address");
+            checkbox.checked = storedValue === "true" ? true : false;
+        }
+
+        // Call handleCheckboxState on page load
+        handleCheckboxState();
     </script>
-    <script src="../../pages/order/header.js"></script>
-    </html>
+    <script src="https://cdn.jsdelivr.net/npm/uuid@8.3.2/dist/umd/uuidv4.min.js"></script>
+</body>
+</html> 

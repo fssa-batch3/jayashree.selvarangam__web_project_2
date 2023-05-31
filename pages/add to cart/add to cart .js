@@ -326,6 +326,7 @@ minus_1.forEach((find_quantity) => {
   });
 });
 
+
 let selectedValue;
 function radio() {
   // let  productData= JSON.parse(localStorage.getItem('add_products_cart'));
@@ -350,7 +351,7 @@ if(address!==null){
 let boolean;
 for(let i=0;i<address.length;i++){
   if(address[i].value === false){
-    boolean = false
+    boolean = false;
   }else{
     boolean=true;
     break;
@@ -361,16 +362,21 @@ if(boolean===false){
 }}
 let address_Input;
 let address_array = JSON.parse(localStorage.getItem('address'));
+let address_object ='';
 if(address_array!==null){
  for(let i=0;i<address.length;i++){
-  if(address[i].value===true){
-    address_Input = address_array[i]['address_type']+",  "+"no "+address_array[i]['house_no']+", "+address_array[i]['area']+", "+address_array[i]['pincode']+"."
-  }console.log(address_Input)
+  if(address[i].value === true){
+    address_Input = address_array[i]['address1']+" ."
+    address_object = address[i]
+  }
+  console.log(address_Input)
 }
 }
 else{
   address_Input = ' ';
 }
+    
+    console.log(address_object.duration)
 
 // important should look after it//
 // // adding the address in the cart page
@@ -482,9 +488,12 @@ order.addEventListener("click", () => {
               date: moment().format("YYYY-MM-DD"),
               time_check: moment().format("YYYY-MM-DD  hh:mm:ssA").toString(),
               before_30_minutes: moment()
-                .add({ minutes: 2 })
+                .add({ minutes: address_object.duration })
                 .format("YYYY-MM-DD hh:mm:ssA"),
-              
+                before_5_minutes: moment()
+                .add({ minutes: 1 })
+                .format("YYYY-MM-DD hh:mm:ssA"),
+              review:false,
               // time_check :moment().format('YYYY-MM-DD  hh:mm:ssA').toString(),
               // before_30_minutes : moment().add({minutes:2}).format('YYYY-MM-DD hh:mm:ssA'),
               delivery: "not delivered"
@@ -547,9 +556,12 @@ order.addEventListener("click", () => {
               delivery_address: delivery_address.innerText,
               time_check: moment().format("YYYY-MM-DD  hh:mm:ssA").toString(),
               before_30_minutes: moment()
-                .add({ minutes: 2 })
+                .add({ minutes: address_object.duration })
                 .format("YYYY-MM-DD hh:mm:ssA"),
-                
+                before_5_minutes: moment()
+                .add({ minutes: 1 })
+                .format("YYYY-MM-DD hh:mm:ssA"),
+                review:false,
               delivery: "not delivered"
             })
           );
@@ -591,6 +603,7 @@ order.addEventListener("click", () => {
         //  let  add_products_cart = JSON.parse(localStorage.getItem('add_products_cart'));
         //  add_products_cart.splice(0, add_products_cart.length)
       }
+      // alert('order placed successfully')
       window.location.href = "../../pages/My orders/myorders.html";
     }
   }

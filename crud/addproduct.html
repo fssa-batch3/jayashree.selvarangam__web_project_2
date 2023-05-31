@@ -13,14 +13,14 @@
     integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Aclonica&family=Merienda:wght@300;400;500;600&family=Montserrat:wght@400;500&family=Poppins:ital,wght@0,100;0,300;0,400;1,100;1,200;1,300;1,400&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style> 
-      * { font-family: 'Aclonica', sans-serif;
-font-family: 'Merienda', cursive;
-font-family: 'Montserrat', sans-serif;
-font-family: 'Poppins', sans-serif;
-font-family: 'Quicksand', sans-serif;
+      *{ font-family: 'Aclonica', sans-serif;
+        font-family: 'Merienda', cursive;
+        font-family: 'Montserrat', sans-serif;
+        font-family: 'Poppins', sans-serif;
+        font-family: 'Quicksand', sans-serif;
     }
     </style>
-    <title>Document</title>
+    
     <style>
          * {
     box-sizing: border-box;
@@ -108,16 +108,26 @@ font-family: 'Quicksand', sans-serif;
     .container {
       max-width: 100%;
     }
+  } 
+  .catego{
+    color:#444433;
+    padding: 2rem 9%;
   }
+  
+  .full_div {
+    padding: 2rem 9%;
+}
   
     </style>
 </head>
 <body>
+  <h1 class="catego">ADD PRODUCT</h1>
   <div class="container">
+ 
     <form name="add-product-form">
       <div class="form-group">
         <label for="product-name">Product Name:</label>
-        <input type="text" id="product-name" value="Hibiscus Tea"name="product-name" >
+        <input type="text" value="Ginger Frappucino" id="product-name" name="product-name" >
       </div>
         
     
@@ -136,69 +146,44 @@ font-family: 'Quicksand', sans-serif;
 
        <div class="form-group">
         <label for="decription">decription:</label>
-        <textarea type="text" value="Naturally grown hiiscus flower with fresh honey from Assam .Makes a perfect delight"id="description" name="description" ></textarea>
+        <textarea type="text" value="Old Brew with Vanilla Sweet Cream is made with Starbucks® Cold Brew over ice and topped with a hand crafted vanilla sweet cream, which floats on top of the beverage before slowly cascading down." id="description" name="description" ></textarea>
       </div>
         
       <div class="form-group">
         <label for="image_url">image_url:</label>
-        <input type="text" value="../../assets/image/haitea.jpg" id="image_url" name="image_url" >
+        <input type="text" value="../../assets/images/frappu.jpg" id="image_url" name="image_url" >
       </div>
 
        <div class="form-group">
         <label for="tall_price">tall Price:</label>
-        <input type="text" value="450" id="tall_price" name="tall_price" >
+        <input type="text"  id="tall_price" max="5000" name="tall_price" >
       </div>
 
-      <div class="form-group">
-        <label for="tall_quantity_value">Quantity in ml for tall:</label>
-        <input type="number" value="750" id="tall_quantity_value" name="tall_quantity_value" >
-      </div>
-
-      <div class="form-group">
-        <label for="tall_calorie_value">calories in kcal for tall:</label>
-        <input type="number" value="220"id="tall_calorie_value" name="tall_calorie_value" >
-      </div>
-
+     
 
       <div class="form-group">
         <label for="medium_price">medium Price:</label>
-        <input type="text" value="340"id="medium_price" name="medium_price" >
+        <input type="text"  id="medium_price" name="medium_price" >
       </div>
 
-      <div class="form-group">
-        <label for="medium_quantity_value">Quantity in ml for medium:</label>
-        <input type="number"  value="500" id="medium_quantity_value" name="medium_quantity_value" >
-      </div>
-
-      <div class="form-group">
-        <label for="medium_calorie_value">calories in kcal for medium:</label>
-        <input type="number" value="160"id="medium_calorie_value" name="medium_calorie_value" >
-      </div>
+     
 
       <div class="form-group">
         <label for="short_price">short Price:</label>
-        <input type="text" value="190" id="short_price" name="short_price" >
+        <input type="text"  id="short_price" name="short_price" >
       </div>
     
-      <div class="form-group">
-        <label for="short_quantity_value">Quantity in ml for short:</label>
-        <input type="number" value="250" id="short_quantity_value" name="short_quantity_value" >
-      </div>
-
-      <div class="form-group">
-        <label for="short_calorie_value">calories in kcal for short:</label>
-        <input type="number" value="120" id="short_calorie_value" name="short_calorie_value" >
-      </div>
+     
 
 
     
 
         <button type="submit" id="create">add product </button>
       </form>
-      <button type="submit" style="display:none" id="update">update product </button>
+      <!-- <button type="submit" style="display:none" id="update">update product </button> -->
 
       </div>
-      <hr>
+      <!-- <hr>
       <div class="row mt-5">
           <div class="col-12">
               <table class="table table-bordered">
@@ -214,10 +199,10 @@ font-family: 'Quicksand', sans-serif;
                       <td>delete</td>
                   </thead>
                   <tbody class="table_body"></tbody>
-                  <!-- my method <tbody id="root"></tbody> -->
-              </table>
+                  my method <tbody id="root"></tbody> -->
+              <!-- </table>
           </div>
-      </div>
+      </div> -->
 </body>
 <script src="https://cdn.jsdelivr.net/npm/uuid@8.3.2/dist/umd/uuidv4.min.js"></script>
 <script>
@@ -229,10 +214,10 @@ const category_list = JSON.parse(localStorage.getItem('category'));
         option.value = category_list[i].category_id;
         option.innerText = category_list[i].category;
         document.querySelector('#category').append(option);
-       }
+       };
     // Get the form element
 
-    let category2 = document.getElementById('category').value
+    let category2 = document.getElementById('category').value;
 
 const addProductForm = document.forms["add-product-form"];
 // Add an event listener to the form submit event
@@ -247,12 +232,7 @@ event.preventDefault();
   const mediumPriceInput = addProductForm["medium_price"];
   const shortPriceInput = addProductForm["short_price"];
   const categoryInput = addProductForm["category"];
-  const tallQuantityInput = addProductForm["medium_quantity_value"];
-  const tallCalorieInput = addProductForm["medium_calorie_value"];
-  const mediumQuantityInput = addProductForm["medium_quantity_value"];
-  const mediumCalorieInput = addProductForm["medium_calorie_value"];
-  const shortQuantityInput = addProductForm["short_quantity_value"];
-  const shortCalorieInput = addProductForm["short_calorie_value"];
+  
   const descriptionInput = addProductForm["description"];
   const image_urlInput = addProductForm["image_url"];
   // 
@@ -262,14 +242,14 @@ event.preventDefault();
   const mediumPrice = mediumPriceInput.value.trim();
   const shortPrice = shortPriceInput.value.trim();
   const category1 = categoryInput.value.trim();
-  const tallQuantity = tallQuantityInput.value.trim();
-  const tallCalorie = tallCalorieInput.value.trim();
-  const mediumQuantity = mediumQuantityInput.value.trim();
-  const mediumCalorie = mediumCalorieInput.value.trim();
-  const shortQuantity = shortQuantityInput.value.trim();
-  const shortCalorie = shortCalorieInput.value.trim();
+ 
   const description = descriptionInput.value.trim();
   const image_url = image_urlInput.value.trim();
+
+//////////////
+
+
+
   if (productName === "") {
   showError(productNameInput, "Product name is required");
   return;
@@ -289,19 +269,8 @@ event.preventDefault();
     showError(tallPriceInput, "Price must be a number");
     return;
   }
-
-  if (parseFloat(tallPrice) <= 0) {
-    showError(tallPriceInput, "Price must be greater than zero");
-    return;
-  }
-  
   if (isNaN(mediumPrice) || mediumPrice === "") {
     showError(mediumPriceInput, "Price must be a number");
-    return;
-  }
-
-  if (parseFloat(mediumPrice) <= 0) {
-    showError(mediumPriceInput, "Price must be greater than zero");
     return;
   }
 
@@ -310,43 +279,35 @@ event.preventDefault();
     return;
   }
 
-  if (parseFloat(shortPrice) <= 0) {
-    showError(shortPriceInput, "Price must be greater than zero");
-    return;
-  }
-  /////
-  if (isNaN(tallQuantity) || tallQuantity === "") {
-    showError(tallQuantityInput, "quantity must be a number");
-    return;
-  }
+ 
+  if (parseFloat(tallPrice) < 350 || parseFloat(tallPrice) > 450) {
+  showError(tallPriceInput, "Tall price must be between 350 and 450");
+  return;
+}
 
-  if (parseFloat(tallQuantity) <= 0) {
-    showError(tallQuantityInput, "quantity must be greater than zero");
-    return;
-  }
+if (parseFloat(mediumPrice) >350 || parseFloat(mediumPrice) < 250) {
+  showError(mediumPriceInput, "medium price must be between 350 and 250");
+  return;
+}
+if (parseFloat(shortPrice) > 250|| parseFloat(shortPrice) < 150) {
+  showError(mediumPriceInput, "small price must be between 250 and 150");
+  return;
+}
+
+  /////
+
 //   if(tallQuantity>shortQuantity&&tallQuantity>mediumQuantity ){
 //   showError(tallQuantityInput, "quantity must be greater than short quantity");
 //   return;
 // }
 
-  if (isNaN(tallCalorie) || tallCalorie === "") {
-    showError(tallCalorieInput, "calorie must be a number");
-    return;
-  }
+
 //   if(tallCalorie>shortCalorie&&tallCalorie>mediumCalorie ){
 //   showError(tallCalorieInput,"calorie must be greater than short quantity");
 //   return;
 // }
 
-  if (parseFloat(tallCalorie) <= 0) {
-    showError(tallCalorieInput, "calorie must be greater than zero");
-    return;
-  }
-  ////
-  if (isNaN(mediumQuantity) || mediumQuantity === "" ) {
-    showError(mediumQuantityInput, "quantity must be a number");
-    return;
-  }
+ 
 // if( mediumQuantity> shortQuantity&& mediumQuantity < tallQuantity ){
 //   showError(mediumQuantityInput, "quantity must be greater than short quantity");
 //   return;
@@ -358,25 +319,8 @@ event.preventDefault();
 // }
 
 
-  if (parseFloat(mediumQuantity) <= 0) {
-    showError(mediumQuantityInput, "quantity must be greater than zero");
-    return;
-  }
-
-  if (isNaN(mediumCalorie) || mediumCalorie === "") {
-    showError(mediumCalorieInput, "calorie must be a number");
-    return;
-  }
-
-  if (parseFloat(mediumCalorie) <= 0) {
-    showError(mediumCalorieInput, "calorie must be greater than zero");
-    return;
-  }
- //// 
-  if (isNaN(shortQuantity) || shortQuantity === "") {
-    showError(shortQuantityInput, "quantity must be a number");
-    return;
-  }
+  
+ 
 //   if(shortQuantity<tallQuantity&&shortQuantity<mediumQuantity ){
 //   showError(shortQuantityInput, "quantity must be greater than short quantity");
 //   return;
@@ -386,24 +330,6 @@ event.preventDefault();
 //   showError(shortCalorieInput, "calorie must be lesser than other quantity");
 //   return;
 // }
-
-  if (parseFloat(shortQuantity) <= 0) {
-    showError(shortQuantityInput, "quantity must be greater than zero");
-    return;
-  }
-
-
-  if (isNaN(shortCalorie) || shortCalorie === "") {
-    showError(shortCalorieInput, "calorie must be a number");
-    return;
-  }
-
-  if (parseFloat(shortCalorie) <= 0) {
-    showError(shortCalorieInput, "calorie must be greater than zero");
-    return;
-  }
-
-
 
 
   if(category === ""){
@@ -443,23 +369,23 @@ event.preventDefault();
          'quantities': {
           'tall': {
              'name': "tall",
-             'quantity': tallQuantity,
+             'quantity': 650,
              'unit': "ml",
-            calories: tallCalorie,
+            calories: 300,
              'calories_unit': "kcal",
            },
            'medium': {
             'name': "medium",
-             'quantity': mediumQuantity,
+             'quantity': 450,
              'unit': "ml",
-             calories: mediumCalorie,
+             calories: 200,
              'calories_unit': "kcal",
            },
            'short': {
              'name': "short",
-             'quantity': shortQuantity,
+             'quantity': 250,
              'unit': "ml",
-             'calories': shortCalorie,
+             'calories': 100,
              'calories_unit': "kcal",
            }
          },
@@ -470,6 +396,7 @@ event.preventDefault();
          "product_detail_list",
          JSON.stringify(product_detail_list_1)
        );
+       alert("product successfully added");
       
      } else {
        alert("product already exists");
@@ -489,6 +416,7 @@ function showError(input, errorMessage) {
   errorElement.className = "error-message";
   errorElement.textContent = errorMessage;
   input.parentNode.insertBefore(errorElement, input.nextSibling);
+  errorElement.style.color = "red";
 
   // Add a listener to remove the error message when the input is changed
   input.addEventListener("input", function() {
@@ -496,386 +424,8 @@ function showError(input, errorMessage) {
     errorElement.remove();
   });
 }
-const product_detail_list_1 = JSON.parse(
-  localStorage.getItem("product_detail_list")
-);
-
-   for (let i = 0; i < product_detail_list_1.length; i++) {
-     const table_data = create(product_detail_list_1[i]);
-     document.querySelector("tbody.table_body").append(tr);
-   }
-function create(prod) {
-     // tr
-     tr = document.createElement("tr");
-     // // // // console.log(tr);
-     // td 1
-     // td1 = document.createElement("td");
-     // td1.innerText = ;
-     // tr.append(td1);
-     // td 2
-     td2 = document.createElement("td");
-     td2.innerText = prod.name;
-     tr.append(td2);
-     // td 3
-    //  td3 = document.createElement("td");
-    //  td3.innerText = prod.description;
-    //  tr.append(td3);
-
-     // td 4
-     // td4 = document.createElement("td");
-     // td4.innerText = prod["price"];
-     // tr.append(td4);
-     // td 5
-    //  td5 = document.createElement("td");
-    //  td5.innerText = prod.category;
-    //  tr.append(td5);
-     // a update
-     // td11 = document.createElement("td");
-     // td11.innerText = prod["quantities"]["name"];
-     // tr.append(td11);
-
-     // td12 = document.createElement("td");
-     // td12.innerText = prod["quantities"]["quantity"];
-     // tr.append(td12);
-
-     // td13 = document.createElement("td");
-     // td13.innerText = prod["quantities"]["calories"];
-     // tr.append(td13);
-
-     // a update
-    //  console.log(prod.price_1[tall])
-    console.log(prod.price_1['tall']);
-     td17 = document.createElement("td");
-     td17.innerText = prod.price_1.tall;
-     tr.append(td17);
-
-     td15 = document.createElement("td");
-     td15.innerText = prod.price_1.medium;
-     tr.append(td15);
-
-     td16 = document.createElement("td");
-     td16.innerText = prod.price_1.short;
-     tr.append(td16);
-// console.log(prod.price_1[short])
-     td14 = document.createElement("td");
-     td14.innerText = prod.image.src;
-     tr.append(td14);
-
-     td6 = document.createElement("td");
-     tr.append(td6);
-     // a update
-     butup = document.createElement("button");
-     butup.setAttribute("data-id", prod.product_id);
-     butup.setAttribute("class", "edit");
-     butup.innerText = "EDIT";
-     td6.append(butup);
-     // a delete
-     td7 = document.createElement("td");
-     tr.append(td7);
-     // a delete
-     butdel = document.createElement("button");
-     butdel.setAttribute("class", "delete");
-     butdel.setAttribute("data-uid", prod.product_id);
-     butdel.innerText = "DELETE";
-     td7.append(butdel);
-   }
 
 
-   const edit = document.querySelectorAll(".edit");
-       edit.forEach(function (findId) {
-         findId.addEventListener("click", function () {
-           const uniqueId = this.dataset.id;
-           localStorage.setItem("product_id", JSON.stringify(uniqueId));
-
-           const unique_id = JSON.parse(localStorage.getItem("product_id"));
-           console.log(unique_id)
-           const product_detail_list = JSON.parse(
-       localStorage.getItem("product_detail_list")
-           );
-
-           function findProduct(e) {
-             return e.product_id === unique_id;
-           }
-
-           productData = product_detail_list.find(findProduct);
-           console.log(productData);
-
-
-
-             
-           document.getElementById("product-name").value = productData.name;
-           document.getElementById("category").value = productData.category;
-           document.getElementById("description").value = productData.description;
-           // document.getElementById("cost").value = productData["price"];
-    
-           // document.getElementById("size_name").value = productData["quantities"]["name"];
-          //  console.log(productData['quantities']['"tall1"']['calories'])
-           document.getElementById("tall_quantity_value").value =
-             productData.quantities.tall.quantity;
-           document.getElementById("tall_calorie_value").value =
-             productData.quantities.tall.calories;
-    
-           document.getElementById("medium_quantity_value").value =
-             productData.quantities.medium.quantity;
-
-           document.getElementById("medium_calorie_value").value =
-             productData.quantities.medium.calories;
-    
-           document.getElementById("short_quantity_value").value =
-             productData.quantities.short.quantity;
-           document.getElementById("short_calorie_value").value =
-             productData.quantities.short.calories;
-    
-           document.getElementById("tall_price").value = productData.price_1.tall;
-           document.getElementById("medium_price").value = productData.price_1.medium;
-           document.getElementById("short_price").value = productData.price_1.short;
-           document.getElementById("image_url").value = productData.image.src;
-    
-           document.querySelector("#update").setAttribute("style", "display:inline");
-           document.querySelector("#create").setAttribute("style", "display:none");
-      });
-       });
-    
-       const update = document.querySelector("#update");
-       update.addEventListener("click", update_product);
-       function update_product() {
-        event.preventDefault();
-         const unique_id = JSON.parse(localStorage.getItem("product_id"));
-         const product_detail_list = JSON.parse(
-        localStorage.getItem("product_detail_list")
-      );
-         function findProduct(e) {
-           return e.product_id == unique_id;
-         }
-         productData = product_detail_list.find(findProduct);
-
-
-  const productNameInput = addProductForm["product-name"];
-  const tallPriceInput = addProductForm["tall_price"];
-  const mediumPriceInput = addProductForm["medium_price"];
-  const shortPriceInput = addProductForm["short_price"];
-  const categoryInput = addProductForm["category"];
-  const tallQuantityInput = addProductForm["medium_quantity_value"];
-  const tallCalorieInput = addProductForm["medium_calorie_value"];
-  const mediumQuantityInput = addProductForm["medium_quantity_value"];
-  const mediumCalorieInput = addProductForm["medium_calorie_value"];
-  const shortQuantityInput = addProductForm["short_quantity_value"];
-  const shortCalorieInput = addProductForm["short_calorie_value"];
-  const descriptionInput = addProductForm["description"];
-  const image_urlInput = addProductForm["image_url"];
-  // 
-  // Validate the inputs
-  const productName = productNameInput.value.trim();
-  const tallPrice = tallPriceInput.value.trim();
-  const mediumPrice = mediumPriceInput.value.trim();
-  const shortPrice = shortPriceInput.value.trim();
-  const category = categoryInput.value.trim();
-  const tallQuantity = tallQuantityInput.value.trim();
-  const tallCalorie = tallCalorieInput.value.trim();
-  const mediumQuantity = mediumQuantityInput.value.trim();
-  const mediumCalorie = mediumCalorieInput.value.trim();
-  const shortQuantity = shortQuantityInput.value.trim();
-  const shortCalorie = shortCalorieInput.value.trim();
-  const description = descriptionInput.value.trim();
-  const image_url = image_urlInput.value.trim();
-
-  if (productName === "") {
-  showError(productNameInput, "Product name is required");
-  return;
-  }
-
-  if (description === "") {
-  showError(descriptionInput, "description is required");
-  return;
-  }
-
-  if (image_url === "") {
-  showError(image_urlInput, "image_url is required");
-  return;
-  }
-
-  if (isNaN(tallPrice) || tallPrice === "") {
-    showError(tallPriceInput, "Price must be a number");
-    return;
-  }
-
-  if (parseFloat(tallPrice) <= 0) {
-    showError(tallPriceInput, "Price must be greater than zero");
-    return;
-  }
-  
-  if (isNaN(mediumPrice) || mediumPrice === "") {
-    showError(mediumPriceInput, "Price must be a number");
-    return;
-  }
-
-  if (parseFloat(mediumPrice) <= 0) {
-    showError(mediumPriceInput, "Price must be greater than zero");
-    return;
-  }
-
-  if (isNaN(shortPrice) || shortPrice === "") {
-    showError(shortPriceInput, "Price must be a number");
-    return;
-  }
-
-  if (parseFloat(shortPrice) <= 0) {
-    showError(shortPriceInput, "Price must be greater than zero");
-    return;
-  }
-  /////
-  if (isNaN(tallQuantity) || tallQuantity === "") {
-    showError(tallQuantityInput, "quantity must be a number");
-    return;
-  }
-
-  if (parseFloat(tallQuantity) <= 0) {
-    showError(tallQuantityInput, "quantity must be greater than zero");
-    return;
-  }
-
-  if (isNaN(tallCalorie) || tallCalorie === "") {
-    showError(tallCalorieInput, "calorie must be a number");
-    return;
-  }
-
-  if (parseFloat(tallCalorie) <= 0) {
-    showError(tallCalorieInput, "calorie must be greater than zero");
-    return;
-  }
-
-  ////
-  if (isNaN(mediumQuantity) || mediumQuantity === "") {
-    showError(mediumQuantityInput, "quantity must be a number");
-    return;
-  }
-
-  if (parseFloat(mediumQuantity) <= 0) {
-    showError(mediumQuantityInput, "quantity must be greater than zero");
-    return;
-  }
-
-  if (isNaN(mediumCalorie) || mediumCalorie === "") {
-    showError(mediumCalorieInput, "calorie must be a number");
-    return;
-  }
-
-  if (parseFloat(mediumCalorie) <= 0) {
-    showError(mediumCalorieInput, "calorie must be greater than zero");
-    return;
-  }
- //// 
-  if (isNaN(shortQuantity) || shortQuantity === "") {
-    showError(shortQuantityInput, "quantity must be a number");
-    return;
-  }
-
-  if (parseFloat(shortQuantity) <= 0) {
-    showError(shortQuantityInput, "quantity must be greater than zero");
-    return;
-  }
-
-
-  if (isNaN(shortCalorie) || shortCalorie === "") {
-    showError(shortCalorieInput, "calorie must be a number");
-    return;
-  }
-
-  if (parseFloat(shortCalorie) <= 0) {
-    showError(shortCalorieInput, "calorie must be greater than zero");
-    return;
-  }
-
-
-
-
-  if(category === ""){
-    showError(categoryInput,"category is required")
-    return;
-  }
-
-
-
-
-
-
-
-
-        //  // // // // // console.log(productData)
-        //  const category = document.getElementById("category").value;
-        //  // let category_description = document.getElementById("category_description").value;
-        //  const name = document.getElementById("product-name").value;
-        //  // let size_name = document.getElementById("size_name").value;
-        //  const quantity_value1 = document.getElementById("tall_quantity_value").value;
-        //  // let quantity_unit = document.getElementById("quantity_unit").value;
-        //  const calories_value1 = document.getElementById("tall_calorie_value").value;
-        //  const quantity_value2 = document.getElementById("medium_quantity_value").value;
-        //  // let quantity_unit = document.getElementById("quantity_unit").value;
-        //  const calories_value2 = document.getElementById("medium_calorie_value").value;
-        //  const quantity_value3 = document.getElementById("short_quantity_value").value;
-        //  // let quantity_unit = document.getElementById("quantity_unit").value;
-        //  const calories_value3 = document.getElementById("short_calorie_value").value;
-        //  // let calories_unit = document.getElementById("calories_unit").value;
-        //  const image_url = document.getElementById("image_url").value;
-        //  const description = document.getElementById("description").value;
-        //  // let cost = document.getElementById("cost").value;
-        //  const tall = document.getElementById("tall_price").value;
-        //  const short = document.getElementById("short_price").value;
-        //  const medium = document.getElementById("medium_price").value;
-    
-      productData.name = productName;
-         productData.category = category;
-         productData.description = description;
-         // productData["price"] = cost;
-         // productData["quantities"]["name"] = size_name;
-         productData.quantities.tall.quantity = tallQuantity;
-         productData.quantities.tall.calories = tallCalorie;
-         productData.quantities.medium.quantity = mediumQuantity;
-         productData.quantities.medium.calories = mediumCalorie;
-         productData.quantities.short.quantity = shortQuantity;
-         productData.quantities.short.calories = shortCalorie;
-         productData.price_1.tall = tallPrice;
-         productData.price_1.medium = mediumPrice;
-         productData.price_1.short = shortPrice;
-         productData.image.src = image_url;
-    
-         localStorage.setItem("product_detail_list",JSON.stringify(product_detail_list));
-         location.reload();
-       }
-
-
-
-   
- 
-
-
-
-   const delete_product = document.querySelectorAll("button.delete");
-       delete_product.forEach(function (findUid) {
-        findUid.addEventListener("click", function () {
-           console.log(1)
-           const uniqueId = this.dataset.uid;
-           localStorage.setItem("product_id", JSON.stringify(uniqueId));
-           const unique_id = JSON.parse(localStorage.getItem("product_id"));
-           const product_detail_list = JSON.parse(
-             localStorage.getItem("product_detail_list")
-           );
-           function findProduct(e) {
-             return e.product_id == unique_id;
-           }
-           productData = product_detail_list.find(findProduct);
-    
-           const indexOfUser = product_detail_list.indexOf(productData);
-           product_detail_list.splice(indexOfUser, 1);
-    
-           // // // // console.log(indexOfUser);
-           localStorage.setItem(
-             "product_detail_list",
-             JSON.stringify(product_detail_list)
-           );
-        location.reload();
-         });
-       });
 
 </script>
 <script src="../../pages/order/header.js"></script>

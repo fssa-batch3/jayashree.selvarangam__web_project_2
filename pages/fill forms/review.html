@@ -52,19 +52,23 @@ font-family: 'Quicksand', sans-serif;
       }
 
       .rating_heading {
-        color: black;
+        color: teal;
+       
         animation: scale-up 1s ease;
       }
-
-      .star_rating {
-        user-select: none;
-        background-color: black;
-        padding: 1.4rem 2.5rem;
-        margin: 2rem;
-        border-radius: 0.4rem;
-        text-align: center;
-        animation: slide-up 1s ease;
+      .rating_heading span{
+        font-size: 1.4rem;
+        font-weight: bold;
       }
+      .star_rating {
+    user-select: none;
+    background-color: teal;
+    padding: 0.9rem 1rem;
+    margin: 2rem;
+    border-radius: 0.4rem;
+    text-align: center;
+    animation: slide-up 1s ease;
+}
 
       .star:hover {
         cursor: pointer;
@@ -110,10 +114,10 @@ font-family: 'Quicksand', sans-serif;
 
             </header> -->
 
-    ]<section class="profile" id="profile">
+    <section class="profile" id="profile">
       <section class="form">
         <form>
-        <h1 class="rating_heading">5 Star Rating</h1>
+        <h1 class="rating_heading"><span>Rating</span> </h1>
 
         <div class="star_rating">
           <button class="star">&#9734;</button>
@@ -158,10 +162,10 @@ font-family: 'Quicksand', sans-serif;
 
     const queryString2 = window.location.search;
     // console.log(queryString);
-    const urlParams2 = new URLSearchParams(queryString);
-    console.log(urlParams);
-    const product2 = urlParams.get("order1_id");
-    console.log(product1);
+    // const urlParams2 = new URLSearchParams(queryString);
+    // console.log(urlParams);
+    // const product2 = urlParams.get("order_id");
+    // console.log(product1);
 
     localStorage.setItem("star_value", JSON.stringify("0"));
     const allStars = document.querySelectorAll(".star");
@@ -193,7 +197,7 @@ font-family: 'Quicksand', sans-serif;
     console.log(user_list);
     // let user_id = user_list.find(e=>{
     //     e.user_email === user_id_array ;
-    // })
+    // });
     function find_id(e) {
       return e.user_email === user_id_array;
     }
@@ -241,7 +245,7 @@ font-family: 'Quicksand', sans-serif;
       }
       const myOrder = JSON.parse(localStorage.getItem("orders"));
       function findProduct(type) {
-        return type.order_id === product2;
+        return type.order_id === product;
       }
       const myOrderObject = myOrder.find(findProduct);
       console.log(myOrderObject);

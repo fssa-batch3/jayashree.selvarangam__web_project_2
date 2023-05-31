@@ -14,7 +14,7 @@ const header_before_login = `<header class="header">
                             
                             </div>
                           </div>
-    <!--<a href="${root}/pages/blogs/blog.html">Blogs</a>--> 
+    <a href="${root}/pages/blog/blog.html">Blogs</a>
 </nav>
 
 <button class="btn"><a href="${root}/pages/login/login.html">Login</a></button>
@@ -25,6 +25,8 @@ const header_after_login = `
 <input type="checkbox" name="" id="toggler">
 <label for="toggler" class="fas fa-bars"></label>
 <a href="${root}/index.html" class="logo"> <img class="logo-img" src="../../assets/image/logo-transparent-png.png" alt=""> </a>
+
+
 <nav class="navbar">
     <a href="${root}/index.html">Home</a>
     <!-- <a href="${root}/pages/order/order-bestseller.html">Order</a> -->
@@ -38,8 +40,12 @@ const header_after_login = `
   </div>
     <a href="${root}/pages/My orders/myorders.html">My orders</a>
   
-    <!--<a href="${root}/pages/blogs/blog.html">Blogs</a>--> 
+    <a href="${root}/pages/blog/blog.html">Blogs</a>
 </nav>
+<div class="search-container">
+<input type="text" id="searchInput" placeholder="Search">
+<ul id="searchResults"></ul>
+</div>
 <div class="icons">
 <a href="${root}/pages/add to cart/addtocart.html" class="fas fa-shopping-cart"></a>
 <div class="dropdown1">
@@ -60,8 +66,15 @@ const header_admin_header = `
 <a href="${root}/pages/admin/admin-profile.html" class="logo"> <img class="logo-img" src="../../assets/image/logo-transparent-png.png" alt=""> </a>
 <nav class="navbar">
     <a href="${root}/crud/addproduct.html">Add product</a>
+    <div class="dropdown2">
+    <a href="" class="nav2">  <span>View product</span>  </a>
+    <div class="dropdown-content2">
+   
+    </div>
+  </div>
+
     <a href="${root}/crud/addcategory.html">Add category</a>
-    <!--<a href="${root}/pages/blogs/blog.html">Blogs</a>--> 
+    <!--<a href="${root}/pages/blog/blog.html">Blogs</a>--> 
 </nav>
 <div class="icons">
 
@@ -138,13 +151,162 @@ else if (user_id1 == null) {
 
 // category have to show in dropdown
 const categoryTypeUser = JSON.parse(localStorage.getItem("category")) || [];
+const categoryTypeUser1 = JSON.parse(localStorage.getItem("category")) || [];
 // console.log(categoryTypeUser)
 // console.log(findBrands)
-for(let i=0; i<categoryTypeUser.length; i++) {
-   if(categoryTypeUser[i].category_status === true){
-    const dropdownContent = document.createElement("a");
-    dropdownContent.setAttribute("href", `${root}/pages/order/order-drinks.html?category_id=${categoryTypeUser[i].category_id}`);
-    dropdownContent.innerHTML = categoryTypeUser[i].category
-    document.querySelector(".dropdown-content").append(dropdownContent)
-   }
+if(user_id1 !== admin_id){
+    for(let i=0; i<categoryTypeUser.length; i++) {
+        if(categoryTypeUser[i].category_status === true){
+         const dropdownContent = document.createElement("a");
+         dropdownContent.setAttribute("href", `${root}/pages/order/order-drinks.html?category_id=${categoryTypeUser[i].category_id}`);
+     
+         dropdownContent.innerHTML = categoryTypeUser[i].category;
+         document.querySelector(".dropdown-content").append(dropdownContent)
+        
+        }
 }
+
+
+}else{
+
+
+for(let i=0; i<categoryTypeUser1.length; i++) {
+    if(categoryTypeUser1[i].category_status === true){
+     //////////
+     const dropdownContent2 = document.createElement("a");
+     dropdownContent2.setAttribute("href", `${root}/crud/viewproduct.html?category_id=${categoryTypeUser1[i].category_id}`);
+     dropdownContent2.innerHTML = categoryTypeUser1[i].category
+     document.querySelector(".dropdown-content2").append(dropdownContent2)
+    }
+ }
+}
+
+// const searchInput = document.getElementById('searchInput');
+// const searchResults = document.getElementById('searchResults');
+// let noResultsMessage = null;
+
+// searchInput.addEventListener('input', function() {
+//   const searchQuery = this.value.trim();
+
+//   // Clear previous search results
+//   searchResults.innerHTML = '';
+
+//   if (searchQuery !== '') {
+//     const results = getMatchingResults(searchQuery);
+//     const results1 = JSON.parse(localStorage.getItem('product_detail_list'));
+//     displayResults(results, results1);
+//   } else {
+//     hideNoResultsMessage();
+//   }
+// });
+
+// function getMatchingResults(query) {
+//   const results = [];
+//   const results1 = JSON.parse(localStorage.getItem('product_detail_list'));
+//   for (let i = 0; i < results1.length; i++) {
+//     results.push(results1[i].name);
+//   }
+
+//   return results.filter(function(result) {
+//     return result.toLowerCase().includes(query.toLowerCase());
+//   });
+// }
+
+// function displayResults(results, results1) {
+//   if (results.length === 0) {
+//     showNoResultsMessage();
+//   } else {
+//     hideNoResultsMessage();
+//     results.forEach(function(result) {
+//       const listItem = document.createElement('li');
+//       const listItem1 = document.createElement('a');
+
+//       // Find the corresponding UUID in the results1 array
+//       const foundItem = results1.find(item => item.name === result);
+//       if (foundItem) {
+//         const uuid = foundItem.product_id;
+//         listItem1.setAttribute('href', `${root}/pages/productdetail/product-cappu.html?product_id=${uuid}`);
+//         listItem1.textContent = result;
+//         listItem.appendChild(listItem1);
+//       }
+
+//       searchResults.appendChild(listItem);
+//     });
+//   }
+// }
+
+// function showNoResultsMessage() {
+//   if (noResultsMessage === null) {
+//     noResultsMessage = document.createElement('li');
+//     noResultsMessage.setAttribute('id', 'noResultsMessage');
+//     noResultsMessage.textContent = 'No results found.';
+//     searchResults.appendChild(noResultsMessage);
+//   }
+// }
+
+// function hideNoResultsMessage() {
+//   if (noResultsMessage !== null) {
+//     noResultsMessage.remove();
+//     noResultsMessage = null;
+//   }
+// }
+
+const searchInput = document.getElementById('searchInput');
+const searchResults = document.getElementById('searchResults');
+
+searchInput.addEventListener('input', function() {
+  const searchQuery = this.value.trim();
+
+  // Clear previous search results
+  searchResults.innerHTML = '';
+
+  if (searchQuery !== '') {
+    const results = getMatchingResults(searchQuery);
+    const results1 = JSON.parse(localStorage.getItem('product_detail_list'));
+    displayResults(results, results1); // Pass results1 array as a parameter
+
+    if (results.length === 0) {
+      displayNoResultsMessage(); // Display 'No results found' message
+    }
+  } else {
+    // Input field is empty, do not display 'No results found' message
+  }
+});
+
+function getMatchingResults(query) {
+  const results = [];
+  const results1 = JSON.parse(localStorage.getItem('product_detail_list'));
+  for (let i = 0; i < results1.length; i++) {
+    results.push(results1[i].name);
+  }
+
+  return results.filter(function(result) {
+    return result.toLowerCase().includes(query.toLowerCase());
+  });
+}
+
+function displayResults(results, results1) {
+  results.forEach(function(result) {
+    const listItem = document.createElement('li');
+    const listItem1 = document.createElement('a');
+
+    // Find the corresponding UUID in the results1 array
+    const foundItem = results1.find(item => item.name === result);
+    if (foundItem) {
+      const uuid = foundItem.product_id;
+      listItem1.setAttribute('href', `../../rating2.html?id=${uuid}`);
+      listItem1.textContent = result;
+      listItem.appendChild(listItem1);
+    }
+
+    searchResults.appendChild(listItem);
+  });
+}
+
+function displayNoResultsMessage() {
+  const noResultsMessage = document.createElement('li');
+  noResultsMessage.textContent = 'No results found.';
+  searchResults.appendChild(noResultsMessage);
+}
+
+

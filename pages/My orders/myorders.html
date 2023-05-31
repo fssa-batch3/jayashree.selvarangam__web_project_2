@@ -8,7 +8,7 @@
     
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
-        <link rel="stylesheet" href="../../assets/css/myorder.css">
+        <!-- <link rel="stylesheet" href="../../assets/css/myorder.css"> -->
         <link rel="stylesheet" href="../../assets/css/header.css">
         <link rel="stylesheet" href="../../assets/css/footer.css ">
         <link href="https://fonts.googleapis.com/css2?family=Aclonica&family=Merienda:wght@300;400;500;600&family=Montserrat:wght@400;500&family=Poppins:ital,wght@0,100;0,300;0,400;1,100;1,200;1,300;1,400&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -19,10 +19,219 @@ font-family: 'Montserrat', sans-serif;
 font-family: 'Poppins', sans-serif;
 font-family: 'Quicksand', sans-serif;
         }
-        </style>
+        /* header {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+} */
+
+ h1 {
+  margin: 0;
+}
+
+main {
+  padding: 20px;
+}
+
+.order-list {
+  margin-bottom: 30px;
+}
+
+.order-item {
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin-bottom: 5vh;
+}
+
+.order-item h3 {
+  margin: 0;
+}
+
+.order-item p {
+  margin-bottom: 10px;
+}
+
+
+.req{
+   display: flex;
+   justify-content: space-between;
+    margin-bottom: 7vh;
+    padding: 14px 50px 10px 50px;
+    background-color: #ececec;
+} 
+.reorder1{
+  padding-top: 2.5vh;
+}
+.order-details{
+  display: flex;
+  justify-content: space-around;
+    margin-bottom:10vh;
+}
+.quantity{
+  padding-top: 4.5vh;
+}
+
+ .order-details .product {
+  display:flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+
+.order-details .product img {
+  width: 80px;
+  height: 80px;
+  margin-right: 10px;
+  object-fit:cover;
+}
+
+.order-details .product-info h4,
+.order-details .product-info p {
+  margin: 0;
+}
+
+.order-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.order-total h4 {
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+.order-total p {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.order-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+.reorder-btn,
+.cancel-btn {
+  padding: 10px 20px;
+  margin-left: 10px;
+} 
+        </style> 
     </head>
     <body>
-
+      <!-- new code -->
+      <main>
+            <section class="order-list">
+              <h2>Recent Orders</h2>
+              <div class="whole">
+                <ul class="ul-1">
+                   <div class="  whole_order_details"></div> 
+                 
+                  
+<!-- 
+                  <li>
+                    <div class="order-item">
+                      <div class="o-d">
+                      <div class="req">
+                      <div class="order1_id"><h3>Order #1234</h3></div>
+                      <div class="order_date"> <p>Ordered on: May 20, 2023</p></div>
+                      <div class="mode">            <p>Mode of Delivery: Dine-in</p></div>
+                      <div class="status"><p>not delivered</p></div>
+                  </div>
+                     
+          
+                     
+                      <div class="order-details">
+                        <div class="product">
+                          <img src="https://loremflickr.com/320/240" alt="Coffee 1">
+                          <div class="product-info">
+                            <h4>Latte</h4>
+                            <p>madiium(250)ml(160)kcal</p>
+                            <p>Price: $3.99</p>
+                          </div>
+                        </div>
+                        <div class="quantity">
+                          <p>Quantity: 1</p>
+                        </div>
+                        <div class="total-price">
+                          <p>Total: $3.99</p>
+                        </div>
+                        <div class="reorder1">
+                          <button class="reorder-btn">Reorder</button>
+                        </div>
+                      </div>
+          
+                      <Additional Coffee Products -->
+                       <!-- <div class="whole_order_details">
+                     
+                        <div class="order-details">
+                          <div class="product">
+                            <img src="https://loremflickr.com/320/240" alt="Coffee 2">
+                            <div class="product-info">
+                              <h4>Espresso</h4>
+                              <p>madiium(250)ml(160)kcal</p>
+                              <p>Price: $2.99</p>
+                            </div>
+                          </div>
+                          <div class="quantity">
+                            <p>Quantity: 2</p>
+                          </div>
+                          <div class="total-price">
+                            <p>Total: $5.98</p>
+                          </div>
+                          <div class="reorder1">
+                            <button class="reorder-btn">Reorder</button>
+                          </div>
+                        </div>
+            
+                        <div class="order-details">
+                          <div class="product">
+                            <img src="https://loremflickr.com/320/240" alt="Coffee 3">
+                            <div class="product-info">
+                              <h4>Cappuccino</h4>
+                              <p>madiium(250)ml(160)kcal</p>
+                              <p>Price: $4.49</p>
+                            </div>
+                          </div>
+                          <div class="quantity">
+                            <p>Quantity: 1</p>
+                          </div>
+                          <div class="total-price">
+                            <p>Total: $4.49</p>
+                          </div>
+                          <div class="reorder1">
+                            <button class="reorder-btn">Reorder</button>
+                          </div>
+                        </div>
+        
+                        </div>
+            </div>
+                      
+                      <div class="delivery-address">
+                        <h4>Delivery Address:</h4>
+                        <p>1234 Coffee Street, City, Country</p>
+                      </div>
+          
+                      <div class="order-total">
+                        <h4>Total Price:</h4>
+                        <p>$14.46</p>
+                      </div>
+          
+                      <div class="order-actions">
+                        <button class="reorder-btn">Reorder All</button>
+                        <button class="cancel-btn">Cancel</button>
+                      </div>
+                    </div>
+                  </li>  --> -->
+                  <!-- Add more order items here -->
+                </ul>
+              </div>
+        
+            </section>
+          </main>
+        <!--new code-->
         <!-- <header class="header">
             <input type="checkbox" name="" id="toggler">
             <label for="toggler" class="fas fa-bars"></label>
@@ -42,7 +251,8 @@ font-family: 'Quicksand', sans-serif;
             <a href="../../pages/login/login.html" class="btn">Login</a>
     
             </header> -->
-        <h2 class="heading-cart">Your Orders</h2>
+            <!-- start -->
+       <!-- <h2 class="heading-cart">Your Orders</h2>
         <section class="orders-header">
             
             <div class="product">Product</div>
@@ -53,8 +263,8 @@ font-family: 'Quicksand', sans-serif;
             <div class="Delivery-status">Delivery-status:</div>
             <div class="Options">Options</div>
         </section> 
-        <section class="whole"> 
-
+        <section class="whole">   -->
+<!-- end -->
             <!-- <section class="Yourcart">
                 <div class="beverage">
                 <div class="beverage-container">
@@ -310,9 +520,12 @@ font-family: 'Quicksand', sans-serif;
                 </div>
                 </div>
                 </div> -->
+                <!-- stat -->
+<!--                 
         </section>  
         <p class="alert"></p>
-</section>
+</section> -->
+<!-- end -->
         <!--        
             <footer>
             <section class="footer">

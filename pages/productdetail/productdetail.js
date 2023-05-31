@@ -22,15 +22,16 @@ const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 // //(urlParams);
 const product = urlParams.get("product_id");
-
+console.log(product)
 const master_list = JSON.parse(localStorage.getItem("product_detail_list"));
 const reviews = JSON.parse(localStorage.getItem("stars"));
+console.log(reviews)
 let avg_int;
 let avg;
 
 if(reviews!==null){
 let review_array = reviews.filter((e)=>e.product_id === product);
-
+console.log(review_array)
 let sum =0;
  for(let i=0;i<review_array.length;i++){
    sum+=review_array[i].no_of_stars;
@@ -48,7 +49,7 @@ function findProduct(e) {
 }
 
 let productData = master_list.find(findProduct);
-
+console.log(productData)
 
 
  
@@ -449,11 +450,14 @@ const stars = JSON.parse(localStorage.getItem("stars"));
 //(stars);
 if (stars !== null) {
   const stars1 = stars.filter((type) => type.product_id === product);
+  console.log(stars1)
 } else {
 
   document.getElementById("no_reviews").innerText = "no reviews";
 }
+
 const stars1 = stars.filter((type) => type.product_id === product);
+console.log(stars1)
 if (stars1 == "") {
   document.getElementById("no_reviews").innerText = "no reviews";
 } else {
