@@ -144,11 +144,15 @@ font-family: 'Quicksand', sans-serif;
 }
 .main_address h3{
     margin:5px 0px;
+    min-height:125px ;
 }
 .main_address{
     padding: 10px 10px;
     width: 100%;
     margin: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .single_address::-webkit-scrollbar {
  display: none;
@@ -237,8 +241,8 @@ console.log(stored_address[i]['pincode']);
                     <div class="address">
                         <h2 class="address_type">Address${i+1}</h2>
                         <div class="main_address">
-                       <!-- <h3 class="no">No <span class="house_no">${stored_address[i]['house_no']}</span></h3>
-                        <h3 class="address_info">${stored_address[i]['area']}</h3> -->
+                       <!-- <h3 class="no">No <span class="house_no">${stored_address[i]['house_no']}</span></h3>-->
+                        <!--<h3 class="address_info">${stored_address[i]['area']}</h3> -->
                       <!--  <h3 class="address_info1"> chennai</h3> -->
                         <h3 class="address_info2">${stored_address[i]['address1']}</h3>
                         <p class="default123">${value1} </p>

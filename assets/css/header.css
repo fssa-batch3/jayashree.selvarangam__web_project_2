@@ -102,14 +102,21 @@ header #toggler:checked ~ .navbar{
  .header .icons a{
     font-size: 1.5rem;
     color:var(--main-color);
-    margin-left: 1.5rem;
+    /* margin-left: 1.5rem; */
 }
 .header .icons a:hover{
     color:black;
 }
+#e{
+margin-right: 20px;
+}
 .header .btn{
     margin-top: 0;
     font-size: 1.3rem;
+}
+.shopping-cart:before {
+  content: "\f07a";
+  margin-right: 10px;
 }
 html{
     overflow-x: hidden;
@@ -159,7 +166,7 @@ html{
     display: inline-block;
     margin-right: 2vw;
   }
-  .dropdown-content1 {
+  .dropdown-content1{
     display:none;
     position: absolute;
     width:18vw;
@@ -185,8 +192,8 @@ html{
   .dropdown1 span:hover{
     color:rgb(91, 88, 88);
   }
-  .dropdown1:hover .dropdown-content1 {
-    display:block;
+  .dropdown1:hover .dropdown-content1{
+    display:grid;
   }
   .logo-img{
     width: 100px;
@@ -194,12 +201,13 @@ html{
   }
 
 
-  .dropdown2 {
+  .dropdown2{
     position: relative;
     display: inline-block;
     margin-right: 2vw;
   }
-  .dropdown-content2 {
+
+  .dropdown-content2{
     display:none;
     position: absolute;
     width:18vw;
@@ -209,13 +217,15 @@ html{
     background: white;
     right:2px;
   }
+
   .navbar .dropdown-content2 a{
     color:rgb(110, 107, 107);
     display: block;
     padding: 10px 0;
     font-size: 16px;
   }
-/* .search-container {
+
+/* .search-container{
   max-width: 300px;
   margin: 20px auto;
   padding: 10px;
@@ -224,19 +234,19 @@ html{
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 } */
 
-.search-container {
+.search-container{
   width:17vw;
   /* margin: 20px auto; */
   position: absolute;
   margin-left: 3.7vw;
-  
   padding: 5px;
   background-color: #fff;
   left: 900px;
   /* border-radius: 4px; */
   /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); */
 }
-#searchInput {
+
+#searchInput{
   width:16.5vw;
   padding: 10px;
   border: 1px solid #ccc;
@@ -253,11 +263,11 @@ html{
   background-color: white;
 }
 
-#searchResults li {
+#searchResults li{
   margin-bottom: 5px;
 }
 
-#searchResults li a {
+#searchResults li a{
   display: block;
   padding: 10px;
   text-decoration: none;
