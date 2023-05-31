@@ -47,7 +47,7 @@ const header_after_login = `
 <ul id="searchResults"></ul>
 </div>
 <div class="icons">
-<a href="${root}/pages/add to cart/addtocart.html" class="fas fa-shopping-cart"></a>
+<a href="${root}/pages/add to cart/addtocart.html" id="e"class="fas fa-shopping-cart"></a>
 <div class="dropdown1">
 <a href="#" class="fas fa-user"></a>
 <div class="dropdown-content1">
@@ -294,7 +294,7 @@ function displayResults(results, results1) {
     const foundItem = results1.find(item => item.name === result);
     if (foundItem) {
       const uuid = foundItem.product_id;
-      listItem1.setAttribute('href', `../../rating2.html?id=${uuid}`);
+      listItem1.setAttribute('href', `${root}/pages/productdetail/product-cappu.html?product_id=${uuid}`);
       listItem1.textContent = result;
       listItem.appendChild(listItem1);
     }

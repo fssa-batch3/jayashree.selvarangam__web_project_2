@@ -103,6 +103,9 @@
     display: flex;
     
 }
+.review1{
+  margin-top: 4vh;
+}
 .total_price2, .order_id2{
     margin-right: 10px;
     color: var(--bs-orange);

@@ -152,6 +152,15 @@ input[type=radio]{
 //       location.href = "/pages/add to cart/addtocart.html";
 //     });
 
+let stored_address = JSON.parse(localStorage.getItem('address'));
+ console.log(stored_address)
+const requiredObjectIndex = stored_address.findIndex(obj => obj.value === true);
+
+if (requiredObjectIndex !== -1) {
+  const requiredObject = stored_address.splice(requiredObjectIndex, 1)[0];
+  stored_address.unshift(requiredObject);
+  localStorage.setItem('address',JSON.stringify(stored_address))
+}
 
 let address_array= JSON.parse(localStorage.getItem('address'));
 console.log(address_array)
@@ -195,9 +204,13 @@ if(address[i].value===true){
     localStorage.setItem('address',JSON.stringify(address));
 }
 }
+if(value1){
 address[value1]['value'] = true;
 localStorage.setItem('address',JSON.stringify(address));
-console.log(address)
+console.log(address);
+}else{
+    alert('no address selected')
+}
 
 return selectedValue;
 

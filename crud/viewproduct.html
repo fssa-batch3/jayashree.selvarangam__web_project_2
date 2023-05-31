@@ -434,17 +434,17 @@ const update = document.querySelector("#update");
 
  
  
-  if (parseFloat(tallPrice) < 350 || parseFloat(tallPrice) > 450) {
+  if (parseFloat(tallPrice) > 450 || parseFloat(tallPrice) < 350) {
   showError(tallPriceInput, "Tall price must be between 350 and 450");
   return;
 }
 
-if (parseFloat(mediumPrice) >350 || parseFloat(mediumPrice) < 250) {
-  showError(mediumPriceInput, "medium price must be between 350 and 250");
+if (parseFloat(mediumPrice) > 350 || parseFloat(mediumPrice) < 250) {
+  showError(mediumPriceInput, "medium price must be between 250 and 350");
   return;
 }
 if (parseFloat(shortPrice) > 250|| parseFloat(shortPrice) < 150) {
-  showError(mediumPriceInput, "small price must be between 250 and 150");
+  showError(shortPriceInput, "small price must be between 150 and 250");
   return;
 }
 
